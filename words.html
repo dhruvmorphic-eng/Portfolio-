@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words — Dhruv Pradeep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;color:#fff;font-family:'Archivo',sans-serif}
+        ::selection{background:#fff;color:#000}
+
+        .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+        .wrap{max-width:1100px;margin:0 auto;padding:8rem 2rem 4rem}
+
+        h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;text-align:center;margin-bottom:.8rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4rem;text-align:center}
+
+        /* Masonry collage */
+        .collage{columns:3;column-gap:1rem}
+        .collage img{width:100%;display:block;margin-bottom:1rem;border-radius:14px;border:1px solid rgba(255,255,255,.07);cursor:pointer;transition:transform .3s,border-color .3s;break-inside:avoid}
+        .collage img:hover{transform:scale(1.02);border-color:rgba(255,255,255,.25)}
+
+        /* Lightbox */
+        .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:2rem}
+        .lightbox.open{display:flex}
+        .lightbox img{max-width:min(90vw,600px);max-height:88vh;border-radius:16px}
+
+        .empty-note{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:2px;color:rgba(255,255,255,.3);text-transform:uppercase;padding:4rem 0}
+
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        .r{opacity:0;animation:fadeUp .9s ease forwards}
+        .r1{animation-delay:.15s}.r2{animation-delay:.35s}
+
+        @media(max-width:900px){.collage{columns:2}}
+        @media(max-width:560px){.collage{columns:1}.top{padding:1.2rem 1.5rem}}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/">&larr; Home</a>
+        <span class="top-label">Words</span>
+    </div>
+
+    <div class="wrap">
+        <h1 class="r r1">Words.</h1>
+        <div class="sub r r1">Things I write · Raw &amp; unfiltered</div>
+
+        <div class="collage r r2" id="collage"></div>
+        <div class="empty-note" id="emptyNote" style="display:none">Loading words…</div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script>
+        // List of quote images — add filenames to words/ folder and this array
+        const IMAGES = ['quote-01.jpg','quote-02.jpg','quote-03.jpg','quote-04.jpg','quote-05.jpg','quote-06.jpg','quote-07.jpg','quote-08.jpg','quote-09.jpg','quote-10.jpg','quote-11.jpg','quote-12.jpg','quote-13.jpg','quote-14.jpg','quote-15.jpg','quote-16.jpg','quote-17.jpg','quote-18.jpg','quote-19.jpg','quote-20.jpg','quote-21.jpg','quote-22.jpg','quote-23.jpg','quote-24.jpg','quote-25.jpg','quote-26.jpg','quote-27.jpg'];
+
+        const collage = document.getElementById('collage');
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+
+        if(IMAGES.length === 0){
+            document.getElementById('emptyNote').style.display = 'block';
+            document.getElementById('emptyNote').textContent = 'Coming soon.';
+        }
+
+        IMAGES.forEach(src => {
+            const img = document.createElement('img');
+            img.src = 'words/' + src;
+            img.loading = 'lazy';
+            img.alt = 'Quote by Dhruv Pradeep';
+            img.onclick = () => { lbImg.src = img.src; lb.classList.add('open'); };
+            collage.appendChild(img);
+        });
+    </script>
+</body>
+</html>

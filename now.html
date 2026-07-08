@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now — Dhruv Pradeep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{height:100%}
+        body{background:#000;color:#fff;font-family:'Archivo',sans-serif;line-height:1.8}
+        ::selection{background:#fff;color:#000}
+
+        .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+        .wrap{min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:640px;margin:0 auto;padding:6rem 2rem}
+
+        h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;text-align:center;margin-bottom:1.2rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:3rem;text-align:center}
+        .sub .dot{display:inline-block;width:7px;height:7px;background:#22c55e;border-radius:50%;margin-right:.6rem;animation:pulse 2s infinite}
+
+        .item{padding:2.2rem 0;border-top:1px solid rgba(255,255,255,.08)}
+        .item:last-of-type{border-bottom:1px solid rgba(255,255,255,.08)}
+        .item-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.8rem}
+        .item-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.25);letter-spacing:2px}
+        .item-title{font-size:1.5rem;font-weight:800;letter-spacing:-.5px;flex:1}
+        .item-title a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);transition:border-color .3s}
+        .item-title a:hover{border-color:#fff}
+        .item-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;padding:.35rem .8rem;border:1px solid rgba(255,255,255,.2);border-radius:100px;color:rgba(255,255,255,.6);white-space:nowrap}
+        .item-badge.hot{border-color:rgba(34,197,94,.4);color:#22c55e}
+        .item p{color:rgba(255,255,255,.6);font-size:1rem;font-weight:400}
+        .item p a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);transition:border-color .3s}
+        .item p a:hover{border-color:#fff}
+
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        .r{opacity:0;animation:fadeUp .9s ease forwards}
+        .r1{animation-delay:.15s}.r2{animation-delay:.3s}.r3{animation-delay:.45s}
+
+        @media(max-width:600px){.top{padding:1.2rem 1.5rem}.item-head{flex-wrap:wrap}}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/">&larr; Home</a>
+        <span class="top-label">Now</span>
+    </div>
+
+    <div class="wrap">
+        <h1 class="r r1">What I'm on<br>right now.</h1>
+        <div class="sub r r1"><span class="dot"></span>Live</div>
+
+        <div class="item r r2">
+            <div class="item-head">
+                <span class="item-num">01</span>
+                <span class="item-title"><a href="https://www.cnvrted.com/" target="_blank">Cnvrted</a></span>
+                <span class="item-badge hot">Obsessed</span>
+            </div>
+            <p>My startup, and where most of my energy goes. Sales today is broken — teams burn hours chasing dead leads, cold lists, and people who were never going to buy. Cnvrted fixes that: a sharper way to find real buyers with actual intent, not just names in a database. Early days, moving fast, learning brutally quick. <a href="https://www.cnvrted.com/" target="_blank">cnvrted.com</a></p>
+        </div>
+
+        <div class="item r r3">
+            <div class="item-head">
+                <span class="item-num">02</span>
+                <span class="item-title"><a href="https://morphic.com/" target="_blank">Morphic</a></span>
+                <span class="item-badge">Working · Marketing Ops</span>
+            </div>
+            <p>An AI storytelling and filmmaking platform where anyone can turn ideas into cinematic stories. I run marketing operations — campaigns, growth experiments, and everything that keeps the engine moving. I also lead <a href="https://www.youtube.com/@morphickids" target="_blank">MorphicKIDS</a>, our YouTube channel for kids' content, building it from scratch into something kids genuinely love. A ton of fun, and I learn something new every single day.</p>
+        </div>
+    </div>
+</body>
+</html>
