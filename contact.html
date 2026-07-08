@@ -25,7 +25,7 @@
 
         /* Emails */
         .emails{display:flex;flex-direction:column;gap:.8rem;width:100%;max-width:440px;margin-bottom:3rem}
-        .email{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.4rem;border:1px solid rgba(255,255,255,.1);border-radius:14px;text-decoration:none;transition:all .3s}
+        .email{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;padding:1rem 1.4rem;border:1px solid rgba(255,255,255,.1);border-radius:14px;text-decoration:none;transition:all .3s;text-align:left}
         .email:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.03)}
         .email .tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);white-space:nowrap}
         .email .addr{font-size:.95rem;color:#fff;font-weight:500}
@@ -58,7 +58,7 @@
         .r{opacity:0;animation:fadeUp .9s ease forwards}
         .r1{animation-delay:.15s}.r2{animation-delay:.3s}.r3{animation-delay:.45s}.r4{animation-delay:.6s}
 
-        @media(max-width:600px){.top{padding:1.2rem 1.5rem}.email{flex-direction:column;align-items:flex-start;gap:.2rem}}
+        @media(max-width:600px){.top{padding:1.2rem 1.5rem}}
     </style>
 </head>
 <body>
