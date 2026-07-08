@@ -38,6 +38,8 @@
 
         @media(max-width:900px){.collage{columns:2}}
         @media(max-width:560px){.collage{columns:1}.top{padding:1.2rem 1.5rem}}
+        /* Ghost wordmark */
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
     </style>
 </head>
 <body>
@@ -80,5 +82,6 @@
             collage.appendChild(img);
         });
     </script>
+    <div class="ghost">Dhruv</div>
 </body>
 </html>
