@@ -31,14 +31,6 @@
         .r{opacity:0;animation:fadeUp .9s ease forwards .15s}
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}}
-        /* Page transition: expanding circle from click */
-        .circ{position:fixed;width:10px;height:10px;border-radius:50%;background:#fff;z-index:999;pointer-events:none;transform:translate(-50%,-50%) scale(0)}
-        .circ.go{transition:transform .55s cubic-bezier(.65,0,.35,1);transform:translate(-50%,-50%) scale(var(--s))}
-        .navlink-press{transform:scale(.9);opacity:.5;transition:transform .12s,opacity .12s}
-        body.page-out{animation:pageFade .3s ease forwards .25s}
-        @keyframes pageFade{to{opacity:.25}}
-        body.page-in{animation:pageIn .5s ease}
-        @keyframes pageIn{from{opacity:0}to{opacity:1}}
     </style>
 </head>
 <body>
@@ -51,34 +43,5 @@
         <div class="sub">Being written — coming soon<span class="cursor"></span></div>
     </div>
     <div class="ghost">Dhruv</div>
-    <script>
-        (function(){
-            document.body.classList.add('page-in');
-            const circ = document.createElement('div');
-            circ.className = 'circ';
-            document.body.appendChild(circ);
-            document.querySelectorAll('a').forEach(a => {
-                const href = a.getAttribute('href') || '';
-                const internal = href && !href.startsWith('http') && !href.startsWith('mailto');
-                if(!internal) return;
-                a.addEventListener('click', e => {
-                    e.preventDefault();
-                    a.classList.add('navlink-press');
-                    const x = e.clientX || innerWidth/2, y = e.clientY || innerHeight/2;
-                    circ.style.left = x + 'px';
-                    circ.style.top = y + 'px';
-                    const r = Math.hypot(Math.max(x, innerWidth-x), Math.max(y, innerHeight-y));
-                    circ.style.setProperty('--s', Math.ceil(r/5)*2.2);
-                    document.body.classList.add('page-out');
-                    requestAnimationFrame(() => circ.classList.add('go'));
-                    setTimeout(() => { window.location.href = href; }, 560);
-                });
-            });
-            window.addEventListener('pageshow', () => {
-                circ.classList.remove('go');
-                document.body.classList.remove('page-out');
-            });
-        })();
-    </script>
 </body>
 </html>
