@@ -49,9 +49,12 @@
         .tag .cursor{position:absolute;width:8px;height:1em;background:rgba(255,255,255,.6);margin-left:6px;animation:blink 1.1s steps(1) infinite}
 
         /* Nav links */
-        .links{position:fixed;bottom:2.6rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:center}
-        .links a{font-family:'Archivo',sans-serif;font-size:.92rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;text-align:left;padding:.6rem 3.2rem .6rem 1.1rem;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(255,255,255,.055);backdrop-filter:blur(6px);transition:all .25s}
-        .links a:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+        .links{position:fixed;bottom:2.9rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center}
+        .links a{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;padding:.5rem 1.4rem;position:relative;transition:color .3s}
+        .links a:hover{color:#fff}
+        .links a::after{content:'';position:absolute;bottom:.1rem;left:50%;transform:translateX(-50%) scaleX(0);width:calc(100% - 2.8rem);height:1px;background:#fff;transition:transform .3s}
+        .links a:hover::after{transform:translateX(-50%) scaleX(1)}
+        .links a+a::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:12px;background:rgba(255,255,255,.15)}
 
         @keyframes blink{50%{opacity:0}}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
