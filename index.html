@@ -74,6 +74,11 @@
             .name{letter-spacing:-1px}
             .tag{letter-spacing:3px}
         }
+        /* Page transition wipe */
+        .wipe{position:fixed;inset:0;background:#000;z-index:999;transform:translateY(101%);pointer-events:none}
+        .wipe.go{transition:transform .45s cubic-bezier(.77,0,.18,1);transform:translateY(0)}
+        .wipe .wipe-bar{position:absolute;top:-6px;left:0;right:0;height:6px;background:rgba(255,255,255,.25)}
+        .navlink-press{transform:scale(.94);opacity:.6;transition:transform .15s,opacity .15s}
     </style>
 </head>
 <body>
@@ -175,6 +180,26 @@
             requestAnimationFrame(step);
         }
         step();
+    </script>
+    <script>
+        (function(){
+            const wipe = document.createElement('div');
+            wipe.className = 'wipe';
+            wipe.innerHTML = '<div class="wipe-bar"></div>';
+            document.body.appendChild(wipe);
+            document.querySelectorAll('a').forEach(a => {
+                const href = a.getAttribute('href') || '';
+                const internal = href && !href.startsWith('http') && !href.startsWith('mailto');
+                if(!internal) return;
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    a.classList.add('navlink-press');
+                    wipe.classList.add('go');
+                    setTimeout(() => { window.location.href = href; }, 460);
+                });
+            });
+            window.addEventListener('pageshow', () => { wipe.classList.remove('go'); });
+        })();
     </script>
 </body>
 </html>

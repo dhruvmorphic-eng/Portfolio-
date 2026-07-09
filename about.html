@@ -60,6 +60,11 @@
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding-top:7rem}}
         /* Ghost wordmark */
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        /* Page transition wipe */
+        .wipe{position:fixed;inset:0;background:#000;z-index:999;transform:translateY(101%);pointer-events:none}
+        .wipe.go{transition:transform .45s cubic-bezier(.77,0,.18,1);transform:translateY(0)}
+        .wipe .wipe-bar{position:absolute;top:-6px;left:0;right:0;height:6px;background:rgba(255,255,255,.25)}
+        .navlink-press{transform:scale(.94);opacity:.6;transition:transform .15s,opacity .15s}
     </style>
 </head>
 <body>
@@ -138,5 +143,25 @@
         </div>
     </div>
     <div class="ghost">Dhruv</div>
+    <script>
+        (function(){
+            const wipe = document.createElement('div');
+            wipe.className = 'wipe';
+            wipe.innerHTML = '<div class="wipe-bar"></div>';
+            document.body.appendChild(wipe);
+            document.querySelectorAll('a').forEach(a => {
+                const href = a.getAttribute('href') || '';
+                const internal = href && !href.startsWith('http') && !href.startsWith('mailto');
+                if(!internal) return;
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    a.classList.add('navlink-press');
+                    wipe.classList.add('go');
+                    setTimeout(() => { window.location.href = href; }, 460);
+                });
+            });
+            window.addEventListener('pageshow', () => { wipe.classList.remove('go'); });
+        })();
+    </script>
 </body>
 </html>
