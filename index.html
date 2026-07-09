@@ -48,8 +48,16 @@
         .tag{position:relative}
         .tag .cursor{position:absolute;width:8px;height:1em;background:rgba(255,255,255,.6);margin-left:6px;animation:blink 1.1s steps(1) infinite}
 
+        /* Timeline ruler */
+        .footer-stack{position:fixed;bottom:2.2rem;left:0;right:0;z-index:3;display:flex;flex-direction:column;gap:1.1rem;align-items:center}
+        .ruler{position:relative;width:100%;height:30px;pointer-events:none;font-family:'JetBrains Mono',monospace}
+        .ruler .tick{position:absolute;bottom:0;width:1px;background:rgba(255,255,255,.18)}
+        .ruler .tick.major{height:9px;background:rgba(255,255,255,.32)}
+        .ruler .tick.minor{height:5px}
+        .ruler .tick-label{position:absolute;bottom:14px;transform:translateX(-50%);font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.5px}
+
         /* Nav links */
-        .links{position:fixed;bottom:2.6rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center}
+        .links{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center;padding:0 1rem}
         .links a{font-family:'Archivo',sans-serif;font-size:1rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;text-align:left;padding:.72rem 4.5rem .72rem 1.15rem;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:#1c1c1e;transition:all .25s}
         .links a:hover{background:#2c2c2e;border-color:rgba(255,255,255,.35);transform:translateY(-2px)}
 
@@ -129,7 +137,10 @@
         <a href="https://www.instagram.com/_dhruvpradeep/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
     </div>
 
-    <div class="links anim-3">
+    <div class="footer-stack anim-3">
+    <div class="ruler" id="ruler"></div>
+
+    <div class="links">
         <a href="about.html">About</a>
         <a href="now.html">Now</a>
         <a href="work.html">Work</a>
@@ -138,9 +149,38 @@
         <a href="manifesto.html">Manifesto</a>
         <a href="contact.html">Contact</a>
     </div>
+    </div>
 
     <canvas id="physics" style="position:fixed;inset:0;z-index:1;pointer-events:none"></canvas>
     <script>
+        // timeline ruler
+        function buildRuler(){
+            const ruler = document.getElementById('ruler');
+            ruler.innerHTML = '';
+            const W = innerWidth, SEC = 130, SUB = 5;
+            const secs = Math.ceil(W / SEC);
+            for(let s = 0; s <= secs; s++){
+                const x = s * SEC;
+                const t = document.createElement('div');
+                t.className = 'tick major';
+                t.style.left = x + 'px';
+                ruler.appendChild(t);
+                const lbl = document.createElement('span');
+                lbl.className = 'tick-label';
+                lbl.style.left = x + 'px';
+                lbl.textContent = s === 0 ? '0' : s + 's';
+                ruler.appendChild(lbl);
+                for(let m = 1; m < SUB; m++){
+                    const mt = document.createElement('div');
+                    mt.className = 'tick minor';
+                    mt.style.left = (x + m * SEC / SUB) + 'px';
+                    ruler.appendChild(mt);
+                }
+            }
+        }
+        buildRuler();
+        addEventListener('resize', buildRuler);
+
         function tick(){
             const t = new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',hour12:false});
             document.getElementById('clock').textContent = 'BLR ' + t + ' IST';
