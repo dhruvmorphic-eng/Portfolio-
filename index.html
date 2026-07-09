@@ -54,7 +54,8 @@
         .links a:hover{color:#fff}
         .links a::after{content:'';position:absolute;bottom:.1rem;left:50%;transform:translateX(-50%) scaleX(0);width:calc(100% - 2.8rem);height:1px;background:#fff;transition:transform .3s}
         .links a:hover::after{transform:translateX(-50%) scaleX(1)}
-        .links a+a::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:12px;background:rgba(255,255,255,.15)}
+        .links a+a::before{content:'+';position:absolute;left:-4px;top:50%;transform:translateY(-50%);font-size:.7rem;color:rgba(255,255,255,.22);transition:all .4s;font-weight:400}
+        .links a+a:hover::before,.links a:hover+a::before{color:rgba(255,255,255,.7);transform:translateY(-50%) rotate(135deg)}
 
         @keyframes blink{50%{opacity:0}}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
