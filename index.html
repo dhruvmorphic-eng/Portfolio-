@@ -54,7 +54,8 @@
         .tag .cursor{position:absolute;width:8px;height:1em;background:rgba(255,255,255,.6);margin-left:6px;animation:blink 1.1s steps(1) infinite}
 
         /* Timeline ruler */
-        .footer-stack{position:fixed;bottom:3.1rem;left:0;right:0;z-index:3;display:flex;flex-direction:column;gap:1.2rem;align-items:center}
+        .footer-stack{position:fixed;bottom:3.1rem;left:0;right:0;z-index:3;display:flex;flex-direction:column;gap:1.2rem;align-items:center;pointer-events:none}
+        .footer-stack .links a{pointer-events:auto}
         .ruler{position:relative;width:100%;height:30px;pointer-events:none;font-family:'JetBrains Mono',monospace}
         .ruler .tick{position:absolute;bottom:0;width:1px;background:rgba(255,255,255,.18)}
         .ruler .tick.major{height:9px;background:rgba(255,255,255,.32)}
