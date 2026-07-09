@@ -26,18 +26,30 @@
         @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
         .r{opacity:0;animation:fadeUp .9s ease forwards .1s}
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}}
-        .wrap{max-width:680px;margin:0 auto;padding:9.5rem 2rem 7rem;position:relative;z-index:1}
-        h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;margin-bottom:.8rem}
-        .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4rem}
-        .post{display:block;text-decoration:none;color:#fff;padding:2rem 0;border-top:1px solid rgba(255,255,255,.1);transition:all .3s}
+        .wrap{max-width:900px;margin:0 auto;padding:9.5rem 2rem 7rem;position:relative;z-index:1}
+        .head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:4.5rem}
+        h1{font-size:clamp(3rem,8vw,5.5rem);font-weight:900;letter-spacing:-3px;text-transform:uppercase;line-height:1}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+        .post{display:grid;grid-template-columns:auto 1fr auto;gap:2.2rem;align-items:center;text-decoration:none;color:#fff;padding:2.4rem 1.4rem;margin:0 -1.4rem;border-top:1px solid rgba(255,255,255,.1);border-radius:18px;transition:background .3s}
         .post:last-of-type{border-bottom:1px solid rgba(255,255,255,.1)}
-        .post .p-meta{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.7rem}
-        .post .p-title{font-size:1.45rem;font-weight:800;letter-spacing:-.5px;line-height:1.3;margin-bottom:.6rem;transition:color .3s}
-        .post .p-excerpt{color:rgba(255,255,255,.5);font-size:.98rem}
-        .post .p-read{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:1rem;display:inline-block;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px}
-        .post:hover .p-title{color:rgba(255,255,255,.75)}
-        .post:hover .p-read{color:#fff;border-color:#fff}
-        @media(min-width:1024px){.wrap{max-width:760px}}
+        .post:hover{background:rgba(255,255,255,.035)}
+        .p-num{font-family:'Archivo',sans-serif;font-size:3.4rem;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.25);transition:all .35s}
+        .post:hover .p-num{-webkit-text-stroke:1.5px rgba(255,255,255,.85)}
+        .p-mid{min-width:0}
+        .p-meta{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.6rem}
+        .p-title{font-size:clamp(1.2rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:.55rem;transition:transform .3s}
+        .post:hover .p-title{transform:translateX(6px)}
+        .p-excerpt{color:rgba(255,255,255,.45);font-size:.95rem;line-height:1.6;max-width:520px}
+        .p-go{width:52px;height:52px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:rgba(255,255,255,.6);transition:all .3s;flex-shrink:0}
+        .post:hover .p-go{background:#fff;color:#000;border-color:#fff;transform:rotate(-45deg)}
+
+        @media(max-width:640px){
+            .post{grid-template-columns:1fr;gap:1rem;padding:1.8rem .9rem;margin:0 -.9rem}
+            .p-num{font-size:2.2rem}
+            .p-go{display:none}
+            .head{margin-bottom:3rem}
+        }
     </style>
 </head>
 <body>
@@ -47,14 +59,19 @@
     </div>
 
     <div class="wrap r">
-        <h1>Blog.</h1>
-        <div class="sub">Startups · Sales · AI · Building in public</div>
+        <div class="head">
+            <h1>Blog.</h1>
+            <div class="sub">Startups · Sales · AI · Building in public</div>
+        </div>
 
         <a class="post" href="/blog/ai-bubble">
-            <div class="p-meta">01 · July 9, 2026 · 5 min read</div>
-            <div class="p-title">AI Is a Bubble. I Build AI for a Living. Both Things Are True.</div>
-            <div class="p-excerpt">A bubble isn't a lie. A bubble is a truth that got too expensive. Written from the inside — why I'm not selling, I'm building faster.</div>
-            <span class="p-read">Read &rarr;</span>
+            <div class="p-num">01</div>
+            <div class="p-mid">
+                <div class="p-meta">July 9, 2026 · 5 min read</div>
+                <div class="p-title">AI Is a Bubble. I Build AI for a Living. Both Things Are True.</div>
+                <div class="p-excerpt">A bubble isn't a lie. A bubble is a truth that got too expensive. Written from the inside — why I'm not selling, I'm building faster.</div>
+            </div>
+            <div class="p-go">&rarr;</div>
         </a>
     </div>
 
