@@ -49,12 +49,9 @@
         .tag .cursor{position:absolute;width:8px;height:1em;background:rgba(255,255,255,.6);margin-left:6px;animation:blink 1.1s steps(1) infinite}
 
         /* Nav links */
-        .links{position:fixed;bottom:2.9rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center}
-        .links a{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;padding:.5rem 2rem;position:relative;transition:color .3s}
-        .links a:hover{color:#fff}
-        .links a::after{content:'';position:absolute;bottom:.4rem;left:50%;transform:translateX(-50%) scaleX(0);width:calc(100% - 4rem);height:1px;background:#fff;transition:transform .3s}
-        .links a:hover::after{transform:translateX(-50%) scaleX(1)}
-        .links a+a::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:12px;background:rgba(255,255,255,.15)}
+        .links{position:fixed;bottom:2.6rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:center}
+        .links a{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:.65rem 1.5rem;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(255,255,255,.025);backdrop-filter:blur(6px);transition:all .3s}
+        .links a:hover{color:#000;background:#fff;border-color:#fff}
 
         @keyframes blink{50%{opacity:0}}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -105,6 +102,8 @@
         <a href="about.html">About</a>
         <a href="now.html">Now</a>
         <a href="words.html">Words</a>
+        <a href="blog.html">Blog</a>
+        <a href="manifesto.html">Manifesto</a>
         <a href="contact.html">Contact</a>
     </div>
 

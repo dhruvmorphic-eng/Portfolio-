@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Dhruv Pradeep</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Blogs by Dhruv Pradeep.">
+    <meta property="og:title" content="Blog — Dhruv Pradeep">
+    <meta property="og:description" content="Blogs by Dhruv Pradeep.">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{height:100%}
+        body{background:#000;color:#fff;font-family:'Archivo',sans-serif;line-height:1.7;overflow:hidden}
+        ::selection{background:#fff;color:#000}
+        .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+        .wrap{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+        h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;margin-bottom:1rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+        .sub .cursor{display:inline-block;width:7px;height:1em;background:rgba(255,255,255,.6);vertical-align:text-bottom;margin-left:5px;animation:blink 1.1s steps(1) infinite}
+        @keyframes blink{50%{opacity:0}}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        .r{opacity:0;animation:fadeUp .9s ease forwards .15s}
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        @media(max-width:600px){.top{padding:1.2rem 1.5rem}}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/">&larr; Home</a>
+        <span class="top-label">Blog</span>
+    </div>
+    <div class="wrap r">
+        <h1>Blog.</h1>
+        <div class="sub">First post loading — coming soon<span class="cursor"></span></div>
+    </div>
+    <div class="ghost">Dhruv</div>
+</body>
+</html>
