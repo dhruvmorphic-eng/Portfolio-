@@ -49,7 +49,7 @@
         .tag .cursor{position:absolute;width:8px;height:1em;background:rgba(255,255,255,.6);margin-left:6px;animation:blink 1.1s steps(1) infinite}
 
         /* Timeline ruler */
-        .footer-stack{position:fixed;bottom:2.2rem;left:0;right:0;z-index:3;display:flex;flex-direction:column;gap:1.1rem;align-items:center}
+        .footer-stack{position:fixed;bottom:3.1rem;left:0;right:0;z-index:3;display:flex;flex-direction:column;gap:1.2rem;align-items:center}
         .ruler{position:relative;width:100%;height:30px;pointer-events:none;font-family:'JetBrains Mono',monospace}
         .ruler .tick{position:absolute;bottom:0;width:1px;background:rgba(255,255,255,.18)}
         .ruler .tick.major{height:9px;background:rgba(255,255,255,.32)}
@@ -57,8 +57,8 @@
         .ruler .tick-label{position:absolute;bottom:14px;transform:translateX(-50%);font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.5px}
 
         /* Nav links */
-        .links{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center;padding:0 1rem}
-        .links a{font-family:'Archivo',sans-serif;font-size:1rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;text-align:left;padding:.72rem 4.5rem .72rem 1.15rem;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:#1c1c1e;transition:all .25s}
+        .links{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center;padding:0 1rem;max-width:calc(100vw - 560px)}
+        .links a{font-family:'Archivo',sans-serif;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;text-align:left;padding:.65rem 2.8rem .65rem 1.1rem;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:#1c1c1e;transition:all .25s}
         .links a:hover{background:#2c2c2e;border-color:rgba(255,255,255,.35);transform:translateY(-2px)}
 
         @keyframes blink{50%{opacity:0}}
@@ -78,7 +78,8 @@
             .tag{font-size:.62rem;letter-spacing:3px}
             .corner-br{bottom:6.8rem;right:50%;transform:translateX(50%)}
             .corner-br a{width:38px;height:38px}
-            .links{bottom:1.1rem;width:100%;justify-content:center;flex-wrap:wrap;gap:.15rem 0;padding:0 .6rem}
+            .footer-stack{bottom:1.1rem}
+            .links{max-width:100%;justify-content:center;flex-wrap:wrap;gap:.4rem;padding:0 .6rem}
             .links a{padding:.45rem .8rem;font-size:.64rem;letter-spacing:2px}
             .links a+a::before{display:none}
         }
