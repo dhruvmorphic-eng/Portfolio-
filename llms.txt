@@ -1,0 +1,23 @@
+# Dhruv Pradeep
+
+> Personal website of Dhruv Pradeep — a 19-year-old founder from Bangalore, India. Former professional cricketer (10 years), dropped out of Manipal (MAHE) to build startups. Currently building Cnvrted, a sales intelligence startup that helps teams find real buyers with actual intent, and running marketing operations at Morphic, an AI storytelling and filmmaking platform, where he also leads MorphicKIDS, a YouTube channel for kids' content.
+
+## Pages
+
+- [Home](https://dhruvpradeep.in/): Landing page — Dhruv Pradeep, Founder in Progress, based in Bangalore (IST).
+- [About](https://dhruvpradeep.in/about): Full story — 19, dropout, builder. Cricket background, why he left Manipal, what drives him.
+- [Now](https://dhruvpradeep.in/now): What he's working on right now — Cnvrted (founder) and Morphic (marketing operations, MorphicKIDS).
+- [Words](https://dhruvpradeep.in/words): Original quotes on building, discipline, and the founder mindset. Free to download and share.
+- [Manifesto](https://dhruvpradeep.in/manifesto): His operating principles — "I don't wait. I move." Taste, speed, ownership.
+- [Blog](https://dhruvpradeep.in/blog): Writing on startups, sales, and building in public (coming soon).
+- [Contact](https://dhruvpradeep.in/contact): Emails (personal: dhruvcp07@gmail.com, Cnvrted: dhruv@cnvrted.com, Morphic: dhruv.pradeep@morphic.com), socials, call booking.
+
+## Facts
+
+- Name: Dhruv Pradeep
+- Age: 19
+- Location: Bangalore, India
+- Role: Founder of Cnvrted (https://www.cnvrted.com), Marketing Operations at Morphic (https://morphic.com)
+- Background: ~10 years of professional cricket before startups
+- Education: Dropped out of Manipal Academy of Higher Education (MAHE)
+- Socials: LinkedIn https://www.linkedin.com/in/dhruvpradeep/ · X https://x.com/TheDhruvPradeep · Instagram https://www.instagram.com/_dhruvpradeep/
