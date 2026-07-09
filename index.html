@@ -68,11 +68,15 @@
             .corner-tl{top:1.2rem;left:1.2rem}
             .corner-tr{top:1.2rem;right:1.2rem}
             .corner-bl{display:none}
-            .corner-br{bottom:5.5rem;right:50%;transform:translateX(50%)}
-            .links{bottom:1.2rem;width:100%;justify-content:center}
-            .links a{padding:.8rem 1rem}
-            .name{letter-spacing:-1px}
-            .tag{letter-spacing:3px}
+            .bg{background-position:97% 100%;opacity:.5}
+            .content{transform:translateY(-10vh)}
+            .name{font-size:clamp(1.9rem,9.5vw,3.2rem);letter-spacing:-1px}
+            .tag{font-size:.62rem;letter-spacing:3px}
+            .corner-br{bottom:6.8rem;right:50%;transform:translateX(50%)}
+            .corner-br a{width:38px;height:38px}
+            .links{bottom:1.1rem;width:100%;justify-content:center;flex-wrap:wrap;gap:.15rem 0;padding:0 .6rem}
+            .links a{padding:.45rem .8rem;font-size:.64rem;letter-spacing:2px}
+            .links a+a::before{display:none}
         }
         /* Page transition wipe */
         .wipe{position:fixed;inset:0;background:#000;z-index:999;transform:translateY(101%);pointer-events:none}
