@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — Dhruv Pradeep | MorphicKIDS</title>
+    <link rel="canonical" href="https://dhruvpradeep.in/work">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Work by Dhruv Pradeep — MorphicKIDS, an AI-made YouTube channel for kids: bedtime stories, sing-alongs and science stories, built at Morphic.">
+    <meta property="og:title" content="Work — Dhruv Pradeep | MorphicKIDS">
+    <meta property="og:description" content="MorphicKIDS — AI-made kids' stories and songs on YouTube, led by Dhruv Pradeep at Morphic.">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png">
+    <meta property="og:url" content="https://dhruvpradeep.in/work">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;color:#fff;font-family:'Archivo',sans-serif;line-height:1.6}
+        ::selection{background:#fff;color:#000}
+
+        .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+        .wrap{max-width:1100px;margin:0 auto;padding:8.5rem 2rem 6rem;position:relative;z-index:1}
+        h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;text-align:center;margin-bottom:.8rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.2rem;text-align:center}
+        .intro{max-width:620px;margin:0 auto 3.5rem;text-align:center;color:rgba(255,255,255,.55);font-size:1.02rem}
+        .intro a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+        .intro a:hover{border-color:#fff}
+
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 1.2rem}
+        .vid{text-decoration:none;color:#fff;display:block}
+        .vid-thumb{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);aspect-ratio:16/9;background:#0a0a0a}
+        .vid-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+        .vid:hover .vid-thumb img{transform:scale(1.05)}
+        .vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:#000;opacity:0;transition:opacity .3s;background:rgba(0,0,0,.35);z-index:1}
+        .vid-play::before{content:'';position:absolute;width:52px;height:52px;background:#fff;border-radius:50%;z-index:-1}
+        .vid:hover .vid-play{opacity:1}
+        .vid-title{font-weight:700;font-size:1rem;margin-top:.8rem;letter-spacing:-.2px}
+        .vid-sub{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem}
+
+        .channel-cta{display:flex;justify-content:center;margin-top:4rem}
+        .channel-cta a{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 2.2rem;background:#fff;color:#000;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s}
+        .channel-cta a:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,255,255,.15)}
+
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        .r{opacity:0;animation:fadeUp .9s ease forwards .1s}
+        .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+        .rv.in{opacity:1;transform:translateY(0)}
+
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+
+        @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:560px){.grid{grid-template-columns:1fr}.top{padding:1.2rem 1.5rem}.wrap{padding-top:7rem}}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/">&larr; Home</a>
+        <span class="top-label">Work</span>
+    </div>
+
+    <div class="wrap">
+        <h1 class="r">MorphicKIDS.</h1>
+        <div class="sub r">AI-made stories kids actually love</div>
+        <p class="intro r">I lead <a href="https://www.youtube.com/@morphickids" target="_blank">MorphicKIDS</a> at <a href="https://morphic.com/" target="_blank">Morphic</a> — bedtime stories, sing-alongs, and science stories for kids, made end-to-end with AI storytelling. Every video below: concept to publish.</p>
+
+        <div class="grid">
+            <a class="vid rv" href="https://www.youtube.com/watch?v=uYWOb-EPGPs" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/uYWOb-EPGPs/hqdefault.jpg" alt="Hello Moon" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Hello Moon</div>
+                <div class="vid-sub">Bedtime nursery rhyme · ages 1-4</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=xIuC7pBZGPg" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/xIuC7pBZGPg/hqdefault.jpg" alt="Animal Sounds on the Farm" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Animal Sounds on the Farm</div>
+                <div class="vid-sub">Sing-along song · ages 1-4</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=WNQCARIhFvo" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/WNQCARIhFvo/hqdefault.jpg" alt="Fluffy Little Cloud" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Fluffy Little Cloud</div>
+                <div class="vid-sub">Bedtime story · ages 3-7</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=PJt4Je_DpVE" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/PJt4Je_DpVE/hqdefault.jpg" alt="Mochi" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Mochi</div>
+                <div class="vid-sub">A heartwarming cat story · ages 4-9</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=p9WZyj-N6JQ" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/p9WZyj-N6JQ/hqdefault.jpg" alt="Why Is the Ocean So Deep?" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Why Is the Ocean So Deep?</div>
+                <div class="vid-sub">Ocean science story · ages 4-8</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=NzphHI0tB1U" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/NzphHI0tB1U/hqdefault.jpg" alt="Where Did the Dinosaurs Go?" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Where Did the Dinosaurs Go?</div>
+                <div class="vid-sub">Dinosaur story · ages 4-8</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=GXMcvFDFEfY" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/GXMcvFDFEfY/hqdefault.jpg" alt="Why Do Humans Build Things?" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Why Do Humans Build Things?</div>
+                <div class="vid-sub">Inspirational story · ages 5-10</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=tNVYtXP5ViA" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/tNVYtXP5ViA/hqdefault.jpg" alt="How Does a Rainbow Form?" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">How Does a Rainbow Form?</div>
+                <div class="vid-sub">Rainbow science story · ages 4-9</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=EZC6BFwyMmE" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/EZC6BFwyMmE/hqdefault.jpg" alt="My Shadow Friend" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">My Shadow Friend</div>
+                <div class="vid-sub">A moral story about friendship · ages 4-8</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=ACYzgQM7GNE" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/ACYzgQM7GNE/hqdefault.jpg" alt="What Is Money?" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">What Is Money?</div>
+                <div class="vid-sub">Animated history story · ages 5-10</div>
+            </a>
+            <a class="vid rv" href="https://www.youtube.com/watch?v=c03m22B0p8k" target="_blank">
+                <div class="vid-thumb"><img src="https://i.ytimg.com/vi/c03m22B0p8k/hqdefault.jpg" alt="Where Does Food Go?" loading="lazy"><div class="vid-play">&#9654;</div></div>
+                <div class="vid-title">Where Does Food Go?</div>
+                <div class="vid-sub">Digestive system story · ages 4-10</div>
+            </a>
+        </div>
+
+        <div class="channel-cta rv">
+            <a href="https://www.youtube.com/@morphickids?sub_confirmation=1" target="_blank">&#9654; &nbsp;Subscribe on YouTube</a>
+        </div>
+    </div>
+
+    <div class="ghost">Dhruv</div>
+
+    <script>
+        const obs = new IntersectionObserver(es => es.forEach(e => {
+            if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+        }), {threshold:.1});
+        document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
