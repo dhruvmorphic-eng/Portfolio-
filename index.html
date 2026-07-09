@@ -32,7 +32,8 @@
         .corner-tr{top:2rem;right:2.5rem;display:flex;align-items:center;gap:.7rem}
         .corner-tr .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
         .corner-bl{bottom:2.35rem;left:2.5rem;line-height:1.9}
-        .corner-bl .label{color:rgba(255,255,255,.3);font-size:.6rem}
+        .corner-bl .label{color:rgba(255,255,255,.3);font-size:.6rem;display:flex;align-items:center;gap:.45rem}
+        .corner-bl .label .live-dot{width:6px;height:6px;background:#3b82f6;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(59,130,246,.8)}
         .corner-bl .val{color:rgba(255,255,255,.75)}
         .corner-br{bottom:2.55rem;right:2.5rem;display:flex;gap:1.1rem;align-items:center}
         .corner-br a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(255,255,255,.15);border-radius:50%;transition:all .3s}
@@ -110,7 +111,7 @@
     </div>
 
     <div class="corner corner-bl anim-3">
-        <div class="label">Currently</div>
+        <div class="label"><span class="live-dot"></span>Currently</div>
         <div class="val">Marketing Ops @ Morphic</div>
         <div class="val">Building Cnvrted</div>
     </div>
