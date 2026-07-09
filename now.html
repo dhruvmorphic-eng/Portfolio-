@@ -51,6 +51,11 @@
         .r{opacity:0;animation:fadeUp .9s ease forwards}
         .r1{animation-delay:.15s}.r2{animation-delay:.3s}.r3{animation-delay:.45s}
 
+        @media(min-width:1024px){
+            .wrap{max-width:880px}
+            .item p{font-size:1.1rem;line-height:1.85}
+            .item-title{font-size:1.7rem}
+        }
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.item-head{grid-template-columns:2.2rem 1fr;grid-template-rows:auto auto}.item-head .item-badge{grid-column:2;justify-self:start;margin-top:.4rem}.item p{padding-left:0}}
         /* Ghost wordmark */
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}

@@ -59,6 +59,12 @@
         @keyframes locpulse{0%{opacity:.8;transform:scale(.4)}100%{opacity:0;transform:scale(2.2)}}
 
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding-top:7rem}}
+        @media(min-width:1024px){
+            .wrap{max-width:880px}
+            p{font-size:1.15rem;line-height:1.9}
+            .sub{margin-bottom:4.5rem}
+            .loc-map{max-width:340px}
+        }
         /* Ghost wordmark */
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
     </style>
