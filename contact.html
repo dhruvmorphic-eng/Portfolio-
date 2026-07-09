@@ -43,10 +43,15 @@
 
         /* Socials */
         .socials{display:flex;gap:1.1rem}
-        .socials a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.15);border-radius:50%;transition:all .3s}
-        .socials a:hover{border-color:#fff;background:#fff}
-        .socials a svg{width:18px;height:18px;fill:rgba(255,255,255,.7);transition:fill .3s}
-        .socials a:hover svg{fill:#000}
+        .socials a{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;transition:all .3s;border:none}
+        .socials a:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.5)}
+        .socials a svg{width:19px;height:19px}
+        .s-li{background:#0A66C2}
+        .s-li svg{fill:#fff}
+        .s-x{background:#fff}
+        .s-x svg{fill:#000}
+        .s-ig{background:radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)}
+        .s-ig svg{fill:#fff}
 
         /* Cal */
         .cal-btn{display:inline-flex;align-items:center;gap:.8rem;padding:1.1rem 2.4rem;background:#fff;color:#000;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s}
@@ -99,9 +104,9 @@
         <div class="r r3" style="display:flex;flex-direction:column;align-items:center">
             <div class="label">Socials</div>
             <div class="socials">
-                <a href="https://www.linkedin.com/in/dhruvpradeep/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
-                <a href="https://x.com/TheDhruvPradeep" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82L5 21.75H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
-                <a href="https://www.instagram.com/_dhruvpradeep/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+                <a href="https://www.linkedin.com/in/dhruvpradeep/" target="_blank" aria-label="LinkedIn" class="s-li"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                <a href="https://x.com/TheDhruvPradeep" target="_blank" aria-label="X" class="s-x"><svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82L5 21.75H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+                <a href="https://www.instagram.com/_dhruvpradeep/" target="_blank" aria-label="Instagram" class="s-ig"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
             </div>
         </div>
 
