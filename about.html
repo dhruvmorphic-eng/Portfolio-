@@ -45,8 +45,8 @@
 
         /* Portrait */
         .me{float:right;width:230px;margin:.4rem 0 1.4rem 2rem;position:relative;z-index:1}
-        .me img{width:100%;display:block;border-radius:16px;border:1px solid rgba(255,255,255,.12);transform:rotate(2deg);filter:grayscale(35%);transition:all .4s}
-        .me:hover img{transform:rotate(0);filter:grayscale(0)}
+        .me img{width:100%;display:block;border-radius:16px;border:1px solid rgba(255,255,255,.15);transform:rotate(2deg);filter:saturate(1.15) brightness(1.08) contrast(1.03);transition:transform .4s;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+        .me:hover img{transform:rotate(0) scale(1.02)}
         .me figcaption{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);text-align:center;margin-top:.7rem}
         @media(max-width:600px){.me{float:none;width:200px;margin:0 auto 2rem;display:block}}
 
