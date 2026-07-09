@@ -69,19 +69,23 @@
         .anim-2{animation:fadeUp 1s ease forwards .7s;opacity:0}
         .anim-3{animation:fadeIn 1.2s ease forwards 1.2s;opacity:0}
 
+        /* Tablet + mobile: stacked centered layout, no corner collisions */
+        @media(max-width:1200px){
+            .corner-bl{display:none}
+            .content{transform:translateY(-10vh)}
+            .name{font-size:clamp(1.9rem,8vw,5rem);letter-spacing:-1.5px}
+            .corner-br{bottom:12.5rem;right:50%;transform:translateX(50%)}
+            .corner-br a{width:40px;height:40px}
+            .footer-stack{bottom:1.1rem;gap:1rem}
+            .links{max-width:100%;justify-content:center;flex-wrap:wrap;gap:.5rem;padding:0 1rem}
+        }
         @media(max-width:700px){
             .corner-tl{top:1.2rem;left:1.2rem}
             .corner-tr{top:1.2rem;right:1.2rem}
-            .corner-bl{display:none}
-            .content{transform:translateY(-10vh)}
-            .name{font-size:clamp(1.9rem,9.5vw,3.2rem);letter-spacing:-1px}
+            .name{letter-spacing:-1px}
             .tag{font-size:.62rem;letter-spacing:3px}
-            .corner-br{bottom:6.8rem;right:50%;transform:translateX(50%)}
             .corner-br a{width:38px;height:38px}
-            .footer-stack{bottom:1.1rem}
-            .links{max-width:100%;justify-content:center;flex-wrap:wrap;gap:.4rem;padding:0 .6rem}
-            .links a{padding:.45rem .8rem;font-size:.64rem;letter-spacing:2px}
-            .links a+a::before{display:none}
+            .links a{padding:.5rem 1.4rem .5rem .9rem;font-size:.82rem}
         }
     </style>
     <script type="application/ld+json">
