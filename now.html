@@ -66,7 +66,30 @@
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.item-head{grid-template-columns:2.2rem 1fr;grid-template-rows:auto auto}.item-head .item-badge{grid-column:2;justify-self:start;margin-top:.4rem}.item p{padding-left:0}}
         /* Ghost wordmark */
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
+        .site-foot a:hover{color:#fff;background:none}
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dhruvpradeep.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Now",
+      "item": "https://dhruvpradeep.in/now"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div class="top">
@@ -100,6 +123,16 @@
             <p>An AI storytelling and filmmaking platform where anyone can turn ideas into cinematic stories. I run marketing operations — campaigns, growth experiments, and everything that keeps the engine moving. I also lead <a href="https://www.youtube.com/@morphickids" target="_blank">MorphicKIDS</a>, our YouTube channel for kids' content, building it from scratch into something kids genuinely love. A ton of fun, and I learn something new every single day.</p>
         </div>
     </div>
+    <nav class="site-foot">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/now">Now</a>
+        <a href="/work">Work</a>
+        <a href="/words">Words</a>
+        <a href="/blog">Blog</a>
+        <a href="/manifesto">Manifesto</a>
+        <a href="/contact">Contact</a>
+    </nav>
     <div class="ghost">Dhruv</div>
 </body>
 </html>

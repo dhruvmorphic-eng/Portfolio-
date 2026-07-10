@@ -58,7 +58,30 @@
             .m-block p{font-size:1.2rem;line-height:1.85}
         }
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding-top:8rem}}
+        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
+        .site-foot a:hover{color:#fff;background:none}
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dhruvpradeep.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Manifesto",
+      "item": "https://dhruvpradeep.in/manifesto"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div class="top">
@@ -101,6 +124,16 @@
         </div>
     </div>
 
+    <nav class="site-foot">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/now">Now</a>
+        <a href="/work">Work</a>
+        <a href="/words">Words</a>
+        <a href="/blog">Blog</a>
+        <a href="/manifesto">Manifesto</a>
+        <a href="/contact">Contact</a>
+    </nav>
     <div class="ghost">Dhruv</div>
 
     <script>

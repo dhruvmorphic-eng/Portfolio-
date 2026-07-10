@@ -53,7 +53,36 @@
         .lede{font-size:1.25rem;color:rgba(255,255,255,.85);font-weight:500}
         .outro{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:rgba(255,255,255,.42);font-style:normal;letter-spacing:.5px;margin-top:3.5rem;border-top:1px solid rgba(255,255,255,.1);padding-top:2rem}
         @media(min-width:1024px){.wrap{max-width:860px}article p{font-size:1.16rem;line-height:1.95}article h2{font-size:1.6rem}h1{letter-spacing:-1.5px}}
+        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
+        .site-foot a:hover{color:#fff;background:none}
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dhruvpradeep.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://dhruvpradeep.in/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "They're Coming for Your First One",
+      "item": "https://dhruvpradeep.in/blog/first-job"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div class="top">
@@ -119,6 +148,16 @@
         </article>
     </div>
 
+    <nav class="site-foot">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/now">Now</a>
+        <a href="/work">Work</a>
+        <a href="/words">Words</a>
+        <a href="/blog">Blog</a>
+        <a href="/manifesto">Manifesto</a>
+        <a href="/contact">Contact</a>
+    </nav>
     <div class="ghost">Dhruv</div>
 </body>
 </html>
