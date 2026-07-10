@@ -1,3 +1,16 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.dhruvpradeep.in"
+        }
+      ],
+      "destination": "https://dhruvpradeep.in/blog",
+      "permanent": true
+    }
+  ]
 }
