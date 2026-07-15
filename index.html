@@ -33,23 +33,6 @@
         .corner-tl span{color:rgba(255,255,255,.35)}
         .corner-tr{top:2rem;right:2.5rem;display:flex;align-items:center;gap:.7rem}
         .corner-tr .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
-        /* Now playing (Spotify) */
-        .corner-np{top:2rem;left:2.5rem;display:none;align-items:center;gap:.7rem;text-decoration:none;border:none;transition:transform .3s}
-        .corner-np:hover{transform:translateY(-1px)}
-        .np-art{width:38px;height:38px;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.55);background:#1a1a1a}
-        .np-art img{width:100%;height:100%;object-fit:cover;display:block}
-        .np-info{min-width:0;text-align:left}
-        .np-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;justify-content:flex-start;gap:.4rem;margin-bottom:.22rem}
-        .np-eq{display:inline-flex;align-items:flex-end;gap:1.5px;height:8px}
-        .np-eq i{width:2px;background:#1DB954;transform-origin:bottom;animation:eq .9s ease-in-out infinite}
-        .np-eq i:nth-child(1){height:40%;animation-delay:0s}
-        .np-eq i:nth-child(2){height:100%;animation-delay:.25s}
-        .np-eq i:nth-child(3){height:65%;animation-delay:.5s}
-        @keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
-        .np-paused .np-eq i{animation-play-state:paused;background:rgba(255,255,255,.4);transform:scaleY(.5)}
-        .np-title{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.92);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;transition:color .3s}
-        .corner-np:hover .np-title{color:#1DB954}
-        .np-artist{font-size:.64rem;color:rgba(255,255,255,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;margin-top:.1rem}
         .corner-tl2{top:2rem;left:2.5rem;line-height:1.9;max-width:300px}
         .corner-tl2 .label{color:rgba(255,255,255,.3);font-size:.6rem;display:flex;align-items:center;gap:.45rem}
         .corner-tl2 .label .new-dot{width:6px;height:6px;background:#facc15;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(250,204,21,.8)}
@@ -103,7 +86,6 @@
         @media(max-width:1200px){
             .corner-bl{display:none}
             .corner-tl2{display:none}
-            .corner-np{display:none !important}
             .content{transform:translateY(-10vh)}
             .name{font-size:clamp(1.9rem,8vw,5rem);letter-spacing:-1.5px}
             .corner-br{bottom:12.5rem;right:50%;transform:translateX(50%)}
@@ -161,19 +143,15 @@
     </script>
 </head>
 <body>
+    <div class="corner corner-tl2 anim-3">
+        <div class="label"><span class="new-dot"></span>Latest</div>
+        <a href="blog/twelve-percent.html">88% of AI money went to America &rarr;</a>
+    </div>
+
     <div class="corner corner-tr anim-3">
         <span class="dot"></span>
         <span id="clock">BLR --:--</span>
     </div>
-
-    <a class="corner corner-np anim-3" id="np" href="#" target="_blank" rel="noopener">
-        <div class="np-art"><img id="npArt" src="" alt="album art"></div>
-        <div class="np-info">
-            <div class="np-label"><span class="np-eq"><i></i><i></i><i></i></span><span id="npState">Now Playing</span></div>
-            <div class="np-title" id="npTitle"></div>
-            <div class="np-artist" id="npArtist"></div>
-        </div>
-    </a>
 
     <div class="content">
         <h1 class="name anim-1">Dhruv Pradeep</h1>
@@ -241,27 +219,6 @@
             document.getElementById('clock').textContent = 'BLR ' + t + ' IST';
         }
         tick(); setInterval(tick, 30000);
-
-        // now playing (Spotify)
-        async function updateNP(){
-            try{
-                const r = await fetch('/api/now-playing');
-                if(!r.ok) return;
-                const d = await r.json();
-                const el = document.getElementById('np');
-                if(!d || !d.title){ el.style.display='none'; return; }
-                document.getElementById('npArt').src = d.albumArt || '';
-                document.getElementById('npTitle').textContent = d.title;
-                document.getElementById('npArtist').textContent = d.artist;
-                document.getElementById('npState').textContent = d.isPlaying ? "Dhruv's listening to" : "Dhruv last played";
-                el.href = d.url || '#';
-                el.classList.toggle('np-paused', !d.isPlaying);
-                el.style.display = 'flex';
-            }catch(e){}
-        }
-        updateNP();
-        setInterval(updateNP, 30000);
-
 
         // Starfield warp — drifting through space, cursor steers the view
         const cv = document.getElementById('physics');
