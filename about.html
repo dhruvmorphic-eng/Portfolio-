@@ -77,20 +77,22 @@
         /* Ghost wordmark */
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Archivo',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
         /* Now playing (Spotify) */
-        .np-about{display:flex;align-items:center;gap:1rem;margin-top:3rem;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.02);text-decoration:none;max-width:380px;transition:all .3s}
-        .np-about:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.04);transform:translateY(-2px)}
-        .np-about img{width:54px;height:54px;border-radius:10px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.5)}
+        .np-about{display:inline-flex;align-items:center;gap:1.1rem;margin:2.6rem 0 .5rem;padding:1.1rem 1.5rem 1.1rem 1.1rem;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.025);text-decoration:none;min-width:340px;max-width:420px;transition:all .35s}
+        .np-about:hover{border-color:rgba(29,185,84,.45);background:rgba(255,255,255,.05);transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,.45)}
+        .np-about img{width:60px;height:60px;border-radius:12px;object-fit:cover;flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,.55)}
         .npa-info{min-width:0}
-        .npa-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.45rem;margin-bottom:.4rem}
+        .npa-label{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2.5px;text-transform:uppercase;color:#1DB954;display:flex;align-items:center;gap:.5rem;margin-bottom:.45rem}
         .npa-eq{display:inline-flex;align-items:flex-end;gap:2px;height:9px}
         .npa-eq i{width:2px;background:#1DB954;transform-origin:bottom;animation:eqa .9s ease-in-out infinite}
         .npa-eq i:nth-child(1){height:40%;animation-delay:0s}
         .npa-eq i:nth-child(2){height:100%;animation-delay:.25s}
         .npa-eq i:nth-child(3){height:65%;animation-delay:.5s}
         @keyframes eqa{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
-        .np-about.paused .npa-eq i{animation-play-state:paused;background:rgba(255,255,255,.4);transform:scaleY(.5)}
-        .npa-title{font-size:1rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-        .npa-artist{font-size:.82rem;color:rgba(255,255,255,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.15rem}
+        .np-about.paused .npa-eq i{animation-play-state:paused;background:rgba(255,255,255,.35);transform:scaleY(.5)}
+        .np-about.paused .npa-label{color:rgba(255,255,255,.4)}
+        .npa-title{font-size:1.1rem;font-weight:700;letter-spacing:-.2px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+        .np-about:hover .npa-title{color:#1DB954}
+        .npa-artist{font-size:.85rem;color:rgba(255,255,255,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.18rem}
 
         .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
         .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
