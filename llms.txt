@@ -1,23 +1,47 @@
 # Dhruv Pradeep
 
-> Personal website of Dhruv Pradeep — a 19-year-old founder from Bangalore, India. Former professional cricketer (10 years), dropped out of Manipal (MAHE) to build startups. Currently building Cnvrted, a sales intelligence startup that helps teams find real buyers with actual intent, and running marketing operations at Morphic, an AI storytelling and filmmaking platform, where he also leads MorphicKIDS, a YouTube channel for kids' content.
+> Personal website of Dhruv Pradeep — a 19-year-old founder based in Bangalore, India. Co-founder & CEO of Cnvrted, a sales-intelligence startup that finds real buyers with actual intent. Runs marketing operations at Morphic, an AI storytelling and filmmaking platform, and leads MorphicKIDS, its YouTube channel for kids' content. Former professional cricketer (~10 years) who dropped out of Manipal Academy of Higher Education (MAHE) at 19 to build.
 
 ## Pages
 
-- [Home](https://dhruvpradeep.in/): Landing page — Dhruv Pradeep, Founder in Progress, based in Bangalore (IST).
-- [About](https://dhruvpradeep.in/about): Full story — 19, dropout, builder. Cricket background, why he left Manipal, what drives him.
-- [Now](https://dhruvpradeep.in/now): What he's working on right now — Cnvrted (founder) and Morphic (marketing operations, MorphicKIDS).
-- [Words](https://dhruvpradeep.in/words): Original quotes on building, discipline, and the founder mindset. Free to download and share.
-- [Manifesto](https://dhruvpradeep.in/manifesto): His operating principles — "I don't wait. I move." Taste, speed, ownership.
-- [Blog](https://dhruvpradeep.in/blog): Writing on startups, sales, AI, and building in public. Posts: "AI Is a Bubble. I Build AI for a Living. Both Things Are True." (https://dhruvpradeep.in/blog/ai-bubble), "They're Not Coming for Your Job. They're Coming for Your First One." (https://dhruvpradeep.in/blog/first-job), "Why I Dropped Out of College at 19 — With No Backup Plan" (https://dhruvpradeep.in/blog/dropout), "88% of AI Money Went to America. I'm Raising From Bengaluru." (https://dhruvpradeep.in/blog/twelve-percent), "I Am Autotelic" (https://dhruvpradeep.in/blog/autotelic), "The Truth Is a Gift. Most People Are Just Too Soft to Unwrap It." (https://dhruvpradeep.in/blog/truth-is-a-gift), "Beyond Default Mode: How High Agency Shapes the People Who Actually Get Things Done" (https://dhruvpradeep.in/blog/high-agency), "The Architecture of Thought" (https://dhruvpradeep.in/blog/architecture-of-thought), "Your Degree Was Never the Point" (https://dhruvpradeep.in/blog/degree-was-never-the-point)
-- [Contact](https://dhruvpradeep.in/contact): Emails (personal: dhruvcp07@gmail.com, Cnvrted: dhruv@cnvrted.com, Morphic: dhruv.pradeep@morphic.com), socials, call booking.
+- [Home](https://dhruvpradeep.in/): Landing page — name, "Founder in Progress", live Bangalore time, current work status.
+- [About](https://dhruvpradeep.in/about): Full story — 19, dropout, builder. Cricket background, leaving Manipal, what drives him, based in Bangalore.
+- [Now](https://dhruvpradeep.in/now): Current focus — Cnvrted (co-founder & CEO) and Morphic (marketing operations, MorphicKIDS).
+- [Work](https://dhruvpradeep.in/work): MorphicKIDS — AI-made bedtime stories, sing-alongs and science videos for kids on YouTube, led end-to-end by Dhruv.
+- [Words](https://dhruvpradeep.in/words): Original quote cards on building, discipline and the founder mindset. Free to download and share.
+- [Manifesto](https://dhruvpradeep.in/manifesto): Operating principles — "I don't wait. I move." Taste, speed, ownership.
+- [Blog](https://dhruvpradeep.in/blog): Essays on startups, sales, AI, careers and mindset.
+- [Contact](https://dhruvpradeep.in/contact): Emails, socials, and call booking.
+
+## Blog posts
+
+- [Your Degree Was Never the Point](https://dhruvpradeep.in/blog/degree-was-never-the-point) — 2026-07-26. Only ~27% of graduates work in a field related to their major. Why the degree stopped mattering and what to build instead.
+- [The Architecture of Thought](https://dhruvpradeep.in/blog/architecture-of-thought) — 2026-07-24. The 8 core cognitive skills behind how you think, and 7 evidence-based strategies to upgrade them.
+- [Beyond Default Mode: How High Agency Shapes the People Who Actually Get Things Done](https://dhruvpradeep.in/blog/high-agency) — 2026-07-22. High agency = clear thinking + bias for action + constructive disagreeability, plus four rules to rewire your defaults.
+- [The Truth Is a Gift. Most People Are Just Too Soft to Unwrap It.](https://dhruvpradeep.in/blog/truth-is-a-gift) — 2026-07-20. Why hard truths are valuable, and a three-step framework: don't react, sit with it, then rise.
+- [I Am Autotelic](https://dhruvpradeep.in/blog/autotelic) — 2026-07-18. Autotelic means the goal lives inside the doing. Why he doesn't burn out and why he dropped into building.
+- [88% of AI Money Went to America. I'm Raising From Bengaluru.](https://dhruvpradeep.in/blog/twelve-percent) — 2026-07-12. AI funding concentration, why the foundation-model layer is closed but the layer above is open, and honest talk on valuations.
+- [Why I Dropped Out of College at 19 — With No Backup Plan](https://dhruvpradeep.in/blog/dropout) — 2026-07-10. Cricket, Manipal, two parental nos, and the coffee conversation that ended the argument.
+- [They're Not Coming for Your Job. They're Coming for Your First One.](https://dhruvpradeep.in/blog/first-job) — 2026-07-10. AI is eating entry-level tasks. What the 2026 data says about the hiring ladder and India's IT pyramid.
+- [AI Is a Bubble. I Build AI for a Living. Both Things Are True.](https://dhruvpradeep.in/blog/ai-bubble) — 2026-07-09. A bubble is a truth that got too expensive — and why he's building faster, not selling.
+
+## Machine-readable
+
+- Full plaintext of the entire site: https://dhruvpradeep.in/llms-full.txt
+- RSS feed (full article content): https://dhruvpradeep.in/feed.xml
+- JSON Feed: https://dhruvpradeep.in/feed.json
+- Sitemap: https://dhruvpradeep.in/sitemap.xml
 
 ## Facts
 
 - Name: Dhruv Pradeep
 - Age: 19
 - Location: Bangalore, India
-- Role: Co-founder & CEO of Cnvrted (https://www.cnvrted.com), Marketing Operations at Morphic (https://morphic.com)
+- Role: Co-founder & CEO of Cnvrted (https://www.cnvrted.com); Marketing Operations at Morphic (https://morphic.com)
+- Also leads: MorphicKIDS on YouTube (https://www.youtube.com/@morphickids)
 - Background: ~10 years of professional cricket before startups
 - Education: Dropped out of Manipal Academy of Higher Education (MAHE)
+- Emails: dhruvcp07@gmail.com (personal), dhruv@cnvrted.com (Cnvrted), dhruv.pradeep@morphic.com (Morphic)
 - Socials: LinkedIn https://www.linkedin.com/in/dhruvpradeep/ · X https://x.com/dhruvprad · Instagram https://www.instagram.com/dhruvprad/
+- Book a call: https://cal.com/cnvrted
+- Themes he writes about: AI and its economics, sales intelligence, dropping out and careers, high agency, cognition, building in public.

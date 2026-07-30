@@ -30,3 +30,9 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://dhruvpradeep.in/sitemap.xml
+
+# Machine-readable content for LLMs and answer engines
+# https://dhruvpradeep.in/llms.txt
+# https://dhruvpradeep.in/llms-full.txt
+# https://dhruvpradeep.in/feed.xml
+# https://dhruvpradeep.in/feed.json
