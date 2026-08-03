@@ -15,6 +15,7 @@
 
 ## Blog posts
 
+- [The Anatomy of Misdirected Desire](https://dhruvpradeep.in/blog/misdirected-desire) — 2026-07-28. Why people can't tell what they actually want: mimetic desire (Girard), self-concordance (Sheldon & Elliot), and affective forecasting errors — plus a diagnostic audit to reclaim goal ownership.
 - [Your Degree Was Never the Point](https://dhruvpradeep.in/blog/degree-was-never-the-point) — 2026-07-26. Only ~27% of graduates work in a field related to their major. Why the degree stopped mattering and what to build instead.
 - [The Architecture of Thought](https://dhruvpradeep.in/blog/architecture-of-thought) — 2026-07-24. The 8 core cognitive skills behind how you think, and 7 evidence-based strategies to upgrade them.
 - [Beyond Default Mode: How High Agency Shapes the People Who Actually Get Things Done](https://dhruvpradeep.in/blog/high-agency) — 2026-07-22. High agency = clear thinking + bias for action + constructive disagreeability, plus four rules to rewire your defaults.

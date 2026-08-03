@@ -8,8 +8,166 @@
     <language>en</language>
     <managingEditor>dhruvcp07@gmail.com (Dhruv Pradeep)</managingEditor>
     <webMaster>dhruvcp07@gmail.com (Dhruv Pradeep)</webMaster>
-    <lastBuildDate>Sun, 26 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 09:00:00 +0000</lastBuildDate>
     <image><url>https://dhruvpradeep.in/og.png</url><title>Dhruv Pradeep — Blog</title><link>https://dhruvpradeep.in/blog</link></image>
+    <item>
+      <title>The Anatomy of Misdirected Desire</title>
+      <link>https://dhruvpradeep.in/blog/misdirected-desire</link>
+      <guid isPermaLink="true">https://dhruvpradeep.in/blog/misdirected-desire</guid>
+      <pubDate>Tue, 28 Jul 2026 09:00:00 +0000</pubDate>
+      <dc:creator><![CDATA[Dhruv Pradeep]]></dc:creator>
+      <category>Mindset</category>
+      <description><![CDATA[Why people can't tell what they actually want. Mimetic desire, self-concordance, and affective forecasting — how goals get borrowed, and how to take them back.]]></description>
+      <content:encoded><![CDATA[<p class="lede">A behavioral and psychological analysis of goal ownership and mimetic choice — why so many people spend decades chasing things they never actually wanted.</p>
+
+            <p>The phenomenon of individuals failing to identify what they truly want in life represents a foundational challenge within contemporary behavioral science, cognitive psychology, and social philosophy. While modern industrial societies offer an unprecedented expansion of personal autonomy and consumer choice, self-reported metrics of purpose, fulfillment, and long-term life satisfaction frequently stagnate or decline.</p>
+
+            <p>This paradox suggests that the primary obstacle to self-directed fulfillment is not a lack of opportunity, but an underlying epistemic deficit regarding authentic goal selection. Individuals routinely pursue trajectories that fail to generate lasting well-being, raising critical questions about how personal preferences are constructed, internalised, and evaluated.</p>
+
+            <p>An investigation into this intentionality crisis reveals that <strong>human desire is rarely generated in an isolated vacuum.</strong> Instead, goal selection operates at the dynamic intersection of two primary mechanisms: the social transmission of desire via imitative frameworks, and the psychological misregulation of internal motivation.</p>
+
+            <p>By synthesizing Ren&eacute; Girard&rsquo;s theory of Mimetic Desire, Kennon Sheldon and Andrew Elliot&rsquo;s Self-Concordance Model, and Daniel Gilbert&rsquo;s research on Affective Forecasting, this piece analyses why individuals struggle to discern authentic ambition from socially mediated imperatives — and outlines the structural pathways necessary to reclaim psychological goal ownership.</p>
+
+            <hr>
+            <h2>The social architecture of wanting</h2>
+
+            <p>A foundational misconception in classical economic and psychological models of decision-making is the assumption that human agents possess autonomous, internally generated preferences. Anthropological and philosophical scholarship — most notably the mimetic theory developed by Ren&eacute; Girard — demonstrates that <strong>human desire is inherently relational and imitative.</strong></p>
+
+            <p>Rather than moving directly from the subject to an object based on intrinsic utility, desire requires a mediator: a model whose valuation of the object signals its desirability to the subject.</p>
+
+            <p>In this triangular structure, the subject does not desire the object for its inherent properties; the subject desires the object <em>because the model desires it.</em> The model serves as an existential exemplar, promising a sense of completeness, status, or identity that the subject feels they lack. Consequently, what individuals perceive as deeply personal ambition is frequently an unacknowledged copy of another agent&rsquo;s preference.</p>
+
+            <p>Girard distinguishes between two operational modes of mediation:</p>
+
+            <ul>
+                <li><b>External mediation</b> occurs when the mediator is distant from the subject — geographically, socially, or historically — preventing direct contact or rivalry. The subject imitates the mediator&rsquo;s choices without entering into personal competition, allowing the model to serve as an idealized benchmark.</li>
+                <li><b>Internal mediation</b> occurs when the mediator exists within the subject&rsquo;s immediate social sphere: peers, colleagues, family. Here the distance between subject and model collapses, converting the model into a direct rival. Because both agents compete for identical status markers within the same domain, internal mediation inevitably generates friction, envy, and social escalation.</li>
+            </ul>
+
+            <p>Modern digital ecosystems, particularly social media platforms, <strong>hyper-accelerate internal mediation by collapsing social distance.</strong> By constantly exposing individuals to the curated lifestyle choices and achievements of near-peers, these platforms present an endless array of mediators — immersing users in perpetual mimetic competition and severely distorting their perception of personal priorities.</p>
+
+            <h2>Thin desires versus thick desires</h2>
+
+            <p>Building upon Girardian mimesis, contemporary motivational analysis categorizes personal ambitions along a spectrum of authenticity, contrasting <em>thin</em> desires with <em>thick</em> desires.</p>
+
+            <p><strong>Thin desires</strong> represent preferences adopted rapidly from external models without critical reflection or integration into the individual&rsquo;s broader identity. They are volatile, highly reactive to social environments, and driven by the implicit promise of immediate social validation. Because thin desires do not originate from deep personal values, attaining them yields negligible psychological satisfaction — often leaving the agent with a sense of emptiness.</p>
+
+            <p><strong>Thick desires</strong> are enduring commitments rooted in an individual&rsquo;s personal history, core values, and authentic interests. They exhibit remarkable resilience against social pressure and environmental fluctuation, reflecting long-term identity development and generating sustained well-being when fulfilled.</p>
+
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Attribute</th><th>Thin desires</th><th>Thick desires</th></tr></thead>
+                <tbody>
+                    <tr><td>Primary origin</td><td>External social models, peer groups, algorithmic exposure</td><td>Core values, personal narrative, reflective integration</td></tr>
+                    <tr><td>Stability over time</td><td>Highly volatile; shifts rapidly with social context</td><td>Durable; persists across changing environments</td></tr>
+                    <tr><td>Motivational locus</td><td>Controlled motivation (introjected / external regulation)</td><td>Autonomous motivation (identified / intrinsic regulation)</td></tr>
+                    <tr><td>Post-attainment outcome</td><td>Fleeting relief, disillusionment, hollow victory</td><td>Sustained psychological satisfaction and growth</td></tr>
+                    <tr><td>Susceptibility to rivalry</td><td>High; tied to zero-sum status competition</td><td>Low; grounded in fulfillment rather than status</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <p>The systemic inability to distinguish between thin and thick desires accounts for much of the directional confusion experienced in adulthood. Individuals frequently dedicate years to pursuing thin desires — specific corporate titles, prestige metrics, lifestyle symbols — <strong>only to discover upon achievement that the reward fails to satisfy their underlying psychological needs.</strong></p>
+
+            <hr>
+            <h2>The internalized trap: introjection and the &ldquo;should&rdquo; imperative</h2>
+
+            <p>While mimetic theory explains the social vectors through which external goals are transmitted, self-determination theory explains how these goals are processed within the psyche. Kennon Sheldon and Andrew Elliot developed the <strong>Self-Concordance Model</strong> to evaluate the degree to which personal goals express authentic interests and integrated values rather than external pressures.</p>
+
+            <p>The model classifies goal pursuit across four motivational regulations, positioned along a continuum from controlled to autonomous:</p>
+
+            <ol>
+                <li><b>External regulation.</b> The goal is pursued purely to achieve tangible external rewards or avoid punishment — the most controlled form of motivation.</li>
+                <li><b>Introjected regulation.</b> The goal is driven by internalized pressures such as avoiding guilt, anxiety, or maintaining ego-defensive self-esteem. The goal resides within the person, but remains unintegrated with the core self.</li>
+                <li><b>Identified regulation.</b> The goal is consciously valued as personally important, even if the underlying tasks are not inherently enjoyable.</li>
+                <li><b>Intrinsic motivation.</b> The goal is pursued because the activity itself is interesting and engaging — pure autonomous regulation.</li>
+            </ol>
+
+            <p>The Self-Concordance Index is quantified by assessing the relative strength of autonomous reasons over controlled reasons across a set of personal goals:</p>
+
+            <div class="formula">
+                SC = (M<sub>intrinsic</sub> + M<sub>identified</sub>) &minus; (M<sub>introjected</sub> + M<sub>external</sub>)
+                <span class="fnote">Where M is the self-reported rating of each motivational dimension</span>
+            </div>
+
+            <p>High self-concordance scores (SC &gt; 0) indicate genuine goal ownership. Negative scores indicate that an individual&rsquo;s goal structure is dominated by external obligations and introjected compulsions.</p>
+
+            <h2>The tyranny of &ldquo;should&rdquo; and the hollow victory</h2>
+
+            <p>A critical linguistic and psychological signpost of low self-concordance is the systemic reliance on the word <strong>&ldquo;should&rdquo;</strong>. When individuals conceptualize their aspirations in terms of what they <em>should</em> do — rather than what they genuinely want or value — they reveal the dominance of introjected regulation. The &ldquo;should&rdquo; imperative reflects an internalized proxy for external expectations, forcing the individual into an ego-defensive posture where failure threatens basic self-worth.</p>
+
+            <p>This dynamic culminates in what behavioral scientists term the <strong>hollow victory phenomenon.</strong> The causal chain begins when an individual selects a goal based on introjected or external pressures. Through intense effort and raw willpower, they attain it. But because the goal was not self-concordant, its achievement fails to satisfy the three basic psychological needs central to well-being: <em>autonomy</em> (volition over one&rsquo;s life), <em>competence</em> (feeling effective), and <em>relatedness</em> (meaningful connection).</p>
+
+            <p>Consequently, the individual experiences an abrupt sense of cognitive dissonance upon reaching major milestones — asking <em>&ldquo;now what?&rdquo;</em> because the anticipated emotional payoff never materializes.</p>
+
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Motivational type</th><th>Primary emotional driver</th><th>Need satisfaction</th><th>Long-term well-being</th></tr></thead>
+                <tbody>
+                    <tr><td>External</td><td>Fear of punishment / desire for reward</td><td>Low</td><td>Neutral to negative</td></tr>
+                    <tr><td>Introjected</td><td>Guilt, shame, ego-preservation (&ldquo;should&rdquo;)</td><td>Minimal / blocked</td><td>Negative — anxiety, burnout</td></tr>
+                    <tr><td>Identified</td><td>Conscious conviction, value alignment</td><td>Moderate to high</td><td>Positive — durable satisfaction</td></tr>
+                    <tr><td>Intrinsic</td><td>Natural curiosity, spontaneous enjoyment</td><td>High</td><td>Very positive — upward spiral</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <hr>
+            <h2>Cognitive miscalculations: affective forecasting</h2>
+
+            <p>The challenge of self-knowledge is further compounded by systemic biases in how humans project their future emotional states. Even when individuals attempt to choose goals independent of immediate social pressure, their capacity to anticipate what will actually make them happy is structurally limited by errors in <strong>affective forecasting</strong> — a domain extensively investigated by Daniel Gilbert and Tim Wilson.</p>
+
+            <p>These errors operate through three primary distortions:</p>
+
+            <ol>
+                <li><b>Impact bias.</b> The systematic tendency to overestimate both the intensity and duration of future emotional reactions. Individuals mistakenly believe that achieving a desired goal — a promotion, wealth — will permanently alter their baseline happiness.</li>
+                <li><b>Focalism.</b> The tendency to focus exclusively on the target event being imagined, while ignoring the complex array of routine activities, daily hassles, and secondary stressors that will continue to shape future emotional states.</li>
+                <li><b>Immune neglect.</b> The failure to anticipate the mind&rsquo;s capacity for hedonic adaptation. The psychological immune system rapidly normalizes positive outcomes, converting newly acquired circumstances into a taken-for-granted baseline and eroding the anticipated affective gain.</li>
+            </ol>
+
+            <p>These cognitive errors work synergistically with mimetic desire. An individual perceives a social model enjoying an object or status; assumes through impact bias that acquiring it will produce enduring joy; hyper-focuses on the target while ignoring the daily friction required to maintain it; and ultimately experiences hedonic adaptation upon attainment. <strong>This cycle locks the individual into a repeating loop of misdirected effort.</strong></p>
+
+            <hr>
+            <h2>Second- and third-order implications</h2>
+
+            <p>At the individual level, sustained commitment to non-concordant goals depletes executive function and self-regulatory resources. Because controlled motivation relies on effortful self-control rather than autonomous energy, agents operating under high introjection experience chronic cognitive fatigue and elevated psychological stress. Over time this generates <strong>ego-depletion and chronic burnout</strong> — consuming immense self-regulatory energy without yielding psychological renewal.</p>
+
+            <p>Prolonged suppression of authentic preferences in favour of imitative status markers causes <strong>mimetic anhedonia.</strong> Individuals gradually lose interoceptive awareness of their genuine interests, rendering them incapable of registering spontaneous pleasure or curiosity. This manifests mid-career as severe identity crises — occurring when individuals achieve long-sought metrics mandated by internal mediation, only to realize that their entire trajectory was built around preferences that were never their own.</p>
+
+            <p>At the institutional level, widespread mimetic desire generates zero-sum dynamics that distort labor markets. When large populations operate under identical mimetic models, societal talent concentrates unnaturally within a narrow band of high-prestige industries regardless of structural need or individual suitability. Concurrently, as internal mediation escalates within organizations, colleagues view one another primarily as rivals competing for identical thin rewards — eroding relational trust, diminishing psychological safety, and replacing collaborative innovation with defensive status preservation.</p>
+
+            <hr>
+            <h2>Reclaiming goal ownership: the diagnostic audit</h2>
+
+            <p>To establish true goal ownership, individuals must subject their ambitions to structured diagnostic evaluation — separating thin, mimetic preferences from thick, autonomous commitments.</p>
+
+            <ol>
+                <li><b>Origin traceability audit.</b> Identify the specific historical context or social model from which a candidate goal emerged. Asking <em>&ldquo;whose life was I observing when I first decided I wanted this?&rdquo;</em> disrupts subconscious mimesis by bringing the mediator into conscious awareness.</li>
+                <li><b>Counterfactual public-visibility test.</b> Evaluate whether the goal would retain its appeal if stripped of all public visibility and social recognition. If its subjective value drops to zero without an audience, it is driven by external or introjected regulation.</li>
+                <li><b>Value alignment test.</b> Evaluate the goal against long-term personal history and core values. Thick desires demonstrate deep continuity with an agent&rsquo;s narrative; thin desires appear as abrupt disruptions driven by recent social exposure.</li>
+                <li><b>Process vs. outcome friction assessment.</b> Analyse whether you value the daily operational activities the goal requires, or merely the abstract status of completion. High self-concordance requires that the process itself provides engagement or identified meaning.</li>
+            </ol>
+
+            <h2>Operationalizing self-concordance</h2>
+
+            <p>To shift motivation from controlled to autonomous regulation, both individual practice and environment must incorporate structural safeguards:</p>
+
+            <ul>
+                <li><b>Model distancing and environmental design.</b> Deliberately creating spatial and digital distance from toxic mimetic models reduces the constant reinforcement of thin desires. Limiting exposure to status-driven platforms resets baseline perception and creates space for authentic interests to surface.</li>
+                <li><b>Explicit value hierarchy mapping.</b> Establishing a prioritized ranking of core personal values provides a structural buffer against external mimesis. When forced to choose between competing pursuits, decisions are arbitrated by explicit hierarchies rather than immediate social pressure.</li>
+                <li><b>Cultivation of unstructured silence.</b> Extended periods of solitude devoid of digital stimulation or social monitoring allow low-level internal feedback mechanisms to re-emerge, disrupting the continuous loops of internal mediation.</li>
+                <li><b>Linguistic reframing.</b> Systematically replacing <em>&ldquo;I should&rdquo;</em> with <em>&ldquo;I choose to&rdquo;</em> or <em>&ldquo;I value&rdquo;</em> forces cognitive reassessment. If an ambition cannot be reframed in terms of authentic choice, it must be flagged for elimination or realignment.</li>
+            </ul>
+
+            <hr>
+            <h2>The path to autonomous goal selection</h2>
+
+            <p>The widespread inability to discern genuine personal desires is not an intractable flaw of human nature, but a predictable consequence of unexamined social imitation and misregulated internal motivation. When individuals operate without awareness of mimetic dynamics, they default to copying the ambitions of surrounding models — pursuing thin desires that promise fulfillment but deliver hollow victories.</p>
+
+            <p>This structural failure is reinforced by the cognitive biases of affective forecasting and the internalized pressure of introjected mandates, binding agents to life trajectories that fail to satisfy fundamental psychological needs.</p>
+
+            <p>Reclaiming direction requires a deliberate transition from controlled to autonomous intentionality. By deploying diagnostic tools to audit the origins of desire, mapping explicit value hierarchies, and establishing boundaries against external mimesis, individuals can systematically filter out introjected expectations. <strong>The realization of authentic intentionality lies in aligning personal striving with self-concordant values</strong> — moving away from imitative compliance and toward goals that are genuinely owned, deeply valued, and intrinsically fulfilling.</p>]]></content:encoded>
+    </item>
     <item>
       <title>Your Degree Was Never the Point</title>
       <link>https://dhruvpradeep.in/blog/degree-was-never-the-point</link>
