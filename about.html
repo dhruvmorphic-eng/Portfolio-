@@ -99,6 +99,16 @@
         .np-about:hover .npa-title{color:#1DB954}
         .npa-artist{font-size:.85rem;color:rgba(255,255,255,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.18rem}
 
+        /* secret door */
+        .secret{display:flex;justify-content:flex-end;margin-top:2.5rem;position:relative;z-index:3}
+        .secret a{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .2rem;text-decoration:none;border:none;
+                  font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;
+                  color:rgba(255,255,255,.14);transition:color .45s ease}
+        .secret a:hover{color:rgba(255,255,255,.75)}
+        .secret .sec-label{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .45s ease,opacity .35s ease}
+        .secret a:hover .sec-label{max-width:130px;opacity:1}
+        .secret .sec-arrow{font-size:.95rem;line-height:1;transition:transform .45s ease}
+        .secret a:hover .sec-arrow{transform:translate(2px,-2px)}
         .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
         .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
         .site-foot a:hover{color:#fff;background:none}
@@ -343,6 +353,10 @@
                 <circle class="loc-pulse" cx="196.9" cy="660.4" r="14"/>
                 <rect class="loc-dot" x="189.9" y="653.4" width="14" height="14" rx="3.5"/>
                 </svg>
+        </div>
+
+        <div class="secret">
+            <a href="/music" aria-label="Something else"><span class="sec-label">the aux</span><span class="sec-arrow">&#8599;</span></a>
         </div>
     </div>
     <nav class="site-foot">
