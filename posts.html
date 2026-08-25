@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts — Dhruv Pradeep</title>
+    <link rel="canonical" href="https://dhruvpradeep.in/posts">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="alternate" type="application/rss+xml" title="Dhruv Pradeep — Blog" href="https://dhruvpradeep.in/feed.xml">
+    <link rel="alternate" type="application/feed+json" title="Dhruv Pradeep — Blog" href="https://dhruvpradeep.in/feed.json">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Posts by Dhruv Pradeep, pulled from across LinkedIn, X, Substack, Bluesky, Product Hunt and Spotify.">
+    <meta property="og:title" content="Posts — Dhruv Pradeep">
+    <meta property="og:description" content="Posts by Dhruv Pradeep, pulled from across LinkedIn, X, Substack, Bluesky, Product Hunt and Spotify.">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png">
+    <meta property="og:url" content="https://dhruvpradeep.in/posts">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dhruvpradeep.in/og.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;color:#fff;font-family:'Poppins',sans-serif;line-height:1.6}
+        ::selection{background:#fff;color:#000}
+
+        .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+        .wrap{max-width:1100px;margin:0 auto;padding:8.5rem 2rem 6rem;position:relative;z-index:1}
+        h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;text-align:center;margin-bottom:.8rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.2rem;text-align:center}
+        .intro{max-width:620px;margin:0 auto 3.5rem;text-align:center;color:rgba(255,255,255,.55);font-size:1.02rem}
+
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.6rem;align-items:start}
+        .card{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.4rem 1.4rem 1.6rem;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:1rem}
+        .card-head{display:flex;align-items:center;gap:.6rem}
+        .card-icon{width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+        .card-icon svg{width:100%;height:100%}
+        .card-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+        .embed{display:flex;justify-content:center;width:100%;overflow:hidden;border-radius:10px}
+        .embed iframe{width:100% !important;border:none;display:block}
+        .embed blockquote{width:100%}
+        .embed .substack-post-embed{width:100%;color:rgba(255,255,255,.85);font-size:.95rem}
+        .embed .substack-post-embed p{margin:0 0 .6rem}
+        .embed .substack-post-embed a{color:#fff;border-bottom:1px solid rgba(255,255,255,.3);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1px;text-transform:uppercase}
+        .embed .substack-post-embed a:hover{border-color:#fff}
+
+        .card.full{grid-column:1/-1;max-width:640px;margin:0 auto;width:100%}
+
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        .r{opacity:0;animation:fadeUp .9s ease forwards .1s}
+        .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+        .rv.in{opacity:1;transform:translateY(0)}
+
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Poppins',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+
+        @media(max-width:560px){.top{padding:1.2rem 1.5rem}.wrap{padding-top:7rem}.grid{grid-template-columns:1fr}}
+        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
+        .site-foot a:hover{color:#fff;background:none}
+
+        /* ---- Display (Inter Bold) ---- */
+        h1,h2,h3,article h2,.name,.p-title,.p-num,.ghost,.m-open,.m-close .line,
+        .loc-city,.npa-title,.vid-title,.item-title,.fav-title,.substack-title,
+        .pn-title,.q,.card-label{font-family:'Inter',sans-serif}
+        h1,.name,.m-open,.m-close .line,.ghost{font-weight:800;letter-spacing:-.035em}
+        .p-num{font-weight:800;letter-spacing:-.02em}
+        article h2{font-weight:700;letter-spacing:-.025em}
+        .p-title,.vid-title,.item-title,.loc-city,.npa-title,.fav-title,
+        .substack-title,.pn-title{font-weight:700;letter-spacing:-.02em}
+        article .lede{font-family:'Inter',sans-serif;font-weight:500;font-style:italic;letter-spacing:-.01em}
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dhruvpradeep.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Posts",
+      "item": "https://dhruvpradeep.in/posts"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/">&larr; Home</a>
+        <span class="top-label">Posts</span>
+    </div>
+
+    <div class="wrap">
+        <h1 class="r">Scattered<br>across the web.</h1>
+        <div class="sub r">Elsewhere</div>
+        <p class="intro r">Things I've posted in different places, collected in one spot.</p>
+
+        <div class="grid">
+            <div class="card rv">
+                <div class="card-head">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                    </div>
+                    <span class="card-label">LinkedIn · Cnvrted</span>
+                </div>
+                <div class="embed">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7473867135640072193?collapsed=1" height="670" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+                </div>
+            </div>
+
+            <div class="card rv">
+                <div class="card-head">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82L5 21.75H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>
+                    </div>
+                    <span class="card-label">X · Morphic</span>
+                </div>
+                <div class="embed">
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Writing and making new Rhymes is my new skill 😝. <a href="https://x.com/morphic?ref_src=twsrc%5Etfw">@morphic</a> <br><br>YT link : <a href="https://t.co/SLpHlBlKl9">https://t.co/SLpHlBlKl9</a> <a href="https://t.co/ZFqKkd9fAN">pic.twitter.com/ZFqKkd9fAN</a></p>&mdash; Dhruv Pradeep (@dhruvprad) <a href="https://x.com/dhruvprad/status/2071965392516559286?ref_src=twsrc%5Etfw">June 30, 2026</a></blockquote>
+                </div>
+            </div>
+
+            <div class="card rv">
+                <div class="card-head">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="#FF6719"><rect width="24" height="24" rx="4"/><path fill="#000" d="M5.5 5h13v2.2h-13V5zm0 4.3h13v9.5l-6.5-4-6.5 4v-9.5z"/></svg>
+                    </div>
+                    <span class="card-label">Substack</span>
+                </div>
+                <div class="embed">
+                    <div class="substack-post-embed"><p lang="en">The Dunning-Kruger effect in one line: the less you know, the more certain you are. Expertise breeds humility. Ignorance breeds confidence.</p><p> - Dhruv Pradeep</p><a data-comment-link href="https://substack.com/@dhruvprad/note/c-314889173">Read on Substack</a></div>
+                </div>
+            </div>
+
+            <div class="card rv">
+                <div class="card-head">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="#0085FF"><path d="M12 10.8c-1.08-2.1-4.03-6.02-6.76-7.96C2.62.98 1.5 1.4 1.5 2.5c0 .22 0 3.5.02 5.7.06 5.05.31 7.53 2.6 9.94 1.63 1.7 3.83 2.63 6.36 2.63 1.13 0 2.16-.18 3.02-.53-1.05.62-2.32 1.06-3.94 1.06-2.28 0-4.16-.94-5.34-2.63.85 1.25 2.18 2.16 3.7 2.16 1.53 0 2.85-.9 3.7-2.16-1.18 1.69-3.06 2.63-5.34 2.63-1.62 0-2.89-.44-3.94-1.06.86.35 1.89.53 3.02.53 2.53 0 4.73-.93 6.36-2.63 2.29-2.41 2.54-4.89 2.6-9.94.02-2.2.02-5.48.02-5.7 0-1.1-1.12-1.52-3.74.34C16.03 4.78 13.08 8.7 12 10.8z"/></svg>
+                    </div>
+                    <span class="card-label">Bluesky</span>
+                </div>
+                <div class="embed">
+                    <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:4u7ja3nfclerilsan5k4zaos/app.bsky.feed.post/3msvnzup2pk2j" data-bluesky-cid="bafyreibdfyvq5j3kvrsv67nhprs4ftzkz6p74glql7n7qeiq5kewv4qbtm" data-bluesky-embed-color-mode="system"><p lang="en">A total solar eclipse, the perseid meteor shower, new moon and planetary parade today.
+
+The universe did a good job.</p>&mdash; Dhruv Pradeep (<a href="https://bsky.app/profile/did:plc:4u7ja3nfclerilsan5k4zaos?ref_src=embed">@dhruvprad.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:4u7ja3nfclerilsan5k4zaos/post/3msvnzup2pk2j?ref_src=embed">August 12, 2026 at 11:04 PM</a></blockquote>
+                </div>
+            </div>
+
+            <div class="card rv">
+                <div class="card-head">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="#DA552F"><path d="M12 24C5.4 24 0 18.6 0 12S5.4 0 12 0s12 5.4 12 12-5.4 12-12 12zm-.2-19h-5v14h3v-4.5h2c2.5 0 4.5-2 4.5-4.5S13.8 5 11.8 5zm.2 6.5h-2v-3.5h2c1 0 1.7.8 1.7 1.7 0 1-.7 1.8-1.7 1.8z"/></svg>
+                    </div>
+                    <span class="card-label">Product Hunt</span>
+                </div>
+                <div class="embed">
+                    <iframe style="border:none" src="https://cards.producthunt.com/cards/comments/5805258?v=1" height="405" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="card rv">
+                <div class="card-head">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="#1ED760"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .26c-2.8-1.7-6.3-2.1-10.4-1.15a.75.75 0 11-.34-1.46c4.5-1.03 8.3-.58 11.4 1.3a.75.75 0 01.34 1.05zm1.47-3.27a.94.94 0 01-1.29.32c-3.2-2-8.1-2.55-11.9-1.4a.94.94 0 11-.55-1.8c4.3-1.3 9.7-.7 13.4 1.6a.94.94 0 01.34 1.28zm.13-3.4C15.2 8.3 8.9 8.1 5.3 9.2a1.12 1.12 0 11-.65-2.15c4.2-1.28 11.1-1.03 15.5 1.6a1.12 1.12 0 01-1.15 1.93z"/></svg>
+                    </div>
+                    <span class="card-label">Spotify</span>
+                </div>
+                <div class="embed">
+                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6JeC3LNkHHSQUBkdA0TJ4q?utm_source=generator&si=d12d16c56c244441" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="site-foot">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/now">Now</a>
+        <a href="/words">Words</a>
+        <a href="/posts">Posts</a>
+        <a href="/blog">Blog</a>
+        <a href="/manifesto">Manifesto</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <div class="ghost">Dhruv</div>
+
+    <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+    <script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
+    <script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+    <script>
+        const rvEls = document.querySelectorAll('.rv');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: .1 });
+        rvEls.forEach(el => io.observe(el));
+    </script>
+</body>
+</html>
