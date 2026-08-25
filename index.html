@@ -45,7 +45,7 @@
         .corner-bl .label{color:rgba(255,255,255,.3);font-size:.6rem;display:flex;align-items:center;gap:.45rem}
         .corner-bl .label .live-dot{width:6px;height:6px;background:#3b82f6;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(59,130,246,.8)}
         .corner-bl .val{color:rgba(255,255,255,.75)}
-        .corner-br{bottom:4.9rem;right:2.5rem;display:flex;gap:1.1rem;align-items:center}
+        .corner-br{bottom:4.9rem;right:2.5rem;display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;justify-content:flex-end;max-width:230px}
         .corner-br a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;transition:all .3s;border:none}
         .corner-br a:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.5)}
         .corner-br a svg{width:16px;height:16px}
@@ -55,6 +55,14 @@
         .s-x svg{fill:#000}
         .s-ig{background:radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)}
         .s-ig svg{fill:#fff}
+        .s-bs{background:#0085FF}
+        .s-bs svg{fill:#fff}
+        .s-ss{background:#FF6719}
+        .s-ss svg{fill:#fff}
+        .s-ph{background:#DA552F}
+        .s-ph svg{fill:#fff}
+        .s-md{background:#fff}
+        .s-md svg{fill:#000}
 
         /* Center */
         .content{position:relative;z-index:2;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transform:translateY(-7vh)}
@@ -91,7 +99,7 @@
             .corner-tl2{display:none}
             .content{transform:translateY(-10vh)}
             .name{font-size:clamp(1.9rem,8vw,5rem);letter-spacing:-1.5px}
-            .corner-br{bottom:12.5rem;right:50%;transform:translateX(50%)}
+            .corner-br{bottom:12.5rem;right:50%;transform:translateX(50%);justify-content:center;max-width:280px}
             .corner-br a{width:40px;height:40px}
             .footer-stack{bottom:1.1rem;gap:1rem}
             .links{max-width:100%;justify-content:center;flex-wrap:wrap;gap:.5rem;padding:0 1rem}
@@ -182,6 +190,10 @@
         <a href="https://www.linkedin.com/in/dhruvpradeep/" target="_blank" aria-label="LinkedIn" class="s-li"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
         <a href="https://x.com/dhruvprad" target="_blank" aria-label="X" class="s-x"><svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82L5 21.75H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
         <a href="https://www.instagram.com/dhruvprad/" target="_blank" aria-label="Instagram" class="s-ig"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        <a href="https://bsky.app/profile/dhruvprad.bsky.social" target="_blank" aria-label="Bluesky" class="s-bs"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.08-2.1-4.03-6.02-6.76-7.96C2.62.98 1.5 1.4 1.5 2.5c0 .22 0 3.5.02 5.7.06 5.05.31 7.53 2.6 9.94 1.63 1.7 3.83 2.63 6.36 2.63 1.13 0 2.16-.18 3.02-.53-1.05.62-2.32 1.06-3.94 1.06-2.28 0-4.16-.94-5.34-2.63.85 1.25 2.18 2.16 3.7 2.16 1.53 0 2.85-.9 3.7-2.16-1.18 1.69-3.06 2.63-5.34 2.63-1.62 0-2.89-.44-3.94-1.06.86.35 1.89.53 3.02.53 2.53 0 4.73-.93 6.36-2.63 2.29-2.41 2.54-4.89 2.6-9.94.02-2.2.02-5.48.02-5.7 0-1.1-1.12-1.52-3.74.34C16.03 4.78 13.08 8.7 12 10.8z"/></svg></a>
+        <a href="https://dhruvprad.substack.com/" target="_blank" aria-label="Substack" class="s-ss"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="none"/><path d="M5.5 5h13v2.2h-13V5zm0 4.3h13v9.5l-6.5-4-6.5 4v-9.5z"/></svg></a>
+        <a href="https://www.producthunt.com/@_dhruvpradeep" target="_blank" aria-label="Product Hunt" class="s-ph"><svg viewBox="0 0 24 24"><path d="M12 24C5.4 24 0 18.6 0 12S5.4 0 12 0s12 5.4 12 12-5.4 12-12 12zm-.2-19h-5v14h3v-4.5h2c2.5 0 4.5-2 4.5-4.5S13.8 5 11.8 5zm.2 6.5h-2v-3.5h2c1 0 1.7.8 1.7 1.7 0 1-.7 1.8-1.7 1.8z"/></svg></a>
+        <a href="https://medium.com/@dhruvpradeep" target="_blank" aria-label="Medium" class="s-md"><svg viewBox="0 0 1043.63 592.71"><path d="M588.67 296.35c0 163.68-131.78 296.35-294.33 296.35S0 460.03 0 296.35 131.78 0 294.33 0s294.34 132.67 294.34 296.35zM911.56 296.35c0 154.06-65.89 279.9-147.17 279.9s-147.17-125.85-147.17-279.9S682.11 16.45 763.39 16.45s148.17 125.85 148.17 279.9zM1043.63 296.35c0 138.22-23.17 250.33-51.76 250.33s-51.76-112.11-51.76-250.33 23.17-250.33 51.76-250.33 51.76 112.11 51.76 250.33z"/></svg></a>
     </div>
 
     <div class="footer-stack anim-3">
