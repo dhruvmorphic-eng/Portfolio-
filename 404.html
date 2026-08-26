@@ -25,6 +25,10 @@
         .wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:640px;margin:0 auto;padding:8rem 2rem 6rem}
         .art{width:100%;max-width:420px;margin-bottom:2rem;border-radius:20px;overflow:hidden}
         .art img{width:100%;height:auto;display:block}
+        .art{cursor:pointer;position:relative}
+        .art.spinning img{animation:astro-spin .9s ease}
+        @keyframes astro-spin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(200deg) scale(1.04)}100%{transform:rotate(360deg) scale(1)}}
+        .art-hint{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin:-1.4rem 0 2rem;text-align:center;opacity:0;animation:fadeUp .9s ease forwards 1.4s}
 
         h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;margin-bottom:.8rem}
         .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.4rem}
@@ -55,12 +59,13 @@
     </div>
 
     <div class="wrap">
-        <div class="art r r1">
+        <div class="art r r1" id="astro">
             <img src="/assets/404-astronaut.png" alt="An astronaut floating in space, lost, looking at a compass in front of a constellation spelling 404" width="1448" height="1086">
         </div>
-        <h1 class="r r2">Lost the signal.</h1>
+        <div class="art-hint">psst — click the astronaut</div>
+        <h1 class="r r2" id="msgTitle">Lost the signal.</h1>
         <div class="sub r r2">Error 404</div>
-        <p class="msg r r3">This page drifted off somewhere. It doesn't exist, moved, or never did.</p>
+        <p class="msg r r3" id="msgBody">This page drifted off somewhere. It doesn't exist, moved, or never did.</p>
         <a class="home-btn r r4" href="/">Back to Home</a>
     </div>
 
@@ -76,5 +81,15 @@
         <a href="/contact">Contact</a>
     </nav>
     <div class="ghost">Dhruv</div>
+    <script>
+        document.getElementById('astro').addEventListener('click', function(){
+            var el = this;
+            if (el.classList.contains('spinning')) return;
+            el.classList.add('spinning');
+            document.getElementById('msgTitle').textContent = 'Found it.';
+            document.getElementById('msgBody').textContent = "Compass says home is that way. Taking you there...";
+            setTimeout(function(){ window.location.href = '/'; }, 1300);
+        });
+    </script>
 </body>
 </html>
