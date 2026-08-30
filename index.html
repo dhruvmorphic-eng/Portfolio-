@@ -81,8 +81,10 @@
         .ruler .tick-label{position:absolute;bottom:14px;transform:translateX(-50%);font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.5px}
 
         /* Nav links */
-        .links{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center;padding:0 1rem;max-width:calc(100vw - 560px)}
-        .links a{font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;text-align:left;padding:.65rem 2.8rem .65rem 1.1rem;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:#1c1c1e;transition:all .25s}
+        .links{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center;padding:0 1rem;max-width:calc(100vw - 520px)}
+        .links a{font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;text-align:left;padding:.65rem 1.7rem .65rem 1.1rem;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:#1c1c1e;transition:all .25s}
+        @media(max-width:1460px){.links a{font-size:.88rem;padding:.6rem 1.25rem .6rem .95rem}.links{gap:.45rem}}
+        @media(max-width:1330px){.links a{font-size:.8rem;padding:.55rem 1rem .55rem .8rem}.links{gap:.35rem}}
         .links a:hover{background:#2c2c2e;border-color:rgba(255,255,255,.35);transform:translateY(-2px)}
 
         @keyframes blink{50%{opacity:0}}
@@ -203,6 +205,7 @@
         <a href="now.html">Now</a>
         <a href="words.html">Words</a>
         <a href="posts.html">Posts</a>
+        <a href="playbooks.html">Playbooks</a>
         <a href="blog.html">Blog</a>
         <a href="manifesto.html">Manifesto</a>
         <a href="contact.html">Contact</a>

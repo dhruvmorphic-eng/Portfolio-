@@ -9,6 +9,7 @@
 - [Now](https://dhruvpradeep.in/now): Current focus — Cnvrted (co-founder & CEO) and Morphic (marketing operations, MorphicKIDS).
 - [Work](https://dhruvpradeep.in/work): MorphicKIDS — AI-made bedtime stories, sing-alongs and science videos for kids on YouTube, led end-to-end by Dhruv.
 - [Words](https://dhruvpradeep.in/words): Original quote cards on building, discipline and the founder mindset. Free to download and share.
+- [Playbooks](https://dhruvpradeep.in/playbooks): Working documents on sales, AI and building — including a live AI model benchmark index.
 - [Posts](https://dhruvpradeep.in/posts): Posts pulled in from LinkedIn, X, Substack, Bluesky, Product Hunt and Spotify.
 - [Manifesto](https://dhruvpradeep.in/manifesto): Operating principles — "I don't wait. I move." Taste, speed, ownership.
 - [Blog](https://dhruvpradeep.in/blog): Essays on startups, sales, AI, careers and mindset.

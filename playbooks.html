@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbooks — Dhruv Pradeep</title>
+    <link rel="canonical" href="https://dhruvpradeep.in/playbooks">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="alternate" type="application/rss+xml" title="Dhruv Pradeep — Blog" href="https://dhruvpradeep.in/feed.xml">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Working documents on sales, AI and building — what Dhruv Pradeep is figuring out, shared as he goes.">
+    <meta property="og:title" content="Playbooks — Dhruv Pradeep">
+    <meta property="og:description" content="Working documents on sales, AI and building. Not courses — notes from the middle of the work.">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png">
+    <meta property="og:url" content="https://dhruvpradeep.in/playbooks">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dhruvpradeep.in/og.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow-x:hidden}
+        ::selection{background:#fff;color:#000}
+        :focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+        .wrap{max-width:920px;margin:0 auto;padding:8.5rem 2rem 4rem;position:relative;z-index:1}
+        .head{margin-bottom:3.2rem}
+        h1{font-family:'Unbounded',sans-serif;font-size:clamp(2.4rem,7vw,4.4rem);font-weight:800;letter-spacing:-.025em;text-transform:uppercase;line-height:1;margin-bottom:1.1rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.4rem}
+        .intro{max-width:62ch;color:rgba(255,255,255,.6);font-size:1.02rem;font-weight:300}
+        .intro b{color:#fff;font-weight:600}
+
+        .list{display:flex;flex-direction:column;gap:1rem}
+        .card{display:grid;grid-template-columns:2.6rem 1fr auto;gap:0 1.3rem;align-items:start;padding:1.7rem 1.8rem;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:all .3s}
+        .card:hover{border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+        .c-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(255,255,255,.28);letter-spacing:1px;padding-top:.35rem}
+        .c-body{min-width:0}
+        .c-tag{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2.4px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+        .c-tag .live{color:#22c55e;display:inline-flex;align-items:center;gap:.4rem}
+        .c-tag .live::before{content:'';width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse 2.2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+        .c-title{display:block;font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(1.1rem,2.3vw,1.4rem);letter-spacing:-.02em;line-height:1.25;margin-bottom:.45rem}
+        .c-desc{display:block;color:rgba(255,255,255,.52);font-size:.92rem;font-weight:300;line-height:1.55;max-width:56ch}
+        .c-go{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.4);padding-top:.35rem;transition:transform .3s,color .3s;white-space:nowrap}
+        .card:hover .c-go{color:#fff;transform:translateX(4px)}
+        @media(max-width:600px){.card{grid-template-columns:2.2rem 1fr;padding:1.4rem}.c-go{display:none}}
+
+        .soon{margin-top:2.6rem;padding:1.5rem 1.8rem;border:1px dashed rgba(255,255,255,.14);border-radius:16px;color:rgba(255,255,255,.42);font-size:.9rem;font-weight:300}
+        .soon b{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.4px;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:.6rem;font-weight:400}
+
+        .note{margin-top:3.5rem;padding-top:1.7rem;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);font-size:.88rem;font-weight:300;max-width:62ch}
+        .note a{color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+        .note a:hover{color:#fff;border-color:#fff}
+
+        @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+        .r{opacity:0;animation:fadeUp .85s ease forwards}
+        .r1{animation-delay:.05s}.r2{animation-delay:.18s}.r3{animation-delay:.3s}.r4{animation-delay:.42s}
+
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
+        .site-foot a:hover{color:#fff}
+        @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding:7rem 1.3rem 3rem}}
+        @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r{opacity:1}}
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dhruvpradeep.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://dhruvpradeep.in/playbooks"}
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/">&larr; Home</a>
+        <span class="top-label">Playbooks</span>
+    </div>
+
+    <div class="wrap">
+        <div class="head r r1">
+            <h1>Playbooks.</h1>
+            <div class="sub">Sales &middot; AI &middot; Building</div>
+            <p class="intro">Working documents on the things I'm actually doing — finding buyers, using AI, building a company. <b>These aren't courses and I'm not claiming to have it figured out.</b> They're the notes I keep for myself, made public and updated as I learn.</p>
+        </div>
+
+        <div class="list">
+            <a class="card r r2" href="/sales">
+                <span class="c-num">01</span>
+                <span class="c-body">
+                    <span class="c-tag">Sales &middot; Living document</span>
+                    <span class="c-title">Sales Playbook</span>
+                    <span class="c-desc">How I think about finding real buyers — positioning, messaging, pricing and outreach. The working playbook behind Cnvrted, straight from my Notion.</span>
+                </span>
+                <span class="c-go">&rarr;</span>
+            </a>
+
+            <a class="card r r3" href="/ai">
+                <span class="c-num">02</span>
+                <span class="c-body">
+                    <span class="c-tag"><span class="live">Live data</span></span>
+                    <span class="c-title">The AI Index</span>
+                    <span class="c-desc">400+ models ranked by intelligence, price and speed, pulled live from Artificial Analysis. The reference I check before forming an opinion about AI.</span>
+                </span>
+                <span class="c-go">&rarr;</span>
+            </a>
+        </div>
+
+        <div class="soon r r4">
+            <b>In progress</b>
+            More going up as I write it — notes on building Cnvrted, and what running marketing at an AI company actually looks like day to day.
+        </div>
+
+        <p class="note r r4">If something here is wrong or you'd argue the opposite, I want to hear it — <a href="/contact">tell me</a>. For longer thinking, the <a href="/blog">essays</a> are where that lives.</p>
+    </div>
+
+    <nav class="site-foot">
+        <a href="/">Home</a><a href="/about">About</a><a href="/now">Now</a><a href="/work">Work</a>
+        <a href="/words">Words</a><a href="/posts">Posts</a><a href="/playbooks">Playbooks</a>
+        <a href="/blog">Blog</a><a href="/manifesto">Manifesto</a><a href="/contact">Contact</a>
+    </nav>
+    <div class="ghost">Dhruv</div>
+    <script src="/assets/cmdk.js" defer></script>
+</body>
+</html>
