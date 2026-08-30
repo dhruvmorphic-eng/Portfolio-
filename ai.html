@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Index — Live Model Benchmarks | Dhruv Pradeep</title>
+    <link rel="canonical" href="https://dhruvpradeep.in/ai">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Live intelligence, price and speed benchmarks for 400+ AI models, from Artificial Analysis. Updated continuously.">
+    <meta property="og:title" content="The AI Index — Live Model Benchmarks">
+    <meta property="og:description" content="Live intelligence, price and speed benchmarks for 400+ AI models. Updated continuously.">
+    <meta property="og:image" content="https://dhruvpradeep.in/api/og?title=The%20AI%20Index&label=Live%20Data">
+    <meta property="og:url" content="https://dhruvpradeep.in/ai">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dhruvpradeep.in/api/og?title=The%20AI%20Index&label=Live%20Data">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow-x:hidden}
+        ::selection{background:#fff;color:#000}
+        :focus-visible{outline:2px solid #fff;outline-offset:3px}
+        .num{font-variant-numeric:tabular-nums}
+
+        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .back:hover{color:#fff}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+        .wrap{max-width:980px;margin:0 auto;padding:8.5rem 2rem 5rem}
+        .meta{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+        .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2.2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+        h1{font-family:'Unbounded',sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.05;margin-bottom:1.1rem}
+        .lede{font-size:clamp(1rem,1.9vw,1.2rem);color:rgba(255,255,255,.62);font-weight:300;max-width:60ch;margin-bottom:.9rem}
+        .lede a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+        .lede a:hover{border-color:#fff}
+        .stamp{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+        h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:600;letter-spacing:-.02em;margin-bottom:.5rem}
+        .sec{margin-top:clamp(3rem,6vw,4.5rem);padding-top:clamp(2rem,4vw,2.8rem);border-top:1px solid rgba(255,255,255,.1)}
+        .sec-note{color:rgba(255,255,255,.5);font-size:.92rem;font-weight:300;max-width:62ch;margin-bottom:1.8rem}
+
+        .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.9rem;margin-top:2.5rem}
+        .tile{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.1rem 1.2rem;background:rgba(255,255,255,.02)}
+        .tile-k{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.5rem}
+        .tile-v{font-family:'Unbounded',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+        .tile-s{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem}
+
+        .bars{display:flex;flex-direction:column;gap:.55rem}
+        .bar-row{display:grid;grid-template-columns:1.35rem minmax(0,9.5rem) 1fr auto;gap:.75rem;align-items:center;font-size:.83rem}
+        .bar-rank{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.28)}
+        .bar-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+        .bar-name i{font-style:normal;color:rgba(255,255,255,.35);font-size:.72rem;display:block;font-family:'JetBrains Mono',monospace;letter-spacing:.5px}
+        .bar-track{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+        .bar-fill{height:100%;background:#fff;border-radius:4px;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+        .bar-val{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.75);min-width:2.6rem;text-align:right}
+        @media(max-width:640px){.bar-row{grid-template-columns:1.2rem 1fr auto;}.bar-track{display:none}}
+
+        .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:460px}
+        th{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-align:left;padding:0 .9rem .7rem 0;font-weight:400;white-space:nowrap}
+        td{padding:.72rem .9rem .72rem 0;border-top:1px solid rgba(255,255,255,.07);vertical-align:top}
+        td.r,th.r{text-align:right;padding-right:0}
+        .m-name{font-weight:500}
+        .m-lab{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.38);letter-spacing:.4px}
+        .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:.16rem .5rem;border-radius:100px;border:1px solid rgba(34,197,94,.35);color:#22c55e;white-space:nowrap}
+
+        .chart{width:100%;height:auto;display:block;overflow:visible}
+        .chart text{font-family:'JetBrains Mono',monospace;fill:rgba(255,255,255,.4)}
+        .grid-l{stroke:rgba(255,255,255,.08);stroke-width:1}
+        .dot{fill:rgba(255,255,255,.42);transition:fill .2s,r .2s}
+        .dot:hover{fill:#22c55e}
+        .dot.hi{fill:#fff}
+        .chart-legend{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.9rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+        .chart-legend b{color:rgba(255,255,255,.6);font-weight:400}
+
+        .loading{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);padding:3rem 0;text-align:center}
+        .err{border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:1.1rem 1.3rem;color:rgba(255,255,255,.55);font-size:.88rem}
+
+        .credit{margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.1);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+        .credit a{color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+        .credit a:hover{color:#fff;border-color:#fff}
+
+        .site-foot{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem;position:relative;z-index:2}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
+        .site-foot a:hover{color:#fff}
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding:7rem 1.3rem 4rem}}
+        @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a class="back" href="/blog">&larr; Blog</a>
+        <span class="top-label">Live Data</span>
+    </div>
+
+    <div class="wrap">
+        <div class="meta"><span class="live-dot"></span><span>Live dataset</span></div>
+        <h1>The AI Index.</h1>
+        <p class="lede">Every frontier model, ranked by intelligence, price and speed — pulled live from <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener">Artificial Analysis</a>. I write about AI a lot. This is the data I check before I have an opinion.</p>
+        <div class="stamp" id="stamp">Loading…</div>
+
+        <div id="app"><div class="loading">Fetching benchmarks…</div></div>
+
+        <div class="credit">
+            Data: <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener">Artificial Analysis</a> &middot; Intelligence Index is their composite across MMLU-Pro, GPQA, HLE, LiveCodeBench, SciCode, AIME and more &middot; Price is blended $/1M tokens at 3:1 input:output
+        </div>
+    </div>
+
+    <nav class="site-foot">
+        <a href="/">Home</a><a href="/about">About</a><a href="/now">Now</a><a href="/work">Work</a>
+        <a href="/words">Words</a><a href="/posts">Posts</a><a href="/blog">Blog</a>
+        <a href="/manifesto">Manifesto</a><a href="/contact">Contact</a>
+    </nav>
+    <div class="ghost">Dhruv</div>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money = v => v == null ? '—' : (v < 1 ? '$' + v.toFixed(2) : '$' + (v % 1 ? v.toFixed(2) : v));
+
+function bars(rows, key, fmt) {
+  const max = Math.max(...rows.map(r => r[key]));
+  return '<div class="bars">' + rows.map((r, i) =>
+    '<div class="bar-row"><span class="bar-rank num">' + String(i + 1).padStart(2, '0') + '</span>' +
+    '<span class="bar-name">' + esc(r.base) + '<i>' + esc(r.creator) + '</i></span>' +
+    '<span class="bar-track"><span class="bar-fill" data-w="' + (r[key] / max * 100) + '"></span></span>' +
+    '<span class="bar-val num">' + fmt(r[key]) + '</span></div>').join('') + '</div>';
+}
+
+function scatter(pts) {
+  const W = 940, H = 440, L = 54, R = 16, T = 18, B = 46;
+  const iqs = pts.map(p => p.iq), ps = pts.map(p => p.p);
+  const iqMin = Math.floor(Math.min(...iqs) / 5) * 5, iqMax = Math.ceil(Math.max(...iqs) / 5) * 5;
+  const lo = Math.log10(Math.min(...ps)), hi = Math.log10(Math.max(...ps));
+  const x = v => L + (Math.log10(v) - lo) / (hi - lo) * (W - L - R);
+  const y = v => T + (1 - (v - iqMin) / (iqMax - iqMin)) * (H - T - B);
+  const topIq = Math.max(...iqs);
+
+  let s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Scatter plot of AI model intelligence against price per million tokens">';
+  for (let v = iqMin; v <= iqMax; v += 5) {
+    s += '<line class="grid-l" x1="' + L + '" y1="' + y(v) + '" x2="' + (W - R) + '" y2="' + y(v) + '"/>';
+    s += '<text x="' + (L - 10) + '" y="' + (y(v) + 4) + '" font-size="10" text-anchor="end">' + v + '</text>';
+  }
+  [0.1, 0.5, 1, 2, 5, 10, 25, 50].forEach(v => {
+    if (v < Math.min(...ps) || v > Math.max(...ps)) return;
+    s += '<line class="grid-l" x1="' + x(v) + '" y1="' + T + '" x2="' + x(v) + '" y2="' + (H - B) + '"/>';
+    s += '<text x="' + x(v) + '" y="' + (H - B + 20) + '" font-size="10" text-anchor="middle">$' + v + '</text>';
+  });
+  pts.forEach(p => {
+    const isTop = p.iq >= topIq - 4;
+    s += '<circle class="dot' + (isTop ? ' hi' : '') + '" cx="' + x(p.p).toFixed(1) + '" cy="' + y(p.iq).toFixed(1) + '" r="' + (isTop ? 4 : 3) + '">' +
+         '<title>' + esc(p.n) + ' · ' + esc(p.c) + ' · ' + money(p.p) + ' · ' + p.iq + '</title></circle>';
+  });
+  s += '<text x="' + (L - 10) + '" y="' + (T + 2) + '" font-size="9" text-anchor="end">IQ</text>';
+  s += '<text x="' + (W - R) + '" y="' + (H - 6) + '" font-size="9" text-anchor="end">PRICE $/1M TOKENS (LOG)</text>';
+  return s + '</svg>';
+}
+
+function render(d) {
+  const st = d.stats;
+  const cheap = d.value[0], best = d.top[0];
+  const ratio = (cheap && best && cheap.price > 0) ? Math.round(best.price / cheap.price) : null;
+
+  let h = '<div class="tiles">' +
+    tile('Models tracked', st.total_models, st.total_variants + ' incl. variants') +
+    tile('Labs', st.creators, 'building frontier models') +
+    tile('Top score', st.top_iq, best ? best.base : '') +
+    tile('Median price', money(st.median_price), 'per 1M tokens') +
+  '</div>';
+
+  h += '<div class="sec"><h2>The frontier</h2><p class="sec-note">Every model plotted by what it costs against how smart it is. Price is on a log scale — the spread is that wide. The interesting region is the top-left: near-frontier intelligence for pocket change.</p>' +
+    scatter(d.scatter) +
+    '<div class="chart-legend"><span><b>White</b> — within 4 points of the top score</span><span><b>Hover</b> any dot for the model</span></div></div>';
+
+  h += '<div class="sec"><h2>Smartest models</h2><p class="sec-note">Ranked on the Artificial Analysis Intelligence Index. Reasoning-effort variants are collapsed to each model\'s best result.</p>' +
+    bars(d.top, 'iq', v => v.toFixed(1)) + '</div>';
+
+  if (ratio) {
+    h += '<div class="sec"><h2>The value trade</h2><p class="sec-note">Cheapest models still scoring 50+. <b>' + esc(cheap.base) + '</b> costs ' + money(cheap.price) + ' and scores ' + cheap.iq + '. <b>' + esc(best.base) + '</b> costs ' + money(best.price) + ' and scores ' + best.iq + ' — roughly <b>' + ratio + '× the price for ' + Math.round((best.iq / cheap.iq - 1) * 100) + '% more capability.</b> That gap is the whole argument about where this industry is heading.</p>' +
+      '<div class="tbl-wrap"><table><thead><tr><th>Model</th><th class="r">Score</th><th class="r">Price</th><th class="r">vs top</th></tr></thead><tbody>' +
+      d.value.map(r => '<tr><td><span class="m-name">' + esc(r.base) + '</span><br><span class="m-lab">' + esc(r.creator) + '</span></td>' +
+        '<td class="r num">' + r.iq.toFixed(1) + '</td><td class="r num">' + money(r.price) + '</td>' +
+        '<td class="r"><span class="pill">' + Math.round(best.price / r.price) + '× cheaper</span></td></tr>').join('') +
+      '</tbody></table></div></div>';
+  }
+
+  if (d.speed && d.speed.length) {
+    h += '<div class="sec"><h2>Fastest output</h2><p class="sec-note">Median output tokens per second. Speed and intelligence are not the same race.</p>' +
+      bars(d.speed, 'tps', v => Math.round(v)) + '</div>';
+  }
+
+  h += '<div class="sec"><h2>Best model per lab</h2><p class="sec-note">Where each lab actually stands, by its strongest model.</p>' +
+    '<div class="tbl-wrap"><table><thead><tr><th>Lab</th><th>Best model</th><th class="r">Score</th><th class="r">Price</th><th class="r">Released</th></tr></thead><tbody>' +
+    d.labs.map(r => '<tr><td class="m-name">' + esc(r.creator) + '</td><td>' + esc(r.base) + '</td>' +
+      '<td class="r num">' + r.iq.toFixed(1) + '</td><td class="r num">' + money(r.price) + '</td>' +
+      '<td class="r num m-lab">' + esc(r.date || '—') + '</td></tr>').join('') +
+    '</tbody></table></div></div>';
+
+  document.getElementById('app').innerHTML = h;
+  requestAnimationFrame(() => document.querySelectorAll('.bar-fill').forEach(b => b.style.width = b.dataset.w + '%'));
+}
+
+function tile(k, v, s) {
+  return '<div class="tile"><div class="tile-k">' + esc(k) + '</div><div class="tile-v num">' + esc(v) + '</div><div class="tile-s">' + esc(s) + '</div></div>';
+}
+
+(async function () {
+  const stamp = document.getElementById('stamp');
+  let d = null, live = false;
+  try {
+    const r = await fetch('/api/aa');
+    if (r.ok) { const j = await r.json(); if (j && j.ok) { d = j; live = true; } }
+  } catch (e) {}
+  if (!d) {
+    try { d = await (await fetch('/assets/aa-snapshot.json')).json(); } catch (e) {}
+  }
+  if (!d) {
+    document.getElementById('app').innerHTML = '<div class="err">Couldn\'t load the benchmark data right now. Try a refresh.</div>';
+    stamp.textContent = '';
+    return;
+  }
+  const when = new Date(d.generated);
+  stamp.textContent = (live ? 'Live · updated ' : 'Cached snapshot · ') +
+    when.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) +
+    ' · newest model ' + (d.stats.newest || '—');
+  render(d);
+})();
+</script>
+<script src="/assets/cmdk.js" defer></script>
+</body>
+</html>

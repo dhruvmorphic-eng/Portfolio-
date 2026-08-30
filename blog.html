@@ -49,6 +49,16 @@
         @media(max-width:560px){.substack-card{flex-wrap:wrap}.substack-cta{width:100%;text-align:left;margin-top:.4rem}}
         .newsletter-embed{margin:0 0 3rem;padding:1.6rem;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02)}
         .ne-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem}
+        .live-card{display:flex;align-items:center;gap:1.4rem;padding:1.5rem 1.7rem;margin:0 0 3rem;border:1px solid rgba(34,197,94,.28);border-radius:16px;background:rgba(34,197,94,.045);text-decoration:none;color:#fff;transition:all .3s;flex-wrap:wrap}
+        .live-card:hover{border-color:rgba(34,197,94,.6);background:rgba(34,197,94,.09);transform:translateY(-2px)}
+        .live-card .lc-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;animation:lcpulse 2.2s infinite;flex-shrink:0}
+        @keyframes lcpulse{0%,100%{opacity:1}50%{opacity:.3}}
+        .lc-body{flex:1;min-width:220px}
+        .lc-tag{display:block;font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2.5px;text-transform:uppercase;color:#22c55e;margin-bottom:.4rem}
+        .lc-title{display:block;font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.15rem;letter-spacing:-.02em;margin-bottom:.3rem}
+        .lc-sub{display:block;font-size:.88rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5}
+        .lc-go{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);white-space:nowrap}
+        @media(max-width:560px){.live-card{padding:1.3rem}}
         .head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:4.5rem}
         h1{font-size:clamp(3rem,8vw,5.5rem);font-weight:900;letter-spacing:-3px;text-transform:uppercase;line-height:1}
         .sub{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4)}
@@ -321,6 +331,16 @@
             <div class="ne-label">Get new essays in your inbox</div>
             <iframe src="https://dhruvprad.substack.com/embed" width="100%" height="150" style="border:1px solid rgba(255,255,255,.1);border-radius:14px;background:#fff" frameborder="0" scrolling="no" title="Subscribe to Dhruv Pradeep on Substack"></iframe>
         </div>
+
+        <a class="live-card" href="/ai">
+            <span class="lc-dot"></span>
+            <span class="lc-body">
+                <span class="lc-tag">Live data &middot; not an essay</span>
+                <span class="lc-title">The AI Index</span>
+                <span class="lc-sub">400+ models ranked by intelligence, price and speed. Updated continuously from Artificial Analysis.</span>
+            </span>
+            <span class="lc-go">Open &rarr;</span>
+        </a>
 
         <a class="post" href="/blog/misdirected-desire">
             <div class="p-num">10</div>
