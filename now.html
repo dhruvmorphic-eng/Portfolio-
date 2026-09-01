@@ -52,7 +52,7 @@
         .dots i{width:11px;height:11px;border-radius:50%;display:block}
         .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
         .term-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.55);letter-spacing:.4px}
-        .term-body{flex:1;min-height:0;overflow-y:auto;overflow-anchor:none;overflow-x:auto;padding:1.4rem 1.5rem 1.7rem;font-family:'JetBrains Mono',monospace;font-size:clamp(.72rem,1.06vh,.8rem);line-height:1.58;color:var(--g-plain);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent}
+        .term-body{flex:1;min-height:0;overflow-y:auto;overflow-anchor:none;overflow-x:auto;padding:1.1rem 1.3rem 1.2rem;font-family:'JetBrains Mono',monospace;font-size:clamp(.72rem,1.06vh,.8rem);line-height:1.58;color:var(--g-plain);display:grid;grid-template-columns:minmax(0,1fr);gap:1.3rem;align-content:start;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent}
         .term-body::-webkit-scrollbar{width:8px}
         .term-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:4px}
         .term-body::-webkit-scrollbar-track{background:transparent}
@@ -78,8 +78,19 @@
         .trailer:hover{text-decoration:underline}
         .trailer::before{content:'→ ';color:var(--g-dim)}
 
+        @media(min-width:920px){
+            .term-body{grid-template-columns:minmax(0,1fr) 15rem;gap:2.2rem;column-gap:2.6rem}
+            .term-side{border-left:1px solid rgba(255,255,255,.07);padding-left:1.6rem}
+        }
+        .term-side{min-width:0}
+        .term-side .cmd{margin-top:0}
+
         /* now playing, as command output */
-        .np{display:flex;align-items:center;gap:.9rem;margin-top:.5rem;padding-left:1.6rem;text-decoration:none}
+        .np{display:flex;align-items:center;gap:.8rem;margin-top:.5rem;padding-left:1.4rem;text-decoration:none}
+        @media(min-width:920px){.np{flex-direction:column;align-items:flex-start;gap:.7rem;padding-left:0;margin-top:.7rem}
+            .np img{width:100%;height:auto;aspect-ratio:1;border-radius:8px}
+            .np-t{white-space:normal;line-height:1.35}
+            .np-a{white-space:normal;line-height:1.4;margin-top:.15rem}}
         .np img{width:38px;height:38px;border-radius:6px;object-fit:cover;flex-shrink:0}
         .np-txt{min-width:0}
         .np-t{color:#fff;font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -117,6 +128,7 @@
                 <span class="term-title">dhruv@bangalore — ~/now</span>
             </div>
             <div class="term-body">
+              <div class="term-main">
 
                 <div class="cmd">git status</div>
                 <div class="out dim">On branch <span class="branch">cnvrted</span>
@@ -152,6 +164,9 @@ Two things in progress. Nothing staged for later.</div>
                     </div>
                 </div>
 
+              </div>
+
+              <div class="term-side">
                 <div class="cmd" id="npCmd" style="display:none">now-playing</div>
                 <a class="np" id="npaNow" href="#" target="_blank" rel="noopener" style="display:none">
                     <img id="npaNowArt" src="" alt="">
@@ -160,7 +175,7 @@ Two things in progress. Nothing staged for later.</div>
                         <span class="np-a" id="npaNowArtist"></span>
                     </span>
                 </a>
-
+              </div>
             </div>
         </div>
     </div>
