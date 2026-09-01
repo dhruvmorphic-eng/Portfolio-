@@ -86,6 +86,12 @@
         .ruler .tick.major{height:9px;background:rgba(255,255,255,.32)}
         .ruler .tick.minor{height:5px}
         .ruler .tick-label{position:absolute;bottom:14px;transform:translateX(-50%);font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.5px}
+        .ruler-top{position:fixed;top:0;left:0;right:0;height:30px;z-index:3;pointer-events:none;font-family:'JetBrains Mono',monospace}
+        .ruler-top .tick{position:absolute;top:0;width:1px;background:rgba(255,255,255,.18)}
+        .ruler-top .tick.major{height:9px;background:rgba(255,255,255,.32)}
+        .ruler-top .tick.minor{height:5px}
+        .ruler-top .tick-label{position:absolute;top:13px;transform:translateX(-50%);font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.5px}
+        @media(max-width:700px){.ruler-top .tick-label{display:none}}
 
         /* Nav links */
         .links{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;justify-content:center;padding:0 1rem;max-width:calc(100vw - 520px)}
@@ -173,6 +179,8 @@
     </script>
 </head>
 <body>
+    <div class="ruler-top anim-3" id="rulerTop"></div>
+
     <div class="corner corner-tl2 anim-3">
         <div class="label"><span class="new-dot"></span>Latest</div>
         <a href="blog/misdirected-desire.html">The Anatomy of Misdirected Desire &rarr;</a>
@@ -221,30 +229,35 @@
 
     <canvas id="physics" style="position:fixed;inset:0;z-index:1;pointer-events:none"></canvas>
     <script>
-        // timeline ruler
-        function buildRuler(){
-            const ruler = document.getElementById('ruler');
-            ruler.innerHTML = '';
+        // timeline ruler (bottom + mirrored top)
+        function drawRuler(el, flip){
+            if(!el) return;
+            el.innerHTML = '';
             const W = innerWidth, SEC = 130, SUB = 5;
+            const edge = flip ? 'top' : 'bottom';
             const secs = Math.ceil(W / SEC);
             for(let s = 0; s <= secs; s++){
                 const x = s * SEC;
                 const t = document.createElement('div');
                 t.className = 'tick major';
                 t.style.left = x + 'px';
-                ruler.appendChild(t);
+                el.appendChild(t);
                 const lbl = document.createElement('span');
                 lbl.className = 'tick-label';
                 lbl.style.left = x + 'px';
                 lbl.textContent = s === 0 ? '0' : s + 's';
-                ruler.appendChild(lbl);
+                el.appendChild(lbl);
                 for(let m = 1; m < SUB; m++){
                     const mt = document.createElement('div');
                     mt.className = 'tick minor';
                     mt.style.left = (x + m * SEC / SUB) + 'px';
-                    ruler.appendChild(mt);
+                    el.appendChild(mt);
                 }
             }
+        }
+        function buildRuler(){
+            drawRuler(document.getElementById('ruler'), false);
+            drawRuler(document.getElementById('rulerTop'), true);
         }
         buildRuler();
         addEventListener('resize', buildRuler);
