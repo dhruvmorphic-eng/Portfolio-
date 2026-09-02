@@ -59,6 +59,10 @@
         .r{opacity:0;animation:fadeUp .9s ease forwards}
         .r1{animation-delay:.15s}.r2{animation-delay:.3s}.r3{animation-delay:.45s}.r4{animation-delay:.6s}.r5{animation-delay:.75s}
 
+        /* Recursive erosion sphere */
+        .sphere-host{width:100%;height:340px;margin-top:2.6rem;position:relative}
+        @media(max-width:600px){.sphere-host{height:240px}}
+
         /* Location map */
         .location{margin-top:4rem;position:relative;padding:2rem 0;overflow:hidden}
         .loc-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem}
@@ -295,6 +299,8 @@
 
         <div class="sign r r4">Still early. Still building. Just getting started.<span class="cursor"></span></div>
 
+        <div class="sphere-host r r4" id="sphereHost"></div>
+
         <div class="location r r5">
             <div class="loc-status">
                 <div class="loc-place">
@@ -390,6 +396,18 @@
         }
         updateNPA();
         setInterval(updateNPA, 30000);
+    </script>
+    <script src="/assets/recursive-erosion.js?v=3"></script>
+    <script>
+        window.addEventListener("load", function(){
+            var host = document.getElementById("sphereHost");
+            if(host && window.RecursiveErosion) window.RecursiveErosion.init(host, {
+                background:"#000000", accentColor:"#9A00FF", highlight:"#0028FF",
+                size:36, density:2867, dotSize:66, speed:71, hover:119,
+                shell:{morph:250, tumble:180, erosion:0},
+                trails:{glow:300, count:4, length:200}
+            });
+        });
     </script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
