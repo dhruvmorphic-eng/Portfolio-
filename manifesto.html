@@ -22,7 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow-x:hidden}
+        html,body{height:100%}
+        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow:hidden}
         ::selection{background:#264F78;color:#fff}
         :focus-visible{outline:2px solid #fff;outline-offset:3px}
 
@@ -46,13 +47,14 @@
         .back:hover{color:#fff}
         .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
 
-        .wrap{max-width:900px;margin:0 auto;padding:8rem 1.5rem 4rem}
-        .m-open{font-family:'Unbounded',sans-serif;font-size:clamp(2rem,6vw,3.8rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;line-height:1.02;margin-bottom:.9rem}
+        .wrap{max-width:900px;margin:0 auto;height:100dvh;padding:4.8rem 1.5rem 1rem;display:flex;flex-direction:column}
+        .m-open{font-family:'Unbounded',sans-serif;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;line-height:1.04;margin-bottom:.45rem;flex:none}
         .m-open .dim{color:rgba(255,255,255,.26)}
-        .m-sub{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:2.8rem}
+        .m-sub{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:1.1rem;flex:none}
 
         /* editor chrome */
-        .editor{border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:var(--ed-bg);box-shadow:0 24px 70px rgba(0,0,0,.6)}
+        .editor{border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:var(--ed-bg);box-shadow:0 24px 70px rgba(0,0,0,.6);display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+        .ed-main{display:flex;flex:1 1 auto;min-height:0}
         .ed-bar{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;background:var(--ed-chrome);border-bottom:1px solid rgba(255,255,255,.07)}
         .dots{display:flex;gap:.4rem}
         .dots i{width:11px;height:11px;border-radius:50%;display:block}
@@ -61,7 +63,7 @@
         .ed-tab .dot{color:var(--tok-keyword)}
         .ed-meta{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.25)}
 
-        .code{overflow-x:auto;padding:1.3rem 0 1.6rem;counter-reset:ln}
+        .code{overflow:auto;padding:1.3rem 0 1.6rem;counter-reset:ln;flex:1 1 auto;min-width:0}
         .code pre{font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.85;color:var(--tok-plain);min-width:max-content}
         .l{display:block;padding:0 1.4rem 0 0;white-space:pre}
         .l::before{counter-increment:ln;content:counter(ln);display:inline-block;width:3.4rem;padding-right:1.1rem;text-align:right;color:rgba(255,255,255,.2);user-select:none;-webkit-user-select:none}
@@ -78,13 +80,43 @@
         .ed-foot{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;padding:.65rem 1.1rem;background:var(--ed-chrome);border-top:1px solid rgba(255,255,255,.07);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.28)}
         .ed-foot .ok{color:var(--tok-comment)}
 
+        /* run button */
+        .run-btn{margin-left:auto;display:inline-flex;align-items:center;gap:.45rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:#7ec97e;background:rgba(126,201,126,.1);border:1px solid rgba(126,201,126,.35);padding:.32rem .7rem;border-radius:7px;cursor:pointer;transition:all .25s}
+        .run-btn:hover{background:rgba(126,201,126,.18);border-color:rgba(126,201,126,.65)}
+        .run-btn .tri{width:0;height:0;border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+        .run-btn[disabled]{opacity:.55;cursor:default}
+        .ed-bar .ed-meta{margin-left:.9rem}
+
+        /* console output — side panel */
+        .console{flex:0 0 0;min-width:0;overflow:hidden;background:#08080a;border-left:1px solid transparent;display:flex;flex-direction:column;transition:flex-basis .45s cubic-bezier(.16,.84,.32,1)}
+        .editor.open .console{flex:0 0 44%;border-left-color:rgba(255,255,255,.09)}
+        .con-head{display:flex;align-items:center;gap:.6rem;padding:.55rem .85rem;background:#0c0c0f;border-bottom:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:1.5px;text-transform:uppercase;flex:none}
+        .con-title{color:rgba(255,255,255,.4);flex:none}
+        .con-status{display:flex;align-items:center;gap:.4rem;color:var(--tok-comment);white-space:nowrap;overflow:hidden;min-width:0}
+        .con-spin{width:8px;height:8px;border-radius:50%;background:var(--tok-comment);animation:conpulse 1s steps(1) infinite;flex:none}
+        @keyframes conpulse{50%{opacity:.22}}
+        .con-status.done{color:rgba(255,255,255,.4)}
+        .con-status.done .con-spin{display:none}
+        .con-stop{margin-left:auto;background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;padding:.24rem .6rem;border-radius:6px;cursor:pointer;transition:all .25s;flex:none}
+        .con-stop:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+        .con-body{flex:1 1 auto;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:.75rem;line-height:1.7;padding:.9rem 1.1rem 1.1rem;color:var(--tok-plain);white-space:pre-wrap;word-break:break-word}
+        .con-body .cmd{color:#fff}
+        .con-body .out{color:var(--tok-comment)}
+        .con-body .str{color:var(--tok-string)}
+        .con-body .dim{color:rgba(255,255,255,.38)}
+        .con-cur{display:inline-block;width:7px;height:1em;background:var(--tok-comment);vertical-align:-2px;animation:conpulse 1.05s steps(1) infinite}
+        @media(max-width:640px){
+            .ed-main{flex-direction:column}
+            .editor.open .console{flex:0 0 46%;border-left:none;border-top:1px solid rgba(255,255,255,.09)}
+        }
+
 
         @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .r{opacity:0;animation:fadeUp .85s ease forwards}
         .r1{animation-delay:.05s}.r2{animation-delay:.2s}
 
         .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.06);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
-        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem}
+        .site-foot{position:relative;z-index:2;flex:none;display:flex;justify-content:center;gap:.2rem .4rem;flex-wrap:wrap;padding:.9rem 0 .1rem}
         .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
         .site-foot a:hover{color:#fff}
 
@@ -111,11 +143,23 @@
             <div class="ed-bar">
                 <span class="dots"><i></i><i></i><i></i></span>
                 <span class="ed-tab">manifesto<span class="dot">.</span>js</span>
+                <button class="run-btn" id="runBtn" type="button" aria-label="Run manifesto.js"><span class="tri"></span>Run</button>
                 <span class="ed-meta">read only</span>
             </div>
 
+            <div class="ed-main">
             <div class="code">
 <pre><code><span class="l"><span class="c">/**</span></span><span class="l"><span class="c"> *  manifesto.js</span></span><span class="l"><span class="c"> *  @author    Dhruv Pradeep</span></span><span class="l"><span class="c"> *  @location  Bangalore, IN</span></span><span class="l"><span class="c"> *  @status    in progress</span></span><span class="l"><span class="c"> */</span></span><span class="l"></span><span class="l"><span class="c">// I stopped waiting for permission.</span></span><span class="l"><span class="k">const</span> <span class="v">permission</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span></span><span class="l"></span><span class="l"><span class="c">// Most people are one decision away from a different life</span></span><span class="l"><span class="c">// and spend ten years not making it.</span></span><span class="l"><span class="k">const</span> <span class="v">away</span>  <span class="p">=</span> <span class="n">1</span><span class="p">;</span>    <span class="c">// decision</span></span><span class="l"><span class="k">const</span> <span class="v">spent</span> <span class="p">=</span> <span class="n">10</span><span class="p">;</span>   <span class="c">// years not making it</span></span><span class="l"></span><span class="l"><span class="c">// I left college because the lesson had stopped arriving.</span></span><span class="l"><span class="v">college</span><span class="p">.</span><span class="f">exit</span><span class="p">();</span></span><span class="l"></span><span class="l"><span class="c">// I'd rather be wrong out loud than right in silence.</span></span><span class="l"><span class="k">const</span> <span class="v">wrongOutLoud</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>   <span class="c">// &gt; rightInSilence</span></span><span class="l"></span><span class="l"><span class="c">// I build things I actually want to exist. My way.</span></span><span class="l"><span class="c">// That&#39;s the whole strategy.</span></span><span class="l"><span class="k">export const</span> <span class="v">strategy</span> <span class="p">=</span> <span class="s">"build the things I want to exist"</span><span class="p">;</span></span><span class="l"></span><span class="l"><span class="c">// I picture the thing first. Then I go earn it.</span></span><span class="l"><span class="f">picture</span><span class="p">(</span><span class="v">thing</span><span class="p">);</span></span><span class="l"><span class="f">earn</span><span class="p">(</span><span class="v">thing</span><span class="p">);</span></span><span class="l"></span><span class="l"><span class="c">/* ─── the shape of it ───────────────────── */</span></span><span class="l"><span class="c">// My life reads like a thriller. The twists keep coming.</span></span><span class="l"><span class="c">// I've stopped trying to predict them and started</span></span><span class="l"><span class="c">// trusting that I'll survive them.</span></span><span class="l"><span class="k">while</span> <span class="p">(</span><span class="v">twists</span><span class="p">) {</span></span><span class="l">  <span class="f">survive</span><span class="p">();</span></span><span class="l"><span class="p">}</span></span><span class="l"></span><span class="l"><span class="c">// Some nights it's terrifying.</span></span><span class="l"><span class="c">// Most mornings it&#39;s the only thing I want.</span></span><span class="l"></span><span class="l"><span class="k">const</span> <span class="v">planB</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>   <span class="c">// a plan B is just a slower plan A</span></span><span class="l"></span><span class="l"><span class="c">// I don&#39;t know how this ends.</span></span><span class="l"><span class="k">export default function</span> <span class="p">() {</span></span><span class="l">  <span class="k">return</span> <span class="f">followAlong</span><span class="p">();</span>   <span class="c">// we&#39;ll find out together</span></span><span class="l"><span class="p">}</span></span></code></pre>
+            </div>
+
+            <div class="console" id="console">
+                <div class="con-head">
+                    <span class="con-title">Output</span>
+                    <span class="con-status" id="conStatus"><span class="con-spin"></span> running</span>
+                    <button class="con-stop" id="conStop" type="button">stop</button>
+                </div>
+                <pre class="con-body" id="conBody"></pre>
+            </div>
             </div>
 
             <div class="ed-foot">
@@ -127,16 +171,111 @@
             </div>
         </div>
 
-
+        <nav class="site-foot">
+            <a href="/">Home</a><a href="/about">About</a><a href="/now">Now</a><a href="/work">Work</a>
+            <a href="/words">Words</a><a href="/posts">Posts</a><a href="/playbooks">Playbooks</a>
+            <a href="/blog">Blog</a><a href="/manifesto">Manifesto</a><a href="/contact">Contact</a>
+        </nav>
     </div>
-
-    <nav class="site-foot">
-        <a href="/">Home</a><a href="/about">About</a><a href="/now">Now</a><a href="/work">Work</a>
-        <a href="/words">Words</a><a href="/posts">Posts</a><a href="/playbooks">Playbooks</a>
-        <a href="/blog">Blog</a><a href="/manifesto">Manifesto</a><a href="/contact">Contact</a>
-    </nav>
     <div class="ghost">Dhruv</div>
 
+    <script>
+        (function(){
+            var runBtn = document.getElementById('runBtn');
+            var editor = document.querySelector('.editor');
+            var con = document.getElementById('console');
+            var body = document.getElementById('conBody');
+            var status = document.getElementById('conStatus');
+            var stopBtn = document.getElementById('conStop');
+            if(!runBtn || !editor || !con || !body) return;
+
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var STEPS = [
+                ['cmd', '$ node manifesto.js'],
+                ['', ''],
+                ['out', 'permission ......  null            // not asking'],
+                ['out', 'decision ........  1 move away'],
+                ['out', 'spent ...........  10 years        // declined'],
+                ['out', 'college.exit() ..  ok'],
+                ['out', 'wrongOutLoud ....  true  >  rightInSilence'],
+                ['str', 'strategy ........  "build the things I want to exist"'],
+                ['out', 'picture(thing) ..  visualised'],
+                ['out', 'earn(thing) .....  in progress'],
+                ['', ''],
+                ['dim', '→ while (twists) { survive() }   // no exit condition']
+            ];
+
+            var lines = [], stepTimers = [], loopIv = null, running = false, startTs = 0;
+            function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+            function render(cursor){
+                var h = '';
+                for(var i = 0; i < lines.length; i++){
+                    h += '<span class="' + (lines[i][0] || '') + '">' + esc(lines[i][1]) + '</span>\n';
+                }
+                body.innerHTML = h + (cursor ? '<span class="con-cur"></span>' : '');
+                body.scrollTop = body.scrollHeight;
+            }
+            function fmt(ms){ var s = Math.floor(ms/1000); return Math.floor(s/60) + ':' + ('0'+(s%60)).slice(-2); }
+            function clearTimers(){ stepTimers.forEach(clearTimeout); stepTimers = []; if(loopIv){ clearInterval(loopIv); loopIv = null; } }
+
+            function start(){
+                clearTimers();
+                running = true;
+                editor.classList.add('open');
+                runBtn.disabled = true;
+                runBtn.innerHTML = '<span class="tri"></span>Running…';
+                lines = [];
+                render(true);
+                status.className = 'con-status';
+                status.innerHTML = '<span class="con-spin"></span> running';
+                var i = 0;
+                (function step(){
+                    if(i >= STEPS.length){ beginLoop(); return; }
+                    lines.push([STEPS[i][0], STEPS[i][1]]);
+                    render(true);
+                    var blank = STEPS[i][1] === '';
+                    i++;
+                    stepTimers.push(setTimeout(step, (blank ? 130 : 240) + Math.random() * 130));
+                })();
+            }
+
+            function beginLoop(){
+                startTs = Date.now();
+                if(reduce){
+                    lines.push(['out', '  ✓ survived a twist']);
+                    lines.push(['dim', '  … still running — we\'ll find out together.']);
+                    render(false);
+                    status.className = 'con-status';
+                    status.innerHTML = '<span class="con-spin"></span> running';
+                    return;
+                }
+                tickStatus();
+                loopIv = setInterval(function(){
+                    lines.push(['out', '  ✓ survived a twist']);
+                    if(lines.length > 60) lines.splice(STEPS.length, lines.length - 60);
+                    render(true);
+                    tickStatus();
+                }, 950);
+            }
+            function tickStatus(){
+                status.innerHTML = '<span class="con-spin"></span> uptime ' + fmt(Date.now() - startTs);
+            }
+
+            function stop(){
+                clearTimers();
+                running = false;
+                runBtn.disabled = false;
+                runBtn.innerHTML = '<span class="tri"></span>Run';
+                lines.push(['dim', '‹ paused — but it keeps running in real life :) ›']);
+                render(false);
+                status.className = 'con-status done';
+                status.textContent = 'paused';
+            }
+
+            runBtn.addEventListener('click', start);
+            if(stopBtn) stopBtn.addEventListener('click', function(){ if(running) stop(); });
+        })();
+    </script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
 </html>
