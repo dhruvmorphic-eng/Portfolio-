@@ -46,6 +46,34 @@
         .email .tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);white-space:nowrap}
         .email .addr{font-size:.95rem;color:#fff;font-weight:500}
 
+        /* Locked personal email */
+        .email.locked{position:relative;display:flex;align-items:center;justify-content:center;min-height:62px;cursor:default}
+        .email.locked:hover{border-color:rgba(255,255,255,.1);background:none}
+        .email.locked .lk-tag{position:absolute;top:.7rem;right:1.3rem}
+        .email.locked .lk-mask{position:absolute;left:1.4rem;right:1.4rem;top:50%;transform:translateY(-50%);filter:blur(5px);user-select:none;pointer-events:none;color:rgba(255,255,255,.4);letter-spacing:2px;white-space:nowrap;overflow:hidden;text-align:center;font-size:.95rem}
+        .unlock-btn{position:relative;z-index:2;display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(10,10,12,.75);border:1px solid rgba(255,255,255,.18);padding:.5rem 1rem;border-radius:9px;cursor:pointer;transition:all .3s;white-space:nowrap}
+        .unlock-btn:hover{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.1)}
+        .unlock-btn svg{width:11px;height:11px;fill:currentColor;transition:transform .3s}
+        .unlock-btn:hover svg{transform:translateY(-1px)}
+
+        /* Decrypt modal (centered terminal) */
+        .decrypt-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(0,0,0,.72);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .35s}
+        .decrypt-overlay.show{opacity:1;pointer-events:auto}
+        .decrypt-win{width:min(94vw,540px);background:#080c08;border:1px solid rgba(126,201,126,.3);border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(126,201,126,.07);transform:scale(.93) translateY(12px);transition:transform .42s cubic-bezier(.16,.84,.32,1);overflow:hidden;text-align:left}
+        .decrypt-overlay.show .decrypt-win{transform:scale(1) translateY(0)}
+        .dw-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem .95rem;border-bottom:1px solid rgba(126,201,126,.16);background:rgba(126,201,126,.04)}
+        .dw-status{width:8px;height:8px;border-radius:50%;background:#7ec97e;box-shadow:0 0 8px rgba(126,201,126,.9);animation:htblink 1.4s steps(1) infinite}
+        .dw-file{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+        .dw-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.35);font-size:1.15rem;line-height:1;cursor:pointer;transition:color .3s;padding:0 .1rem}
+        .dw-close:hover{color:#fff}
+        .dw-body{padding:1.1rem 1.25rem 1.35rem;min-height:11em}
+        .dw-log,.dw-out{font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0}
+        .dw-log .sys{color:rgba(126,201,126,.7)}
+        .dw-log .dim{color:rgba(255,255,255,.42)}
+        .dw-out{color:#7ec97e;margin-top:.5rem;min-height:5.2em}
+        .dw-cur{display:inline-block;width:7px;height:1em;background:#7ec97e;vertical-align:-2px;margin-left:1px;animation:htblink 1.05s steps(1) infinite}
+        @keyframes htblink{50%{opacity:0}}
+
         /* Socials */
         .socials{display:flex;gap:1.1rem}
         .socials a{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;transition:all .3s;border:none}
@@ -125,10 +153,14 @@
         <div class="r r2" style="width:100%;display:flex;flex-direction:column;align-items:center">
             <div class="label">Mail</div>
             <div class="emails">
-                <a class="email" href="mailto:dhruvcp07@gmail.com">
-                    <span class="addr">dhruvcp07@gmail.com</span>
-                    <span class="tag">Personal</span>
-                </a>
+                <div class="email locked" id="personalRow">
+                    <span class="tag lk-tag">Personal</span>
+                    <span class="addr lk-mask" aria-hidden="true">••••••••@••••.•••</span>
+                    <button class="unlock-btn" id="unlockPersonal" type="button" aria-label="Unlock personal email">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 9V7a5 5 0 00-10 0h2a3 3 0 016 0v2H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1zm-5 8a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                        Unlock
+                    </button>
+                </div>
                 <a class="email" href="mailto:dhruv@cnvrted.com">
                     <span class="addr">dhruv@cnvrted.com</span>
                     <span class="tag">Cnvrted</span>
@@ -169,6 +201,106 @@
         <a href="/contact">Contact</a>
     </nav>
     <div class="ghost">Dhruv</div>
+
+    <div class="decrypt-overlay" id="decryptOverlay" aria-hidden="true">
+        <div class="decrypt-win" role="dialog" aria-modal="true" aria-label="Decrypting personal email">
+            <div class="dw-bar">
+                <span class="dw-status"></span>
+                <span class="dw-file">decrypt.sh</span>
+                <button class="dw-close" id="decryptClose" type="button" aria-label="Close">&times;</button>
+            </div>
+            <div class="dw-body">
+                <pre class="dw-log" id="decryptLog"></pre>
+                <pre class="dw-out" id="decryptOut"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            var btn = document.getElementById('unlockPersonal');
+            var overlay = document.getElementById('decryptOverlay');
+            var log = document.getElementById('decryptLog');
+            var out = document.getElementById('decryptOut');
+            var closeBtn = document.getElementById('decryptClose');
+            if(!btn || !overlay || !log || !out) return;
+
+            var GLYPHS = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&@?$*+=<>/\\|';
+            var OUT = [
+                "// mail: first name + mom's initial + dad's initial",
+                "// + last two digits of birth year, gmail.",
+                "// figure out :)"
+            ];
+            var BOOT = [
+                ['sys','$ ./decrypt --target personal.mail'],
+                ['dim','> initializing cipher ............ ok'],
+                ['dim','> reading fragments [████████] 100%'],
+                ['dim','> resolving identity vector ..... ok'],
+                ['dim','> bypassing obfuscation layer ... ok'],
+                ['dim','> compiling hint ................ ok'],
+                ['sys','> hint compiled — output:']
+            ];
+            var timers = [];
+            function push(id){ timers.push(id); return id; }
+            function clearAll(){ timers.forEach(function(t){ clearTimeout(t); clearInterval(t); }); timers = []; }
+
+            function run(){
+                clearAll();
+                log.textContent = '';
+                out.textContent = '';
+                var i = 0;
+                (function step(){
+                    if(i >= BOOT.length){ push(setTimeout(reveal, 300)); return; }
+                    var span = document.createElement('span');
+                    span.className = BOOT[i][0];
+                    span.textContent = BOOT[i][1] + '\n';
+                    log.appendChild(span);
+                    i++;
+                    push(setTimeout(step, 260 + Math.random() * 180));
+                })();
+            }
+
+            function reveal(){
+                var full = OUT.join('\n');
+                var frame = 0, revealed = 0, hold = 10;
+                var iv = push(setInterval(function(){
+                    frame++;
+                    if(frame > hold) revealed++;
+                    var s = '';
+                    for(var k = 0; k < full.length; k++){
+                        var ch = full[k];
+                        if(k < revealed || ch === '\n' || ch === ' ') s += ch;
+                        else s += GLYPHS[(Math.random() * GLYPHS.length) | 0];
+                    }
+                    out.textContent = s;
+                    if(revealed >= full.length){
+                        clearInterval(iv);
+                        out.textContent = full;
+                        var cur = document.createElement('span');
+                        cur.className = 'dw-cur';
+                        out.appendChild(cur);
+                    }
+                }, 30));
+            }
+
+            function open(){
+                overlay.classList.add('show');
+                overlay.setAttribute('aria-hidden', 'false');
+                run();
+            }
+            function close(){
+                clearAll();
+                overlay.classList.remove('show');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+            btn.addEventListener('click', open);
+            closeBtn.addEventListener('click', close);
+            overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && overlay.classList.contains('show')) close();
+            });
+        })();
+    </script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
 </html>
