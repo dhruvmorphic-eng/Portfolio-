@@ -47,6 +47,8 @@
         .corner-bl .label .live-dot{width:6px;height:6px;background:#3b82f6;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(59,130,246,.8)}
         .corner-bl .val{color:rgba(255,255,255,.75)}
         .socials{display:flex;gap:1.1rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:2.2rem}
+        .erosion-orb{width:190px;height:190px;margin:2.6rem auto 0;position:relative;z-index:2}
+        @media(max-width:700px){.erosion-orb{width:150px;height:150px;margin-top:2rem}}
         .socials a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;transition:all .3s;border:none}
         .socials a:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.5)}
         .socials a svg{width:16px;height:16px}
@@ -194,6 +196,8 @@
     <div class="content">
         <h1 class="name anim-1">Dhruv Pradeep</h1>
         <p class="tag anim-2"><span id="typed"></span><span class="cursor"></span></p>
+
+        <div class="erosion-orb anim-2" id="erosionOrb"></div>
 
         <div class="socials anim-2">
             <a href="https://www.linkedin.com/in/dhruvpradeep/" target="_blank" aria-label="LinkedIn" class="s-li"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
@@ -355,6 +359,18 @@
             }
         })();
     </script>
-    <script src="/assets/cmdk.js" defer></script>
+<script src="/assets/recursive-erosion.js?v=3"></script>
+    <script>
+        window.addEventListener("load", function(){
+            var host = document.getElementById("erosionOrb");
+            if(host && window.RecursiveErosion) window.RecursiveErosion.init(host, {
+                background:"transparent", baseColor:"#ffffff", accentColor:"#3b82f6", highlight:"#22c55e",
+                size:52, density:2200, dotSize:78, speed:71, hover:119,
+                shell:{morph:250, tumble:180, erosion:0},
+                trails:{glow:300, count:4, length:200}
+            });
+        });
+    </script>
+        <script src="/assets/cmdk.js" defer></script>
 </body>
 </html>
