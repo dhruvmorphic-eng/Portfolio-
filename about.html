@@ -24,8 +24,6 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.8}
-        .bh-bg{position:fixed;inset:0;z-index:-1;background:#000;pointer-events:none}
-        .wrap p,.wrap h1,.sub,.me figcaption,.loc-label,.loc-city,.loc-country{text-shadow:0 1px 16px rgba(0,0,0,.9),0 0 4px rgba(0,0,0,.7)}
         ::selection{background:#fff;color:#000}
 
         .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent)}
@@ -270,7 +268,6 @@
     </script>
 </head>
 <body>
-    <div class="bh-bg" id="bhBg"></div>
     <div class="top">
         <a class="back" href="/">&larr; Home</a>
         <span class="top-label">About</span>
@@ -412,8 +409,6 @@
             });
         });
     </script>
-    <script src="/assets/black-hole.js?v=1"></script>
-    <script>window.addEventListener("load",function(){var h=document.getElementById("bhBg");if(h&&window.BlackHole)window.BlackHole.init(h,{intensity:0.62});});</script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
 </html>
