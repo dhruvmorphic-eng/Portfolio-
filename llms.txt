@@ -1,14 +1,16 @@
 # Dhruv Pradeep
 
-> Personal website of Dhruv Pradeep — a 19-year-old founder based in Bangalore, India. Co-founder & CEO of Cnvrted, a sales-intelligence startup that finds real buyers with actual intent. Runs marketing operations at Morphic, an AI storytelling and filmmaking platform, and leads MorphicKIDS, its YouTube channel for kids' content. Former professional cricketer (~10 years) who dropped out of Manipal Academy of Higher Education (MAHE) at 19 to build.
+> Personal website of Dhruv Pradeep — a 19-year-old founder based in Bangalore, India. Co-founder & CEO of Cnvrted, a sales-intelligence startup that finds real buyers with actual intent. Previously ran marketing operations at Morphic, an AI storytelling and filmmaking platform, where he led MorphicKIDS, its YouTube channel for kids' content. Former professional cricketer (~10 years) who dropped out of Manipal Academy of Higher Education (MAHE) at 19 to build.
 
 ## Pages
 
 - [Home](https://dhruvpradeep.in/): Landing page — name, "Founder in Progress", live Bangalore time, current work status.
 - [About](https://dhruvpradeep.in/about): Full story — 19, dropout, builder. Cricket background, leaving Manipal, what drives him, based in Bangalore.
-- [Now](https://dhruvpradeep.in/now): Current focus — Cnvrted (co-founder & CEO) and Morphic (marketing operations, MorphicKIDS).
+- [Now](https://dhruvpradeep.in/now): Current focus — Cnvrted (co-founder & CEO). Previously Morphic (marketing operations, MorphicKIDS).
 - [Work](https://dhruvpradeep.in/work): MorphicKIDS — AI-made bedtime stories, sing-alongs and science videos for kids on YouTube, led end-to-end by Dhruv.
 - [Playbooks](https://dhruvpradeep.in/playbooks): Working documents on sales, AI and building — including a live AI model benchmark index.
+- [The AI Index](https://dhruvpradeep.in/ai): Live intelligence, price and speed benchmarks for 400+ AI models, from Artificial Analysis. Updated continuously.
+- [Sales Playbook](https://dhruvpradeep.in/sales): The sales playbook Dhruv Pradeep is building at Cnvrted, updated straight from Notion.
 - [Posts](https://dhruvpradeep.in/posts): Posts pulled in from LinkedIn, X, Substack, Bluesky, Product Hunt and Spotify.
 - [Manifesto](https://dhruvpradeep.in/manifesto): Operating principles — "I don't wait. I move." Taste, speed, ownership.
 - [Blog](https://dhruvpradeep.in/blog): Essays on startups, sales, AI, careers and mindset.
