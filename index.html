@@ -10,9 +10,9 @@
     <link rel="alternate" type="application/feed+json" title="Dhruv Pradeep — Blog" href="https://dhruvpradeep.in/feed.json">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <meta name="description" content="Dhruv Pradeep is a 19-year-old founder from Bangalore building Cnvrted, a smarter way to find real buyers in sales, and running marketing ops at Morphic.">
+    <meta name="description" content="Dhruv Pradeep is a 19-year-old founder from Bangalore building Cnvrted, a smarter way to find real buyers in sales, and previously ran marketing ops at Morphic.">
     <meta property="og:title" content="Dhruv Pradeep — Founder In Progress | Building Cnvrted">
-    <meta property="og:description" content="Dhruv Pradeep is a 19-year-old founder from Bangalore building Cnvrted, a smarter way to find real buyers in sales, and running marketing ops at Morphic.">
+    <meta property="og:description" content="Dhruv Pradeep is a 19-year-old founder from Bangalore building Cnvrted, a smarter way to find real buyers in sales, and previously ran marketing ops at Morphic.">
     <meta property="og:image" content="https://dhruvpradeep.in/og.png">
     <meta property="og:url" content="https://dhruvpradeep.in/">
     <meta property="og:type" content="website">
@@ -46,6 +46,7 @@
         .corner-bl .label{color:rgba(255,255,255,.3);font-size:.6rem;display:flex;align-items:center;gap:.45rem}
         .corner-bl .label .live-dot{width:6px;height:6px;background:#3b82f6;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(59,130,246,.8)}
         .corner-bl .val{color:rgba(255,255,255,.75)}
+        .corner-bl .val-prev{color:rgba(255,255,255,.4);font-size:.85em}
         .socials{display:flex;gap:1.1rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:2.2rem}
         .erosion-orb{width:190px;height:190px;margin:2.6rem auto 0;position:relative;z-index:2}
         @media(max-width:700px){.erosion-orb{width:150px;height:150px;margin-top:2rem}}
@@ -148,10 +149,8 @@
       "url": "https://dhruvpradeep.in",
       "image": "https://dhruvpradeep.in/og.png",
       "jobTitle": "Co-founder & CEO, Cnvrted",
-      "worksFor": [
-        {"@type": "Organization", "name": "Cnvrted", "url": "https://www.cnvrted.com"},
-        {"@type": "Organization", "name": "Morphic", "url": "https://morphic.com"}
-      ],
+      "worksFor": {"@type": "Organization", "name": "Cnvrted", "url": "https://www.cnvrted.com"},
+      "alumniOf": {"@type": "Organization", "name": "Morphic", "url": "https://morphic.com"},
       "address": {"@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN"},
       "sameAs": [
         "https://www.linkedin.com/in/dhruvpradeep/",
@@ -212,8 +211,8 @@
 
     <div class="corner corner-bl anim-3">
         <div class="label"><span class="live-dot"></span>Currently</div>
-        <div class="val">Marketing Ops @ Morphic</div>
         <div class="val">Building Cnvrted</div>
+        <div class="val val-prev">Ex-Morphic</div>
     </div>
 
     <div class="footer-stack anim-3">
@@ -328,7 +327,7 @@
         const LINES = [
             [['k','const '],['v','role'],['p',' = '],['s','"Founder in progress"'],['p',';']],
             [['k','const '],['v','building'],['p',' = '],['s','"Cnvrted"'],['p',';']],
-            [['k','const '],['v','work'],['p',' = '],['s','"Marketing @ Morphic"'],['p',';']],
+            [['k','const '],['v','work'],['p',' = '],['s','"Ex @ Morphic"'],['p',';']],
             [['k','const '],['v','age'],['p',' = '],['n','19'],['p',';'],['c','  // Bangalore']]
         ];
         const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
