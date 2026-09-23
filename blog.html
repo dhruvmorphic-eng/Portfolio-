@@ -21,7 +21,9 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.8}
+        @font-face{font-family:'Newsreader';src:url('/assets/fonts/Newsreader-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+        @font-face{font-family:'Newsreader';src:url('/assets/fonts/Newsreader-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+        body{background:#000;color:#fff;font-family:'Newsreader',sans-serif;line-height:1.8}
         ::selection{background:#fff;color:#000}
         .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
         .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
@@ -86,7 +88,7 @@
         article h2{font-weight:400;letter-spacing:-.01em}
         .p-title,.vid-title,.item-title,.loc-city,.npa-title,.fav-title,
         .substack-title,.pn-title{font-weight:400;letter-spacing:-.01em}
-        article .lede{font-family:'Manrope',sans-serif;font-weight:400;font-style:italic;letter-spacing:-.005em}
+        article .lede{font-family:'Newsreader',sans-serif;font-weight:400;font-style:italic;letter-spacing:-.005em}
     </style>
     <script type="application/ld+json">
 {
