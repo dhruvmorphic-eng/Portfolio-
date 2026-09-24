@@ -98,6 +98,14 @@
         .np-a{color:var(--g-dim);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
         .np:hover .np-t{color:#1DB954}
 
+        /* GitHub contributions, as a second status widget */
+        .gh-widget{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08)}
+        @media(min-width:920px){.gh-widget{margin-top:1.4rem;padding-top:1.4rem}}
+        .gh-link{display:block;margin-top:.6rem;border-radius:8px;overflow:hidden;background:#f6f6f6;padding:.5rem;line-height:0;transition:opacity .2s}
+        .gh-link:hover{opacity:.85}
+        .gh-chart{display:block;width:100%;height:auto}
+        .gh-foot{display:block;margin-top:.5rem;color:var(--g-dim);font-size:.7rem}
+
         @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .r{opacity:0;animation:fadeUp .85s ease forwards}
         .r1{animation-delay:.05s}.r2{animation-delay:.2s}
@@ -176,6 +184,14 @@ Two things in progress. Nothing staged for later.</div>
                         <span class="np-a" id="npaNowArtist"></span>
                     </span>
                 </a>
+
+                <div class="gh-widget">
+                    <div class="cmd">github --contributions</div>
+                    <a class="gh-link" href="https://github.com/dhruvmorphic-eng" target="_blank" rel="noopener">
+                        <img class="gh-chart" src="https://ghchart.rshah.org/22c55e/dhruvmorphic-eng" alt="Dhruv's GitHub contribution graph" loading="lazy">
+                    </a>
+                    <span class="gh-foot">dhruvmorphic-eng — last 12 months</span>
+                </div>
               </div>
             </div>
         </div>
