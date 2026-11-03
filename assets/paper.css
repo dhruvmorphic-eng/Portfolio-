@@ -61,5 +61,80 @@ article .lede{font-family:var(--sans)!important}
 /* justified paragraphs leave rivers of space on narrow screens */
 @media(max-width:700px){p,article p{text-align:left!important}}
 
+/* ---- Code on paper: /now terminal, /manifesto editor, contact decrypt popup ----
+   Printed-listing style: a lighter sheet, hairline rules, ink syntax colours, no window chrome. */
+:root{
+    --sheet:#f6f5f1;
+    --code-key:#2b3bd1; --code-str:#a3472a; --code-fn:#7a5600; --code-num:#1f7a4d;
+    --code-com:rgba(25,25,23,.6); --code-punct:rgba(25,25,23,.5);
+    /* /now */
+    --term-bg:var(--sheet); --term-chrome:transparent;
+    --g-hash:var(--code-fn); --g-ref:var(--code-num); --g-branch:var(--code-key); --g-prompt:var(--code-key);
+    --g-plain:var(--ink); --g-dim:rgba(25,25,23,.58); --g-link:var(--code-key); --g-active:var(--code-num);
+    /* /manifesto */
+    --ed-bg:var(--sheet); --ed-chrome:transparent; --ed-line:rgba(25,25,23,.06);
+    --tok-comment:var(--code-com); --tok-keyword:var(--code-key); --tok-string:var(--code-str); --tok-fn:var(--code-fn);
+    --tok-var:var(--ink); --tok-num:var(--code-num); --tok-punct:var(--code-punct); --tok-plain:var(--ink);
+}
+/* let both pages scroll like documents instead of squeezing the code into one screen */
+html:has(.term),html:has(.editor),body:has(.term),body:has(.editor){height:auto!important;overflow:visible!important}
+body:has(.term){display:block!important}
+body:has(.term) .wrap,body:has(.editor) .wrap{height:auto!important;min-height:0}
+body .term,body .editor{flex:none;border:1px solid var(--rule);border-radius:4px;background:var(--sheet);box-shadow:none}
+body .term-body{flex:none;overflow:visible;max-height:none;scrollbar-color:auto}
+body .code{overflow-x:auto;overflow-y:visible}
+body .term-bar,body .ed-bar{background:transparent;border-bottom:1px solid var(--rule);padding-top:.75rem;padding-bottom:.75rem}
+body .dots{display:none}
+body .term-title,body .ed-tab{color:var(--ink-2);font-size:.68rem}
+body .ed-tab .dot{color:var(--code-key)}
+body .ed-meta,body .ed-bar .ed-meta{color:var(--ink-3)}
+body .term-side{border-left-color:var(--rule)}
+body .subject{color:var(--ink);font-weight:500}
+body .c-body{border-left-color:var(--rule);color:var(--ink-2);font-weight:400}
+body .c-body a{border-bottom-color:rgba(43,59,209,.3)}
+body .c-body a.trailer{width:fit-content;border-bottom:0}
+body .c-body a.trailer:hover{text-decoration:underline;text-underline-offset:3px}
+body .badge{border-color:rgba(31,122,77,.45)}
+body .badge.ended{border-color:var(--rule);color:var(--ink-3)}
+body .np-t{color:var(--ink)}
+body .gh-widget{border-top-color:var(--rule)}
+body .gh-link{background:#fff;border:1px solid var(--rule)}
+body .l::before{color:rgba(25,25,23,.32)}
+body .l:hover{background:rgba(25,25,23,.035)}
+body .ed-foot{background:transparent;border-top:1px solid var(--rule);color:var(--ink-3)}
+body .ed-foot .ok{color:var(--code-num)}
+body .run-btn{color:var(--code-key);background:transparent;border:1px solid rgba(43,59,209,.45);border-radius:999px}
+body .run-btn:hover{background:rgba(43,59,209,.07);border-color:var(--code-key)}
+body .console{background:#efeee9}
+body .editor.open .console{border-left:1px solid var(--rule)}
+body .con-head{background:transparent;border-bottom:1px solid var(--rule)}
+body .con-title,body .con-status.done{color:var(--ink-3)}
+body .con-status{color:var(--code-num)}
+body .con-spin,body .con-cur{background:var(--code-key)}
+body .con-stop{border-color:var(--rule);color:var(--ink-2)}
+body .con-stop:hover{color:var(--ink);border-color:var(--ink-2)}
+body .con-body .cmd{color:var(--ink)}
+body .con-body .out{color:var(--code-num)}
+body .con-body .dim{color:var(--ink-3)}
+@media(max-width:640px){
+    body .editor.open .console{border-left:0;border-top:1px solid var(--rule)}
+    /* wrap long lines with a hanging indent so the manifesto reads without sideways scrolling */
+    body .code pre{min-width:0}
+    body .l{white-space:pre-wrap;padding-left:3.1rem;text-indent:-3.1rem;padding-right:1rem}
+    body .l::before{box-sizing:border-box;width:3.1rem;padding-right:.8rem;text-indent:0}
+}
+
+body .decrypt-win{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;box-shadow:0 24px 60px rgba(25,25,23,.14)}
+body .dw-bar{background:transparent;border-bottom:1px solid var(--rule)}
+body .dw-status{background:var(--code-key);box-shadow:none}
+body .dw-file{color:var(--ink-2)}
+body .dw-close{color:var(--ink-3)}
+body .dw-close:hover{color:var(--ink)}
+body .dw-body{color:var(--ink)}
+body .dw-log .sys{color:var(--code-key)}
+body .dw-log .dim{color:var(--ink-3)}
+body .dw-out{color:var(--code-str)}
+body .dw-cur{background:var(--code-key)}
+
 /* ---- Leftovers from the dark theme ---- */
 .ghost,.site-foot{display:none!important}
