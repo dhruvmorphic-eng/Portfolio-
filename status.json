@@ -1,0 +1,6 @@
+{
+  "status": { "emoji": "🚀", "text": "Shipping Cnvrted" },
+  "huddle": false,
+  "hours": { "start": 9, "end": 17, "days": [1, 2, 3, 4, 5] },
+  "calendar": "https://cal.com/cnvrted"
+}

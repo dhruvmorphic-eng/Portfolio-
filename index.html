@@ -80,19 +80,6 @@
         .clk .s{color:var(--ink-3)}
         @media(max-width:720px){.clk .geo,.clk .day{display:none}}
 
-        /* mini me: the team mascot, sitting just under the rule on the right, in the page flow */
-        .hero{position:relative}
-        .mini{position:absolute;right:0;top:calc(100% - 4.1rem);display:flex;align-items:center;gap:.85rem;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
-        .mini.in{opacity:1;transform:none}
-        .mini .face{position:relative;flex:none}
-        .mini img{display:block;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 1px var(--rule),0 6px 18px rgba(25,25,23,.1);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
-        .mini:hover img{transform:rotate(-12deg) scale(1.08)}
-        .mini .face::after{content:"";position:absolute;right:1px;bottom:1px;width:9px;height:9px;border-radius:50%;background:#1f9d55;box-shadow:0 0 0 2px var(--paper)}
-        .mini .say{order:-1;font-family:var(--mono);font-size:.66rem;color:var(--ink-2);white-space:nowrap;text-align:right;min-height:1.2em}
-        .mini .say .who{color:var(--blue)}
-        .mini .say b{color:var(--ink);font-weight:500}
-        .mini .say .cur{display:inline-block;width:.5em;height:1em;background:var(--ink-3);vertical-align:-.15em;margin-left:.1em;animation:blink 1.1s steps(1) infinite}
-        @media(max-width:720px){.mini{position:static;margin-top:1.6rem}.mini .say{order:2;text-align:left;white-space:normal}.mini img{width:38px;height:38px}}
         .split .say{text-align:right;font-size:.95rem;line-height:1.42;letter-spacing:-.01em}
         .split .say span{display:block}
         @media(max-width:720px){.split{grid-template-columns:1fr;gap:2.2rem}.split .say{text-align:left;font-size:1.05rem}.split .say span{display:inline}}
@@ -181,10 +168,6 @@
             <hr class="hero-rule">
             <p class="hero-sub mono"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
             <p class="hero-meta">Co-founder &amp; CEO, Cnvrted. Ex-Morphic.<br>( DPIIT-RECOGNISED &middot; INCORPORATED 2026 )</p>
-            <a class="mini" id="mini" href="/cnvrted" aria-label="Mini Dhruv, the team mascot. Opens the Cnvrted founder&rsquo;s log">
-                <span class="face"><img src="/favicon.png" alt=""></span>
-                <span class="say" id="miniSay" aria-hidden="true"></span>
-            </a>
         </section>
 
         <section class="split">
@@ -260,31 +243,6 @@
         }
         tick(); setInterval(tick, 1000);
 
-        // mini me: types a line, depending on the time in Bengaluru; hover for the next one
-        (function(){
-            var m = document.getElementById('mini'), say = document.getElementById('miniSay');
-            var hr = +new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',hour12:false}).format(new Date()) % 24;
-            var mood = hr < 5 ? 'it&rsquo;s ' + hr + ' a.m. here. still shipping.' : hr < 12 ? 'morning from Bengaluru ☕' : hr < 18 ? 'heads down on <b>Cnvrted</b>.' : 'evening shift. the good code happens now.';
-            var lines = ['hey, I&rsquo;m mini Dhruv 👋', mood, 'press <b>⌘K</b> to jump anywhere.', 'click me for the founder&rsquo;s log.'], i = 0, timer;
-            if(matchMedia('(hover:none)').matches) lines.splice(2, 1);   // no ⌘K on phones
-            function type(html){
-                // type the visible text, keeping any <b> markup intact
-                var parts = html.split(/(<[^>]+>|&[a-z]+;)/).filter(Boolean), out = '', k = 0;
-                clearTimeout(timer);
-                (function step(){
-                    if(k < parts.length){
-                        var p = parts[k];
-                        if(p[0] === '<' || p[0] === '&' || p.length <= 1){ out += p; k++; }
-                        else { out += p[0]; parts[k] = p.slice(1); }
-                        say.innerHTML = '<span class="who">mini-dhruv &rsaquo;</span> ' + out + '<span class="cur"></span>';
-                        timer = setTimeout(step, 28);
-                    }
-                })();
-            }
-            setTimeout(function(){ m.classList.add('in'); type(lines[0]); }, 1200);
-            m.addEventListener('mouseenter', function(){ i = (i + 1) % lines.length; type(lines[i]); });
-            m.addEventListener('focus', function(){ i = (i + 1) % lines.length; type(lines[i]); });
-        })();
 
         // link previews
         (function(){
@@ -346,5 +304,6 @@
         })();
     </script>
     <script src="/assets/cmdk.js" defer></script>
+    <script src="/assets/presence.js" defer></script>
 </body>
 </html>
