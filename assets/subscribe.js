@@ -25,14 +25,14 @@
     '.dpsub-badge{display:inline-flex;align-items:center;gap:.45rem;font-family:"JetBrains Mono",monospace;font-size:.56rem;letter-spacing:2.5px;text-transform:uppercase;color:#cc4f10;margin-bottom:.9rem}' +
     '.dpsub-badge b{width:16px;height:16px;border-radius:4px;background:#cc4f10;display:inline-flex;align-items:center;justify-content:center}' +
     '.dpsub-badge b svg{width:10px;height:10px;fill:#191917}' +
-    '.dpsub-title{font-family:"Manrope",system-ui,sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:-.01em;line-height:1.15;margin-bottom:.5rem}' +
-    '.dpsub-sub{font-family:"Manrope",system-ui,sans-serif;font-size:.9rem;color:rgba(25,25,23,0.81);line-height:1.5;margin-bottom:1.3rem}' +
+    '.dpsub-title{font-family:"Inter Tight",system-ui,sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:-.01em;line-height:1.15;margin-bottom:.5rem}' +
+    '.dpsub-sub{font-family:"Inter Tight",system-ui,sans-serif;font-size:.9rem;color:rgba(25,25,23,0.81);line-height:1.5;margin-bottom:1.3rem}' +
     '.dpsub-form{display:flex;gap:.5rem}' +
     '.dpsub-form input{flex:1;min-width:0;background:rgba(25,25,23,.05);border:1px solid rgba(25,25,23,.15);border-radius:10px;' +
-      'padding:.75rem .9rem;color:#191917;font-family:"Manrope",system-ui,sans-serif;font-size:.92rem;outline:none;transition:border-color .25s}' +
+      'padding:.75rem .9rem;color:#191917;font-family:"Inter Tight",system-ui,sans-serif;font-size:.92rem;outline:none;transition:border-color .25s}' +
     '.dpsub-form input:focus{border-color:rgba(25,25,23,.5)}' +
     '.dpsub-form input::placeholder{color:rgba(25,25,23,0.71)}' +
-    '.dpsub-btn{background:#cc4f10;color:#191917;border:none;border-radius:10px;padding:.75rem 1.1rem;font-family:"Manrope",system-ui,sans-serif;' +
+    '.dpsub-btn{background:#cc4f10;color:#191917;border:none;border-radius:10px;padding:.75rem 1.1rem;font-family:"Inter Tight",system-ui,sans-serif;' +
       'font-weight:600;font-size:.9rem;cursor:pointer;white-space:nowrap;transition:background .25s}' +
     '.dpsub-btn:hover{background:#ff7d3a}' +
     '.dpsub-note{margin-top:.9rem;font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:1px;color:rgba(25,25,23,0.69)}';

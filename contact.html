@@ -59,17 +59,17 @@
         /* Decrypt modal (centered terminal) */
         .decrypt-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(239,238,233,.72);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .35s}
         .decrypt-overlay.show{opacity:1;pointer-events:auto}
-        .decrypt-win{width:min(94vw,540px);background:#e7e6e0;border:1px solid rgba(126,201,126,.3);border-radius:12px;box-shadow:0 30px 80px rgba(25,25,23,0.126),0 0 60px rgba(126,201,126,.07);transform:scale(.93) translateY(12px);transition:transform .42s cubic-bezier(.16,.84,.32,1);overflow:hidden;text-align:left}
+        .decrypt-win{width:min(94vw,540px);background:#080c08;border:1px solid rgba(126,201,126,.3);border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(126,201,126,.07);transform:scale(.93) translateY(12px);transition:transform .42s cubic-bezier(.16,.84,.32,1);overflow:hidden;text-align:left}
         .decrypt-overlay.show .decrypt-win{transform:scale(1) translateY(0)}
         .dw-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem .95rem;border-bottom:1px solid rgba(126,201,126,.16);background:rgba(126,201,126,.04)}
         .dw-status{width:8px;height:8px;border-radius:50%;background:#7ec97e;box-shadow:0 0 8px rgba(126,201,126,.9);animation:htblink 1.4s steps(1) infinite}
-        .dw-file{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(25,25,23,0.73)}
-        .dw-close{margin-left:auto;background:none;border:none;color:rgba(25,25,23,0.71);font-size:1.15rem;line-height:1;cursor:pointer;transition:color .3s;padding:0 .1rem}
-        .dw-close:hover{color:#191917}
+        .dw-file{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+        .dw-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.35);font-size:1.15rem;line-height:1;cursor:pointer;transition:color .3s;padding:0 .1rem}
+        .dw-close:hover{color:#fff}
         .dw-body{padding:1.1rem 1.25rem 1.35rem;min-height:11em}
         .dw-log,.dw-out{font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0}
         .dw-log .sys{color:rgba(126,201,126,.7)}
-        .dw-log .dim{color:rgba(25,25,23,0.74)}
+        .dw-log .dim{color:rgba(255,255,255,.42)}
         .dw-out{color:#7ec97e;margin-top:.5rem;min-height:5.2em}
         .dw-cur{display:inline-block;width:7px;height:1em;background:#7ec97e;vertical-align:-2px;margin-left:1px;animation:htblink 1.05s steps(1) infinite}
         @keyframes htblink{50%{opacity:0}}
@@ -80,11 +80,11 @@
         .socials a:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(25,25,23,0.09)}
         .socials a svg{width:19px;height:19px}
         .s-li{background:#0A66C2}
-        .s-li svg{fill:#191917}
-        .s-x{background:#191917}
-        .s-x svg{fill:#efeee9}
+        .s-li svg{fill:#fff}
+        .s-x{background:#fff}
+        .s-x svg{fill:#000}
         .s-ig{background:radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)}
-        .s-ig svg{fill:#191917}
+        .s-ig svg{fill:#fff}
 
         /* Cal */
         .cal-btn{display:inline-flex;align-items:center;gap:.8rem;padding:1.1rem 2.4rem;background:#191917;color:#efeee9;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;border-radius:100px;cursor:pointer;transition:all .3s}
