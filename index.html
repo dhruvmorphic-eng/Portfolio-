@@ -66,6 +66,30 @@
         .split .code a{color:#a3472a;border-bottom:1px solid transparent;transition:border-color .2s}
         .split .code a:hover{border-color:currentColor}
         .split .code .c{color:var(--ink-3)}
+        .split .code .lg{width:13px;height:13px;border-radius:3px;vertical-align:-2px;margin-right:.4em;transition:transform .25s}
+        .split .code a:hover .lg{transform:rotate(-8deg) scale(1.15)}
+        .split .code a.was{color:var(--ink-2)}
+
+        /* clock: a 24-segment day bar, then live time */
+        .clk{display:flex;align-items:center;gap:.7rem;font-variant-numeric:tabular-nums}
+        .clk .day{display:flex;gap:2px;align-items:flex-end;height:10px}
+        .clk .day i{display:block;width:2px;height:5px;background:rgba(25,25,23,.18)}
+        .clk .day i.past{background:rgba(25,25,23,.45)}
+        .clk .day i.now{height:10px;background:var(--blue);animation:pulse 2s infinite}
+        .clk .geo{color:var(--ink-3)}
+        .clk .s{color:var(--ink-3)}
+        @media(max-width:720px){.clk .geo,.clk .day{display:none}}
+
+        /* mini me: the team mascot, parked bottom-right */
+        .mini{position:fixed;left:clamp(14px,2.4vw,30px);bottom:clamp(14px,2.4vw,30px);z-index:15;display:flex;align-items:center;gap:.6rem;transform:translateY(140%);transition:transform .7s cubic-bezier(.2,1.4,.4,1)}
+        .mini.in{transform:none}
+        .mini img{width:58px;height:58px;border-radius:50%;background:#e3e2dc;border:1px solid var(--rule);box-shadow:0 10px 30px rgba(25,25,23,.12);animation:bob 3.6s ease-in-out infinite;transition:transform .3s}
+        .mini:hover img{animation-play-state:paused;transform:rotate(-10deg) scale(1.06)}
+        @keyframes bob{50%{transform:translateY(-5px) rotate(3deg)}}
+        .mini .say{order:2;font-family:var(--mono);font-size:.64rem;line-height:1.5;background:#f6f5f1;border:1px solid var(--rule);border-radius:10px 10px 10px 2px;padding:.55rem .75rem;max-width:220px;color:var(--ink);opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .3s;pointer-events:none}
+        .mini .say.on{opacity:1;transform:none}
+        .mini .say b{color:var(--blue);font-weight:500}
+        @media(max-width:720px){.mini img{width:46px;height:46px}.mini .say{font-size:.6rem;max-width:180px}}
         .split .say{text-align:right;font-size:.95rem;line-height:1.42;letter-spacing:-.01em}
         .split .say span{display:block}
         @media(max-width:720px){.split{grid-template-columns:1fr;gap:2.2rem}.split .say{text-align:left;font-size:1.05rem}.split .say span{display:inline}}
@@ -143,7 +167,7 @@
     <header class="top">
         <a class="logo" href="/">dhruv/</a>
         <a class="mid" href="/contact">Contact</a>
-        <span class="right"><span class="dot"></span><span id="clock">BLR --:--</span></span>
+        <span class="right clk" title="Bengaluru, local time"><span class="day" id="day" aria-hidden="true"></span><span class="geo">12.97&deg;N 77.59&deg;E</span><span id="clock">--:--<span class="s">:--</span> IST</span></span>
     </header>
 
     <main class="page">
@@ -151,15 +175,15 @@
             <h1 class="word">dhruv pradeep</h1>
             <hr class="hero-rule">
             <p class="hero-sub mono"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
-            <p class="hero-meta">Co-founder &amp; CEO, Cnvrted. Ex-Morphic.<br>( 19 &middot; BENGALURU )</p>
+            <p class="hero-meta">Co-founder &amp; CEO, Cnvrted. Ex-Morphic.<br>( DPIIT-RECOGNISED &middot; INCORPORATED 2026 )</p>
         </section>
 
         <section class="split">
             <p class="code">
-                <b>const</b> building = <a href="/cnvrted">&ldquo;Cnvrted&rdquo;</a>;<br>
-                <b>const</b> previously = &ldquo;Morphic&rdquo;;<br>
+                <b>const</b> building = <a href="/cnvrted"><img class="lg" src="/assets/logo-cnvrted.png" alt="">&ldquo;Cnvrted&rdquo;</a>;<span class="c"> // co-founder &amp; ceo</span><br>
+                <b>const</b> previously = <a class="was" href="https://morphic.com" target="_blank" rel="noopener"><img class="lg" src="/assets/logo-morphic.png" alt="">&ldquo;Morphic&rdquo;</a>;<span class="c"> // marketing ops</span><br>
                 <b>const</b> latest = <a href="/blog/misdirected-desire">&ldquo;The Anatomy of Misdirected Desire&rdquo;</a>;<br>
-                <span class="c">// still shipping.</span>
+                <span class="c">// still shipping 🚢</span>
             </p>
             <p class="say">
                 <span>I&rsquo;m a founder from Bengaluru</span>
@@ -193,6 +217,11 @@
         </div>
     </div>
 
+    <a class="mini" id="mini" href="/cnvrted" aria-label="Mini Dhruv, the team mascot. Opens the Cnvrted founder&rsquo;s log">
+        <span class="say" id="miniSay" aria-hidden="true"></span>
+        <img src="/favicon.png" alt="">
+    </a>
+
     <footer class="foot">
         <div class="foot-in">
             <dl class="addr">
@@ -214,11 +243,28 @@
     </footer>
 
     <script>
+        var dayEl = document.getElementById('day');
+        for(var h = 0; h < 24; h++) dayEl.appendChild(document.createElement('i'));
         function tick(){
-            var t = new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',hour12:false});
-            document.getElementById('clock').textContent = 'BLR ' + t + ' IST';
+            var p = new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).formatToParts(new Date());
+            var g = {}; p.forEach(function(x){ g[x.type] = x.value; });
+            var hr = +g.hour % 24;
+            document.getElementById('clock').innerHTML = g.hour + ':' + g.minute + '<span class="s">:' + g.second + '</span> IST';
+            [].forEach.call(dayEl.children, function(t, i){ t.className = i < hr ? 'past' : i === hr ? 'now' : ''; });
         }
-        tick(); setInterval(tick, 30000);
+        tick(); setInterval(tick, 1000);
+
+        // mini me: slides in, says something depending on the time in Bengaluru
+        (function(){
+            var m = document.getElementById('mini'), say = document.getElementById('miniSay');
+            var hr = +new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',hour12:false}).format(new Date()) % 24;
+            var mood = hr < 5 ? 'it&rsquo;s ' + hr + ' a.m. here. still shipping.' : hr < 12 ? 'morning from Bengaluru ☕' : hr < 18 ? 'heads down on <b>Cnvrted</b> right now.' : 'evening shift. the good code happens now.';
+            var lines = ['hey, I&rsquo;m mini Dhruv 👋', mood, 'press <b>⌘K</b> to jump anywhere.'], i = 0, t;
+            function show(){ say.innerHTML = lines[i % lines.length]; say.classList.add('on'); clearTimeout(t); t = setTimeout(function(){ say.classList.remove('on'); }, 3400); }
+            setTimeout(function(){ m.classList.add('in'); setTimeout(show, 700); }, 1400);
+            m.addEventListener('mouseenter', function(){ i++; show(); });
+            m.addEventListener('focus', function(){ i++; show(); });
+        })();
 
         // link previews
         (function(){
