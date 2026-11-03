@@ -55,5 +55,11 @@ article .lede{font-family:var(--sans)!important}
 .p-num{-webkit-text-stroke-color:rgba(25,25,23,.5)!important}
 .npa-label{color:var(--ink-2)!important}
 
+/* the India map on /about was tuned for black; give the land some weight on paper */
+.loc-map .land{fill:#cfcdc4!important;stroke:#cfcdc4!important}
+
+/* justified paragraphs leave rivers of space on narrow screens */
+@media(max-width:700px){p,article p{text-align:left!important}}
+
 /* ---- Leftovers from the dark theme ---- */
 .ghost,.site-foot{display:none!important}
