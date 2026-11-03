@@ -83,6 +83,19 @@
         .addr a:hover{text-decoration:underline;text-underline-offset:3px}
         .addr .soc{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;max-width:40rem}
         .copy{padding-left:clamp(0rem,12vw,9rem);margin-left:4rem;font-size:clamp(1.05rem,1.8vw,1.3rem);letter-spacing:-.02em}
+
+        /* link previews: hover or focus a nav link to peek at the page */
+        .peek{position:fixed;left:0;top:0;z-index:20;width:300px;background:#f6f5f1;border:1px solid var(--rule);border-radius:10px;box-shadow:0 18px 50px rgba(25,25,23,.12);overflow:hidden;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease}
+        .peek.on{opacity:1;transform:none}
+        .peek-bar{display:flex;justify-content:space-between;align-items:center;padding:.55rem .8rem;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.6rem;color:var(--ink-2)}
+        .peek-bar .ok{color:#1f7a4d}
+        .peek-img{display:block;width:100%;height:132px;object-fit:cover;background:#e3e2dc;border-bottom:1px solid var(--rule)}
+        .peek-img[hidden]{display:none}
+        .peek-body{padding:.9rem .9rem 1rem}
+        .peek-t{font-size:1.25rem;letter-spacing:-.035em;line-height:1.1;margin-bottom:.45rem}
+        .peek-d{font-size:.84rem;line-height:1.45;color:var(--ink-2)}
+        .peek-m{margin-top:.7rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+        @media(hover:none),(max-width:860px){.peek{display:none}}
         @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
     </style>
 
@@ -157,16 +170,26 @@
         </section>
 
         <nav class="jumps" aria-label="Site">
-            <a href="/about"><span class="arr">&#8600;</span><span><em>About</em><em>Me</em></span></a>
-            <a href="/cnvrted"><span class="arr">&#8600;</span><span><em>Cnvrted</em><em>(co.)</em></span></a>
-            <a href="/work"><span class="arr">&#8600;</span><span><em>My</em><em>Work</em></span></a>
-            <a href="/learning"><span class="arr">&#8600;</span><span><em>What I&rsquo;m</em><em>Learning</em></span></a>
-            <a href="/blog"><span class="arr">&#8600;</span><span><em>Writing</em><em>(10)</em></span></a>
-            <a href="/now"><span class="arr">&#8600;</span><span><em>Right</em><em>Now</em></span></a>
-            <a href="/playbooks"><span class="arr">&#8600;</span><span><em>Play-</em><em>books</em></span></a>
-            <a href="/manifesto"><span class="arr">&#8600;</span><span><em>Mani-</em><em>festo</em></span></a>
+            <a href="/about" data-pt="Hey, I&rsquo;m Dhruv." data-pd="19, dropout, builder. Ten years of cricket, then Manipal, then out to build." data-pm="story &middot; based in &middot; now playing"><span class="arr">&#8600;</span><span><em>About</em><em>Me</em></span></a>
+            <a href="/cnvrted" data-pt="cnvrted" data-pd="The founder&rsquo;s log. Incorporated 29.09.2026, DPIIT-recognised 23.10.2026." data-pm="journey &middot; wins &middot; learnings &middot; listings" data-pi="/assets/cnvrted/mascot-dhruv.webp"><span class="arr">&#8600;</span><span><em>Cnvrted</em><em>(co.)</em></span></a>
+            <a href="/work" data-pt="MorphicKIDS." data-pd="24 AI-made videos for kids: bedtime stories, sing-alongs and science. Led end to end." data-pm="youtube &middot; 24 videos" data-pi="https://i.ytimg.com/vi/qYq2-epFJKQ/hqdefault.jpg"><span class="arr">&#8600;</span><span><em>My</em><em>Work</em></span></a>
+            <a href="/learning" data-pt="Learning." data-pd="Three threads: sales and buyer intent, AI and its economics, thinking and agency." data-pm="threads &middot; working docs &middot; essays"><span class="arr">&#8600;</span><span><em>What I&rsquo;m</em><em>Learning</em></span></a>
+            <a href="/blog" data-pt="Blog." data-pd="10 essays on startups, sales, AI and mindset. Latest: The Anatomy of Misdirected Desire." data-pm="10 essays &middot; rss"><span class="arr">&#8600;</span><span><em>Writing</em><em>(10)</em></span></a>
+            <a href="/now" data-pt="What I&rsquo;m on right now." data-pd="git status: Cnvrted, co-founder &amp; CEO. Morphic, marketing ops (ended)." data-pm="live &middot; github &middot; spotify"><span class="arr">&#8600;</span><span><em>Right</em><em>Now</em></span></a>
+            <a href="/playbooks" data-pt="Playbooks." data-pd="The Sales Playbook, and the AI Index: 400+ models by intelligence, price and speed." data-pm="sales &middot; ai index (live)"><span class="arr">&#8600;</span><span><em>Play-</em><em>books</em></span></a>
+            <a href="/manifesto" data-pt="I don&rsquo;t wait. I move." data-pd="Operating principles, written as code. Press run." data-pm="manifesto.js &middot; read only"><span class="arr">&#8600;</span><span><em>Mani-</em><em>festo</em></span></a>
         </nav>
     </main>
+
+    <div class="peek" id="peek" aria-hidden="true">
+        <div class="peek-bar"><span id="peekPath">GET /</span><span class="ok">200 OK</span></div>
+        <img class="peek-img" id="peekImg" alt="" hidden>
+        <div class="peek-body">
+            <div class="peek-t" id="peekT"></div>
+            <div class="peek-d" id="peekD"></div>
+            <div class="peek-m" id="peekM"></div>
+        </div>
+    </div>
 
     <footer class="foot">
         <div class="foot-in">
@@ -194,6 +217,34 @@
             document.getElementById('clock').textContent = 'BLR ' + t + ' IST';
         }
         tick(); setInterval(tick, 30000);
+
+        // link previews
+        (function(){
+            var peek = document.getElementById('peek'); if(!peek) return;
+            var img = document.getElementById('peekImg'), cur = null;
+            function fill(a){
+                document.getElementById('peekPath').textContent = 'GET ' + a.getAttribute('href');
+                document.getElementById('peekT').innerHTML = a.dataset.pt;
+                document.getElementById('peekD').innerHTML = a.dataset.pd;
+                document.getElementById('peekM').innerHTML = a.dataset.pm;
+                if(a.dataset.pi){ img.src = a.dataset.pi; img.hidden = false; } else { img.hidden = true; img.removeAttribute('src'); }
+            }
+            function place(x, y){
+                var w = peek.offsetWidth, h = peek.offsetHeight;
+                var px = x + 18, py = y + 18;
+                if(px + w > innerWidth - 12) px = x - w - 18;
+                if(py + h > innerHeight - 12) py = y - h - 18;
+                peek.style.left = Math.max(12, px) + 'px';
+                peek.style.top = Math.max(12, py) + 'px';
+            }
+            document.querySelectorAll('.jumps a[data-pt]').forEach(function(a){
+                a.addEventListener('mouseenter', function(e){ cur = a; fill(a); place(e.clientX, e.clientY); peek.classList.add('on'); });
+                a.addEventListener('mousemove', function(e){ if(cur === a) place(e.clientX, e.clientY); });
+                a.addEventListener('mouseleave', function(){ cur = null; peek.classList.remove('on'); });
+                a.addEventListener('focus', function(){ var r = a.getBoundingClientRect(); fill(a); place(r.left, r.bottom); peek.classList.add('on'); });
+                a.addEventListener('blur', function(){ peek.classList.remove('on'); });
+            });
+        })();
 
         // code-running tagline
         var LINES = [
