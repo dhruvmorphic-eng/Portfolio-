@@ -9,6 +9,7 @@
     { title: 'Home', url: '/', desc: 'Dhruv Pradeep' },
     { title: 'About', url: '/about', desc: 'Who I am, based in Bangalore' },
     { title: 'Cnvrted', url: '/cnvrted', desc: 'My company — finding real buyers with actual intent' },
+    { title: 'The archive', url: '/cnvrted/archive', desc: 'Building Cnvrted, in frames — drag to explore' },
     { title: 'Learning', url: '/learning', desc: 'What I am studying, playbooks and essays' },
     { title: 'Playbooks', url: '/playbooks', desc: 'Sales playbook and the AI Index' },
     { title: 'Now', url: '/now', desc: "What I'm building — Cnvrted & Morphic" },

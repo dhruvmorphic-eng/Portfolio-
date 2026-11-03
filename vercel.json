@@ -23,5 +23,11 @@
       "destination": "https://dhruvpradeep.in/blog",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/cnvrted/archive",
+      "destination": "/cnvrted-archive"
+    }
   ]
 }

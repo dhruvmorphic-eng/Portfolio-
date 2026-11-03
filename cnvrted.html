@@ -151,6 +151,19 @@
         .copy{padding-left:clamp(0rem,12vw,9rem);margin-left:calc(2.6rem + 1.4rem);font-size:clamp(1.05rem,1.8vw,1.3rem);letter-spacing:-.02em}
         @media(max-width:620px){.copy{margin-left:calc(2.6rem + 1.4rem)}}
 
+
+        /* archive teaser */
+        .jump-archive .arr,.jump-archive{color:var(--blue)}
+        .arch{display:block;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:1.6rem 0 1.8rem}
+        .arch-strip{display:flex;gap:.6rem;height:clamp(90px,14vw,170px);overflow:hidden}
+        .arch-strip img{height:100%;width:auto;flex:none;border-radius:2px;filter:grayscale(.9) contrast(.95);transition:filter .5s ease,transform .6s cubic-bezier(.16,.84,.32,1)}
+        .arch:hover .arch-strip img{filter:none}
+        .arch:hover .arch-strip img:nth-child(odd){transform:translateY(-6px)}
+        .arch-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:1.4rem}
+        .arch-word{font-size:clamp(2.4rem,7vw,5.6rem);letter-spacing:-.065em;line-height:.9}
+        .arch-go{font-size:clamp(2rem,5vw,4rem);color:var(--blue);transition:transform .3s}
+        .arch:hover .arch-go{transform:translate(6px,-6px)}
+        .arch-note{display:block;margin-top:.8rem;font-family:var(--mono);font-size:.66rem;color:var(--ink-3)}
         /* reveal */
         .rv{opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease}
         .rv.in{opacity:1;transform:none}
@@ -223,6 +236,7 @@
             <a href="#achievements"><span class="arr">&#8600;</span><span><em>Wins</em><em>(1)</em></span></a>
             <a href="#learnings"><span class="arr">&#8600;</span><span><em>What I</em><em>Learnt</em></span></a>
             <a href="#listings"><span class="arr">&#8600;</span><span><em>Find</em><em>Us</em></span></a>
+            <a href="/cnvrted/archive" class="jump-archive"><span class="arr">&#8599;</span><span><em>The</em><em>Archive (19)</em></span></a>
         </nav>
 
         <!-- ================= JOURNEY: newest first. Copy a .row to add an entry. ================= -->
@@ -287,6 +301,18 @@
         </section>
 
         <!-- ================= MASCOT ================= -->
+        <!-- ================= ARCHIVE: the photo wall lives on its own page ================= -->
+        <section class="sec rv" id="archive">
+            <div class="sec-head"><h2>The archive</h2><span class="file">photos/ &middot; 19 frames</span></div>
+            <a class="arch" href="/cnvrted/archive">
+                <span class="arch-strip" aria-hidden="true">
+                    <img src="/assets/cnvrted/archive/17-t.webp" alt="" loading="lazy"><img src="/assets/cnvrted/archive/07-t.webp" alt="" loading="lazy"><img src="/assets/cnvrted/archive/15-t.webp" alt="" loading="lazy"><img src="/assets/cnvrted/archive/13-t.webp" alt="" loading="lazy"><img src="/assets/cnvrted/archive/19-t.webp" alt="" loading="lazy"><img src="/assets/cnvrted/archive/09-t.webp" alt="" loading="lazy">
+                </span>
+                <span class="arch-row"><span class="arch-word">Enter the archive</span><span class="arch-go">&#8599;</span></span>
+                <span class="arch-note">An endless wall of moments from building Cnvrted. Drag it around.</span>
+            </a>
+        </section>
+
         <section class="sec rv" id="mascot">
             <div class="sec-head"><h2>The mascot</h2><span class="file">team/dhruv.png</span></div>
             <div class="mascot">
