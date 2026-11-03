@@ -2,7 +2,7 @@
   // ---- Reading progress bar ----
   var bar = document.createElement('div');
   bar.id = 'readProgress';
-  bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:#fff;z-index:60;width:0%;transition:width .1s linear;box-shadow:0 0 8px rgba(255,255,255,.5);pointer-events:none';
+  bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:#191917;z-index:60;width:0%;transition:width .1s linear;box-shadow:0 0 8px rgba(25,25,23,.5);pointer-events:none';
   document.documentElement.appendChild(bar);
   function updateProgress(){
     var h = document.documentElement;
@@ -39,9 +39,9 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '.share-row{display:flex;gap:.7rem;flex-wrap:wrap;margin:3rem 0 1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}' +
-      '.share-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border:1px solid rgba(255,255,255,.14);border-radius:100px;background:rgba(255,255,255,.03);color:rgba(255,255,255,.75);font-family:Poppins,sans-serif;font-size:.8rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .25s}' +
-      '.share-btn:hover{background:#fff;color:#000;border-color:#fff;transform:translateY(-2px)}' +
+      '.share-row{display:flex;gap:.7rem;flex-wrap:wrap;margin:3rem 0 1rem;padding-top:2rem;border-top:1px solid rgba(25,25,23,.08)}' +
+      '.share-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border:1px solid rgba(25,25,23,.14);border-radius:100px;background:rgba(25,25,23,.03);color:rgba(25,25,23,0.86);font-family:Poppins,sans-serif;font-size:.8rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .25s}' +
+      '.share-btn:hover{background:#191917;color:#efeee9;border-color:#191917;transform:translateY(-2px)}' +
       '.share-btn svg{width:14px;height:14px;flex-shrink:0}' +
       '@media(max-width:600px){.share-btn span{display:none}.share-btn{padding:.65rem;width:38px;height:38px;justify-content:center}}';
     document.head.appendChild(style);

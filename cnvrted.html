@@ -24,8 +24,8 @@
         :root{
             --paper:#efeee9;
             --ink:#191917;
-            --ink-2:rgba(25,25,23,.62);
-            --ink-3:rgba(25,25,23,.4);
+            --ink-2:rgba(25,25,23,.7);
+            --ink-3:rgba(25,25,23,.58);
             --rule:rgba(25,25,23,.22);
             --rule-soft:rgba(25,25,23,.12);
             --blue:#2b3bd1;
@@ -130,7 +130,7 @@
         .lk{display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline;padding:1.05rem 0;border-bottom:1px solid var(--rule-soft);transition:padding .25s}
         a.lk:hover{padding-left:.5rem}
         .lk .k{font-family:var(--mono);font-size:.64rem;color:var(--ink-3)}
-        .lk .v{font-size:1.06rem;letter-spacing:-.015em}
+        .lk .v{font-size:1.06rem;letter-spacing:-.015em;min-width:0;overflow-wrap:anywhere}
         .lk .go{font-size:1rem;color:var(--ink-2);transition:color .2s}
         a.lk:hover .go{color:var(--blue)}
         .lk.off .v{color:var(--ink-3)}
@@ -333,5 +333,6 @@
             els.forEach(function(e){ io.observe(e); });
         })();
     </script>
+    <script src="/assets/cmdk.js" defer></script>
 </body>
 </html>

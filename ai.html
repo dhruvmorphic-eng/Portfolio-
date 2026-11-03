@@ -18,87 +18,89 @@
     <meta name="twitter:image" content="https://dhruvpradeep.in/api/og?title=The%20AI%20Index&label=Live%20Data">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow-x:hidden}
-        ::selection{background:#fff;color:#000}
-        :focus-visible{outline:2px solid #fff;outline-offset:3px}
+        body{background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.6;overflow-x:hidden}
+        ::selection{background:#191917;color:#efeee9}
+        :focus-visible{outline:2px solid #191917;outline-offset:3px}
         .num{font-variant-numeric:tabular-nums}
 
-        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
-        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
-        .back:hover{color:#fff}
-        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(239,238,233,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.77);text-decoration:none;transition:color .3s}
+        .back:hover{color:#191917}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.69)}
 
         .wrap{max-width:980px;margin:0 auto;padding:8.5rem 2rem 5rem}
-        .meta{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
-        .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2.2s infinite}
+        .meta{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(25,25,23,0.73);display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+        .live-dot{width:7px;height:7px;border-radius:50%;background:#177a43;animation:pulse 2.2s infinite}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-        h1{font-family:'Unbounded',sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.05;margin-bottom:1.1rem}
-        .lede{font-size:clamp(1rem,1.9vw,1.2rem);color:rgba(255,255,255,.62);font-weight:300;max-width:60ch;margin-bottom:.9rem}
-        .lede a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
-        .lede a:hover{border-color:#fff}
-        .stamp{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.28)}
+        h1{font-family:'Inter Tight',sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.05;margin-bottom:1.1rem}
+        .lede{font-size:clamp(1rem,1.9vw,1.2rem);color:rgba(25,25,23,0.82);font-weight:300;max-width:60ch;margin-bottom:.9rem}
+        .lede a{color:#191917;text-decoration:none;border-bottom:1px solid rgba(25,25,23,.3)}
+        .lede a:hover{border-color:#191917}
+        .stamp{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(25,25,23,0.69)}
 
-        h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:600;letter-spacing:-.02em;margin-bottom:.5rem}
-        .sec{margin-top:clamp(3rem,6vw,4.5rem);padding-top:clamp(2rem,4vw,2.8rem);border-top:1px solid rgba(255,255,255,.1)}
-        .sec-note{color:rgba(255,255,255,.5);font-size:.92rem;font-weight:300;max-width:62ch;margin-bottom:1.8rem}
+        h2{font-family:'Inter Tight',sans-serif;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:600;letter-spacing:-.02em;margin-bottom:.5rem}
+        .sec{margin-top:clamp(3rem,6vw,4.5rem);padding-top:clamp(2rem,4vw,2.8rem);border-top:1px solid rgba(25,25,23,.1)}
+        .sec-note{color:rgba(25,25,23,0.77);font-size:.92rem;font-weight:300;max-width:62ch;margin-bottom:1.8rem}
 
         .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.9rem;margin-top:2.5rem}
-        .tile{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.1rem 1.2rem;background:rgba(255,255,255,.02)}
-        .tile-k{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.5rem}
-        .tile-v{font-family:'Unbounded',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
-        .tile-s{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem}
+        .tile{border:1px solid rgba(25,25,23,.1);border-radius:14px;padding:1.1rem 1.2rem;background:rgba(25,25,23,.02)}
+        .tile-k{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.71);margin-bottom:.5rem}
+        .tile-v{font-family:'Inter Tight',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+        .tile-s{font-size:.72rem;color:rgba(25,25,23,0.71);margin-top:.2rem}
 
         .bars{display:flex;flex-direction:column;gap:.55rem}
         .bar-row{display:grid;grid-template-columns:1.35rem minmax(0,9.5rem) 1fr auto;gap:.75rem;align-items:center;font-size:.83rem}
-        .bar-rank{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.28)}
+        .bar-rank{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(25,25,23,0.69)}
         .bar-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
-        .bar-name i{font-style:normal;color:rgba(255,255,255,.35);font-size:.72rem;display:block;font-family:'JetBrains Mono',monospace;letter-spacing:.5px}
-        .bar-track{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
-        .bar-fill{height:100%;background:#fff;border-radius:4px;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
-        .bar-val{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.75);min-width:2.6rem;text-align:right}
+        .bar-name i{font-style:normal;color:rgba(25,25,23,0.71);font-size:.72rem;display:block;font-family:'JetBrains Mono',monospace;letter-spacing:.5px}
+        .bar-track{height:8px;background:rgba(25,25,23,.06);border-radius:4px;overflow:hidden}
+        .bar-fill{height:100%;background:#191917;border-radius:4px;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+        .bar-val{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(25,25,23,0.86);min-width:2.6rem;text-align:right}
         @media(max-width:640px){.bar-row{grid-template-columns:1.2rem 1fr auto;}.bar-track{display:none}}
 
         .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
         table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:460px}
-        th{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-align:left;padding:0 .9rem .7rem 0;font-weight:400;white-space:nowrap}
-        td{padding:.72rem .9rem .72rem 0;border-top:1px solid rgba(255,255,255,.07);vertical-align:top}
+        th{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.71);text-align:left;padding:0 .9rem .7rem 0;font-weight:400;white-space:nowrap}
+        td{padding:.72rem .9rem .72rem 0;border-top:1px solid rgba(25,25,23,.07);vertical-align:top}
         td.r,th.r{text-align:right;padding-right:0}
         .m-name{font-weight:500}
-        .m-lab{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.38);letter-spacing:.4px}
-        .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:.16rem .5rem;border-radius:100px;border:1px solid rgba(34,197,94,.35);color:#22c55e;white-space:nowrap}
+        .m-lab{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(25,25,23,0.72);letter-spacing:.4px}
+        .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:.16rem .5rem;border-radius:100px;border:1px solid rgba(34,197,94,.35);color:#177a43;white-space:nowrap}
 
         .chart{width:100%;height:auto;display:block;overflow:visible}
-        .chart text{font-family:'JetBrains Mono',monospace;fill:rgba(255,255,255,.4)}
-        .grid-l{stroke:rgba(255,255,255,.08);stroke-width:1}
-        .dot{fill:rgba(255,255,255,.42);transition:fill .2s,r .2s}
-        .dot:hover{fill:#22c55e}
-        .dot.hi{fill:#fff}
-        .chart-legend{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.9rem;display:flex;gap:1.4rem;flex-wrap:wrap}
-        .chart-legend b{color:rgba(255,255,255,.6);font-weight:400}
+        .chart text{font-family:'JetBrains Mono',monospace;fill:rgba(25,25,23,.4)}
+        .grid-l{stroke:rgba(25,25,23,.08);stroke-width:1}
+        .dot{fill:rgba(25,25,23,.42);transition:fill .2s,r .2s}
+        .dot:hover{fill:#177a43}
+        .dot.hi{fill:#191917}
+        .chart-legend{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(25,25,23,0.69);margin-top:.9rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+        .chart-legend b{color:rgba(25,25,23,0.81);font-weight:400}
 
-        .loading{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);padding:3rem 0;text-align:center}
-        .err{border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:1.1rem 1.3rem;color:rgba(255,255,255,.55);font-size:.88rem}
+        .loading{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.69);padding:3rem 0;text-align:center}
+        .err{border:1px solid rgba(25,25,23,.14);border-radius:12px;padding:1.1rem 1.3rem;color:rgba(25,25,23,0.79);font-size:.88rem}
 
-        .credit{margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.1);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
-        .credit a{color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
-        .credit a:hover{color:#fff;border-color:#fff}
+        .credit{margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid rgba(25,25,23,.1);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(25,25,23,0.69)}
+        .credit a{color:rgba(25,25,23,0.81);text-decoration:none;border-bottom:1px solid rgba(25,25,23,.2)}
+        .credit a:hover{color:#191917;border-color:#191917}
 
         .site-foot{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:3rem 1.5rem 2.5rem;position:relative;z-index:2}
-        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
-        .site-foot a:hover{color:#fff}
-        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.71);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
+        .site-foot a:hover{color:#191917}
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Inter Tight',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(25,25,23,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding:7rem 1.3rem 4rem}}
         @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
     </style>
+    <link rel="stylesheet" href="/assets/paper.css?v=1">
 </head>
 <body>
-    <div class="top">
-        <a class="back" href="/blog">&larr; Blog</a>
-        <span class="top-label">Live Data</span>
-    </div>
+    <header class="ptop">
+        <a class="logo" href="/">dhruv/<span>ai</span></a>
+        <a class="mid" href="/contact">Contact</a>
+        <a class="right" href="/blog">&larr; blog</a>
+    </header>
 
     <div class="wrap">
         <div class="meta"><span class="live-dot"></span><span>Live dataset</span></div>
@@ -113,11 +115,15 @@
         </div>
     </div>
 
-    <nav class="site-foot">
-        <a href="/">Home</a><a href="/about">About</a><a href="/now">Now</a><a href="/work">Work</a><a href="/posts">Posts</a><a href="/playbooks">Playbooks</a><a href="/blog">Blog</a>
-        <a href="/manifesto">Manifesto</a><a href="/contact">Contact</a>
-    </nav>
-    <div class="ghost">Dhruv</div>
+    <footer class="pfoot"><div class="pfoot-in">
+        <a class="up" href="#" aria-label="Back to top">&#8593;</a>
+        <dl class="addr">
+            <dt>A</dt><dd>Bengaluru, India</dd>
+            <dt>E</dt><dd><a href="mailto:dhruvcp07@gmail.com">&#8600;dhruvcp07@gmail.com</a></dd>
+            <dt>N</dt><dd><a href="/">&#8600;Home</a><a href="/about">&#8600;About</a><a href="/cnvrted">&#8600;Cnvrted</a><a href="/work">&#8600;Work</a><a href="/learning">&#8600;Learning</a><a href="/blog">&#8600;Blog</a><a href="/now">&#8600;Now</a><a href="/posts">&#8600;Posts</a><a href="/playbooks">&#8600;Playbooks</a><a href="/manifesto">&#8600;Manifesto</a><a href="/contact">&#8600;Contact</a></dd>
+        </dl>
+        <p class="copy">&copy;2026 Dhruv Pradeep</p>
+    </div></footer>
 
 <script>
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

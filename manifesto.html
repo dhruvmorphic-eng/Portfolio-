@@ -19,41 +19,41 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         html,body{height:100%}
-        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow:hidden}
-        ::selection{background:#264F78;color:#fff}
-        :focus-visible{outline:2px solid #fff;outline-offset:3px}
+        body{background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.6;overflow:hidden}
+        ::selection{background:#264F78;color:#191917}
+        :focus-visible{outline:2px solid #191917;outline-offset:3px}
 
         /* syntax palette */
         :root{
-            --ed-bg:#0d0d0f;
-            --ed-chrome:#141417;
-            --ed-line:rgba(255,255,255,.055);
-            --tok-comment:#6A9955;
-            --tok-keyword:#569CD6;
-            --tok-string:#CE9178;
-            --tok-fn:#DCDCAA;
-            --tok-var:#9CDCFE;
-            --tok-num:#B5CEA8;
-            --tok-punct:#9a9a9a;
-            --tok-plain:#D4D4D4;
-        }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        --ed-bg:#0d0d0f;--ed-chrome:#141417;--ed-line:rgba(255,255,255,.055);--tok-comment:#6A9955;--tok-keyword:#569CD6;--tok-string:#CE9178;--tok-fn:#DCDCAA;--tok-var:#9CDCFE;--tok-num:#B5CEA8;--tok-punct:#9a9a9a;--tok-plain:#D4D4D4;}
 
-        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
-        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
-        .back:hover{color:#fff}
-        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(239,238,233,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.77);text-decoration:none;transition:color .3s}
+        .back:hover{color:#191917}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.69)}
 
         .wrap{max-width:900px;margin:0 auto;height:100dvh;padding:4.8rem 1.5rem 1rem;display:flex;flex-direction:column}
-        .m-open{font-family:'Unbounded',sans-serif;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;line-height:1.04;margin-bottom:.45rem;flex:none}
-        .m-open .dim{color:rgba(255,255,255,.26)}
-        .m-sub{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:1.1rem;flex:none}
+        .m-open{font-family:'Inter Tight',sans-serif;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;line-height:1.04;margin-bottom:.45rem;flex:none}
+        .m-open .dim{color:rgba(25,25,23,0.68)}
+        .m-sub{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.70);margin-bottom:1.1rem;flex:none}
 
         /* editor chrome */
-        .editor{border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:var(--ed-bg);box-shadow:0 24px 70px rgba(0,0,0,.6);display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+        .editor{border:1px solid rgba(25,25,23,.1);border-radius:12px;overflow:hidden;background:var(--ed-bg);box-shadow:0 24px 70px rgba(25,25,23,0.108);display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
         .ed-main{display:flex;flex:1 1 auto;min-height:0}
         .ed-bar{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;background:var(--ed-chrome);border-bottom:1px solid rgba(255,255,255,.07)}
         .dots{display:flex;gap:.4rem}
@@ -88,7 +88,7 @@
         .ed-bar .ed-meta{margin-left:.9rem}
 
         /* console output — side panel */
-        .console{flex:0 0 0;min-width:0;overflow:hidden;background:#08080a;border-left:1px solid transparent;display:flex;flex-direction:column;transition:flex-basis .45s cubic-bezier(.16,.84,.32,1)}
+        .console{flex:0 0 0;min-width:0;overflow:hidden;background:#e7e6e0;border-left:1px solid transparent;display:flex;flex-direction:column;transition:flex-basis .45s cubic-bezier(.16,.84,.32,1)}
         .editor.open .console{flex:0 0 44%;border-left-color:rgba(255,255,255,.09)}
         .con-head{display:flex;align-items:center;gap:.6rem;padding:.55rem .85rem;background:#0c0c0f;border-bottom:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:1.5px;text-transform:uppercase;flex:none}
         .con-title{color:rgba(255,255,255,.4);flex:none}
@@ -115,10 +115,10 @@
         .r{opacity:0;animation:fadeUp .85s ease forwards}
         .r1{animation-delay:.05s}.r2{animation-delay:.2s}
 
-        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.06);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Inter Tight',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(25,25,23,.06);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
         .site-foot{position:relative;z-index:2;flex:none;display:flex;justify-content:center;gap:.2rem .4rem;flex-wrap:wrap;padding:.9rem 0 .1rem}
-        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
-        .site-foot a:hover{color:#fff}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.71);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
+        .site-foot a:hover{color:#191917}
 
         @media(max-width:600px){
             .top{padding:1.2rem 1.5rem}
@@ -128,12 +128,14 @@
         }
         @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r{opacity:1}}
     </style>
+    <link rel="stylesheet" href="/assets/paper.css?v=1">
 </head>
 <body>
-    <div class="top">
-        <a class="back" href="/">&larr; Home</a>
-        <span class="top-label">Manifesto</span>
-    </div>
+    <header class="ptop">
+        <a class="logo" href="/">dhruv/<span>manifesto</span></a>
+        <a class="mid" href="/contact">Contact</a>
+        <a class="right" href="/">&larr; home</a>
+    </header>
 
     <div class="wrap">
         <h1 class="m-open r r1">I don't wait.<br><span class="dim">I move.</span></h1>
@@ -171,12 +173,17 @@
             </div>
         </div>
 
-        <nav class="site-foot">
-            <a href="/">Home</a><a href="/about">About</a><a href="/now">Now</a><a href="/work">Work</a><a href="/posts">Posts</a><a href="/playbooks">Playbooks</a>
-            <a href="/blog">Blog</a><a href="/manifesto">Manifesto</a><a href="/contact">Contact</a>
-        </nav>
+        
     </div>
-    <div class="ghost">Dhruv</div>
+    <footer class="pfoot"><div class="pfoot-in">
+        <a class="up" href="#" aria-label="Back to top">&#8593;</a>
+        <dl class="addr">
+            <dt>A</dt><dd>Bengaluru, India</dd>
+            <dt>E</dt><dd><a href="mailto:dhruvcp07@gmail.com">&#8600;dhruvcp07@gmail.com</a></dd>
+            <dt>N</dt><dd><a href="/">&#8600;Home</a><a href="/about">&#8600;About</a><a href="/cnvrted">&#8600;Cnvrted</a><a href="/work">&#8600;Work</a><a href="/learning">&#8600;Learning</a><a href="/blog">&#8600;Blog</a><a href="/now">&#8600;Now</a><a href="/posts">&#8600;Posts</a><a href="/playbooks">&#8600;Playbooks</a><a href="/manifesto">&#8600;Manifesto</a><a href="/contact">&#8600;Contact</a></dd>
+        </dl>
+        <p class="copy">&copy;2026 Dhruv Pradeep</p>
+    </div></footer>
 
     <script>
         (function(){

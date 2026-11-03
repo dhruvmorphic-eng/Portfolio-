@@ -20,29 +20,29 @@
     <meta name="twitter:image" content="https://dhruvpradeep.in/og.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         html,body{height:100%}
-        body{background:#000;color:#fff;font-family:'Manrope',sans-serif;line-height:1.6;overflow:hidden;display:flex;flex-direction:column}
-        ::selection{background:#264F78;color:#fff}
-        :focus-visible{outline:2px solid #fff;outline-offset:3px}
+        body{background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.6;overflow:hidden;display:flex;flex-direction:column}
+        ::selection{background:#264F78;color:#191917}
+        :focus-visible{outline:2px solid #191917;outline-offset:3px}
         :root{
-            --term-bg:#0d0d0f;--term-chrome:#141417;
-            --g-hash:#DCDCAA;--g-ref:#6A9955;--g-branch:#569CD6;
-            --g-prompt:#6A9955;--g-plain:#D4D4D4;--g-dim:rgba(255,255,255,.38);
-            --g-link:#9CDCFE;--g-active:#22c55e;
-        }
+            
+            
+            
+            
+        --term-bg:#0d0d0f;--term-chrome:#141417;--g-hash:#DCDCAA;--g-ref:#6A9955;--g-branch:#569CD6;--g-prompt:#6A9955;--g-plain:#D4D4D4;--g-dim:rgba(255,255,255,.38);--g-link:#9CDCFE;--g-active:#22c55e;}
 
-        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(0,0,0,.95),transparent)}
-        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
-        .back:hover{color:#fff}
-        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+        .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(239,238,233,.95),transparent)}
+        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.77);text-decoration:none;transition:color .3s}
+        .back:hover{color:#191917}
+        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.69)}
 
         .wrap{flex:1;min-height:0;width:100%;max-width:880px;margin:0 auto;padding:6.4rem 1.5rem 0;display:flex;flex-direction:column}
-        h1{font-family:'Unbounded',sans-serif;font-size:clamp(1.35rem,2.9vw,2rem);font-weight:700;letter-spacing:-.03em;text-transform:uppercase;line-height:1.05;margin:0}
+        h1{font-family:'Inter Tight',sans-serif;font-size:clamp(1.35rem,2.9vw,2rem);font-weight:700;letter-spacing:-.03em;text-transform:uppercase;line-height:1.05;margin:0}
         .head{flex-shrink:0;display:flex;align-items:baseline;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.4rem}
-        .sub{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.34);display:flex;align-items:center;gap:.55rem}
+        .sub{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.71);display:flex;align-items:center;gap:.55rem}
         .sub .dot{width:7px;height:7px;border-radius:50%;background:var(--g-active);animation:pulse 2.2s infinite}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
@@ -99,7 +99,7 @@
         .np:hover .np-t{color:#1DB954}
 
         /* GitHub contributions, as a second status widget */
-        .gh-widget{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08)}
+        .gh-widget{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(25,25,23,.08)}
         @media(min-width:920px){.gh-widget{margin-top:1.4rem;padding-top:1.4rem}}
         .gh-link{display:block;margin-top:.6rem;border-radius:8px;overflow:hidden;background:#f6f6f6;padding:.5rem;line-height:0;transition:opacity .2s}
         .gh-link:hover{opacity:.85}
@@ -110,20 +110,22 @@
         .r{opacity:0;animation:fadeUp .85s ease forwards}
         .r1{animation-delay:.05s}.r2{animation-delay:.2s}
 
-        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.06);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Inter Tight',sans-serif;font-size:24vw;font-weight:800;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(25,25,23,.06);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
         .site-foot{flex-shrink:0;position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:1.1rem 1.5rem 1.3rem}
-        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
-        .site-foot a:hover{color:#fff}
+        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.71);text-decoration:none;padding:.4rem .8rem;transition:color .3s}
+        .site-foot a:hover{color:#191917}
 
         @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding:5.6rem 1rem 0}.term-body{font-size:.72rem;padding:1.1rem}}
         @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r{opacity:1}}
     </style>
+    <link rel="stylesheet" href="/assets/paper.css?v=1">
 </head>
 <body>
-    <div class="top">
-        <a class="back" href="/">&larr; Home</a>
-        <span class="top-label">Now</span>
-    </div>
+    <header class="ptop">
+        <a class="logo" href="/">dhruv/<span>now</span></a>
+        <a class="mid" href="/contact">Contact</a>
+        <a class="right" href="/">&larr; home</a>
+    </header>
 
     <div class="wrap">
         <div class="head r r1">
@@ -197,17 +199,15 @@ Two things in progress. Nothing staged for later.</div>
         </div>
     </div>
 
-    <nav class="site-foot">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/now">Now</a>
-        <a href="/work">Work</a>
-        <a href="/posts">Posts</a><a href="/playbooks">Playbooks</a>
-        <a href="/blog">Blog</a>
-        <a href="/manifesto">Manifesto</a>
-        <a href="/contact">Contact</a>
-    </nav>
-    <div class="ghost">Dhruv</div>
+    <footer class="pfoot"><div class="pfoot-in">
+        <a class="up" href="#" aria-label="Back to top">&#8593;</a>
+        <dl class="addr">
+            <dt>A</dt><dd>Bengaluru, India</dd>
+            <dt>E</dt><dd><a href="mailto:dhruvcp07@gmail.com">&#8600;dhruvcp07@gmail.com</a></dd>
+            <dt>N</dt><dd><a href="/">&#8600;Home</a><a href="/about">&#8600;About</a><a href="/cnvrted">&#8600;Cnvrted</a><a href="/work">&#8600;Work</a><a href="/learning">&#8600;Learning</a><a href="/blog">&#8600;Blog</a><a href="/now">&#8600;Now</a><a href="/posts">&#8600;Posts</a><a href="/playbooks">&#8600;Playbooks</a><a href="/manifesto">&#8600;Manifesto</a><a href="/contact">&#8600;Contact</a></dd>
+        </dl>
+        <p class="copy">&copy;2026 Dhruv Pradeep</p>
+    </div></footer>
     <script>
         async function updateNPANow(){
             try{

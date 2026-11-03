@@ -1,0 +1,59 @@
+/* Paper theme layer for internal pages.
+   Loaded after each page's own <style>, so these rules win the cascade.
+   Same tokens as index.html and cnvrted.html. */
+:root{
+    --paper:#efeee9;
+    --paper-2:#e7e6e0;
+    --ink:#191917;
+    --ink-2:rgba(25,25,23,.7);
+    --ink-3:rgba(25,25,23,.58);
+    --rule:rgba(25,25,23,.2);
+    --blue:#2b3bd1;
+    --pad:clamp(1.1rem,3.2vw,2.6rem);
+    --sans:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:1px solid var(--blue);outline-offset:3px}
+
+/* ---- Top bar ---- */
+.ptop{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.1rem var(--pad);background:rgba(239,238,233,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.ptop a,.ptop span{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);border:0}
+.ptop .logo{text-transform:none;letter-spacing:0;font-size:.78rem;font-weight:500;color:var(--ink)}
+.ptop .logo span{font-size:inherit;letter-spacing:inherit;text-transform:none;color:var(--ink-3)}
+.ptop .mid{color:var(--blue)}
+.ptop .right{justify-self:end;transition:color .2s}
+.ptop .right:hover,.ptop .logo:hover span{color:var(--ink)}
+.ptop .logo{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ptop .right{white-space:nowrap}
+@media(max-width:520px){.ptop{gap:.8rem}.ptop .mid{display:none}.ptop{grid-template-columns:1fr auto}}
+/* the old fixed bar reserved ~8rem of top padding; the sticky bar takes its own space */
+.wrap{padding-top:clamp(3.5rem,9vh,6rem)!important}
+
+/* ---- Display type: light, tight, sentence case ---- */
+h1{font-family:var(--sans)!important;font-weight:400!important;text-transform:none!important;letter-spacing:-.055em!important;line-height:.95!important}
+h2,h3,article h2,.p-title,.p-num,.m-open,.m-close .line,.loc-city,.npa-title,.vid-title,.item-title,
+.fav-title,.substack-title,.pn-title,.q,.c-title{font-family:var(--sans)!important;font-weight:500!important;letter-spacing:-.025em!important}
+.m-open,.m-close .line{font-weight:400!important;text-transform:none!important;letter-spacing:-.05em!important}
+article .lede{font-family:var(--sans)!important}
+
+/* ---- Footer ---- */
+.pfoot{position:relative;z-index:2;border-top:1px dashed var(--rule);margin-top:4rem;padding:3rem 0 2.8rem;font-family:var(--sans)}
+.pfoot-in{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.pfoot .addr{display:grid;grid-template-columns:2.6rem 1fr;gap:.2rem 1.4rem;padding-left:clamp(0rem,12vw,9rem);font-size:clamp(1rem,1.7vw,1.22rem);letter-spacing:-.02em;line-height:1.35}
+.pfoot dt{color:var(--ink)}
+.pfoot dd{margin:0 0 1.2rem}
+.pfoot dd a{color:var(--blue);text-decoration:none;border:0;margin-right:1.1rem;display:inline-block}
+.pfoot dd a:hover{text-decoration:underline;text-underline-offset:3px;background:none}
+.pfoot .copy{padding-left:clamp(0rem,12vw,9rem);margin-left:4rem;font-size:clamp(1rem,1.7vw,1.22rem);letter-spacing:-.02em;color:var(--ink)}
+.pfoot .up{float:right;font-size:1.2rem;color:var(--ink-2);text-decoration:none;border:0}
+.pfoot .up:hover{color:var(--blue)}
+
+/* ---- Page-specific contrast fixes ---- */
+.p-num{-webkit-text-stroke-color:rgba(25,25,23,.5)!important}
+.npa-label{color:var(--ink-2)!important}
+
+/* ---- Leftovers from the dark theme ---- */
+.ghost,.site-foot{display:none!important}
