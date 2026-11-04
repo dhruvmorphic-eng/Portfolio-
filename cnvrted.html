@@ -84,24 +84,35 @@
         .jumps a em{font-style:normal;display:block}
         @media(max-width:720px){.jumps{padding-left:0;gap:1.4rem 2.2rem}}
 
-        /* learnings as raw `git log --graph` output, on paper (no window chrome) */
-        .gitlog{border-top:1px solid var(--rule);padding-top:1.4rem;font-family:var(--mono);font-size:.78rem;line-height:1.75;color:var(--ink-2)}
-        .gitlog .ps{color:var(--ink-3);margin:0 0 1.2rem}
-        .gitlog .ps:last-child{margin:.4rem 0 0}
-        .gitlog .u{color:var(--ink)}.gitlog .b{color:var(--blue)}.gitlog .g{color:var(--ink)}
-        .gitlog .cur{display:inline-block;width:.55em;height:1.05em;background:var(--blue);vertical-align:-.18em;animation:blink 1.1s steps(1) infinite}
-        .cm{position:relative;padding:0 0 1.5rem 2.2ch}
-        .cm::before{content:"";position:absolute;left:.45ch;top:1.55em;bottom:.2em;width:1px;background:var(--ink-3);opacity:.55}
-        .cm .l{max-width:76ch}
-        .cm .star{position:absolute;left:0;color:var(--blue);font-weight:500}
-        .cm .y{color:#b08900}
-        .cm .hd{color:var(--blue);font-weight:500}.cm .br{color:#1f8a4c;font-weight:500}.cm .tg{color:#b08900;font-weight:500}
-        .cm .c{color:var(--ink-3)}
-        .cm .m{color:var(--ink-3)}
-        .cm .t{margin-top:.9em;padding-left:4ch;color:var(--ink);font-weight:500}
-        .cm .bd{padding-left:4ch;margin-top:.15em}
-        .cm:hover .t{color:var(--blue)}
-        @media(max-width:620px){.gitlog{font-size:.7rem}.cm .t,.cm .bd{padding-left:2ch}}
+        /* learnings as a diff: old belief struck out, new one merged in */
+        .diff{--del:#c4432b;border:1px solid var(--rule)}
+        .diff .dh{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.75rem 1rem;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.64rem;color:var(--ink-2)}
+        .diff .st b{font-weight:500}.diff .p{color:var(--blue)}.diff .m{color:var(--del)}
+        .diff .bars{display:inline-flex;gap:2px;margin-left:.4rem;vertical-align:-1px}
+        .diff .bars i{width:7px;height:7px;background:currentColor}
+        .hunk{border-bottom:1px solid var(--rule)}
+        .hunk:last-of-type{border-bottom:0}
+        .at{padding:.5rem 1rem;font-family:var(--mono);font-size:.62rem;color:var(--blue);background:rgba(43,59,209,.05)}
+        .at span{color:var(--ink-3);margin-left:.4rem}
+        .ln{display:grid;grid-template-columns:2.6rem 1.6rem 1fr;align-items:baseline}
+        .ln .g{font-family:var(--mono);font-size:.6rem;color:var(--ink-3);text-align:right;padding-right:.8rem;align-self:stretch;padding-top:1.05rem;border-right:1px solid var(--rule)}
+        .ln .s{font-family:var(--mono);font-size:.9rem;text-align:center;padding-top:.9rem}
+        .ln .x{padding:.85rem 1.2rem .95rem .2rem;max-width:48rem}
+        .del{background:rgba(196,67,43,.06)}
+        .del .s{color:var(--del)}
+        .del .x{font-size:clamp(1rem,1.7vw,1.2rem);letter-spacing:-.015em;color:var(--ink-3)}
+        .del .w{background:linear-gradient(var(--del),var(--del)) no-repeat 0 55%/0 1.5px;transition:background-size .7s cubic-bezier(.6,0,.2,1)}
+        .add{background:var(--paper)}
+        .add .s{color:var(--blue)}
+        .add .x{font-size:clamp(1.25rem,2.4vw,1.75rem);letter-spacing:-.03em;line-height:1.2;color:var(--ink)}
+        .add .why{display:block;margin-top:.7rem;font-size:.92rem;letter-spacing:-.005em;line-height:1.6;color:var(--ink-2)}
+        .add .x,.add .s{opacity:0;transform:translateY(6px);transition:opacity .5s .65s,transform .5s .65s}
+        .hunk.on .del .w{background-size:100% 1.5px}
+        .hunk.on .add .x,.hunk.on .add .s{opacity:1;transform:none}
+        .diff .df{padding:.75rem 1rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.62rem;color:var(--ink-3)}
+        .diff .df span{color:var(--blue)}
+        @media(max-width:620px){.ln{grid-template-columns:2rem 1.3rem 1fr}.ln .g{padding-right:.5rem}.ln .x{padding-right:.8rem}}
+        @media(prefers-reduced-motion:reduce){.del .w{background-size:100% 1.5px}.add .x,.add .s{opacity:1;transform:none}}
         /* ---- Sections ---- */
         .sec{padding-bottom:clamp(4rem,10vh,6.5rem);max-width:1060px;scroll-margin-top:4rem}
         .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.4rem}
@@ -297,47 +308,37 @@
             </div>
         </section>
 
-        <!-- ================= LEARNINGS: git log --graph. Newest on top: copy a .cm, new 7-char hash, move (HEAD -> main) ================= -->
+        <!-- ================= LEARNINGS: a diff of what I believed vs what I know. Copy a .hunk to add one ================= -->
         <section class="sec rv" id="learnings">
-            <div class="sec-head"><h2>Learnings</h2><span class="file">learnings.md &middot; 5 commits</span></div>
-            <div class="gitlog">
-                <div class="ps"><span class="u">dhruv@cnvrted</span> <span class="d">~/learnings</span> <span class="b">(main)</span> <span class="g">$</span> git log --graph</div>
-                <div class="cm">
-                    <div class="l"><span class="star">*</span><span class="y">commit e41b07d</span> <span class="y">(</span><span class="hd">HEAD -&gt; </span><span class="br">main</span><span class="y">, </span><span class="tg">tag: team</span><span class="y">)</span></div>
-                    <div class="l m">Author: Dhruv Pradeep &lt;dhruvcp07@gmail.com&gt;</div>
-                    <div class="l m">Date:&nbsp;&nbsp; Wed Nov 4 2026</div>
-                    <div class="l t">No yes-men on the team.</div>
-                    <div class="l bd">If nobody pushes back, you&rsquo;re the only one thinking. Keep people around who&rsquo;ll tell you your sh*t idea is sh*t.</div>
+            <div class="sec-head"><h2>Learnings</h2><span class="file">brain.md &middot; 5 patches</span></div>
+            <div class="diff">
+                <div class="dh"><span>diff --git a/dhruv-before-cnvrted b/dhruv-now</span><span class="st"><b class="p">+5</b> <b class="m">&minus;5</b> <i class="bars"><i class="p"></i><i class="p"></i><i class="p"></i><i class="m"></i><i class="m"></i></i></span></div>
+                <div class="hunk">
+                    <div class="at">@@ -1 +1 @@ <span>customers</span></div>
+                    <div class="ln del"><span class="g">01</span><span class="s">&minus;</span><span class="x"><span class="w">My idea is great. Build it first, find customers later.</span></span></div>
+                    <div class="ln add"><span class="g">01</span><span class="s">+</span><span class="x">Talk to customers before you build a single thing.<span class="why">Your idea is sh*t until a customer says otherwise. Nobody gives a f**k about it. Only build what the customer actually wants, and find that out by asking, not guessing.</span></span></div>
                 </div>
-                <div class="cm">
-                    <div class="l"><span class="star">*</span><span class="y">commit 9c2f5a8</span> <span class="y">(</span><span class="tg">tag: team</span><span class="y">)</span></div>
-                    <div class="l m">Author: Dhruv Pradeep &lt;dhruvcp07@gmail.com&gt;</div>
-                    <div class="l m">Date:&nbsp;&nbsp; Wed Nov 4 2026</div>
-                    <div class="l t">Coworkers aren&rsquo;t your best friends.</div>
-                    <div class="l bd">Be good to them, but keep it about the work. Friendship makes the hard calls harder.</div>
+                <div class="hunk">
+                    <div class="at">@@ -2 +2 @@ <span>shipping</span></div>
+                    <div class="ln del"><span class="g">02</span><span class="s">&minus;</span><span class="x"><span class="w">Ship when it&rsquo;s ready. Just one more feature.</span></span></div>
+                    <div class="ln add"><span class="g">02</span><span class="s">+</span><span class="x">Don&rsquo;t delay shipping. Ever.<span class="why">Shipping is where you actually learn, mostly what the customer <em>doesn&rsquo;t</em> want. Sit on it too long and you&rsquo;re just polishing a bullsh*t feature nobody asked for.</span></span></div>
                 </div>
-                <div class="cm">
-                    <div class="l"><span class="star">*</span><span class="y">commit 5d83e1c</span> <span class="y">(</span><span class="tg">tag: sales</span><span class="y">)</span></div>
-                    <div class="l m">Author: Dhruv Pradeep &lt;dhruvcp07@gmail.com&gt;</div>
-                    <div class="l m">Date:&nbsp;&nbsp; Wed Nov 4 2026</div>
-                    <div class="l t">Sales is the most important thing. Everything else comes after.</div>
-                    <div class="l bd">It&rsquo;s all about how you sell. Even when a deal is close, know exactly who you&rsquo;re selling to, and make sure the whole company comes in line, not just the one person who likes you.</div>
+                <div class="hunk">
+                    <div class="at">@@ -3 +3 @@ <span>sales</span></div>
+                    <div class="ln del"><span class="g">03</span><span class="s">&minus;</span><span class="x"><span class="w">A great product sells itself.</span></span></div>
+                    <div class="ln add"><span class="g">03</span><span class="s">+</span><span class="x">Sales is the most important thing. Everything else comes after.<span class="why">It&rsquo;s all about how you sell. Even when a deal is close, know exactly who you&rsquo;re selling to, and make sure the whole company comes in line, not just the one person who likes you.</span></span></div>
                 </div>
-                <div class="cm">
-                    <div class="l"><span class="star">*</span><span class="y">commit b7a0f62</span> <span class="y">(</span><span class="tg">tag: shipping</span><span class="y">)</span></div>
-                    <div class="l m">Author: Dhruv Pradeep &lt;dhruvcp07@gmail.com&gt;</div>
-                    <div class="l m">Date:&nbsp;&nbsp; Wed Nov 4 2026</div>
-                    <div class="l t">Don&rsquo;t delay shipping. Ever.</div>
-                    <div class="l bd">Shipping is where you actually learn, mostly what the customer <em>doesn&rsquo;t</em> want. Sit on it too long and you&rsquo;re just polishing a bullsh*t feature nobody asked for.</div>
+                <div class="hunk">
+                    <div class="at">@@ -4 +4 @@ <span>team</span></div>
+                    <div class="ln del"><span class="g">04</span><span class="s">&minus;</span><span class="x"><span class="w">Build it with your best friends.</span></span></div>
+                    <div class="ln add"><span class="g">04</span><span class="s">+</span><span class="x">Coworkers aren&rsquo;t your best friends.<span class="why">Be good to them, but keep it about the work. Friendship makes the hard calls harder.</span></span></div>
                 </div>
-                <div class="cm">
-                    <div class="l"><span class="star">*</span><span class="y">commit 3f19ac4</span> <span class="y">(</span><span class="tg">tag: customers</span><span class="y">)</span><span class="c"> # initial commit</span></div>
-                    <div class="l m">Author: Dhruv Pradeep &lt;dhruvcp07@gmail.com&gt;</div>
-                    <div class="l m">Date:&nbsp;&nbsp; Wed Nov 4 2026</div>
-                    <div class="l t">Talk to customers before you build a single thing.</div>
-                    <div class="l bd">Your idea is sh*t until a customer says otherwise. Nobody gives a f**k about it. Only build what the customer actually wants, and find that out by asking, not guessing.</div>
+                <div class="hunk">
+                    <div class="at">@@ -5 +5 @@ <span>team</span></div>
+                    <div class="ln del"><span class="g">05</span><span class="s">&minus;</span><span class="x"><span class="w">A team that agrees is a team that works.</span></span></div>
+                    <div class="ln add"><span class="g">05</span><span class="s">+</span><span class="x">No yes-men on the team.<span class="why">If nobody pushes back, you&rsquo;re the only one thinking. Keep people around who&rsquo;ll tell you your sh*t idea is sh*t.</span></span></div>
                 </div>
-                <div class="ps"><span class="u">dhruv@cnvrted</span> <span class="d">~/learnings</span> <span class="b">(main)</span> <span class="g">$</span> <span class="cur"></span></div>
+                <div class="df">5 beliefs changed, 5 insertions(+), 5 deletions(&minus;) &middot; <span>still merging</span></div>
             </div>
         </section>
 
@@ -403,5 +404,10 @@
         })();
     </script>
     <script src="/assets/cmdk.js" defer></script>
+<script>
+/* strike the old belief, then merge the new one, as each hunk scrolls in */
+(function(){var h=document.querySelectorAll('.hunk');if(!('IntersectionObserver' in window)){h.forEach(function(e){e.classList.add('on')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.45});h.forEach(function(e){io.observe(e)})})();
+</script>
 </body>
 </html>
