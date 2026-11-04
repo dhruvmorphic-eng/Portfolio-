@@ -15,13 +15,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.5;overflow-x:hidden}
+        html,body{height:100%;overflow:hidden}
+        /* one screen, no scrolling: header on top, the stage takes the rest */
+        body{display:flex;flex-direction:column;background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.5;overscroll-behavior:none}
         ::selection{background:#191917;color:#efeee9}
         a{color:inherit;text-decoration:none}
         /* a faint pixel grid, like the screen is showing through */
-        .stage{position:relative;min-height:calc(100vh - 64px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.4rem 4rem;
+        .stage{position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem 1.4rem 2rem;
                background-image:linear-gradient(rgba(25,25,23,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(25,25,23,.05) 1px,transparent 1px);background-size:16px 16px}
-        .big{font-family:'Silkscreen',monospace;font-weight:700;font-size:clamp(7rem,30vw,22rem);line-height:.85;letter-spacing:.02em;color:#191917;text-shadow:.06em .06em 0 #2b3bd1;user-select:none}
+        .big{font-family:'Silkscreen',monospace;font-weight:700;font-size:min(30vw,38vh,22rem);line-height:.85;letter-spacing:.02em;color:#191917;text-shadow:.06em .06em 0 #2b3bd1;user-select:none}
         .label{margin-top:1.6rem;font-family:'Silkscreen',monospace;font-size:clamp(.9rem,2vw,1.15rem);letter-spacing:.08em}
         .msg{margin-top:.8rem;max-width:30rem;font-size:1rem;color:rgba(25,25,23,.7)}
         .msg b{font-weight:500;color:#191917}
@@ -69,15 +71,6 @@
     <div class="runner" id="runner" role="img" aria-label="A pixel version of Dhruv&rsquo;s mascot running around"></div>
     <div class="say" id="say" aria-hidden="true"></div>
 
-    <footer class="pfoot"><div class="pfoot-in">
-        <a class="up" href="#" aria-label="Back to top">&#8593;</a>
-        <dl class="addr">
-            <dt>A</dt><dd>Bengaluru, India</dd>
-            <dt>E</dt><dd><a href="mailto:dhruvcp07@gmail.com">&#8600;&#xFE0E;dhruvcp07@gmail.com</a></dd>
-            <dt>N</dt><dd><a href="/">&#8600;&#xFE0E;Home</a><a href="/about">&#8600;&#xFE0E;About</a><a href="/cnvrted">&#8600;&#xFE0E;Cnvrted</a><a href="/work">&#8600;&#xFE0E;Work</a><a href="/learning">&#8600;&#xFE0E;Learning</a><a href="/uses">&#8600;&#xFE0E;Uses</a><a href="/blog">&#8600;&#xFE0E;Blog</a><a href="/now">&#8600;&#xFE0E;Now</a><a href="/posts">&#8600;&#xFE0E;Posts</a><a href="/playbooks">&#8600;&#xFE0E;Playbooks</a><a href="/manifesto">&#8600;&#xFE0E;Manifesto</a><a href="/contact">&#8600;&#xFE0E;Contact</a></dd>
-        </dl>
-        <p class="copy">&copy;2026 Dhruv Pradeep &middot; Est. 2007</p>
-    </div></footer>
     <script>
         (function(){
             var el = document.getElementById('runner'), sh = document.getElementById('shadow'), say = document.getElementById('say');
