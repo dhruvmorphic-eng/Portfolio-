@@ -12,46 +12,37 @@
     <meta name="description" content="This page doesn't exist. Head back home to explore Dhruv Pradeep's work.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        html,body{height:100%}
-        body{background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.6}
+        body{background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.5;overflow-x:hidden}
         ::selection{background:#191917;color:#efeee9}
+        a{color:inherit;text-decoration:none}
+        /* a faint pixel grid, like the screen is showing through */
+        .stage{position:relative;min-height:calc(100vh - 64px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.4rem 4rem;
+               background-image:linear-gradient(rgba(25,25,23,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(25,25,23,.05) 1px,transparent 1px);background-size:16px 16px}
+        .big{font-family:'Silkscreen',monospace;font-weight:700;font-size:clamp(7rem,30vw,22rem);line-height:.85;letter-spacing:.02em;color:#191917;text-shadow:.06em .06em 0 #2b3bd1;user-select:none}
+        .label{margin-top:1.6rem;font-family:'Silkscreen',monospace;font-size:clamp(.9rem,2vw,1.15rem);letter-spacing:.08em}
+        .msg{margin-top:.8rem;max-width:30rem;font-size:1rem;color:rgba(25,25,23,.7)}
+        .msg b{font-weight:500;color:#191917}
+        .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
+        .btn{font-family:'Silkscreen',monospace;font-size:13px;padding:.7rem 1.1rem;background:#fbfbf8;border:2px solid #191917;box-shadow:4px 4px 0 #191917;transition:transform .08s steps(1),box-shadow .08s steps(1)}
+        .btn:hover{background:#191917;color:#fbfbf8}
+        .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #191917}
+        .hint{margin-top:2.2rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(25,25,23,.55)}
 
-        .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:linear-gradient(to bottom,rgba(239,238,233,.95),transparent)}
-        .back{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.77);text-decoration:none;transition:color .3s}
-        .back:hover{color:#191917}
-        .top-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.69)}
-
-        .wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:640px;margin:0 auto;padding:8rem 2rem 6rem}
-        .art{width:100%;max-width:420px;margin-bottom:2rem;border-radius:20px;overflow:hidden}
-        .art img{width:100%;height:auto;display:block}
-        .art{cursor:pointer;position:relative}
-        .art.spinning img{animation:astro-spin .9s ease}
-        @keyframes astro-spin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(200deg) scale(1.04)}100%{transform:rotate(360deg) scale(1)}}
-        .art-hint{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.69);margin:-1.4rem 0 2rem;text-align:center;opacity:0;animation:fadeUp .9s ease forwards 1.4s}
-
-        h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;line-height:1.05;margin-bottom:.8rem}
-        .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(25,25,23,0.73);margin-bottom:1.4rem}
-        p.msg{color:rgba(25,25,23,0.81);font-size:1rem;margin-bottom:2.4rem}
-
-        .home-btn{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 2.2rem;background:#191917;color:#efeee9;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s}
-        .home-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(25,25,23,.15)}
-
-        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-        .r{opacity:0;animation:fadeUp .9s ease forwards}
-        .r1{animation-delay:.1s}.r2{animation-delay:.25s}.r3{animation-delay:.4s}.r4{animation-delay:.55s}
-
-        .ghost{position:fixed;bottom:-.28em;left:50%;transform:translateX(-50%);font-family:'Inter Tight',sans-serif;font-size:24vw;font-weight:900;letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(25,25,23,.07);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
-        .site-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:1rem 1.5rem 2.5rem}
-        .site-foot a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.71);text-decoration:none;padding:.4rem .8rem;transition:color .3s;border:none;font-weight:400}
-        .site-foot a:hover{color:#191917;background:none}
-
-        @media(max-width:600px){.top{padding:1.2rem 1.5rem}.wrap{padding-top:6.5rem}}
-
-        /* ---- Display (Inter Bold) ---- */
-        h1,.ghost{font-family:'Inter Tight',sans-serif;font-weight:800;letter-spacing:-.02em}
+        /* mini Dhruv, 16x22 sprite drawn at 4x, four running frames */
+        .runner{position:fixed;left:0;top:0;z-index:20;width:64px;height:88px;cursor:pointer;
+                background:url(/assets/sprite-dhruv.png) 0 0/256px 88px no-repeat;image-rendering:pixelated;
+                animation:run .42s steps(4) infinite;will-change:transform}
+        .runner.idle{animation:none;background-position:-64px 0}
+        .runner.sprint{animation-duration:.24s}
+        @keyframes run{to{background-position:-256px 0}}
+        .say{position:fixed;z-index:21;left:0;top:0;font-family:'Silkscreen',monospace;font-size:11px;white-space:nowrap;background:#fbfbf8;border:2px solid #191917;box-shadow:3px 3px 0 #191917;padding:.35rem .55rem;opacity:0;pointer-events:none;transition:opacity .15s}
+        .say.on{opacity:1}
+        .shadow{position:fixed;z-index:19;left:0;top:0;width:44px;height:6px;background:rgba(25,25,23,.18)}
+        @media(max-width:600px){.runner{width:48px;height:66px;background-size:192px 66px}.runner.idle{background-position:-48px 0}@keyframes run{to{background-position:-192px 0}}.shadow{width:32px;height:5px}}
+        @media(prefers-reduced-motion:reduce){.runner{animation:none;background-position:-64px 0}}
     </style>
     <link rel="stylesheet" href="/assets/paper.css?v=1">
 </head>
@@ -62,16 +53,21 @@
         <a class="right" href="/">&larr; home</a>
     </header>
 
-    <div class="wrap">
-        <div class="art r r1" id="astro">
-            <img src="/assets/404-astronaut.png" alt="An astronaut floating in space, lost, looking at a compass in front of a constellation spelling 404" width="1448" height="1086">
+    <main class="stage">
+        <div class="big" aria-label="404">404</div>
+        <p class="label">Page not found</p>
+        <p class="msg">This page doesn&rsquo;t exist, moved, or never did. <b>Mini Dhruv</b> is out looking for it.</p>
+        <div class="btns">
+            <a class="btn" href="/">&#9664; Home</a>
+            <a class="btn" href="/blog">Blog</a>
+            <a class="btn" href="/cnvrted">Cnvrted</a>
         </div>
-        <div class="art-hint">psst — click the astronaut</div>
-        <h1 class="r r2" id="msgTitle">Lost the signal.</h1>
-        <div class="sub r r2">Error 404</div>
-        <p class="msg r r3" id="msgBody">This page drifted off somewhere. It doesn't exist, moved, or never did.</p>
-        <a class="home-btn r r4" href="/">Back to Home</a>
-    </div>
+        <p class="hint">// try catching him.</p>
+    </main>
+
+    <div class="shadow" id="shadow" aria-hidden="true"></div>
+    <div class="runner" id="runner" role="img" aria-label="A pixel version of Dhruv&rsquo;s mascot running around"></div>
+    <div class="say" id="say" aria-hidden="true"></div>
 
     <footer class="pfoot"><div class="pfoot-in">
         <a class="up" href="#" aria-label="Back to top">&#8593;</a>
@@ -83,15 +79,58 @@
         <p class="copy">&copy;2026 Dhruv Pradeep &middot; Est. 2007</p>
     </div></footer>
     <script>
-        document.getElementById('astro').addEventListener('click', function(){
-            var el = this;
-            if (el.classList.contains('spinning')) return;
-            el.classList.add('spinning');
-            document.getElementById('msgTitle').textContent = 'Found it.';
-            document.getElementById('msgBody').textContent = "Compass says home is that way. Taking you there...";
-            setTimeout(function(){ window.location.href = '/'; }, 1300);
-        });
+        (function(){
+            var el = document.getElementById('runner'), sh = document.getElementById('shadow'), say = document.getElementById('say');
+            var small = matchMedia('(max-width:600px)').matches, W = small ? 48 : 64, Hh = small ? 66 : 88;
+            var still = matchMedia('(prefers-reduced-motion:reduce)').matches;
+            var x = innerWidth * .15, y = innerHeight * .62, tx = x, ty = y, face = 1, wait = 40, speed = 2.4;
+            var mx = -999, my = -999, lines = ['not here either.', '404? checked. nothing.', 'ok you caught me.', 'try the homepage &rarr;', 'I&rsquo;ll keep looking.'], li = 0, sayT;
+
+            function pick(){
+                var pad = 24;
+                tx = pad + Math.random() * (innerWidth - W - pad * 2);
+                ty = 70 + Math.random() * (innerHeight - Hh - 110);
+                speed = 1.8 + Math.random() * 1.4;
+            }
+            function talk(t){
+                say.innerHTML = t; say.classList.add('on');
+                clearTimeout(sayT); sayT = setTimeout(function(){ say.classList.remove('on'); }, 1800);
+            }
+            function place(){
+                el.style.transform = 'translate(' + x + 'px,' + y + 'px) scaleX(' + face + ')';
+                sh.style.transform = 'translate(' + (x + (W - parseFloat(getComputedStyle(sh).width)) / 2) + 'px,' + (y + Hh - 3) + 'px)';
+                var bx = Math.min(innerWidth - say.offsetWidth - 8, Math.max(8, x + W / 2 - say.offsetWidth / 2));
+                say.style.transform = 'translate(' + bx + 'px,' + (y - 34) + 'px)';
+            }
+            function step(){
+                var cx = x + W / 2, cy = y + Hh / 2, dmx = cx - mx, dmy = cy - my, dm = Math.hypot(dmx, dmy);
+                var sprint = false;
+                if(dm < 130){
+                    // the cursor is close: run the other way, staying on screen
+                    sprint = true; wait = 0;
+                    tx = Math.min(innerWidth - W - 10, Math.max(10, x + dmx / dm * 220));
+                    ty = Math.min(innerHeight - Hh - 10, Math.max(60, y + dmy / dm * 220));
+                }
+                if(wait > 0){ wait--; el.classList.add('idle'); }
+                else {
+                    var dx = tx - x, dy = ty - y, d = Math.hypot(dx, dy), v = sprint ? 6 : speed;
+                    if(d < v){ x = tx; y = ty; wait = 30 + Math.random() * 70; pick(); }
+                    else { x += dx / d * v; y += dy / d * v; if(Math.abs(dx) > 1) face = dx < 0 ? -1 : 1; }
+                    el.classList.remove('idle');
+                }
+                el.classList.toggle('sprint', sprint);
+                place();
+                requestAnimationFrame(step);
+            }
+            addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; });
+            addEventListener('mouseleave', function(){ mx = my = -999; });
+            el.addEventListener('click', function(){ talk(lines[li++ % lines.length]); wait = 50; });
+            addEventListener('resize', function(){ x = Math.min(x, innerWidth - W - 10); y = Math.min(y, innerHeight - Hh - 10); pick(); });
+            if(still){ place(); return; }
+            pick(); setTimeout(function(){ talk('where did that page go?'); }, 700);
+            requestAnimationFrame(step);
+        })();
     </script>
-    <script src="/assets/subscribe.js" defer></script>
+    <script src="/assets/cmdk.js" defer></script>
 </body>
 </html>
