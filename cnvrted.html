@@ -84,6 +84,24 @@
         .jumps a em{font-style:normal;display:block}
         @media(max-width:720px){.jumps{padding-left:0;gap:1.4rem 2.2rem}}
 
+        /* learnings as a git log graph */
+        .gl{list-style:none;position:relative;border-top:1px solid var(--rule);padding-top:1.6rem}
+        .cm::after{content:"";position:absolute;left:5px;top:calc(.28rem + 12px);bottom:-.28rem;width:1px;background:var(--rule)}
+        .cm:last-child::after{display:none}
+        .cm{position:relative;padding:0 0 2.2rem 2.4rem;max-width:46rem}
+        .cm::before{content:"";position:absolute;left:0;top:.28rem;width:11px;height:11px;border-radius:50%;background:var(--paper);border:1px solid var(--ink-2);transition:background .2s,border-color .2s}
+        .cm:first-child::before{background:var(--blue);border-color:var(--blue)}
+        .cm:hover::before{background:var(--blue);border-color:var(--blue)}
+        .cm .hd{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.66rem}
+        .cm .sha{color:var(--blue);letter-spacing:.02em}
+        .cm .ref{border:1px solid var(--rule);padding:.05rem .45rem;color:var(--ink-2);border-radius:999px;font-size:.6rem}
+        .cm .ref.head{border-color:var(--blue);color:var(--blue)}
+        .cm .ref.root{border-style:dashed;color:var(--ink-3)}
+        .cm .msg{margin-top:.6rem;font-size:1.12rem;letter-spacing:-.015em;line-height:1.4}
+        .cm .body{margin-top:.4rem;font-size:.92rem;color:var(--ink-2);line-height:1.6}
+        .cm .au{margin-top:.7rem;font-family:var(--mono);font-size:.6rem;color:var(--ink-3)}
+        @media(max-width:620px){.cm{padding-left:1.8rem}}
+
         /* ---- Sections ---- */
         .sec{padding-bottom:clamp(4rem,10vh,6.5rem);max-width:1060px;scroll-margin-top:4rem}
         .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.4rem}
@@ -279,51 +297,41 @@
             </div>
         </section>
 
-        <!-- ================= LEARNINGS: copy a .row to add one ================= -->
+        <!-- ================= LEARNINGS: newest on top. Copy a .cm, give it a new 7-char hash ================= -->
         <section class="sec rv" id="learnings">
-            <div class="sec-head"><h2>Learnings</h2><span class="file">learnings.md &middot; 5 so far</span></div>
-            <div class="log">
-                <div class="row">
-                    <span class="ln">001</span>
-                    <span class="date">customers</span>
-                    <div class="what">
-                        <p>Talk to customers before you build a single thing.</p>
-                        <p class="note">Your idea is sh*t until a customer says otherwise. Nobody gives a f**k about it. Only build what the customer actually wants, and find that out by asking, not guessing.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <span class="ln">002</span>
-                    <span class="date">shipping</span>
-                    <div class="what">
-                        <p>Don&rsquo;t delay shipping. Ever.</p>
-                        <p class="note">Shipping is where you actually learn, mostly what the customer <em>doesn&rsquo;t</em> want. Sit on it too long and you&rsquo;re just polishing a bullsh*t feature nobody asked for.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <span class="ln">003</span>
-                    <span class="date">sales</span>
-                    <div class="what">
-                        <p>Sales is the most important thing. Everything else comes after.</p>
-                        <p class="note">It&rsquo;s all about how you sell. Even when a deal is close, know exactly who you&rsquo;re selling to, and make sure the whole company comes in line, not just the one person who likes you.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <span class="ln">004</span>
-                    <span class="date">team</span>
-                    <div class="what">
-                        <p>Coworkers aren&rsquo;t your best friends.</p>
-                        <p class="note">Be good to them, but keep it about the work. Friendship makes the hard calls harder.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <span class="ln">005</span>
-                    <span class="date">team</span>
-                    <div class="what">
-                        <p>No yes-men on the team.</p>
-                        <p class="note">If nobody pushes back, you&rsquo;re the only one thinking. Keep people around who&rsquo;ll tell you your sh*t idea is sh*t.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="sec-head"><h2>Learnings</h2><span class="file">$ git log learnings.md &middot; 5 commits</span></div>
+            <ol class="gl">
+                <li class="cm">
+                    <div class="hd"><span class="sha">e41b07d</span><span class="ref head">HEAD &rarr; main</span><span class="ref">team</span></div>
+                    <p class="msg">No yes-men on the team.</p>
+                    <p class="body">If nobody pushes back, you&rsquo;re the only one thinking. Keep people around who&rsquo;ll tell you your sh*t idea is sh*t.</p>
+                    <div class="au">Dhruv Pradeep &middot; Nov 2026</div>
+                </li>
+                <li class="cm">
+                    <div class="hd"><span class="sha">9c2f5a8</span><span class="ref">team</span></div>
+                    <p class="msg">Coworkers aren&rsquo;t your best friends.</p>
+                    <p class="body">Be good to them, but keep it about the work. Friendship makes the hard calls harder.</p>
+                    <div class="au">Dhruv Pradeep &middot; Nov 2026</div>
+                </li>
+                <li class="cm">
+                    <div class="hd"><span class="sha">5d83e1c</span><span class="ref">sales</span></div>
+                    <p class="msg">Sales is the most important thing. Everything else comes after.</p>
+                    <p class="body">It&rsquo;s all about how you sell. Even when a deal is close, know exactly who you&rsquo;re selling to, and make sure the whole company comes in line, not just the one person who likes you.</p>
+                    <div class="au">Dhruv Pradeep &middot; Nov 2026</div>
+                </li>
+                <li class="cm">
+                    <div class="hd"><span class="sha">b7a0f62</span><span class="ref">shipping</span></div>
+                    <p class="msg">Don&rsquo;t delay shipping. Ever.</p>
+                    <p class="body">Shipping is where you actually learn, mostly what the customer <em>doesn&rsquo;t</em> want. Sit on it too long and you&rsquo;re just polishing a bullsh*t feature nobody asked for.</p>
+                    <div class="au">Dhruv Pradeep &middot; Nov 2026</div>
+                </li>
+                <li class="cm">
+                    <div class="hd"><span class="sha">3f19ac4</span><span class="ref root">initial commit</span><span class="ref">customers</span></div>
+                    <p class="msg">Talk to customers before you build a single thing.</p>
+                    <p class="body">Your idea is sh*t until a customer says otherwise. Nobody gives a f**k about it. Only build what the customer actually wants, and find that out by asking, not guessing.</p>
+                    <div class="au">Dhruv Pradeep &middot; Nov 2026</div>
+                </li>
+            </ol>
         </section>
 
         <!-- ================= MASCOT ================= -->
