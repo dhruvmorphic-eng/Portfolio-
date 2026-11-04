@@ -11,6 +11,7 @@
     { title: 'Cnvrted', url: '/cnvrted', desc: 'My company — finding real buyers with actual intent' },
     { title: 'The archive', url: '/cnvrted/archive', desc: 'Building Cnvrted, in frames — drag to explore' },
     { title: 'Learning', url: '/learning', desc: 'What I am studying, playbooks and essays' },
+    { title: 'Uses', url: '/uses', desc: 'Desk, daily apps, tools and how this site is built' },
     { title: 'Playbooks', url: '/playbooks', desc: 'Sales playbook and the AI Index' },
     { title: 'Now', url: '/now', desc: "What I'm building — Cnvrted & Morphic" },
     { title: 'Work', url: '/work', desc: 'MorphicKIDS videos' },
