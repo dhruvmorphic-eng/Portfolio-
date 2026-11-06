@@ -54,21 +54,23 @@
         .hero{padding:clamp(4.5rem,13vh,8.5rem) 0 0;max-width:1000px}
         .word{font-weight:400;font-size:clamp(3.4rem,12.5vw,10.5rem);letter-spacing:-.065em;line-height:.88;margin-left:-.04em}
         .hero-rule{border:0;border-top:1px solid var(--rule);margin:.9rem 0 .6rem}
-        .hero-sub{font-size:clamp(.85rem,1.5vw,1.05rem);min-height:1.6em;color:var(--ink)}
-        .t-k{color:var(--blue)}.t-v{color:var(--ink)}.t-s{color:#a3472a}.t-n{color:#1f7a4d}.t-c{color:var(--ink-3)}.t-p{color:var(--ink-3)}
-        .caret{display:inline-block;width:.55em;height:1.05em;background:var(--blue);vertical-align:-.15em;margin-left:.15em;animation:blink 1.1s steps(1) infinite}
         @keyframes blink{50%{opacity:0}}
         .hero-meta{margin-top:.9rem;font-family:var(--mono);font-size:.66rem;line-height:1.7;color:var(--ink-2)}
 
-        .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding:clamp(4.5rem,12vh,7.5rem) 0 clamp(4rem,10vh,6rem);max-width:1000px}
-        .split .code{font-family:var(--mono);font-size:.68rem;line-height:1.85;color:var(--ink-2)}
-        .split .code b{font-weight:500;color:var(--blue)}
-        .split .code a{color:#a3472a;border-bottom:1px solid transparent;transition:border-color .2s}
-        .split .code a:hover{border-color:currentColor}
-        .split .code .c{color:var(--ink-3)}
-        .split .code .lg{width:13px;height:13px;border-radius:3px;vertical-align:-2px;margin-right:.4em;transition:transform .25s}
-        .split .code a:hover .lg{transform:rotate(-8deg) scale(1.15)}
-        .split .code a.was{color:var(--ink-2)}
+        .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding:clamp(3rem,8vh,5rem) 0 clamp(4rem,10vh,6rem);max-width:1000px}
+        /* spec sheet: label ..... value, each row a link */
+        .spec{font-family:var(--mono);font-size:.7rem;line-height:1.5;max-width:30rem}
+        .spec div{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0}
+        .spec dt{flex:none;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:flex;align-items:baseline;gap:.6rem;width:6.2rem}
+        .spec dt::after{content:"";flex:1;border-bottom:1px dotted rgba(25,25,23,.3);transform:translateY(-3px)}
+        .spec dd{color:var(--ink)}
+        .spec dd span{color:var(--ink-3)}
+        .spec a{display:inline;transition:color .2s}
+        .spec a i{font-style:normal;margin-left:.4em;color:var(--ink-3);display:inline-block;transition:transform .25s,color .2s}
+        .spec a:hover{color:var(--blue)}
+        .spec a:hover i{color:var(--blue);transform:translate(2px,-2px)}
+        .spec .lg{width:13px;height:13px;border-radius:3px;vertical-align:-2px;margin-right:.45em;transition:transform .25s}
+        .spec a:hover .lg{transform:rotate(-8deg) scale(1.15)}
 
         /* clock: a 24-segment day bar, then live time */
         .clk{display:flex;align-items:center;gap:.7rem;font-variant-numeric:tabular-nums}
@@ -166,17 +168,16 @@
         <section class="hero">
             <h1 class="word">dhruv pradeep</h1>
             <hr class="hero-rule">
-            <p class="hero-sub mono"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
-            <p class="hero-meta">Co-founder &amp; CEO, Cnvrted. Ex-Morphic.<br>( DPIIT-RECOGNISED &middot; INCORPORATED 2026 )</p>
+            <p class="hero-meta">( DPIIT-RECOGNISED &middot; INCORPORATED 2026 )</p>
         </section>
 
         <section class="split">
-            <p class="code">
-                <b>const</b> building = <a href="/cnvrted"><img class="lg" src="/assets/logo-cnvrted.png" alt="">&ldquo;Cnvrted&rdquo;</a>;<span class="c"> // co-founder &amp; ceo</span><br>
-                <b>const</b> previously = <a class="was" href="https://morphic.com" target="_blank" rel="noopener"><img class="lg" src="/assets/logo-morphic.png" alt="">&ldquo;Morphic&rdquo;</a>;<span class="c"> // marketing ops</span><br>
-                <b>const</b> latest = <a href="/blog/misdirected-desire">&ldquo;The Anatomy of Misdirected Desire&rdquo;</a>;<br>
-                <span class="c">// still shipping 🚢</span>
-            </p>
+            <dl class="spec">
+                <div><dt>Now</dt><dd><a href="/cnvrted"><img class="lg" src="/assets/logo-cnvrted.png" alt="">Cnvrted <span>&middot; co-founder &amp; CEO</span><i>&#8599;&#xFE0E;</i></a></dd></div>
+                <div><dt>Before</dt><dd><a href="https://morphic.com" target="_blank" rel="noopener"><img class="lg" src="/assets/logo-morphic.png" alt="">Morphic <span>&middot; marketing ops</span><i>&#8599;&#xFE0E;</i></a></dd></div>
+                <div><dt>Latest</dt><dd><a id="latest" href="/blog/misdirected-desire">The Anatomy of Misdirected Desire <span>&middot; essay</span><i>&#8599;&#xFE0E;</i></a></dd></div>
+                <div><dt>Based</dt><dd>Bengaluru <span>&middot; 19 &middot; still shipping</span></dd></div>
+            </dl>
             <p class="say">
                 <span>I&rsquo;m a founder from Bengaluru</span>
                 <span>building Cnvrted, a sharper way</span>
@@ -272,36 +273,13 @@
             });
         })();
 
-        // code-running tagline
-        var LINES = [
-            [['k','const '],['v','role'],['p',' = '],['s','"Founder in progress"'],['p',';']],
-            [['k','const '],['v','building'],['p',' = '],['s','"Cnvrted"'],['p',';']],
-            [['k','const '],['v','work'],['p',' = '],['s','"Ex @ Morphic"'],['p',';']],
-            [['k','const '],['v','age'],['p',' = '],['n','19'],['p',';'],['c','  // Bengaluru']]
-        ];
-        var esc = function(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
-        var lineLen = function(l){ return l.reduce(function(n,t){ return n + t[1].length; }, 0); };
-        function paint(line, n){
-            var out = '', c = 0;
-            for(var i = 0; i < line.length && c < n; i++){
-                var take = Math.min(line[i][1].length, n - c);
-                out += '<span class="t-' + line[i][0] + '">' + esc(line[i][1].slice(0, take)) + '</span>';
-                c += take;
-            }
-            return out;
-        }
-        var typedEl = document.getElementById('typed'), li = 0;
-        (function run(){
-            var line = LINES[li], len = lineLen(line), n = 0;
-            (function type(){
-                if(n <= len){ typedEl.innerHTML = paint(line, n); n++; setTimeout(type, 55); }
-                else setTimeout(erase, 2200);
-            })();
-            function erase(){
-                if(n > 0){ n--; typedEl.innerHTML = paint(line, n); setTimeout(erase, 24); }
-                else { li = (li + 1) % LINES.length; setTimeout(run, 320); }
-            }
-        })();
+        // "Latest" row follows the newest post in the feed
+        fetch('/feed.json').then(function(r){ return r.json(); }).then(function(d){
+            var it = d.items && d.items[0], a = document.getElementById('latest');
+            if(!it || !a) return;
+            a.href = it.url.replace('https://dhruvpradeep.in', '');
+            a.firstChild.nodeValue = it.title + ' ';
+        }).catch(function(){});
     </script>
     <script src="/assets/cmdk.js" defer></script>
     <script src="/assets/presence.js" defer></script>
