@@ -26,16 +26,6 @@
   ],
   "rewrites": [
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "manifesto.dhruvpradeep.in"
-        }
-      ],
-      "destination": "/manifesto.html"
-    },
-    {
       "source": "/cnvrted/archive",
       "destination": "/cnvrted-archive"
     }
