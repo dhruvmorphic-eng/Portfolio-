@@ -17,7 +17,7 @@
 - [Sales Playbook](https://dhruvpradeep.in/sales): The sales playbook Dhruv Pradeep is building at Cnvrted, updated straight from Notion.
 - [Posts](https://dhruvpradeep.in/posts): Posts pulled in from LinkedIn, X, Substack, Bluesky, Product Hunt and Spotify.
 - [Manifesto](https://dhruvpradeep.in/manifesto): Operating principles — "I don't wait. I move." Taste, speed, ownership.
-- [Cafes](https://dhruvpradeep.in/cafes): The 13 cafes and chaya spots Dhruv recommends in Bengaluru, with photos and Google Maps links.
+- [Cafes](https://dhruvpradeep.in/cafes): The 15 cafes and chaya spots Dhruv recommends in Bengaluru, with photos and Google Maps links.
 - [Blog](https://dhruvpradeep.in/blog): Essays on startups, sales, AI, careers and mindset.
 - [Contact](https://dhruvpradeep.in/contact): Emails, socials, and call booking.
 

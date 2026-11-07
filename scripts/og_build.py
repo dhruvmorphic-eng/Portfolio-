@@ -48,7 +48,7 @@ PAGES = [
     dict(file="manifesto.html", slug="manifesto", path="manifesto", word="I don&rsquo;t wait.", dim="I move.", mono="manifesto.js",
          desc="The principles behind the work.", tag="// read only."),
     dict(file="cafes.html", slug="cafes", path="cafes", word="Cafes I&rsquo;d", dim="send you to.", mono=f"coffee &amp; {CHAYA}",
-         desc="Spots across Bengaluru, from Indiranagar up to Kothanur.", visual="fan", tag='// <span lang="ml">അപ്പോ ശരി</span>'),
+         desc="Spots across Bengaluru, from Koramangala up to Kothanur.", visual="fan", tag='// <span lang="ml">അപ്പോ ശരി</span>'),
     dict(file="contact.html", slug="contact", path="contact", word="Reach out.", mono="mail &middot; socials &middot; book a call",
          desc="Personal and Cnvrted email, or book a call directly."),
     dict(file="uses.html", slug="uses", path="uses", word="Uses", mono="the setup",
