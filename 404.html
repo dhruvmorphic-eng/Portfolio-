@@ -3,126 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Page Not Found | Dhruv Pradeep</title>
+    <title>404, lost | Dhruv Pradeep</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="This page doesn't exist. The 404 fell off the line; here's where you probably meant to go.">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="description" content="This page doesn't exist. Head back home to explore Dhruv Pradeep's work.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&text=%3F%E0%B4%A4%E0%B4%AF%E0%B4%B1%E0%B4%B4%E0%B4%B5%E0%B4%BF%E0%B5%86%E0%B5%8B%E0%B5%8D&display=swap" rel="stylesheet">
     <style>
+        :root{
+            --paper:#efeee9;
+            --ink:#191917;
+            --ink-2:rgba(25,25,23,.7);
+            --ink-3:rgba(25,25,23,.58);
+            --rule:rgba(25,25,23,.22);
+            --blue:#2b3bd1;
+            --pad:clamp(1.1rem,3.2vw,2.6rem);
+            --sans:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;
+            --mono:'JetBrains Mono',ui-monospace,monospace;
+        }
         *{margin:0;padding:0;box-sizing:border-box}
-        html,body{height:100%;overflow:hidden}
-        /* one screen, no scrolling: header on top, the stage takes the rest */
-        body{display:flex;flex-direction:column;background:#efeee9;color:#191917;font-family:'Inter Tight',sans-serif;line-height:1.5;overscroll-behavior:none}
-        ::selection{background:#191917;color:#efeee9}
+        body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+        ::selection{background:var(--ink);color:var(--paper)}
         a{color:inherit;text-decoration:none}
-        /* a faint pixel grid, like the screen is showing through */
-        .stage{position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem 1.4rem 2rem;
-               background-image:linear-gradient(rgba(25,25,23,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(25,25,23,.05) 1px,transparent 1px);background-size:16px 16px}
-        .big{font-family:'Silkscreen',monospace;font-weight:700;font-size:min(30vw,38vh,22rem);line-height:.85;letter-spacing:.02em;color:#191917;text-shadow:.06em .06em 0 #2b3bd1;user-select:none}
-        .label{margin-top:1.6rem;font-family:'Silkscreen',monospace;font-size:clamp(.9rem,2vw,1.15rem);letter-spacing:.08em}
-        .msg{margin-top:.8rem;max-width:30rem;font-size:1rem;color:rgba(25,25,23,.7)}
-        .msg b{font-weight:500;color:#191917}
-        .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
-        .btn{font-family:'Silkscreen',monospace;font-size:13px;padding:.7rem 1.1rem;background:#fbfbf8;border:2px solid #191917;box-shadow:4px 4px 0 #191917;transition:transform .08s steps(1),box-shadow .08s steps(1)}
-        .btn:hover{background:#191917;color:#fbfbf8}
-        .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #191917}
-        .hint{margin-top:2.2rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(25,25,23,.55)}
+        :focus-visible{outline:1px solid var(--blue);outline-offset:3px}
+        .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+        .ptop .logo s{text-decoration-thickness:1px;color:var(--ink-3)}
 
-        /* mini Dhruv, 16x22 sprite drawn at 4x, four running frames */
-        .runner{position:fixed;left:0;top:0;z-index:20;width:64px;height:88px;cursor:pointer;
-                background:url(/assets/sprite-dhruv.png) 0 0/256px 88px no-repeat;image-rendering:pixelated;
-                animation:run .42s steps(4) infinite;will-change:transform}
-        .runner.idle{animation:none;background-position:-64px 0}
-        .runner.sprint{animation-duration:.24s}
-        @keyframes run{to{background-position:-256px 0}}
-        .say{position:fixed;z-index:21;left:0;top:0;font-family:'Silkscreen',monospace;font-size:11px;white-space:nowrap;background:#fbfbf8;border:2px solid #191917;box-shadow:3px 3px 0 #191917;padding:.35rem .55rem;opacity:0;pointer-events:none;transition:opacity .15s}
-        .say.on{opacity:1}
-        .shadow{position:fixed;z-index:19;left:0;top:0;width:44px;height:6px;background:rgba(25,25,23,.18)}
-        @media(max-width:600px){.runner{width:48px;height:66px;background-size:192px 66px}.runner.idle{background-position:-48px 0}@keyframes run{to{background-position:-192px 0}}.shadow{width:32px;height:5px}}
-        @media(prefers-reduced-motion:reduce){.runner{animation:none;background-position:-64px 0}}
+        .page{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+        .hero{padding:clamp(2rem,8vh,5.5rem) 0 0;max-width:1000px}
+
+        /* the stage: its bottom edge is the rule, which is the floor the digits land on */
+        .stage{position:relative;height:var(--sh,12rem)}
+        .stage canvas,.stage .hit{position:absolute;left:0;bottom:0;width:100%;height:var(--ch,12rem)}
+        .stage canvas{pointer-events:none}
+        .stage .hit{touch-action:none;-webkit-tap-highlight-color:transparent}
+        .stage .hit.grab{cursor:grab}
+        .stage .hit.grabbing{cursor:grabbing}
+        .static{position:absolute;left:-.04em;bottom:-.02em;font-weight:400;font-size:clamp(5rem,21vw,14.5rem);letter-spacing:-.065em;line-height:.72;user-select:none}
+        .stage.live .static{visibility:hidden}
+
+        .hero-line{position:relative}
+        .hero-rule{border:0;border-top:1px solid var(--rule);margin:0 0 .6rem}
+        .hero-meta{margin-top:.9rem;font-family:var(--mono);font-size:.66rem;line-height:1.7;color:var(--ink-2)}
+        .lost{position:absolute;right:0;top:calc(1px + .82rem);display:flex;align-items:baseline;gap:.45em;white-space:nowrap;font-family:var(--mono);font-size:.66rem;line-height:1.7;color:var(--ink-2);transition:color .2s}
+        .lost b{font-family:'Manjari',var(--sans);font-weight:400;font-size:.95rem;line-height:1;color:var(--ink);transition:color .2s}
+        .lost em{font-style:normal;max-width:0;overflow:hidden;opacity:0;transition:max-width .45s cubic-bezier(.2,.8,.2,1),opacity .25s}
+        .lost i{font-style:normal;transition:transform .25s}
+        .lost:hover,.lost:hover b{color:var(--blue)}
+        .lost:hover em{max-width:10em;opacity:1}
+        .lost:hover i{transform:translate(2px,-2px)}
+
+        /* the intent read, same rows as the home page spec sheet */
+        .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding:clamp(2.6rem,7vh,4.5rem) 0 clamp(1.6rem,4vh,2.6rem);max-width:1000px}
+        .spec{font-family:var(--mono);font-size:.7rem;line-height:1.5;max-width:30rem}
+        .spec div{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0}
+        .spec dt{flex:none;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:flex;align-items:baseline;gap:.6rem;width:6.2rem}
+        .spec dt::after{content:"";flex:1;border-bottom:1px dotted rgba(25,25,23,.3);transform:translateY(-3px)}
+        .spec dd{color:var(--ink);min-width:0;overflow-wrap:anywhere}
+        .spec dd span{color:var(--ink-3)}
+        .spec dd s{color:var(--ink-3);text-decoration-thickness:1px}
+        .spec a{transition:color .2s}
+        .spec a i{font-style:normal;margin-left:.4em;color:var(--ink-3);display:inline-block;transition:transform .25s,color .2s}
+        .spec a:hover{color:var(--blue)}
+        .spec a:hover i{color:var(--blue);transform:translate(2px,-2px)}
+        .spec .bar{display:inline-block;width:3.2rem;height:3px;margin:0 .5em 0 .1em;vertical-align:2px;background:rgba(25,25,23,.12);position:relative;overflow:hidden}
+        .spec .bar::after{content:"";position:absolute;inset:0;width:var(--p,0%);background:var(--blue);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+        .spec .wait{animation:blink 1s steps(1) infinite}
+        @keyframes blink{50%{opacity:0}}
+        .say{text-align:right;font-size:.95rem;line-height:1.42;letter-spacing:-.01em}
+        .say span{display:block}
+        .say a{color:var(--blue)}
+        .say a:hover{text-decoration:underline;text-underline-offset:3px}
+
+        .foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;max-width:1000px;padding-bottom:2.4rem;font-family:var(--mono);font-size:.66rem;color:var(--ink-3)}
+        .foot button{font:inherit;color:var(--ink-2);background:none;border:0;cursor:pointer;padding:0;transition:color .2s}
+        .foot button:hover{color:var(--blue)}
+
+        @media(max-width:720px){
+            .split{grid-template-columns:1fr;gap:2rem}
+            .say{text-align:left;font-size:1.05rem}
+            .say span{display:inline}
+        }
+        @media(prefers-reduced-motion:reduce){.spec .bar::after{transition:none}.spec .wait{animation:none}}
     </style>
     <link rel="stylesheet" href="/assets/paper.css?v=1">
 </head>
 <body>
     <header class="ptop">
-        <a class="logo" href="/">dhruv/<span>404</span></a>
+        <a class="logo" href="/">dhruv/<span><s id="crumb">404</s></span></a>
         <a class="mid" href="/contact">Contact</a>
         <a class="right" href="/">&larr; home</a>
     </header>
 
-    <main class="stage">
-        <div class="big" aria-label="404">404</div>
-        <p class="label">Page not found</p>
-        <p class="msg">This page doesn&rsquo;t exist, moved, or never did. <b>Mini Dhruv</b> is out looking for it.</p>
-        <div class="btns">
-            <a class="btn" href="/">&#9664; Home</a>
-            <a class="btn" href="/blog">Blog</a>
-            <a class="btn" href="/cnvrted">Cnvrted</a>
+    <main class="page">
+        <section class="hero">
+            <h1 class="sr">404: this page doesn&rsquo;t exist</h1>
+            <div class="stage" id="stage" aria-hidden="true">
+                <div class="static" id="static">404</div>
+                <canvas id="cv"></canvas>
+                <div class="hit" id="hit"></div>
+            </div>
+            <div class="hero-line">
+                <hr class="hero-rule">
+                <p class="hero-meta">( ERR 404 &middot; PAGE NOT FOUND )</p>
+                <a class="lost" href="/" aria-label="Lost your way? Take me home"><b lang="ml">വഴി തെറ്റിയോ?</b><em>take me home</em><i>&#8599;&#xFE0E;</i></a>
+            </div>
+        </section>
+
+        <section class="split">
+            <dl class="spec" aria-live="polite">
+                <div><dt>You tried</dt><dd><s id="tried">&hellip;</s></dd></div>
+                <div><dt>Closest</dt><dd id="best"><span class="wait">reading intent_</span></dd></div>
+                <div id="altRow" hidden><dt>Or</dt><dd id="alt"></dd></div>
+                <div><dt>Verdict</dt><dd id="verdict"><span>&hellip;</span></dd></div>
+            </dl>
+            <p class="say"><span>I build software that reads buyer intent</span> <span>for a living. Least I can do is read yours.</span></p>
+        </section>
+
+        <div class="foot">
+            <span id="hint">// the numbers came loose. go on, throw them.</span>
+            <button type="button" id="reset">&#8634; put them back</button>
         </div>
-        <p class="hint">// try catching him.</p>
     </main>
 
-    <div class="shadow" id="shadow" aria-hidden="true"></div>
-    <div class="runner" id="runner" role="img" aria-label="A pixel version of Dhruv&rsquo;s mascot running around"></div>
-    <div class="say" id="say" aria-hidden="true"></div>
-
     <script>
-        (function(){
-            var el = document.getElementById('runner'), sh = document.getElementById('shadow'), say = document.getElementById('say');
-            var small = matchMedia('(max-width:600px)').matches, W = small ? 48 : 64, Hh = small ? 66 : 88;
-            var still = matchMedia('(prefers-reduced-motion:reduce)').matches;
-            var x = innerWidth * .15, y = innerHeight * .62, tx = x, ty = y, face = 1, wait = 40, speed = 2.4;
-            var mx = -999, my = -999, lines = ['not here either.', '404? checked. nothing.', 'ok you caught me.', 'try the homepage &rarr;', 'I&rsquo;ll keep looking.'], li = 0, sayT;
+    /* ---------- intent: guess the page they meant ---------- */
+    (function(){
+        var FALLBACK = ['/','/about','/now','/work','/playbooks','/ai','/sales','/posts','/blog','/manifesto','/cafes','/contact','/cnvrted','/learning','/uses','/cnvrted/archive'];
+        // words people type that aren't pages, mapped to where they were really headed
+        var ALIAS = {resume:'/about',cv:'/about',me:'/about',bio:'/about',story:'/about',links:'/contact',link:'/contact',email:'/contact',mail:'/contact',hire:'/contact',call:'/contact',book:'/contact',chai:'/cafes',chaya:'/cafes',tea:'/cafes',coffee:'/cafes',cafe:'/cafes',food:'/cafes',writing:'/blog',essays:'/blog',essay:'/blog',articles:'/blog',startup:'/cnvrted',company:'/cnvrted',converted:'/cnvrted',photos:'/cnvrted/archive',archive:'/cnvrted/archive',setup:'/uses',gear:'/uses',tools:'/uses',videos:'/work',youtube:'/work',reading:'/learning',books:'/learning'};
 
-            function pick(){
-                var pad = 24;
-                tx = pad + Math.random() * (innerWidth - W - pad * 2);
-                ty = 70 + Math.random() * (innerHeight - Hh - 110);
-                speed = 1.8 + Math.random() * 1.4;
-            }
-            function talk(t){
-                say.innerHTML = t; say.classList.add('on');
-                clearTimeout(sayT); sayT = setTimeout(function(){ say.classList.remove('on'); }, 1800);
-            }
-            function place(){
-                el.style.transform = 'translate(' + x + 'px,' + y + 'px) scaleX(' + face + ')';
-                sh.style.transform = 'translate(' + (x + (W - parseFloat(getComputedStyle(sh).width)) / 2) + 'px,' + (y + Hh - 3) + 'px)';
-                var bx = Math.min(innerWidth - say.offsetWidth - 8, Math.max(8, x + W / 2 - say.offsetWidth / 2));
-                say.style.transform = 'translate(' + bx + 'px,' + (y - 34) + 'px)';
-            }
-            function step(){
-                var cx = x + W / 2, cy = y + Hh / 2, dmx = cx - mx, dmy = cy - my, dm = Math.hypot(dmx, dmy);
-                var sprint = false;
-                if(dm < 130){
-                    // the cursor is close: run the other way, staying on screen
-                    sprint = true; wait = 0;
-                    tx = Math.min(innerWidth - W - 10, Math.max(10, x + dmx / dm * 220));
-                    ty = Math.min(innerHeight - Hh - 10, Math.max(60, y + dmy / dm * 220));
+        var raw = location.pathname;
+        try { raw = decodeURIComponent(raw); } catch(e){}
+        var req = raw.toLowerCase().replace(/\.html?$/,'').replace(/\/+$/,'') || '/';
+        var shown = req.length > 34 ? req.slice(0,33) + '…' : req;
+        document.getElementById('tried').textContent = shown;
+        document.getElementById('crumb').textContent = shown.replace(/^\//,'') || '404';
+
+        function lev(a,b){
+            var m = a.length, n = b.length, d = [], i, j;
+            for(j = 0; j <= n; j++) d[j] = j;
+            for(i = 1; i <= m; i++){
+                var prev = d[0]; d[0] = i;
+                for(j = 1; j <= n; j++){
+                    var t = d[j];
+                    d[j] = Math.min(d[j] + 1, d[j-1] + 1, prev + (a[i-1] === b[j-1] ? 0 : 1));
+                    prev = t;
                 }
-                if(wait > 0){ wait--; el.classList.add('idle'); }
-                else {
-                    var dx = tx - x, dy = ty - y, d = Math.hypot(dx, dy), v = sprint ? 6 : speed;
-                    if(d < v){ x = tx; y = ty; wait = 30 + Math.random() * 70; pick(); }
-                    else { x += dx / d * v; y += dy / d * v; if(Math.abs(dx) > 1) face = dx < 0 ? -1 : 1; }
-                    el.classList.remove('idle');
-                }
-                el.classList.toggle('sprint', sprint);
-                place();
-                requestAnimationFrame(step);
             }
-            addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; });
-            addEventListener('mouseleave', function(){ mx = my = -999; });
-            el.addEventListener('click', function(){ talk(lines[li++ % lines.length]); wait = 50; });
-            addEventListener('resize', function(){ x = Math.min(x, innerWidth - W - 10); y = Math.min(y, innerHeight - Hh - 10); pick(); });
-            if(still){ place(); return; }
-            pick(); setTimeout(function(){ talk('where did that page go?'); }, 700);
-            requestAnimationFrame(step);
-        })();
+            return d[n];
+        }
+        function sim(a,b){ var L = Math.max(a.length, b.length); return L ? 1 - lev(a,b) / L : 1; }
+        function last(p){ var s = p.split('/').filter(Boolean); return s.length ? s[s.length-1] : ''; }
+        function score(p, c){
+            var a = last(p), b = last(c), s = Math.max(sim(p, c), sim(a, b) * .97);
+            // a fragment of a real slug ("misdirected" for misdirected-desire) is a strong signal
+            if(a.length >= 3 && b.indexOf(a) > -1) s = Math.max(s, .78 + .2 * a.length / b.length);
+            if(b.length >= 3 && a.indexOf(b) > -1) s = Math.max(s, .75 + .2 * b.length / a.length);
+            return Math.min(s, .99);
+        }
+        function link(p, pct){
+            var label = p === '/' ? '/ (home)' : p;
+            var out = '<a href="' + p + '">' + label.replace(/</g,'&lt;') + '<i>&#8599;&#xFE0E;</i></a>';
+            if(pct != null) out += ' <span class="bar" style="--p:0%" data-p="' + pct + '%"></span><span>' + pct + '%</span>';
+            return out;
+        }
+        function show(paths){
+            var best = document.getElementById('best'), alt = document.getElementById('alt'), verdict = document.getElementById('verdict');
+            var word = last(req), ranked, top, second, v;
+            if(req === '/404'){
+                best.innerHTML = link('/', null);
+                verdict.innerHTML = '<span>you came here on purpose. respect.</span>';
+                return;
+            }
+            ranked = paths.filter(function(p){ return p !== '/'; })
+                .map(function(p){ return {p:p, s:score(req, p)}; })
+                .sort(function(x,y){ return y.s - x.s; });
+            if(ALIAS[word]){
+                ranked = [{p:ALIAS[word], s:.96}].concat(ranked.filter(function(r){ return r.p !== ALIAS[word]; }));
+            }
+            top = ranked[0]; second = ranked[1];
+            if(!top || top.s < .4){
+                best.innerHTML = link('/', null);
+                v = 'cold lead. home is a good place to start.';
+            } else {
+                best.innerHTML = link(top.p, Math.round(top.s * 100));
+                if(second && second.s >= .4){
+                    alt.innerHTML = link(second.p, Math.round(second.s * 100));
+                    document.getElementById('altRow').hidden = false;
+                }
+                v = ALIAS[word] ? 'read your intent. that’s the job.'
+                  : top.s >= .8 ? 'a typo. happens to the best of us.'
+                  : top.s >= .55 ? 'close-ish. pretty sure you meant that.'
+                  : 'weak signal, but it’s my best guess.';
+            }
+            verdict.innerHTML = '<span>' + v + '</span>';
+            requestAnimationFrame(function(){ requestAnimationFrame(function(){
+                document.querySelectorAll('.spec .bar').forEach(function(b){ b.style.setProperty('--p', b.dataset.p); });
+            }); });
+        }
+        var t0 = Date.now();
+        fetch('/sitemap.xml').then(function(r){ return r.ok ? r.text() : Promise.reject(); })
+            .then(function(x){
+                var out = [], re = /<loc>https?:\/\/[^\/<]+([^<]*)<\/loc>/g, m;
+                while((m = re.exec(x))) out.push(m[1].replace(/\/+$/,'') || '/');
+                return out.length ? out : FALLBACK;
+            })
+            .catch(function(){ return FALLBACK; })
+            .then(function(paths){
+                // a short beat of "reading intent_" so the answer feels considered
+                setTimeout(function(){ show(paths); }, Math.max(0, 650 - (Date.now() - t0)));
+            });
+    })();
+    </script>
+
+    <script src="/assets/matter-0.19.0.min.js"></script>
+    <script>
+    /* ---------- the 404 fell off the line: digits and a glass of chaya you can throw ---------- */
+    (function(){
+        if(!window.Matter || !window.CanvasRenderingContext2D) return;
+        var M = Matter, Engine = M.Engine, Bodies = M.Bodies, Body = M.Body, Composite = M.Composite, Mouse = M.Mouse, MouseConstraint = M.MouseConstraint, Query = M.Query;
+        var stage = document.getElementById('stage'), cv = document.getElementById('cv'), hit = document.getElementById('hit'), stat = document.getElementById('static');
+        var hint = document.getElementById('hint'), ctx = cv.getContext('2d');
+        var still = matchMedia('(prefers-reduced-motion:reduce)').matches;
+        var INK = '#191917', TEA = '#c79a68', FROTH = '#f3e6d2', STEAM = 'rgba(25,25,23,.45)';
+        // the same glass as the home page (viewBox 22x40); its body spans y 14..39.4
+        var G = {
+            g: new Path2D('M3 14h16l-2 25.4H5z'),
+            rib: new Path2D('M7.4 21l.5 16M11 21v16M14.6 21l-.5 16'),
+            tea: new Path2D('M3.9 19h14.2l-1.6 20.4h-11z'),
+            froth: new Path2D('M3.7 17h14.6l-.2 2.6H3.9z'),
+            steamA: new Path2D('M8 11c-2-2 2-4 0-6s2-3 0-5'),
+            steamB: new Path2D('M14 11c-2-2 2-4 0-6s2-3 0-5')
+        };
+        var engine, mc, W, H, fs, dpr, glyphs = [], glass, gs, spilled = false, spillAt = 0, spillX = 0, saved = false, built = false, lastW = 0;
+
+        function norm(a){ a = (a + Math.PI) % (Math.PI * 2); if(a < 0) a += Math.PI * 2; return a - Math.PI; }
+        function say(t){ hint.textContent = t; }
+
+        function build(){
+            if(engine){ Composite.clear(engine.world, false); Engine.clear(engine); }
+            fs = parseFloat(getComputedStyle(stat).fontSize);
+            W = stage.clientWidth; lastW = innerWidth;
+            var sh = Math.round(fs * .95), up = Math.round(Math.min(fs * .9, 150));
+            H = sh + up;
+            stage.style.setProperty('--sh', sh + 'px');
+            stage.style.setProperty('--ch', H + 'px');
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+
+            engine = Engine.create({gravity:{y:1.1}});
+            var world = engine.world, wall = {isStatic:true, friction:.6, restitution:.2};
+            Composite.add(world, [
+                Bodies.rectangle(W / 2, H + 60, W * 4, 120, wall),
+                Bodies.rectangle(-60, H / 2 - 600, 120, H + 1600, wall),
+                Bodies.rectangle(W + 60, H / 2 - 600, 120, H + 1600, wall),
+                Bodies.rectangle(W / 2, -900, W * 4, 120, wall)
+            ]);
+
+            // measure the real ink of each digit so they sit exactly on the rule
+            ctx.font = '400 ' + fs + 'px "Inter Tight"';
+            var pen = -fs * .04, track = -fs * .065;
+            glyphs = '404'.split('').map(function(ch, i){
+                var m = ctx.measureText(ch), l = m.actualBoundingBoxLeft, r = m.actualBoundingBoxRight;
+                var a = m.actualBoundingBoxAscent, d = m.actualBoundingBoxDescent, w = l + r, h = a + d;
+                var rx = pen - l + w / 2; pen += m.width + track;
+                return {ch:ch, w:w, h:h, l:l, d:d, rx:rx, i:i};
+            });
+
+            glyphs.forEach(function(g){
+                var opts = {restitution:.06, friction:.8, frictionStatic:1.2, frictionAir:.02, density:.0018, chamfer:{radius:g.ch === '0' ? Math.min(g.w, g.h) * .22 : 2}};
+                function drop(){
+                    var y = still ? H - g.h / 2 : -g.h * (.55 + g.i * .2);
+                    // collision boxes a touch narrower than the ink, since the tight tracking makes the glyphs nearly touch
+                    g.body = Bodies.rectangle(g.rx, y, g.w * .88, g.h, opts);
+                    if(!still){
+                        Body.setAngle(g.body, (Math.random() - .5) * .05);
+                        Body.setVelocity(g.body, {x:0, y:1});
+                    }
+                    Composite.add(world, g.body);
+                }
+                g.body = null; g.drop = drop;
+                // drops are timed on the physics clock, so they pause with it
+                g.at = still ? 0 : 220 + g.i * 170;
+                if(still) drop();
+            });
+
+            // the glass of chaya, on the line at the right, like the home page
+            var gh = Math.max(32, Math.min(fs * .3, 50));
+            gs = gh / 25.4;
+            glass = Bodies.rectangle(W - 16 * gs / 2 - 6, H - gh / 2, 16 * gs, gh, {restitution:.1, friction:.7, frictionAir:.015, density:.0012, chamfer:{radius:2}});
+            Composite.add(world, glass);
+            spilled = false; saved = false;
+
+            var mouse = Mouse.create(hit);
+            mouse.element.removeEventListener('mousewheel', mouse.mousewheel);
+            mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
+            mouse.element.removeEventListener('wheel', mouse.mousewheel);
+            mc = MouseConstraint.create(engine, {mouse:mouse, constraint:{stiffness:.18, damping:.08, render:{visible:false}}});
+            Composite.add(world, mc);
+            M.Events.on(mc, 'startdrag', function(){ hit.classList.add('grabbing'); });
+            M.Events.on(mc, 'enddrag', function(){ hit.classList.remove('grabbing'); });
+            stage.classList.add('live');
+            built = true;
+        }
+
+        function movable(){ return glyphs.map(function(g){ return g.body; }).filter(Boolean).concat(glass ? [glass] : []); }
+        hit.addEventListener('mousemove', function(e){
+            if(!built) return;
+            var r = hit.getBoundingClientRect();
+            hit.classList.toggle('grab', Query.point(movable(), {x:e.clientX - r.left, y:e.clientY - r.top}).length > 0);
+        });
+
+        function drawGlass(t){
+            var p = glass.position, a = glass.angle, up = Math.abs(norm(a));
+            ctx.save();
+            ctx.translate(p.x, p.y); ctx.rotate(a); ctx.scale(gs, gs); ctx.translate(-11, -26.7);
+            if(!spilled){ ctx.fillStyle = TEA; ctx.fill(G.tea); ctx.fillStyle = FROTH; ctx.fill(G.froth); }
+            else { ctx.fillStyle = 'rgba(199,154,104,.35)'; ctx.fillRect(5.6, 37.6, 10.8, 1.8); }
+            ctx.strokeStyle = INK; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+            ctx.lineWidth = 1.25 / gs; ctx.stroke(G.g);
+            ctx.globalAlpha = .4; ctx.lineWidth = .9 / gs; ctx.stroke(G.rib); ctx.globalAlpha = 1;
+            // steam only while it's upright and still has tea in it
+            if(!spilled && up < .5){
+                ctx.strokeStyle = STEAM; ctx.lineWidth = 1 / gs;
+                [[G.steamA, 0], [G.steamB, 1800]].forEach(function(s){
+                    var k = still ? .5 : ((t + s[1]) % 3600) / 3600;
+                    ctx.save();
+                    ctx.globalAlpha = still ? .55 : Math.sin(k * Math.PI) * .8 * (1 - up * 2);
+                    ctx.translate(0, still ? 0 : -k * 4);
+                    ctx.stroke(s[0]);
+                    ctx.restore();
+                });
+            }
+            ctx.restore();
+        }
+
+        function draw(t){
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.clearRect(0, 0, W, H);
+            // the spilled chaya, spreading along the rule
+            if(spilled){
+                var k = Math.min(1, (t - spillAt) / 900), e = 1 - Math.pow(1 - k, 3), rw = 16 * gs * 1.9 * e;
+                ctx.fillStyle = 'rgba(199,154,104,.55)';
+                ctx.beginPath(); ctx.ellipse(spillX, H - 1.5, Math.max(rw, .1), 3, 0, 0, Math.PI * 2); ctx.fill();
+            }
+            ctx.fillStyle = INK;
+            ctx.font = '400 ' + fs + 'px "Inter Tight"';
+            ctx.textBaseline = 'alphabetic';
+            glyphs.forEach(function(g){
+                if(!g.body) return;
+                ctx.save();
+                ctx.translate(g.body.position.x, g.body.position.y);
+                ctx.rotate(g.body.angle);
+                ctx.fillText(g.ch, -g.w / 2 + g.l, g.h / 2 - g.d);
+                ctx.restore();
+            });
+            drawGlass(t);
+        }
+
+        function watchGlass(t){
+            var a = Math.abs(norm(glass.angle)), sp = glass.speed;
+            if(!spilled && a > 1.15){
+                spilled = true; spillAt = t;
+                // the mouth of the glass is the top edge in its own frame
+                var mx = glass.position.x + Math.sin(glass.angle) * 25.4 * gs / 2;
+                spillX = Math.max(10, Math.min(W - 10, mx));
+                say('// ayyo. you spilled the chaya.');
+            } else if(spilled && !saved && a < .2 && sp < .3){
+                saved = true;
+                say('// glass saved. the chaya, not so much.');
+            }
+        }
+
+        var acc = 0, prev = 0, STEP = 1000 / 60;
+        function tick(){
+            var now = engine.timing.timestamp, z = glyphs[1];
+            glyphs.forEach(function(g){ if(!g.body && now >= g.at) g.drop(); });
+            // once they've landed, the zero loses its footing and slumps onto the last 4
+            if(!still && z.body && !z.nudged && now >= 1250){ z.nudged = true; Body.setAngularVelocity(z.body, .05 * Math.sqrt(90 / fs)); }
+            Engine.update(engine, STEP);
+        }
+        function loop(t){
+            if(!prev) prev = t;
+            acc += Math.min(t - prev, 100); prev = t;
+            var n = 0;
+            while(acc >= STEP && n < 4){ tick(); acc -= STEP; n++; }
+            if(acc > STEP) acc = 0;
+            watchGlass(t);
+            draw(t);
+            requestAnimationFrame(loop);
+        }
+
+        document.getElementById('reset').addEventListener('click', function(){
+            build();
+            say('// the numbers came loose. go on, throw them.');
+        });
+        var rt;
+        addEventListener('resize', function(){
+            clearTimeout(rt);
+            rt = setTimeout(function(){ if(Math.abs(innerWidth - lastW) > 40) build(); }, 200);
+        });
+
+        var fontReady = document.fonts && document.fonts.load ? document.fonts.load('400 100px "Inter Tight"') : Promise.resolve();
+        Promise.race([fontReady, new Promise(function(r){ setTimeout(r, 2500); })]).then(function(){
+            build();
+            requestAnimationFrame(loop);
+        });
+    })();
     </script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
