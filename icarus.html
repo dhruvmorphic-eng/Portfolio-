@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icarus — Dhruv Pradeep</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="description" content="You can&rsquo;t fall unless you&rsquo;ve flown. A page you read by falling.">
+    <meta property="og:title" content="Icarus — Dhruv Pradeep">
+    <meta property="og:description" content="You can&rsquo;t fall unless you&rsquo;ve flown.">
+    <meta property="og:url" content="https://dhruvpradeep.in/icarus">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dhruvpradeep.in/og.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#efeee9;
+            --fg:#191917;
+            --fg-2:rgba(25,25,23,.62);
+            --pad:clamp(1.1rem,3.2vw,2.6rem);
+            --sans:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;
+            --mono:'JetBrains Mono',ui-monospace,monospace;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{background:var(--bg)}
+        body{color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+        ::selection{background:var(--fg);color:var(--bg)}
+        a{color:inherit;text-decoration:none}
+        :focus-visible{outline:1px solid currentColor;outline-offset:3px}
+
+        /* the top bar rides along with the sky instead of sitting on paper */
+        .ptop{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;position:fixed!important;left:0;right:0}
+        .ptop a,.ptop span,.ptop .logo{color:var(--fg-2)!important}
+        .ptop .logo{color:var(--fg)!important}
+
+        /* scroll distance is the height of the fall */
+        .fall{height:360vh;position:relative}
+        .sky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+
+        .sun{position:absolute;width:56vmin;height:56vmin;right:-6vmin;top:-14vmin;border-radius:50%;
+             background:radial-gradient(circle,rgba(255,236,196,.95) 0%,rgba(250,224,170,.55) 32%,rgba(245,215,160,0) 68%);
+             will-change:transform,opacity}
+
+        .q{position:absolute;left:var(--pad);right:var(--pad);font-weight:400;font-size:clamp(2.1rem,6.4vw,5.4rem);letter-spacing:-.055em;line-height:.95}
+        .q1{top:clamp(4.8rem,15vh,8rem)}
+        .q2{bottom:clamp(4.2rem,13vh,7rem);text-align:right;opacity:0;will-change:opacity,transform}
+
+        .icarus{position:absolute;left:0;top:0;width:clamp(150px,24vw,290px);height:auto;transform-origin:50% 45%;will-change:transform;user-select:none;-webkit-user-drag:none;pointer-events:none}
+
+        .feather{position:absolute;left:0;top:0;width:14px;height:30px;opacity:0;will-change:transform,opacity;pointer-events:none}
+        .feather path{fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round}
+
+        .alt{position:absolute;left:var(--pad);bottom:clamp(1.2rem,4vh,2rem);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);display:flex;gap:.9rem;align-items:center}
+        .alt .track{position:relative;width:4.5rem;height:1px;background:currentColor;opacity:.5}
+        .alt .track i{position:absolute;top:-2px;left:0;width:5px;height:5px;border-radius:50%;background:var(--fg);transform:translateX(var(--x,0))}
+        .hint{position:absolute;right:var(--pad);bottom:clamp(1.2rem,4vh,2rem);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);transition:opacity .4s}
+
+        /* after the fall */
+        .land{min-height:70vh;padding:12vh var(--pad) 3rem;display:flex;flex-direction:column;justify-content:space-between;gap:4rem;color:#efeee9}
+        .land p{max-width:30rem;font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.4;letter-spacing:-.02em;color:rgba(239,238,233,.8)}
+        .land p b{font-weight:400;color:#efeee9}
+        .land .mono{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(239,238,233,.5);margin-top:1.4rem}
+        .land nav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:1.05rem;letter-spacing:-.02em}
+        .land nav a{color:rgba(239,238,233,.85);transition:color .2s}
+        .land nav a:hover{color:#fff}
+        .land nav a span{display:inline-block;margin-right:.25em;transition:transform .25s}
+        .land nav a:hover span{transform:translate(2px,2px)}
+
+        @media(max-width:620px){
+            .q2{text-align:left}
+            .hint{display:none}
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/paper.css?v=1">
+    <!-- after paper.css, so the sky colours win over its fixed paper background -->
+    <style>html,body{background:var(--bg);color:var(--fg)}</style>
+</head>
+<body>
+    <header class="ptop">
+        <a class="logo" href="/">dhruv/<span>icarus</span></a>
+        <a class="mid" href="/contact">Contact</a>
+        <a class="right" href="/">&larr; home</a>
+    </header>
+
+    <main>
+        <section class="fall" id="fall" aria-label="You can't fall unless you've flown">
+            <div class="sky" id="sky">
+                <div class="sun" id="sun" aria-hidden="true"></div>
+                <h1 class="q q1" id="q1">You can&rsquo;t fall</h1>
+                <p class="q q2" id="q2">unless you&rsquo;ve flown.</p>
+                <img class="icarus" id="ic" src="/assets/icarus.webp" width="290" height="427" alt="Icarus, one feathered wing and one torn, falling">
+                <div id="feathers" aria-hidden="true"></div>
+                <div class="alt" aria-hidden="true"><span id="altv">alt 3,000 m</span><span class="track"><i id="dot"></i></span></div>
+                <div class="hint" id="hint" aria-hidden="true">scroll to fall &darr;&#xFE0E;</div>
+            </div>
+        </section>
+
+        <section class="land">
+            <div>
+                <p>Everyone tells the story of Icarus as a warning about the fall. <b>Fewer people mention that he flew.</b></p>
+                <p class="mono">// fly anyway.</p>
+            </div>
+            <nav>
+                <a href="/"><span>&#8600;&#xFE0E;</span>Home</a>
+                <a href="/manifesto"><span>&#8600;&#xFE0E;</span>Manifesto</a>
+                <a href="/blog"><span>&#8600;&#xFE0E;</span>Blog</a>
+                <a href="/cnvrted"><span>&#8600;&#xFE0E;</span>Cnvrted</a>
+            </nav>
+        </section>
+    </main>
+
+    <script>
+    (function(){
+        var root = document.documentElement, fall = document.getElementById('fall'), sky = document.getElementById('sky');
+        var ic = document.getElementById('ic'), sun = document.getElementById('sun'), q1 = document.getElementById('q1'), q2 = document.getElementById('q2');
+        var altv = document.getElementById('altv'), dot = document.getElementById('dot'), hint = document.getElementById('hint'), fh = document.getElementById('feathers');
+        var still = matchMedia('(prefers-reduced-motion:reduce)').matches;
+        var PAPER = [239,238,233], NIGHT = [10,10,9], INK = [25,25,23];
+
+        function mix(a, b, t){ return a.map(function(v, i){ return Math.round(v + (b[i] - v) * t); }); }
+        function rgb(c, a){ return a == null ? 'rgb(' + c + ')' : 'rgba(' + c + ',' + a + ')'; }
+        function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+        function smooth(a, b, v){ var t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
+        function lerp(a, b, t){ return a + (b - a) * t; }
+
+        // wax gives out: feathers come loose one by one as he drops
+        var FEATHER = '<svg viewBox="0 0 14 30"><path d="M7 29V3"/><path d="M7 5C2 9 1.5 16 3 22M7 5c5 4 5.5 11 4 17M7 10L3.4 13M7 15l-3.8 3M7 10l3.6 3M7 15l3.8 3M7 20l-3 2.6M7 20l3 2.6"/></svg>';
+        var feathers = [];
+        for(var i = 0; i < 9; i++){
+            var el = document.createElement('div');
+            el.className = 'feather'; el.innerHTML = FEATHER; fh.appendChild(el);
+            feathers.push({el:el, at:.16 + i * .075, dx:(i % 2 ? 1 : -1) * (14 + (i * 37) % 50), spin:((i * 53) % 90) - 45, ph:i * 1.7});
+        }
+
+        var W, H, icW, icH, ticking = false;
+        function measure(){ W = sky.clientWidth; H = sky.clientHeight; icW = ic.offsetWidth; icH = ic.offsetHeight; }
+
+        // where he is at progress p: high by the sun, then down and across, tumbling
+        function pos(p){
+            var e = p * p * (3 - 2 * p);
+            var narrow = W < 620;
+            return {
+                x: lerp(W * (narrow ? .66 : .6), W * (narrow ? .44 : .34), e),
+                y: lerp(H * (narrow ? .36 : .14), H * (narrow ? .6 : .58), e),
+                r: lerp(-14, 38, e),
+                s: lerp(.86, 1.12, e)
+            };
+        }
+
+        function frame(){
+            ticking = false;
+            var span = fall.offsetHeight - H, p = clamp((scrollY - fall.offsetTop) / span, 0, 1);
+            var dark = smooth(.3, .62, p);
+            var bg = mix(PAPER, NIGHT, dark), fg = mix(INK, PAPER, smooth(.4, .5, p));
+            root.style.setProperty('--bg', rgb(bg));
+            root.style.setProperty('--fg', rgb(fg));
+            root.style.setProperty('--fg-2', rgb(fg, .62));
+
+            // the sun pulls away as he drops
+            sun.style.transform = 'translate(' + (p * 8) + 'vmin,' + (-p * 40) + 'vmin) scale(' + (1 - p * .35) + ')';
+            sun.style.opacity = 1 - smooth(.05, .55, p);
+
+            var t = still ? 0 : performance.now() / 1000, c = pos(p);
+            var bob = still ? 0 : Math.sin(t * 1.3) * 4 * (1 - p);
+            ic.style.transform = 'translate(' + (c.x - icW / 2) + 'px,' + (c.y - icH / 2 + bob) + 'px) rotate(' + c.r + 'deg) scale(' + c.s + ')';
+
+            // first line fades as the second lands
+            q1.style.opacity = 1 - smooth(.62, .9, p) * .55;
+            q2.style.opacity = smooth(.62, .86, p);
+            q2.style.transform = 'translateY(' + ((1 - smooth(.62, .9, p)) * 18) + 'px)';
+
+            feathers.forEach(function(f){
+                var k = p - f.at;
+                if(k <= 0){ f.el.style.opacity = 0; return; }
+                var from = pos(f.at), sway = Math.sin(k * 14 + f.ph + t * .8) * 16;
+                var x = from.x + f.dx * Math.min(1, k * 4) + sway, y = from.y + k * H * 1.5;
+                f.el.style.opacity = clamp(Math.min(k * 12, 1.2 - k * 2.2), 0, .85);
+                f.el.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + (f.spin + Math.sin(k * 10 + f.ph) * 30) + 'deg)';
+                f.el.style.color = rgb(fg, .55);
+            });
+
+            var m = Math.round((1 - p) * 3000 / 10) * 10;
+            altv.textContent = 'alt ' + m.toLocaleString('en-IN') + ' m' + (p < .08 ? ' · near the sun' : p > .97 ? ' · landed' : '');
+            dot.style.setProperty('--x', (p * 4.2) + 'rem');
+            hint.style.opacity = p > .04 ? 0 : 1;
+        }
+        function req(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+
+        // a slow idle loop keeps him hovering and the feathers swaying while the page is still
+        function idle(){ frame(); if(!still) requestAnimationFrame(idle); }
+
+        addEventListener('scroll', req, {passive:true});
+        addEventListener('resize', function(){ measure(); req(); });
+        function start(){ measure(); still ? frame() : idle(); }
+        if(ic.complete) start(); else { ic.addEventListener('load', start); ic.addEventListener('error', start); }
+    })();
+    </script>
+    <script src="/assets/cmdk.js" defer></script>
+</body>
+</html>
