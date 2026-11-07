@@ -138,3 +138,5 @@ body .dw-cur{background:var(--code-key)}
 
 /* ---- Leftovers from the dark theme ---- */
 .ghost,.site-foot{display:none!important}
+
+.pfoot .colophon{padding-left:clamp(0rem,12vw,9rem);margin:.9rem 0 0 4rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}.pfoot .colophon span{text-transform:none;letter-spacing:0;font-size:.8rem}
