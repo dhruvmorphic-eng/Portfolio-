@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&text=%E0%B4%9A%E0%B4%BE%E0%B4%AF%3F&display=swap" rel="stylesheet">
     <style>
         :root{
             --paper:#efeee9;
@@ -56,6 +57,30 @@
         .hero-rule{border:0;border-top:1px solid var(--rule);margin:.9rem 0 .6rem}
         @keyframes blink{50%{opacity:0}}
         .hero-meta{margin-top:.9rem;font-family:var(--mono);font-size:.66rem;line-height:1.7;color:var(--ink-2)}
+
+        /* a glass of chaya sitting on the line under the name */
+        .hero-line{position:relative}
+        .chaya{position:absolute;right:0;top:0;display:block;height:2.6rem;width:6rem;color:var(--ink)}
+        .chaya .glass{position:absolute;right:.15rem;bottom:100%;width:22px;height:40px;overflow:visible;transform-origin:50% 100%;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+        .chaya .g{fill:none;stroke:currentColor;stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+        .chaya .rib{stroke-width:.8;opacity:.4}
+        .chaya .tea{fill:#c79a68;stroke:none}
+        .chaya .froth{fill:#f3e6d2;stroke:none}
+        .chaya .steam{fill:none;stroke:var(--ink-3);stroke-width:1;stroke-linecap:round;opacity:0;animation:steam 3.6s ease-in-out infinite}
+        .chaya .steam.b{animation-delay:1.5s}
+        @keyframes steam{0%{opacity:0;transform:translateY(4px)}35%{opacity:.75}100%{opacity:0;transform:translateY(-5px)}}
+        .chaya-l{position:absolute;right:0;top:calc(1px + .82rem);display:flex;align-items:baseline;gap:.45em;white-space:nowrap;font-family:var(--mono);font-size:.66rem;line-height:1.7;color:var(--ink-2);transition:color .2s}
+        .chaya-l b{font-family:'Manjari',var(--sans);font-weight:400;font-size:.95rem;line-height:1;color:var(--ink)}
+        .chaya-l em{font-style:normal;max-width:0;overflow:hidden;opacity:0;transition:max-width .45s cubic-bezier(.2,.8,.2,1),opacity .25s}
+        .chaya-l i{font-style:normal;transition:transform .25s}
+        .chaya:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+        @media(hover:hover){
+            .chaya:hover .glass{transform:rotate(-7deg)}
+            .chaya:hover .chaya-l,.chaya:hover .chaya-l b{color:var(--blue)}
+            .chaya:hover .chaya-l i{transform:translate(2px,-2px)}
+            .chaya:hover .chaya-l em{max-width:15em;opacity:1}
+        }
+        @media(prefers-reduced-motion:reduce){.chaya .steam{animation:none;opacity:.6}}
 
         .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding:clamp(3rem,8vh,5rem) 0 clamp(4rem,10vh,6rem);max-width:1000px}
         /* spec sheet: label ..... value, each row a link */
@@ -167,8 +192,21 @@
     <main class="page">
         <section class="hero">
             <h1 class="word">dhruv pradeep</h1>
-            <hr class="hero-rule">
-            <p class="hero-meta">( DPIIT-RECOGNISED &middot; INCORPORATED 2026 )</p>
+            <div class="hero-line">
+                <hr class="hero-rule">
+                <p class="hero-meta">( DPIIT-RECOGNISED &middot; INCORPORATED 2026 )</p>
+                <a class="chaya" href="/cafes" aria-label="Chaya? The cafes and chaya spots I would send you to">
+                    <svg class="glass" viewBox="0 0 22 40" aria-hidden="true">
+                        <path class="steam" d="M8 11c-2-2 2-4 0-6s2-3 0-5"/>
+                        <path class="steam b" d="M14 11c-2-2 2-4 0-6s2-3 0-5"/>
+                        <path class="tea" d="M3.9 19h14.2l-1.6 20.4h-11z"/>
+                        <path class="froth" d="M3.7 17h14.6l-.2 2.6H3.9z"/>
+                        <path class="g" d="M3 14h16l-2 25.4H5z"/>
+                        <path class="g rib" d="M7.4 21l.5 16M11 21v16M14.6 21l-.5 16"/>
+                    </svg>
+                    <span class="chaya-l"><b lang="ml">ചായ?</b><em>spots I&rsquo;d send you to</em><i>&#8599;&#xFE0E;</i></span>
+                </a>
+            </div>
         </section>
 
         <section class="split">
@@ -177,7 +215,6 @@
                 <div><dt>Before</dt><dd><a href="https://morphic.com" target="_blank" rel="noopener"><img class="lg" src="/assets/logo-morphic.png" alt="">Morphic <span>&middot; marketing ops</span><i>&#8599;&#xFE0E;</i></a></dd></div>
                 <div><dt>Latest</dt><dd><a id="latest" href="/blog/misdirected-desire">The Anatomy of Misdirected Desire <span>&middot; essay</span><i>&#8599;&#xFE0E;</i></a></dd></div>
                 <div><dt>Based</dt><dd>Bengaluru <span>&middot; 19 &middot; still shipping</span></dd></div>
-                <div><dt>Cafes</dt><dd><a href="/cafes">Spots I&rsquo;d send you to <span>&middot; coffee &amp; chaya</span><i>&#8599;&#xFE0E;</i></a></dd></div>
             </dl>
             <p class="say">
                 <span>I&rsquo;m a founder from Bengaluru</span>
