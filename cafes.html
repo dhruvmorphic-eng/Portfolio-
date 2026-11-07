@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafes — Dhruv Pradeep</title>
+    <link rel="canonical" href="https://dhruvpradeep.in/cafes">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="alternate" type="application/rss+xml" title="Dhruv Pradeep — Blog" href="https://dhruvpradeep.in/feed.xml">
+    <link rel="alternate" type="application/feed+json" title="Dhruv Pradeep — Blog" href="https://dhruvpradeep.in/feed.json">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="description" content="The cafes and chaya spots I recommend in Bengaluru, from Indiranagar up to Kothanur, each with photos and a Google Maps link.">
+    <meta property="og:title" content="Cafes — Dhruv Pradeep">
+    <meta property="og:description" content="The cafes and chaya spots I recommend in Bengaluru, from Indiranagar up to Kothanur.">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png?v=2">
+    <meta name="twitter:image" content="https://dhruvpradeep.in/og.png?v=2">
+    <meta property="og:url" content="https://dhruvpradeep.in/cafes">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&text=%E0%B4%9A%E0%B4%BE%E0%B4%AF%E0%B4%85%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B5%8B%E0%B4%B6%E0%B4%B0%E0%B4%BF&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        a{color:inherit;text-decoration:none}
+        button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left;letter-spacing:inherit}
+        .page{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+        [lang=ml]{font-family:'Manjari',var(--sans);letter-spacing:0}
+
+        /* hero */
+        .hero{padding:clamp(1.8rem,5vh,3rem) 0 0}
+        .hero-top{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem 2rem;flex-wrap:wrap}
+        .hero h1{position:relative;z-index:1;font-family:var(--sans);font-weight:400!important;font-size:clamp(2.7rem,6vw,5.2rem)!important;letter-spacing:-.06em!important;line-height:.95!important;margin-left:-.03em}
+        .hero h1 .dim{display:block;color:var(--ink-3)}
+
+        /* the fan of photos */
+        .fan{position:relative;z-index:2;display:flex;padding:.5rem .5rem .2rem 0}
+        .fan a{display:block;width:clamp(4.6rem,8.4vw,7.2rem);aspect-ratio:3/4;margin-left:calc(clamp(4.6rem,8.4vw,7.2rem) * -.26);overflow:hidden;background:var(--rule);box-shadow:0 0 0 3px var(--paper),0 8px 18px rgba(25,25,23,.16);transform:translateY(var(--y)) rotate(var(--r));transition:margin .45s cubic-bezier(.2,.8,.2,1),transform .35s cubic-bezier(.2,.8,.2,1)}
+        .fan a:first-child{margin-left:0}
+        .fan img{display:block;width:100%;height:100%;object-fit:cover}
+        .fan a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+        @media(hover:hover){
+            .fan:hover a{margin-left:calc(clamp(4.6rem,8.4vw,7.2rem) * -.04)}
+            .fan:hover a:first-child{margin-left:0}
+            .fan a:hover{transform:translateY(-10px) rotate(0deg) scale(1.06);z-index:3}
+        }
+        .hero-rule{border:0;border-top:1px solid var(--ink);margin:1rem 0 .7rem}
+        .hero-row{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem 2rem;flex-wrap:wrap;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+        .hero-row b{font-weight:500;color:var(--ink)}
+        .hint-touch{display:none}
+        @media(hover:none),(max-width:900px){.hint-mouse{display:none}.hint-touch{display:inline}}
+
+        /* layout: list on the left, the line on the right */
+        .spots-wrap{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:clamp(2rem,5vw,4.5rem);margin-top:clamp(1.8rem,4vh,2.6rem);align-items:start}
+        .line{position:sticky;top:5.5rem}
+        .line svg{display:block;width:100%;height:auto;max-height:calc(100vh - 13rem);overflow:visible}
+        .line p{margin-top:.9rem;font-family:var(--mono);font-size:.62rem;line-height:1.6;color:var(--ink-3)}
+        .line p b{font-weight:500;color:var(--ink)}
+
+        /* the map */
+        .spine{fill:none;stroke:var(--rule);stroke-width:1}
+        .tick{stroke:var(--ink-3);stroke-width:1}
+        .km,.hood{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-3)}
+        .hood{text-transform:uppercase;transition:opacity .2s}
+        .dot{cursor:pointer;outline:none}
+        .dot circle.d{fill:var(--ink);stroke:var(--ink);stroke-width:1.2;transition:r .2s,fill .2s,stroke .2s}
+        .dot.chaya circle.d{fill:var(--paper,#efeee9)}
+        .dot circle.h{fill:transparent}
+        .dot.on circle.d{r:6;fill:var(--blue);stroke:var(--blue)}
+        .pin{font-family:var(--sans);font-size:13px;letter-spacing:-.02em;fill:var(--blue);opacity:0;transition:opacity .15s;pointer-events:none}
+        .pin-l{stroke:var(--blue);stroke-width:1;opacity:0;transition:opacity .15s}
+        .has-on .hood{opacity:0}
+        .has-on .pin.show,.has-on .pin-l.show{opacity:1}
+
+        /* the rows */
+        .sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-family:var(--mono)!important;font-weight:400!important;font-size:.66rem!important;line-height:1.4!important;letter-spacing:.12em!important;text-transform:uppercase;color:var(--ink-3);padding-bottom:.55rem;border-bottom:1px solid var(--ink)}
+        .spot{border-bottom:1px solid var(--rule)}
+        .row{display:grid;grid-template-columns:2.4rem minmax(0,1fr) 7.5rem 2.2rem 4rem;gap:.5rem 1rem;align-items:baseline;padding:clamp(.5rem,1.2vh,.72rem) 0;cursor:pointer;transition:opacity .25s}
+        .n,.area,.rate,.go{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--ink-3)}
+        .thumb{display:none}
+        .name{font-family:var(--sans);font-weight:400;font-size:clamp(1.3rem,2.3vw,1.95rem);letter-spacing:-.04em;line-height:1.1}
+        .name button{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1),color .2s;outline:none}
+        .name button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+        .rate{color:var(--ink-2);text-align:right}
+        .go{color:var(--ink);text-align:right;white-space:nowrap}
+        .go span{color:var(--blue);display:inline-block;transition:transform .2s}
+        .go:hover{color:var(--blue)}
+        .go:hover span{transform:translate(2px,-2px)}
+        .spot.on .name button,.spot.open .name button{color:var(--blue)}
+        .spot.on .name button{transform:translateX(.45rem)}
+        @media(hover:hover){.rows:hover .spot:not(:hover) .row{opacity:.3}}
+
+        /* opened row */
+        .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1)}
+        .spot.open .more{grid-template-rows:1fr}
+        .more-in{min-height:0;overflow:hidden;visibility:hidden;transition:visibility 0s .55s}
+        .spot.open .more-in{visibility:visible;transition:visibility 0s}
+        .gal{display:flex;gap:6px;height:clamp(170px,18vw,240px)}
+        .gal figure{flex:var(--a) 1 0;min-width:0;overflow:hidden;background:var(--rule)}
+        .gal img{display:block;width:100%;height:100%;object-fit:cover}
+        .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem 1.5rem;padding:.8rem 0 1.1rem;font-size:.86rem;line-height:1.35;letter-spacing:-.01em}
+        .facts dt{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.3rem}
+        .facts a{border-bottom:1px solid var(--rule)}
+        .facts a:hover{color:var(--blue);border-color:var(--blue)}
+
+        /* ചായ */
+        .chaya-h{margin-top:clamp(2.2rem,5vh,3.2rem)}
+        .chaya-top{display:flex;align-items:flex-end;gap:.5rem 1.4rem;flex-wrap:wrap;margin-bottom:.9rem}
+        .chaya-big{display:block;font-size:clamp(4rem,9vw,7rem)!important;line-height:.8!important;color:var(--blue);font-weight:700!important;letter-spacing:0!important;margin-left:-.03em}
+        .chaya-note{flex:1 1 15rem;font-size:clamp(1rem,1.6vw,1.25rem);letter-spacing:-.025em;line-height:1.2;max-width:21em;text-wrap:balance;padding-bottom:.2rem}
+
+        /* close */
+        .close{padding:clamp(2.4rem,6vh,3.6rem) 0 clamp(1.4rem,3vh,2rem)}
+        .close-in{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 2rem;flex-wrap:wrap;border-top:1px solid var(--ink);padding-top:1rem}
+        .close-a{font-size:clamp(1.05rem,1.8vw,1.4rem);letter-spacing:-.03em;color:var(--ink-2)}
+        .close-b{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1;font-weight:400}
+        .credit{margin-top:.9rem;font-family:var(--mono);font-size:.6rem;line-height:1.6;letter-spacing:.04em;color:var(--ink-3)}
+
+        /* the photo that follows the cursor */
+        .peek{position:fixed;left:0;top:0;width:290px;z-index:40;pointer-events:none;opacity:0;transition:opacity .18s;will-change:transform}
+        .peek.show{opacity:1}
+        .peek-f{position:relative;overflow:hidden;background:var(--rule);transform:rotate(-1.4deg) scale(.96);transition:transform .35s cubic-bezier(.2,.8,.2,1),aspect-ratio .2s}
+        .peek.show .peek-f{transform:rotate(-1.4deg) scale(1)}
+        .peek img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+        .peek img.cur{opacity:1}
+        .peek-c{display:flex;gap:4px;margin-top:9px;transform:rotate(-1.4deg)}
+        .peek-c i{height:2px;flex:1;background:var(--ink);opacity:.18}
+        .peek-c i.cur{opacity:1;background:var(--blue)}
+        @media(hover:none),(max-width:900px){.peek{display:none}}
+
+        @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+        .r{opacity:0;animation:rise .8s ease forwards}
+        .r1{animation-delay:.05s}.r2{animation-delay:.2s}
+        .rv{opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease}
+        .rv.in{opacity:1;transform:none}
+
+        @media(max-width:900px){
+            .spots-wrap{grid-template-columns:minmax(0,1fr)}
+            .line{position:static;order:-1;width:100%}
+            .line svg{max-height:none}
+            .row{grid-template-columns:44px minmax(0,1fr) auto;gap:0 .8rem;align-items:center;padding:.55rem 0}
+            .n{display:none}
+            .thumb{display:block;grid-row:1 / span 2;width:44px;height:44px;object-fit:cover;background:var(--rule)}
+            .name{grid-column:2;font-size:1.22rem}
+            .area{grid-column:2;grid-row:2}
+            .rate{display:none}
+            .go{grid-column:3;grid-row:1 / span 2}
+            .gal{height:210px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-right:calc(var(--pad) * -1);padding-right:var(--pad);scrollbar-width:none}
+            .gal::-webkit-scrollbar{display:none}
+            .gal figure{flex:none;height:100%;aspect-ratio:var(--a);max-width:84%;scroll-snap-align:start}
+        }
+        @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r,.rv{opacity:1;transform:none}}
+    </style>
+    <link rel="stylesheet" href="/assets/paper.css?v=1">
+</head>
+<body>
+    <header class="ptop">
+        <a class="logo" href="/">dhruv/<span>cafes</span></a>
+        <a class="mid" href="/contact">Contact</a>
+        <a class="right" href="/">&larr; home</a>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div class="hero-top">
+                <h1 class="r r1">Cafes I&rsquo;d<span class="dim">send you to.</span></h1>
+                <nav class="fan r r2" aria-label="A few of the spots">
+                    <a href="#chaipedia" data-open="chaipedia" style="--r:-7deg;--y:8px" aria-label="Chai Pedia"><img src="/assets/cafes/chaipedia-2-t.webp" alt=""></a>
+                    <a href="#copper" data-open="copper" style="--r:-3deg;--y:1px" aria-label="Copper + Cloves"><img src="/assets/cafes/copper-2-t.webp" alt=""></a>
+                    <a href="#ela" data-open="ela" style="--r:1deg;--y:-3px" aria-label="Ela Matcha"><img src="/assets/cafes/ela-2-t.webp" alt=""></a>
+                    <a href="#kerala" data-open="kerala" style="--r:4deg;--y:0px" aria-label="Kerala Pavilion"><img src="/assets/cafes/kerala-1-t.webp" alt=""></a>
+                    <a href="#daily" data-open="daily" style="--r:8deg;--y:7px" aria-label="The Daily Bean"><img src="/assets/cafes/daily-2-t.webp" alt=""></a>
+                </nav>
+            </div>
+            <hr class="hero-rule">
+            <div class="hero-row r r2">
+                <span><b>Bengaluru</b> &middot; 13 spots</span>
+                <span class="hint-mouse">Move across a name to flip through photos. Click to open.</span>
+                <span class="hint-touch">Tap a name to open it.</span>
+            </div>
+        </section>
+
+        <div class="spots-wrap">
+            <div class="lists">
+                <!-- To add a spot: copy an <article class="spot">, change its id, coordinates, name and links.
+                     Photos go in /assets/cafes/. The map reads data-lat and data-lng and redraws itself. -->
+                <h2 class="sec-h"><span>Cafes</span><span>9</span></h2>
+                <div class="rows">
+            <article class="spot rv" id="copper" data-lat="12.9777487" data-lng="77.6372497" data-name="Copper + Cloves" data-kind="cafe">
+                <div class="row">
+                    <span class="n">01</span>
+                    <img class="thumb" src="/assets/cafes/copper-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="copper-more">Copper + Cloves</button></h3>
+                    <span class="area">Indiranagar</span>
+                    <span class="rate" aria-label="Rated 4.3 on Google Maps">4.3</span>
+                    <a class="go" href="https://maps.app.goo.gl/uyaAfskuuZW2LP99A" target="_blank" rel="noopener" aria-label="Open Copper + Cloves in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="copper-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.501"><img data-src="/assets/cafes/copper-1-f.webp" width="1400" height="933" alt="The Copper + Cloves cafe, warm lights and plants" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/copper-2-f.webp" width="1050" height="1400" alt="Tacos at Copper + Cloves" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/copper-3-f.webp" width="1050" height="1400" alt="Smoothie bowl at Copper + Cloves" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>549A, 9th A Main Rd, Hoysala Nagar, Indiranagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Jackfruit Tacos, Mango Smoothie Bowl</dd></div>
+                        <div><dt>On Maps</dt><dd>4.3 from 937 reviews &middot; ₹400–1,200</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://copperandcloves.com" target="_blank" rel="noopener">copperandcloves.com &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="gottea" data-lat="13.0235288" data-lng="77.6398863" data-name="Got Tea" data-kind="cafe">
+                <div class="row">
+                    <span class="n">02</span>
+                    <img class="thumb" src="/assets/cafes/gottea-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="gottea-more">Got Tea</button></h3>
+                    <span class="area">Kalyan Nagar</span>
+                    <span class="rate" aria-label="Rated 4.7 on Google Maps">4.7</span>
+                    <a class="go" href="https://share.google/G3dc65jXXeQjR1usG" target="_blank" rel="noopener" aria-label="Open Got Tea in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="gottea-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.501"><img data-src="/assets/cafes/gottea-1-f.webp" width="1400" height="933" alt="The Got Tea outdoor seating" decoding="async"></figure>
+                        <figure style="--a:0.499"><img data-src="/assets/cafes/gottea-2-f.webp" width="698" height="1400" alt="A bottle of matcha from Got Tea" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/gottea-3-f.webp" width="1050" height="1400" alt="A bottle of milk tea from Got Tea" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>424, 5th Main Rd, HRBR Layout 2nd Block, Kalyan Nagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Vanilla Bean Matcha, Mango Summer</dd></div>
+                        <div><dt>On Maps</dt><dd>4.7 from 547 reviews</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://gottea.in" target="_blank" rel="noopener">gottea.in &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="paper" data-lat="12.9810313" data-lng="77.6409712" data-name="Paper &amp; Pie" data-kind="cafe">
+                <div class="row">
+                    <span class="n">03</span>
+                    <img class="thumb" src="/assets/cafes/paper-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="paper-more">Paper &amp; Pie</button></h3>
+                    <span class="area">Indiranagar</span>
+                    <span class="rate" aria-label="Rated 4.2 on Google Maps">4.2</span>
+                    <a class="go" href="https://maps.app.goo.gl/ZGNbBqA5jDYYe2HH8" target="_blank" rel="noopener" aria-label="Open Paper &amp; Pie in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="paper-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/paper-1-f.webp" width="1400" height="1050" alt="The Paper &amp; Pie storefront at dusk" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/paper-2-f.webp" width="1050" height="1400" alt="Two lattes at Paper &amp; Pie" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/paper-3-f.webp" width="1050" height="1400" alt="Brunch plates at Paper &amp; Pie" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>842/A, 100 Feet Rd, H Colony, Indiranagar. Metro pillar 55</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Cappuccino, Tartines with Poached Egg</dd></div>
+                        <div><dt>On Maps</dt><dd>4.2 from 2,179 reviews &middot; ₹400–1,200</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://paperandpie.in" target="_blank" rel="noopener">paperandpie.in &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="araku" data-lat="12.9699465" data-lng="77.6391732" data-name="ARAKU Coffee" data-kind="cafe">
+                <div class="row">
+                    <span class="n">04</span>
+                    <img class="thumb" src="/assets/cafes/araku-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="araku-more">ARAKU Coffee</button></h3>
+                    <span class="area">Indiranagar</span>
+                    <span class="rate" aria-label="Rated 4.1 on Google Maps">4.1</span>
+                    <a class="go" href="https://maps.app.goo.gl/AaPJYeU5GMsFmvqX8" target="_blank" rel="noopener" aria-label="Open ARAKU Coffee in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="araku-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.501"><img data-src="/assets/cafes/araku-1-f.webp" width="1400" height="933" alt="Stone steps up to ARAKU Coffee" decoding="async"></figure>
+                        <figure style="--a:0.751"><img data-src="/assets/cafes/araku-2-f.webp" width="1051" height="1400" alt="Two lattes on marble at ARAKU" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/araku-3-f.webp" width="1050" height="1400" alt="Shakshuka and bread at ARAKU" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>968, 12th Main Rd, HAL 2nd Stage, Indiranagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Turkish Latte, Burrata Shakshuka</dd></div>
+                        <div><dt>On Maps</dt><dd>4.1 from 2,761 reviews &middot; ₹400–1,200</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://arakucoffee.in" target="_blank" rel="noopener">arakucoffee.in &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="fuku" data-lat="13.0221424" data-lng="77.6378366" data-name="FUKU Coffee" data-kind="cafe">
+                <div class="row">
+                    <span class="n">05</span>
+                    <img class="thumb" src="/assets/cafes/fuku-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="fuku-more">FUKU Coffee</button></h3>
+                    <span class="area">Kammanahalli</span>
+                    <span class="rate" aria-label="Rated 4.7 on Google Maps">4.7</span>
+                    <a class="go" href="https://maps.app.goo.gl/YoMzpudQs4fZdG2Q9" target="_blank" rel="noopener" aria-label="Open FUKU Coffee in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="fuku-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/fuku-1-f.webp" width="960" height="1280" alt="The wooden interior of FUKU Coffee" decoding="async"></figure>
+                        <figure style="--a:1.557"><img data-src="/assets/cafes/fuku-2-f.webp" width="1400" height="899" alt="Two coffees at FUKU" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/fuku-3-f.webp" width="1050" height="1400" alt="Latte art on a painted table at FUKU" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>3AC-413, 3rd A Cross Rd, Sena Vihar, Kammanahalli</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Cappuccino, Latte</dd></div>
+                        <div><dt>On Maps</dt><dd>4.7 from 138 reviews &middot; ₹200–400</dd></div>
+                        
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="kampu" data-lat="13.058046" data-lng="77.6476211" data-name="Cafe Kampu" data-kind="cafe">
+                <div class="row">
+                    <span class="n">06</span>
+                    <img class="thumb" src="/assets/cafes/kampu-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="kampu-more">Cafe Kampu</button></h3>
+                    <span class="area">Kothanur</span>
+                    <span class="rate" aria-label="Rated 4.5 on Google Maps">4.5</span>
+                    <a class="go" href="https://maps.app.goo.gl/Rdp5MV9G9ib6woZK6" target="_blank" rel="noopener" aria-label="Open Cafe Kampu in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="kampu-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.777"><img data-src="/assets/cafes/kampu-1-f.webp" width="1400" height="788" alt="The espresso bar at Cafe Kampu" decoding="async"></figure>
+                        <figure style="--a:0.562"><img data-src="/assets/cafes/kampu-2-f.webp" width="787" height="1400" alt="An iced drink in the Cafe Kampu garden" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/kampu-3-f.webp" width="1050" height="1400" alt="Crinkle cut chips at Cafe Kampu" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>Patel Munniswamapa Layout Rd, Kothanur</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Crinkle Cut Chips with Dip, Pita Bread</dd></div>
+                        <div><dt>On Maps</dt><dd>4.5 from 323 reviews &middot; ₹400–600</dd></div>
+                        
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="ela" data-lat="12.9778482" data-lng="77.641813" data-name="Ela Matcha" data-kind="cafe">
+                <div class="row">
+                    <span class="n">07</span>
+                    <img class="thumb" src="/assets/cafes/ela-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="ela-more">Ela Matcha</button></h3>
+                    <span class="area">Indiranagar</span>
+                    <span class="rate" aria-label="Rated 4.0 on Google Maps">4.0</span>
+                    <a class="go" href="https://maps.app.goo.gl/EkHE9Gcfh4dhrNvJ7" target="_blank" rel="noopener" aria-label="Open Ela Matcha in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="ela-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/ela-1-f.webp" width="1050" height="1400" alt="The entrance to Ela Matcha" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/ela-2-f.webp" width="1050" height="1400" alt="An iced matcha with a red straw" decoding="async"></figure>
+                        <figure style="--a:0.852"><img data-src="/assets/cafes/ela-3-f.webp" width="1193" height="1400" alt="Two layered matcha drinks" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>575, 9th A Main Rd, Stage 1, Indiranagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Vanilla Matcha Latte, Iced Matcha Latte</dd></div>
+                        <div><dt>On Maps</dt><dd>4.0 from 99 reviews &middot; ₹200–400</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://elamatcha.com" target="_blank" rel="noopener">elamatcha.com &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="daily" data-lat="13.0690187" data-lng="77.648351" data-name="The Daily Bean" data-kind="cafe">
+                <div class="row">
+                    <span class="n">08</span>
+                    <img class="thumb" src="/assets/cafes/daily-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="daily-more">The Daily Bean</button></h3>
+                    <span class="area">Kothanur</span>
+                    <span class="rate" aria-label="Rated 4.4 on Google Maps">4.4</span>
+                    <a class="go" href="https://maps.app.goo.gl/P8KwTuPu3kwD4oBH7" target="_blank" rel="noopener" aria-label="Open The Daily Bean in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="daily-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.777"><img data-src="/assets/cafes/daily-1-f.webp" width="1400" height="788" alt="The brick counter at The Daily Bean" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/daily-2-f.webp" width="1050" height="1400" alt="A brownie on newspaper print" decoding="async"></figure>
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/daily-3-f.webp" width="1400" height="1050" alt="Coffee and bakes at The Daily Bean" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>41/1, DR Bendre Layout, Kothanur</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Buttermilk Cinnamon Rolls, Brownies</dd></div>
+                        <div><dt>On Maps</dt><dd>4.4 from 1,808 reviews &middot; ₹200–400</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://thedailybean.in" target="_blank" rel="noopener">thedailybean.in &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="bigbean" data-lat="13.0242742" data-lng="77.6399505" data-name="Big Bean Cafe" data-kind="cafe">
+                <div class="row">
+                    <span class="n">09</span>
+                    <img class="thumb" src="/assets/cafes/bigbean-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="bigbean-more">Big Bean Cafe</button></h3>
+                    <span class="area">Kalyan Nagar</span>
+                    <span class="rate" aria-label="Rated 4.7 on Google Maps">4.7</span>
+                    <a class="go" href="https://share.google/S1jEhen0OefjRevEu" target="_blank" rel="noopener" aria-label="Open Big Bean Cafe in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="bigbean-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.501"><img data-src="/assets/cafes/bigbean-1-f.webp" width="1400" height="933" alt="The Big Bean Cafe storefront at night" decoding="async"></figure>
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/bigbean-2-f.webp" width="1400" height="1050" alt="An iced black coffee" decoding="async"></figure>
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/bigbean-3-f.webp" width="1400" height="1050" alt="A filled doughnut with blueberries" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>VN Heights, 5M-436, 5th Main Rd, HRBR Layout 2nd Block, Kalyan Nagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Crispy Onion Rings</dd></div>
+                        <div><dt>On Maps</dt><dd>4.7 from 302 reviews &middot; ₹200–1,000</dd></div>
+                        <div><dt>Website</dt><dd><a href="https://bigbeancafe.in" target="_blank" rel="noopener">bigbeancafe.in &#8599;&#xFE0E;</a></dd></div>
+                    </dl>
+                </div></div>
+            </article>
+                </div>
+
+                <section class="chaya-h" aria-labelledby="chaya-title">
+                    <div class="chaya-top">
+                        <h2 id="chaya-title" class="chaya-big rv" lang="ml">ചായ</h2>
+                        <p class="chaya-note rv">As a Malayali, I love <span lang="ml">ചായ</span> (Chaya). Here are my go-to.</p>
+                    </div>
+                    <div class="sec-h"><span>Chaya</span><span>4</span></div>
+                    <div class="rows">
+            <article class="spot rv" id="chaipedia" data-lat="13.0209872" data-lng="77.639647" data-name="Chai Pedia" data-kind="chaya">
+                <div class="row">
+                    <span class="n">10</span>
+                    <img class="thumb" src="/assets/cafes/chaipedia-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="chaipedia-more">Chai Pedia</button></h3>
+                    <span class="area">Kalyan Nagar</span>
+                    <span class="rate" aria-label="Rated 4.2 on Google Maps">4.2</span>
+                    <a class="go" href="https://maps.app.goo.gl/FvR4YD5kE9WENM7v6" target="_blank" rel="noopener" aria-label="Open Chai Pedia in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="chaipedia-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:2.222"><img data-src="/assets/cafes/chaipedia-1-f.webp" width="1400" height="630" alt="The Chai Pedia counter" decoding="async"></figure>
+                        <figure style="--a:1.000"><img data-src="/assets/cafes/chaipedia-2-f.webp" width="1400" height="1400" alt="A glass of tea against string lights" decoding="async"></figure>
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/chaipedia-3-f.webp" width="1050" height="1400" alt="A glass of chai held up at night" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>5th Main Rd, HRBR Layout 2nd Block, Sena Vihar, Kalyan Nagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Chai, Lemon Tea</dd></div>
+                        <div><dt>On Maps</dt><dd>4.2 from 887 reviews &middot; Under ₹200</dd></div>
+                        
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="kerala" data-lat="12.9722489" data-lng="77.6413267" data-name="Kerala Pavilion" data-kind="chaya">
+                <div class="row">
+                    <span class="n">11</span>
+                    <img class="thumb" src="/assets/cafes/kerala-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="kerala-more">Kerala Pavilion</button></h3>
+                    <span class="area">Indiranagar</span>
+                    <span class="rate" aria-label="Rated 4.0 on Google Maps">4.0</span>
+                    <a class="go" href="https://share.google/NoNoJpcOk86f0ilZM" target="_blank" rel="noopener" aria-label="Open Kerala Pavilion in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="kerala-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:0.750"><img data-src="/assets/cafes/kerala-1-f.webp" width="1050" height="1400" alt="A kizhi parcel on a banana leaf" decoding="async"></figure>
+                        <figure style="--a:1.777"><img data-src="/assets/cafes/kerala-2-f.webp" width="1400" height="788" alt="Tender coconut pudding" decoding="async"></figure>
+                        <figure style="--a:0.562"><img data-src="/assets/cafes/kerala-3-f.webp" width="787" height="1400" alt="A Kerala meal laid out on the table" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>373, 100 Feet Rd, HAL 2nd Stage, Indiranagar</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Chicken Kizhi Paratha, Idiyappam, Tender Coconut Pudding</dd></div>
+                        <div><dt>On Maps</dt><dd>4.0 from 2,874 reviews &middot; ₹200–400</dd></div>
+                        
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="bosco" data-lat="13.0691471" data-lng="77.6478098" data-name="Bosco Eatery" data-kind="chaya">
+                <div class="row">
+                    <span class="n">12</span>
+                    <img class="thumb" src="/assets/cafes/bosco-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="bosco-more">Bosco Eatery</button></h3>
+                    <span class="area">Kothanur</span>
+                    <span class="rate" aria-label="Rated 4.1 on Google Maps">4.1</span>
+                    <a class="go" href="https://maps.app.goo.gl/xji7qpt2ASEkyxo89" target="_blank" rel="noopener" aria-label="Open Bosco Eatery in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="bosco-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/bosco-1-f.webp" width="1400" height="1050" alt="Open-air seating under string lights at Bosco" decoding="async"></figure>
+                        <figure style="--a:0.753"><img data-src="/assets/cafes/bosco-2-f.webp" width="1054" height="1400" alt="A spread of parotta and fried banana" decoding="async"></figure>
+                        <figure style="--a:2.215"><img data-src="/assets/cafes/bosco-3-f.webp" width="1400" height="632" alt="Korean chicken at Bosco" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>Sy No 41/1, behind The Daily Bean, Kothanur</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Onion Rings, Korean Chicken</dd></div>
+                        <div><dt>On Maps</dt><dd>4.1 from 812 reviews &middot; ₹200–400</dd></div>
+                        
+                    </dl>
+                </div></div>
+            </article>
+            <article class="spot rv" id="thut" data-lat="13.0603214" data-lng="77.6521906" data-name="T-HUT" data-kind="chaya">
+                <div class="row">
+                    <span class="n">13</span>
+                    <img class="thumb" src="/assets/cafes/thut-1-t.webp" alt="" loading="lazy" decoding="async">
+                    <h3 class="name"><button type="button" aria-expanded="false" aria-controls="thut-more">T-HUT</button></h3>
+                    <span class="area">Kothanur</span>
+                    <span class="rate" aria-label="Rated 4.1 on Google Maps">4.1</span>
+                    <a class="go" href="https://share.google/ZQ0lk4whVtkzElvra" target="_blank" rel="noopener" aria-label="Open T-HUT in Google Maps">Maps <span>&#8599;&#xFE0E;</span></a>
+                </div>
+                <div class="more" id="thut-more"><div class="more-in">
+                    <div class="gal">
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/thut-1-f.webp" width="1400" height="1050" alt="The thatched T-HUT counter" decoding="async"></figure>
+                        <figure style="--a:1.333"><img data-src="/assets/cafes/thut-2-f.webp" width="1400" height="1050" alt="Chicken roast at T-HUT" decoding="async"></figure>
+                        <figure style="--a:0.562"><img data-src="/assets/cafes/thut-3-f.webp" width="787" height="1400" alt="A dessert served in a coconut shell" decoding="async"></figure>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Find it</dt><dd>Kothanur, Bengaluru 560077</dd></div>
+                        <div><dt>Menu highlights</dt><dd>Mohabbat Tea, Chicken Roast</dd></div>
+                        <div><dt>On Maps</dt><dd>4.1 from 3,293 reviews &middot; ₹200–400</dd></div>
+                        
+                    </dl>
+                </div></div>
+            </article>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="line" aria-label="Where these spots are"></aside>
+        </div>
+
+        <section class="close rv">
+            <div class="close-in">
+                <p class="close-a">I&rsquo;ll keep adding spots here :)</p>
+                <p class="close-b" lang="ml">അപ്പോ ശരി</p>
+            </div>
+            <p class="credit">Photos from Google Maps contributors. Ratings and details from Google Maps, November 2026.</p>
+        </section>
+    </main>
+
+    <div class="peek" aria-hidden="true"><div class="peek-f"></div><div class="peek-c"><i></i><i></i><i></i></div></div>
+
+    <footer class="pfoot"><div class="pfoot-in">
+        <a class="up" href="#" aria-label="Back to top">&#8593;</a>
+        <dl class="addr">
+            <dt>A</dt><dd>Bengaluru, India</dd>
+            <dt>E</dt><dd><a href="mailto:dhruvcp07@gmail.com">&#8600;&#xFE0E;dhruvcp07@gmail.com</a></dd>
+            <dt>N</dt><dd><a href="/">&#8600;&#xFE0E;Home</a><a href="/about">&#8600;&#xFE0E;About</a><a href="/cnvrted">&#8600;&#xFE0E;Cnvrted</a><a href="/work">&#8600;&#xFE0E;Work</a><a href="/learning">&#8600;&#xFE0E;Learning</a><a href="/uses">&#8600;&#xFE0E;Uses</a><a href="/blog">&#8600;&#xFE0E;Blog</a><a href="/now">&#8600;&#xFE0E;Now</a><a href="/posts">&#8600;&#xFE0E;Posts</a><a href="/playbooks">&#8600;&#xFE0E;Playbooks</a><a href="/manifesto">&#8600;&#xFE0E;Manifesto</a><a href="/cafes">&#8600;&#xFE0E;Cafes</a><a href="/contact">&#8600;&#xFE0E;Contact</a></dd>
+        </dl>
+        <p class="copy">&copy;2026 Dhruv Pradeep &middot; Est. 2007</p>
+    </div></footer>
+
+    <script>
+    (function(){
+        var spots = [].slice.call(document.querySelectorAll('.spot'));
+        var byId = {};
+        spots.forEach(function(s){ byId[s.id] = s; });
+
+        /* ---- open and close ---- */
+        function setOpen(s, open){
+            s.classList.toggle('open', open);
+            s.querySelector('.name button').setAttribute('aria-expanded', open ? 'true' : 'false');
+            if(open){
+                hidePeek();
+                s.querySelectorAll('.gal img[data-src]').forEach(function(im){ im.src = im.dataset.src; im.removeAttribute('data-src'); });
+            }
+        }
+        spots.forEach(function(s){
+            s.querySelector('.row').addEventListener('click', function(e){
+                if(e.target.closest('.go')) return;
+                var open = !s.classList.contains('open');
+                setOpen(s, open);
+                if(open) history.replaceState(null, '', '#' + s.id);
+            });
+        });
+
+        /* ---- the line: every spot drawn at its true position. Upright on desktop, on its side on phones ---- */
+        var svgNS = 'http://www.w3.org/2000/svg';
+        function el(name, attrs, parent, text){
+            var n = document.createElementNS(svgNS, name);
+            for(var k in attrs) n.setAttribute(k, attrs[k]);
+            if(text) n.textContent = text;
+            if(parent) parent.appendChild(n);
+            return n;
+        }
+        var KM_LAT = 111.2, KM_LNG = 108.35;
+        var pts = spots.map(function(s){ return { s:s, lat:+s.dataset.lat, lng:+s.dataset.lng }; });
+        var lats = pts.map(function(p){ return p.lat; }), lngs = pts.map(function(p){ return p.lng; });
+        var north = Math.max.apply(null, lats), south = Math.min.apply(null, lats), west = Math.min.apply(null, lngs), east = Math.max.apply(null, lngs);
+        var tall = (north - south) * KM_LAT, wide = (east - west) * KM_LNG;
+        var side = window.matchMedia('(max-width:900px)').matches;
+        var W = side ? 343 : 230, H = side ? 116 : 600, PAD = 14, X0 = 30;
+        var K = ((side ? W : H) - PAD * 2) / tall;
+        function PX(lat, lng){
+            return side
+                ? [PAD + (lat - south) * KM_LAT * K, 30 + (lng - west) * KM_LNG * K]
+                : [X0 + (lng - west) * KM_LNG * K, PAD + (north - lat) * KM_LAT * K];
+        }
+
+        var line = document.querySelector('.line');
+        var svg = el('svg', { viewBox:'0 0 ' + W + ' ' + H, role:'img', 'aria-label':'All ' + pts.length + ' spots at their true positions, ' + tall.toFixed(0) + ' kilometres north to south' }, line);
+
+        for(var km = 0; km <= Math.floor(tall); km++){
+            var len = km % 5 === 0 ? 8 : 4, label = km ? km + 'km' : '0';
+            if(side){
+                var xk = PAD + km * K;
+                el('line', { 'class':'tick', x1:xk, x2:xk, y1:H - 24, y2:H - 24 + len }, svg);
+                if(km % 5 === 0) el('text', { 'class':'km', x:xk, y:H - 3, 'text-anchor':'middle' }, svg, label);
+            } else {
+                var yk = H - PAD - km * K;
+                el('line', { 'class':'tick', x1:0, x2:len, y1:yk, y2:yk }, svg);
+                if(km % 5 === 0) el('text', { 'class':'km', x:11, y:yk + 3 }, svg, label);
+            }
+        }
+        var sorted = pts.slice().sort(function(a,b){ return b.lat - a.lat; });
+        el('polyline', { 'class':'spine', points:sorted.map(function(p){ return PX(p.lat, p.lng).map(function(v){ return v.toFixed(1); }).join(','); }).join(' ') }, svg);
+
+        var labelX = X0 + wide * K + 16;
+        var areas = {};
+        spots.forEach(function(s){
+            var a = s.querySelector('.area').textContent;
+            if(a === 'Kammanahalli') a = 'Kalyan Nagar';
+            (areas[a] = areas[a] || []).push(+s.dataset.lat);
+        });
+        Object.keys(areas).forEach(function(a){
+            var mid = (Math.max.apply(null, areas[a]) + Math.min.apply(null, areas[a])) / 2;
+            var at = PX(mid, west);
+            if(side) el('text', { 'class':'hood', x:Math.max(30, Math.min(W - 30, at[0])), y:12, 'text-anchor':'middle' }, svg, a);
+            else el('text', { 'class':'hood', x:labelX, y:at[1] + 3 }, svg, a);
+        });
+
+        var pinLine = el('line', { 'class':'pin-l' }, svg);
+        var pin = el('text', { 'class':'pin' }, svg);
+
+        var active = null;
+        function setActive(p){
+            if(active){ active.g.classList.remove('on'); active.s.classList.remove('on'); }
+            active = p;
+            svg.classList.toggle('has-on', !!p);
+            pin.classList.toggle('show', !!p);
+            pinLine.classList.toggle('show', !!p);
+            if(!p) return;
+            p.g.classList.add('on'); p.s.classList.add('on');
+            var at = PX(p.lat, p.lng), x = at[0], y = at[1];
+            pin.textContent = p.s.querySelector('.name button').textContent;
+            if(side){
+                pin.setAttribute('x', x); pin.setAttribute('y', 12);
+                pin.setAttribute('text-anchor', x > W * .66 ? 'end' : x < W * .33 ? 'start' : 'middle');
+                pinLine.setAttribute('x1', x); pinLine.setAttribute('x2', x);
+                pinLine.setAttribute('y1', 16); pinLine.setAttribute('y2', y - 7);
+            } else {
+                pin.setAttribute('x', labelX + 2); pin.setAttribute('y', y + 4.5);
+                pinLine.setAttribute('x1', x + 7); pinLine.setAttribute('x2', labelX - 2);
+                pinLine.setAttribute('y1', y); pinLine.setAttribute('y2', y);
+            }
+        }
+
+        pts.forEach(function(p){
+            var name = p.s.querySelector('.name button').textContent;
+            var at = PX(p.lat, p.lng);
+            var g = el('g', { 'class':'dot' + (p.s.dataset.kind === 'chaya' ? ' chaya' : ''), tabindex:0, role:'button', 'aria-label':name }, svg);
+            el('circle', { 'class':'h', cx:at[0], cy:at[1], r:8 }, g);
+            el('circle', { 'class':'d', cx:at[0], cy:at[1], r:3.4 }, g);
+            p.g = g;
+            g.addEventListener('mouseenter', function(){ setActive(p); });
+            g.addEventListener('mouseleave', function(){ setActive(null); });
+            g.addEventListener('focus', function(){ setActive(p); });
+            g.addEventListener('blur', function(){ setActive(null); });
+            function jump(){
+                setOpen(p.s, true);
+                p.s.scrollIntoView({ behavior:'smooth', block:'center' });
+            }
+            g.addEventListener('click', jump);
+            g.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); jump(); } });
+            p.s.querySelector('.row').addEventListener('mouseenter', function(){ setActive(p); });
+            p.s.querySelector('.row').addEventListener('mouseleave', function(){ setActive(null); });
+            p.s.querySelector('.name button').addEventListener('focus', function(){ setActive(p); });
+            p.s.querySelector('.name button').addEventListener('blur', function(){ setActive(null); });
+        });
+
+        var cap = document.createElement('p');
+        cap.innerHTML = '<b>True to scale.</b> ' + tall.toFixed(0) + ' km ' + (side ? 'long, north on the right.' : 'tall, ' + wide.toFixed(1) + ' km wide.') + ' Hollow dots are chaya.';
+        line.appendChild(cap);
+
+        /* ---- the photo that follows the cursor; moving across a row flips through its photos ---- */
+        var peek = document.querySelector('.peek');
+        var frame = peek.querySelector('.peek-f');
+        var ticks = peek.querySelectorAll('.peek-c i');
+        var canPeek = window.matchMedia('(hover:hover) and (min-width:901px)').matches;
+        var still = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+        var mx = 0, my = 0, px = 0, py = 0, running = false, cur = null, shown = -1;
+
+        function hidePeek(){ peek.classList.remove('show'); cur = null; running = false; }
+        function loadPeek(s){
+            frame.innerHTML = '';
+            s.querySelectorAll('.gal img').forEach(function(im, i){
+                var n = new Image();
+                n.src = '/assets/cafes/' + s.id + '-' + (i + 1) + '-t.webp';
+                n.alt = '';
+                n.dataset.a = im.getAttribute('width') / im.getAttribute('height');
+                frame.appendChild(n);
+            });
+            shown = -1;
+        }
+        function show(i){
+            if(i === shown) return;
+            shown = i;
+            [].forEach.call(frame.children, function(n, k){ n.classList.toggle('cur', k === i); });
+            [].forEach.call(ticks, function(t, k){ t.classList.toggle('cur', k === i); });
+            frame.style.aspectRatio = Math.max(.8, Math.min(1.6, +frame.children[i].dataset.a));
+        }
+        function place(){
+            var w = peek.offsetWidth, h = peek.offsetHeight;
+            var limit = line.getBoundingClientRect().left - 24;
+            var tx = Math.min(mx + 26, limit - w);
+            var ty = Math.max(12, Math.min(my - h - 18, window.innerHeight - h - 12));
+            if(my - h - 18 < 12) ty = Math.min(my + 26, window.innerHeight - h - 12);
+            if(still){ px = tx; py = ty; }
+            else { px += (tx - px) * .16; py += (ty - py) * .16; }
+            peek.style.transform = 'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0)';
+        }
+        function loop(){
+            if(!running) return;
+            place();
+            requestAnimationFrame(loop);
+        }
+        if(canPeek){
+            spots.forEach(function(s){
+                var row = s.querySelector('.row');
+                row.addEventListener('mouseenter', function(e){
+                    mx = e.clientX; my = e.clientY;
+                    if(s.classList.contains('open') || e.target.closest('.go')) return;
+                    if(cur !== s){ loadPeek(s); cur = s; show(0); }
+                    if(!peek.classList.contains('show')){ px = mx + 26; py = my - 200; }
+                    peek.classList.add('show');
+                    if(!running){ running = true; loop(); }
+                });
+                row.addEventListener('mousemove', function(e){
+                    mx = e.clientX; my = e.clientY;
+                    if(cur !== s) return;
+                    var b = row.getBoundingClientRect();
+                    show(Math.max(0, Math.min(2, Math.floor((e.clientX - b.left) / b.width * 3))));
+                });
+                row.addEventListener('mouseleave', hidePeek);
+                s.querySelector('.go').addEventListener('mouseenter', hidePeek);
+            });
+            window.addEventListener('scroll', hidePeek, { passive:true });
+        }
+
+        /* ---- the fan opens its spot; a link with #name opens that spot ---- */
+        document.querySelectorAll('.fan a').forEach(function(a){
+            a.addEventListener('click', function(e){
+                e.preventDefault();
+                var s = byId[a.dataset.open];
+                setOpen(s, true);
+                history.replaceState(null, '', '#' + s.id);
+                s.scrollIntoView({ behavior:'smooth', block:'center' });
+            });
+        });
+        var target = byId[location.hash.slice(1)];
+        if(target){
+            setOpen(target, true);
+            setTimeout(function(){ target.scrollIntoView({ block:'center' }); }, 60);
+        }
+
+        /* ---- reveal on scroll ---- */
+        var rv = document.querySelectorAll('.rv');
+        if(!('IntersectionObserver' in window)){ rv.forEach(function(e){ e.classList.add('in'); }); return; }
+        var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { rootMargin:'0px 0px -5% 0px' });
+        rv.forEach(function(e){ io.observe(e); });
+    })();
+    </script>
+    <script src="/assets/subscribe.js" defer></script>
+    <script src="/assets/cmdk.js" defer></script>
+</body>
+</html>

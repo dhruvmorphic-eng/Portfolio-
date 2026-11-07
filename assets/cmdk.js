@@ -19,6 +19,7 @@
     { title: 'Posts', url: '/posts', desc: 'LinkedIn, X, Substack, Bluesky, Product Hunt, Spotify' },
     { title: 'Blog', url: '/blog', desc: 'Essays on startups, sales, AI' },
     { title: 'Manifesto', url: '/manifesto', desc: "I don't wait. I move." },
+    { title: 'Cafes', url: '/cafes', desc: 'The cafes and chaya spots I recommend in Bengaluru' },
     { title: 'Contact', url: '/contact', desc: 'Mail, socials, book a call' },
     { title: 'The Anatomy of Misdirected Desire', url: '/blog/misdirected-desire', desc: 'Most of what you want, you were taught to want by someone standing close enough to envy.' },
     { title: 'Your Degree Was Never the Point', url: '/blog/degree-was-never-the-point', desc: "Your major, your degree, your dropout story — none of it is the finish line." },
