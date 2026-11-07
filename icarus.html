@@ -58,21 +58,8 @@
         .feather{position:absolute;left:0;top:0;width:14px;height:30px;opacity:0;will-change:transform,opacity;pointer-events:none}
         .feather path{fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round}
 
-        .alt{position:absolute;left:var(--pad);bottom:clamp(1.2rem,4vh,2rem);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);display:flex;gap:.9rem;align-items:center}
-        .alt .track{position:relative;width:4.5rem;height:1px;background:currentColor;opacity:.5}
-        .alt .track i{position:absolute;top:-2px;left:0;width:5px;height:5px;border-radius:50%;background:var(--fg);transform:translateX(var(--x,0))}
         .hint{position:absolute;right:var(--pad);bottom:clamp(1.2rem,4vh,2rem);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);transition:opacity .4s}
 
-        /* after the fall */
-        .land{min-height:70vh;padding:12vh var(--pad) 3rem;display:flex;flex-direction:column;justify-content:space-between;gap:4rem;color:#efeee9}
-        .land p{max-width:30rem;font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.4;letter-spacing:-.02em;color:rgba(239,238,233,.8)}
-        .land p b{font-weight:400;color:#efeee9}
-        .land .mono{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(239,238,233,.5);margin-top:1.4rem}
-        .land nav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:1.05rem;letter-spacing:-.02em}
-        .land nav a{color:rgba(239,238,233,.85);transition:color .2s}
-        .land nav a:hover{color:#fff}
-        .land nav a span{display:inline-block;margin-right:.25em;transition:transform .25s}
-        .land nav a:hover span{transform:translate(2px,2px)}
 
         @media(max-width:620px){
             .q2{text-align:left}
@@ -81,7 +68,7 @@
     </style>
     <link rel="stylesheet" href="/assets/paper.css?v=1">
     <!-- after paper.css, so the sky colours win over its fixed paper background -->
-    <style>html,body{background:var(--bg);color:var(--fg)}</style>
+    <style>html,body{background:var(--bg);color:var(--fg)}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}</style>
 </head>
 <body>
     <header class="ptop">
@@ -98,30 +85,17 @@
                 <p class="q q2" id="q2">unless you&rsquo;ve flown.</p>
                 <img class="icarus" id="ic" src="/assets/icarus.webp" width="290" height="427" alt="Icarus, one feathered wing and one torn, falling">
                 <div id="feathers" aria-hidden="true"></div>
-                <div class="alt" aria-hidden="true"><span id="altv">alt 3,000 m</span><span class="track"><i id="dot"></i></span></div>
                 <div class="hint" id="hint" aria-hidden="true">scroll to fall &darr;&#xFE0E;</div>
             </div>
         </section>
 
-        <section class="land">
-            <div>
-                <p>Everyone tells the story of Icarus as a warning about the fall. <b>Fewer people mention that he flew.</b></p>
-                <p class="mono">// fly anyway.</p>
-            </div>
-            <nav>
-                <a href="/"><span>&#8600;&#xFE0E;</span>Home</a>
-                <a href="/manifesto"><span>&#8600;&#xFE0E;</span>Manifesto</a>
-                <a href="/blog"><span>&#8600;&#xFE0E;</span>Blog</a>
-                <a href="/cnvrted"><span>&#8600;&#xFE0E;</span>Cnvrted</a>
-            </nav>
-        </section>
     </main>
 
     <script>
     (function(){
         var root = document.documentElement, fall = document.getElementById('fall'), sky = document.getElementById('sky');
         var ic = document.getElementById('ic'), sun = document.getElementById('sun'), q1 = document.getElementById('q1'), q2 = document.getElementById('q2');
-        var altv = document.getElementById('altv'), dot = document.getElementById('dot'), hint = document.getElementById('hint'), fh = document.getElementById('feathers');
+        var hint = document.getElementById('hint'), fh = document.getElementById('feathers');
         var still = matchMedia('(prefers-reduced-motion:reduce)').matches;
         var PAPER = [239,238,233], NIGHT = [10,10,9], INK = [25,25,23];
 
@@ -187,9 +161,6 @@
                 f.el.style.color = rgb(fg, .55);
             });
 
-            var m = Math.round((1 - p) * 3000 / 10) * 10;
-            altv.textContent = 'alt ' + m.toLocaleString('en-IN') + ' m' + (p < .08 ? ' · near the sun' : p > .97 ? ' · landed' : '');
-            dot.style.setProperty('--x', (p * 4.2) + 'rem');
             hint.style.opacity = p > .04 ? 0 : 1;
         }
         function req(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
