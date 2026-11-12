@@ -32,9 +32,6 @@
     { title: "They're Not Coming for Your Job", url: '/blog/first-job', desc: 'A junior analyst is now a $20 API call.' },
     { title: 'AI Is a Bubble', url: '/blog/ai-bubble', desc: 'I build AI for a living. Both things are true.' }
   ];
-  // On a subdomain (manifesto.), send relative links back to the main site
-  if (location.hostname.indexOf('manifesto.') === 0) PAGES.forEach(function(p){ if (p.url.charAt(0) === '/') p.url = 'https://dhruvpradeep.in' + p.url; });
-
 
   var overlay, input, list, activeIndex = 0, filtered = PAGES.slice();
 
