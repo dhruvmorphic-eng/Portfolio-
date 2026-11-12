@@ -89,10 +89,7 @@ def visual_html(kind, tmp):
             f'<img src="{asset(f"assets/cafes/{n}-t.webp")}" style="--r:{r}deg;--y:{y}px">' for n, r, y in picks
         ) + "</div>"
     if kind == "portrait":
-        src = open(os.path.join(ROOT, "about.html"), encoding="utf8").read()
-        data = re.search(r'<img src="data:image/jpeg;base64,([^"]+)"', src).group(1)
-        path = os.path.join(tmp, "portrait.jpg")
-        open(path, "wb").write(base64.b64decode(data))
+        path = os.path.join(ROOT, "assets", "portrait.jpg")
         return f'<div class="v portrait"><img src="file://{path}"></div>'
     if kind == "mascot":
         return f'<div class="v mascot"><img src="{asset("assets/cnvrted/mascot-dhruv.webp")}"></div>'

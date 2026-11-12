@@ -15,7 +15,6 @@
     { title: 'Playbooks', url: '/playbooks', desc: 'Sales playbook and the AI Index' },
     { title: 'Now', url: '/now', desc: "What I'm building — Cnvrted & Morphic" },
     { title: 'Work', url: '/work', desc: 'MorphicKIDS videos' },
-    { title: 'Words', url: '/words', desc: 'Quote cards' },
     { title: 'Posts', url: '/posts', desc: 'LinkedIn, X, Substack, Bluesky, Product Hunt, Spotify' },
     { title: 'Blog', url: '/blog', desc: 'Essays on startups, sales, AI' },
     { title: 'Manifesto', url: '/manifesto', desc: "I don't wait. I move." },
