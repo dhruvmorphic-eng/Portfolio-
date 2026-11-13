@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruv's Website</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="Dhruv Pradeep, by hand. X, Instagram and LinkedIn.">
+    <meta property="og:title" content="Dhruv's Website">
+    <meta property="og:description" content="Dhruv Pradeep, by hand.">
+    <meta property="og:url" content="https://dhruvpradeep.in/me">
+    <meta property="og:image" content="https://dhruvpradeep.in/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@dhruvprad">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script>document.documentElement.className = 'js';</script>
+    <style>
+        :root{--paper:#fdfdfb;--ink:#2b3bd1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{height:100%}
+        body{background:var(--paper);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100svh;padding:6vh 1.5rem;-webkit-tap-highlight-color:transparent}
+        svg{display:block;overflow:visible}
+        /* one pen: every stroke on the page is the same blue ballpoint line */
+        .pen{fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+        .thin{stroke-width:1.8}
+        /* a little tremor in the line, so it reads as a hand and not a font */
+        .hand{filter:url(#wobble)}
+        a{color:inherit;text-decoration:none;display:block;border-radius:6px}
+        a:focus-visible{outline:2px dashed var(--ink);outline-offset:8px}
+
+        .title{width:min(82vw,520px)}
+        .title svg{width:100%;height:auto;transform:rotate(-2.5deg)}
+
+        .links{display:flex;align-items:flex-start;justify-content:center;gap:clamp(1.6rem,7vw,3.4rem);margin-top:clamp(4rem,17vh,9rem)}
+        .links a{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+        .links svg{height:clamp(46px,8.5vw,60px);width:auto}
+        /* scattered on purpose, like they were jotted down one by one */
+        .links a:nth-child(1){transform:translateY(0) rotate(-3deg)}
+        .links a:nth-child(2){transform:translateY(26px) rotate(2deg)}
+        .links a:nth-child(3){transform:translateY(-6px) rotate(-1deg)}
+        .links a:nth-child(4){transform:translateY(46px) rotate(4deg)}
+        .links .under{opacity:0;transition:opacity .2s}
+        @media(hover:hover){
+            .links a:nth-child(1):hover{transform:translateY(-4px) rotate(-8deg)}
+            .links a:nth-child(2):hover{transform:translateY(22px) rotate(7deg)}
+            .links a:nth-child(3):hover{transform:translateY(-10px) rotate(-6deg)}
+            .links a:nth-child(4):hover{transform:translateY(42px) rotate(-6deg)}
+            .links a:hover .under{opacity:1}
+        }
+        .links a:active{opacity:.6}
+
+        /* the page writes itself: each stroke is drawn in order, at the speed of a hand */
+        .js .pen{stroke-dasharray:1;stroke-dashoffset:1}
+        .js .pen.go{animation:draw var(--d,.3s) cubic-bezier(.45,.05,.4,1) var(--at,0s) forwards}
+        .js .under{stroke-dasharray:none;stroke-dashoffset:0}
+        @keyframes draw{to{stroke-dashoffset:0}}
+        @media(prefers-reduced-motion:reduce){.js .pen{stroke-dasharray:none;stroke-dashoffset:0;animation:none}}
+    </style>
+</head>
+<body>
+    <a class="title" href="/" aria-label="Dhruv's Website. Go to the home page">
+        <svg class="hand" viewBox="60 40 500 310" aria-hidden="true">
+            <defs><filter id="wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter></defs>
+            <!-- Dhruv's -->
+            <path class="pen" pathLength="1" d="M151,60 C147,96 152,136 149,173"/>
+            <path class="pen" pathLength="1" d="M136,68 C212,48 266,98 236,143 C215,170 172,178 139,171"/>
+            <path class="pen" pathLength="1" d="M279,68 C276,104 280,140 277,173"/>
+            <path class="pen" pathLength="1" d="M278,140 C290,117 313,116 315,137 C317,150 314,162 317,173"/>
+            <path class="pen" pathLength="1" d="M339,125 C340,142 338,158 340,173"/>
+            <path class="pen" pathLength="1" d="M340,143 C346,129 358,121 371,128"/>
+            <path class="pen" pathLength="1" d="M388,126 C385,150 390,171 404,170 C417,169 422,152 425,127 C424,146 425,161 429,173"/>
+            <path class="pen" pathLength="1" d="M446,125 C452,142 458,158 463,173 C468,156 476,140 485,123"/>
+            <path class="pen" pathLength="1" d="M499,83 C501,90 500,98 495,105"/>
+            <path class="pen" pathLength="1" d="M537,131 C523,121 507,130 514,142 C520,152 537,150 535,162 C532,173 514,175 503,166"/>
+            <!-- Website -->
+            <path class="pen" pathLength="1" d="M92,213 C102,250 113,290 125,331 C132,296 141,262 151,231 C160,262 170,296 181,330 C190,292 201,252 213,211"/>
+            <path class="pen" pathLength="1" d="M232,297 C250,295 267,284 258,272 C248,259 226,274 228,301 C230,327 256,333 273,318"/>
+            <path class="pen" pathLength="1" d="M295,215 C292,256 295,294 293,331"/>
+            <path class="pen" pathLength="1" d="M293,297 C304,276 333,276 335,300 C337,325 308,337 293,322"/>
+            <path class="pen" pathLength="1" d="M383,283 C368,273 351,282 358,294 C364,306 385,302 383,316 C380,329 360,333 347,322"/>
+            <path class="pen" pathLength="1" d="M405,286 C403,301 406,316 404,331"/>
+            <!-- the dot on the i is a small glass of chaya -->
+            <path class="pen thin" pathLength="1" d="M396,247 C401,246 408,246 413,247 L410,269 C406,270 403,270 399,269 Z"/>
+            <path class="pen thin" pathLength="1" d="M401,240 C398,236 404,233 401,229"/>
+            <path class="pen thin" pathLength="1" d="M408,240 C405,236 411,233 408,229"/>
+            <path class="pen" pathLength="1" d="M433,235 C430,270 430,310 437,325 C441,333 451,331 457,324"/>
+            <path class="pen" pathLength="1" d="M416,277 C430,275 445,273 459,272"/>
+            <path class="pen" pathLength="1" d="M476,299 C494,297 511,286 502,274 C492,261 470,276 472,303 C474,329 500,335 517,320"/>
+        </svg>
+    </a>
+
+    <nav class="links" aria-label="Socials">
+        <a href="https://x.com/dhruvprad" target="_blank" rel="noopener me" aria-label="X">
+            <svg class="hand" viewBox="0 0 60 72" aria-hidden="true">
+                <path class="pen" pathLength="1" d="M13,14 C24,27 36,40 47,50"/>
+                <path class="pen" pathLength="1" d="M46,12 C36,26 24,39 12,52"/>
+                <path class="pen thin under" d="M8,64 C22,61 38,66 52,62"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/dhruvprad/" target="_blank" rel="noopener me" aria-label="Instagram">
+            <svg class="hand" viewBox="0 0 60 72" aria-hidden="true">
+                <path class="pen" pathLength="1" d="M15,24 C14,33 16,41 15,48"/>
+                <path class="pen" pathLength="1" d="M15,11 C16,11.5 16,12.5 15,13"/>
+                <path class="pen" pathLength="1" d="M45,28 C35,20 25,30 29,39 C33,48 44,42 46,28 C45,42 49,56 41,63 C34,68 25,64 23,57"/>
+                <path class="pen thin under" d="M8,70 C22,67 38,72 54,68"/>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/dhruvpradeep/" target="_blank" rel="noopener me" aria-label="LinkedIn">
+            <svg class="hand" viewBox="0 0 60 72" aria-hidden="true">
+                <path class="pen" pathLength="1" d="M13,8 C11,23 13,37 12,49 C22,50 30,49 37,47"/>
+                <path class="pen" pathLength="1" d="M49,28 C48,36 49,42 49,49"/>
+                <path class="pen" pathLength="1" d="M49,14 C51.5,14 51.5,18 49,18 C46.5,18 46.5,14 49,14"/>
+                <path class="pen thin under" d="M8,62 C22,59 38,64 54,60"/>
+            </svg>
+        </a>
+        <a href="/cafes" aria-label="Chaya: the cafes and chaya spots I'd send you to">
+            <svg class="hand" viewBox="0 0 60 72" aria-hidden="true">
+                <path class="pen thin" pathLength="1" d="M17,26 C26,24 36,24 44,26 L40,58 C34,60 27,60 21,58 Z"/>
+                <path class="pen thin" pathLength="1" d="M19,35 C27,37 35,37 43,35"/>
+                <path class="pen thin" pathLength="1" d="M25,18 C21,13 29,9 25,3"/>
+                <path class="pen thin" pathLength="1" d="M35,18 C31,13 39,9 35,3"/>
+                <path class="pen thin under" d="M10,68 C22,65 38,70 52,66"/>
+            </svg>
+        </a>
+    </nav>
+
+    <script>
+    // Draw every stroke in order. Longer strokes take longer, like a real hand.
+    (function(){
+        if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+        var at = .25;
+        document.querySelectorAll('.pen:not(.under)').forEach(function(p){
+            var len = p.getTotalLength(), d = Math.max(.09, Math.min(.5, len / 520));
+            p.style.setProperty('--d', d + 's');
+            p.style.setProperty('--at', at + 's');
+            p.classList.add('go');
+            at += d + .045;
+        });
+    })();
+    </script>
+</body>
+</html>
