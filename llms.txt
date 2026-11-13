@@ -7,7 +7,7 @@
 - [Home](https://dhruvpradeep.in/): Landing page — name, "Founder in Progress", live Bangalore time, current work status.
 - [About](https://dhruvpradeep.in/about): Full story — 19, dropout, builder. Cricket background, leaving Manipal, what drives him, based in Bangalore.
 - [Cnvrted](https://dhruvpradeep.in/cnvrted): Dhruv's company — a sales intelligence startup that finds real buyers with actual intent. Problem, approach and links.
-- [The archive](https://dhruvpradeep.in/cnvrted/archive): A draggable wall of 52 photos from building Cnvrted (BHIVE, the London room, the team, late nights).
+- [The archive](https://dhruvpradeep.in/cnvrted/archive): A draggable wall of 58 photos from building Cnvrted (BHIVE, the London room, the team, late nights).
 - [Learning](https://dhruvpradeep.in/learning): What Dhruv is studying (sales and buyer intent, AI and its economics, thinking and agency), with working documents and essays.
 - [Uses](https://dhruvpradeep.in/uses): Desk (MacBook, iPad), daily apps (Claude, Notion, Slack, Codex), video tools (Figma, DaVinci Resolve, Higgsfield), writing, and the fuel (matcha, chaya, Thalassery biryani).
 - [Now](https://dhruvpradeep.in/now): Current focus — Cnvrted (co-founder & CEO). Previously Morphic (marketing operations, MorphicKIDS).
