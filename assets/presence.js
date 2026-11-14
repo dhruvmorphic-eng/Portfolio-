@@ -1,6 +1,6 @@
 /* Mascot with a presence dot, bottom-left.
    Green while I'm usually on (every day, 10:30 AM to 2 AM IST), hollow grey otherwise.
-   On phones it sits bottom-right, where it can't cover the left-aligned nav.
+   On phones it sits bottom-right, where it can't cover the left-aligned nav; anywhere else it slides away while it would cover a link.
    Self-contained: injects its own styles and DOM. */
 (function () {
   var TZ = 'Asia/Kolkata', START = 10 * 60 + 30, END = 2 * 60; // minutes past midnight; the window wraps past 12
@@ -35,9 +35,25 @@
       a.setAttribute('aria-label', 'Dhruv is ' + (on ? 'active' : 'away') + '. Contact');
     }
     paint(); setInterval(paint, 60000);
-    // step aside when the footer is on screen, so it never covers the links there
-    var foot = document.querySelector('footer');
-    if (foot && 'IntersectionObserver' in window) new IntersectionObserver(function (e) { a.classList.toggle('away-foot', e[0].isIntersecting); }).observe(foot);
+    // step aside when the footer is on screen, or whenever it would sit on top of a link
+    // (on narrower windows the home menu runs right into this corner)
+    var foot = document.querySelector('footer'), footOn = false, ticking = false;
+    var links = document.querySelectorAll('main a, main button');
+    function covers() {
+      // where the mascot sits when shown: fixed position, ignoring the slide-away transform
+      var r = { l: a.offsetLeft - 8, t: a.offsetTop - 8, r: a.offsetLeft + a.offsetWidth + 8, b: a.offsetTop + a.offsetHeight + 8 };
+      for (var i = 0; i < links.length; i++) {
+        var q = links[i].getBoundingClientRect();
+        if (q.width && q.right > r.l && q.left < r.r && q.bottom > r.t && q.top < r.b) return true;
+      }
+      return false;
+    }
+    function update() { ticking = false; a.classList.toggle('away-foot', footOn || covers()); }
+    function queue() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    if (foot && 'IntersectionObserver' in window) new IntersectionObserver(function (e) { footOn = e[0].isIntersecting; queue(); }).observe(foot);
+    addEventListener('scroll', queue, { passive: true });
+    addEventListener('resize', queue);
+    queue();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
