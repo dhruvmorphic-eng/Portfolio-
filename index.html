@@ -83,6 +83,25 @@
         }
         @media(prefers-reduced-motion:reduce){.chaya .steam{animation:none;opacity:.6}}
 
+        /* the song I'm listening to, a tiny sleeve leaning on the line beside the chaya */
+        .np{position:absolute;right:2.5rem;bottom:100%;margin-bottom:1px;display:block;width:26px;height:26px;opacity:0;transform:translateY(-10px) rotate(-14deg);transform-origin:50% 100%;transition:opacity .5s,transform .7s cubic-bezier(.3,1.6,.5,1)}
+        .np.on{opacity:1;transform:rotate(-5deg)}
+        .np img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(25,25,23,.12),0 3px 8px rgba(25,25,23,.18);transition:filter .3s}
+        .np.was img{filter:grayscale(1);opacity:.6}
+        .np .live{position:absolute;top:-3px;right:-3px;width:7px;height:7px;border-radius:50%;background:#1db954;box-shadow:0 0 0 2px var(--paper);animation:pulse 2s infinite}
+        .np.was .live{display:none}
+        .np-l{position:absolute;right:7.4rem;top:calc(1px + .82rem);max-width:min(26rem,calc(100% - 19rem));overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--mono);font-size:.66rem;line-height:1.7;color:var(--ink-2);opacity:0;transform:translateY(-3px);transition:opacity .25s,transform .25s;pointer-events:none}
+        .np-l b{font-weight:400;color:var(--ink)}
+        .np:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+        @media(hover:hover){
+            .np.on:hover{transform:translateY(-3px) rotate(0deg) scale(1.15)}
+            .np.on:hover + .np-l{opacity:1;transform:none}
+        }
+        @media(max-width:620px){.np-l{display:none}}
+        /* on narrow phones the name runs right up to the glass, so the sleeve drops just below the line instead */
+        @media(max-width:420px){.np{bottom:auto;top:.62rem;right:4.6rem;width:20px;height:20px;transform:translateY(-6px) rotate(-10deg)}.np.on{transform:rotate(-4deg)}}
+        @media(prefers-reduced-motion:reduce){.np{transition:opacity .3s}.np .live{animation:none}}
+
         .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding:clamp(3rem,8vh,5rem) 0 clamp(4rem,10vh,6rem);max-width:1000px}
         /* spec sheet: label ..... value, each row a link */
         .spec{font-family:var(--mono);font-size:.7rem;line-height:1.5;max-width:30rem}
@@ -207,6 +226,8 @@
                     </svg>
                     <span class="chaya-l"><b lang="ml">ചായ?</b><em>spots I&rsquo;d send you to</em><i>&#8599;&#xFE0E;</i></span>
                 </a>
+                <a class="np" id="np" href="https://open.spotify.com/user/" target="_blank" rel="noopener" hidden><img alt="" width="26" height="26" decoding="async"><span class="live" aria-hidden="true"></span></a>
+                <span class="np-l" id="npl" aria-hidden="true"></span>
             </div>
         </section>
 
@@ -319,6 +340,36 @@
             a.href = it.url.replace('https://dhruvpradeep.in', '');
             a.firstChild.nodeValue = it.title + ' ';
         }).catch(function(){});
+    </script>
+    <script>
+        // what I'm listening to: a tiny cover beside the chaya, live from Spotify
+        (function(){
+            var a = document.getElementById('np'), img = a.querySelector('img'), lab = document.getElementById('npl'), last = '';
+            function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+            function load(){
+                fetch('/api/now-playing').then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+                    if(!d || !d.title || !(d.albumArtSmall || d.albumArt)){ a.classList.remove('on'); return; }
+                    var key = d.title + '|' + d.isPlaying;
+                    var what = (d.isPlaying ? 'now playing' : 'last played');
+                    a.href = d.url || 'https://open.spotify.com/';
+                    a.setAttribute('aria-label', what + ': ' + d.title + ' by ' + d.artist + ', on Spotify');
+                    a.classList.toggle('was', !d.isPlaying);
+                    lab.innerHTML = what + ' &middot; <b>' + esc(d.title) + '</b> &mdash; ' + esc(d.artist);
+                    if(key === last) return;
+                    last = key;
+                    var src = d.albumArtSmall || d.albumArt;
+                    if(img.getAttribute('src') === src){ a.hidden = false; a.classList.add('on'); return; }
+                    // a new song: drop the old sleeve, then lean the new one on the line
+                    a.classList.remove('on');
+                    var pre = new Image();
+                    pre.onload = function(){ img.src = src; a.hidden = false; requestAnimationFrame(function(){ requestAnimationFrame(function(){ a.classList.add('on'); }); }); };
+                    pre.src = src;
+                }).catch(function(){});
+            }
+            load();
+            setInterval(function(){ if(!document.hidden) load(); }, 30000);
+            document.addEventListener('visibilitychange', function(){ if(!document.hidden) load(); });
+        })();
     </script>
     <script src="/assets/cmdk.js" defer></script>
     <script src="/assets/presence.js" defer></script>

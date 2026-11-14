@@ -22,6 +22,7 @@ export default async function handler(req, res) {
     artist: item.artists.map(a => a.name).join(', '),
     album: item.album.name,
     albumArt: item.album.images?.[0]?.url || '',
+    albumArtSmall: item.album.images?.[item.album.images.length - 1]?.url || '',
     url: item.external_urls?.spotify || '',
   });
 
