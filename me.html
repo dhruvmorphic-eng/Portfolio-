@@ -33,20 +33,26 @@
         .title{width:min(82vw,520px)}
         .title svg{width:100%;height:auto;transform:rotate(-2.5deg)}
 
-        .links{display:flex;align-items:flex-start;justify-content:center;gap:clamp(1.6rem,7vw,3.4rem);margin-top:clamp(4rem,17vh,9rem)}
+        .links{display:flex;align-items:flex-start;justify-content:center;gap:clamp(1.6rem,7vw,3.4rem);margin-top:clamp(2.6rem,8vh,4.4rem)}
+        /* buy me a chai: written a little smaller than the name, just under it */
+        .chai{margin-top:clamp(2.2rem,8vh,4.2rem);transform:rotate(1.5deg);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+        .chai svg{width:clamp(210px,54vw,320px);height:auto}
+        .chai .pen{stroke-width:4.4}
+        .chai .thin{stroke-width:3.6}
+        .chai .under{opacity:0;transition:opacity .2s}
+        @media(hover:hover){.chai:hover{transform:rotate(-1deg) translateY(-2px)}.chai:hover .under{opacity:1}}
+        .chai:active{opacity:.6}
         .links a{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
         .links svg{height:clamp(46px,8.5vw,60px);width:auto}
         /* scattered on purpose, like they were jotted down one by one */
         .links a:nth-child(1){transform:translateY(0) rotate(-3deg)}
         .links a:nth-child(2){transform:translateY(26px) rotate(2deg)}
         .links a:nth-child(3){transform:translateY(-6px) rotate(-1deg)}
-        .links a:nth-child(4){transform:translateY(46px) rotate(4deg)}
         .links .under{opacity:0;transition:opacity .2s}
         @media(hover:hover){
             .links a:nth-child(1):hover{transform:translateY(-4px) rotate(-8deg)}
             .links a:nth-child(2):hover{transform:translateY(22px) rotate(7deg)}
             .links a:nth-child(3):hover{transform:translateY(-10px) rotate(-6deg)}
-            .links a:nth-child(4):hover{transform:translateY(42px) rotate(-6deg)}
             .links a:hover .under{opacity:1}
         }
         .links a:active{opacity:.6}
@@ -91,6 +97,34 @@
         </svg>
     </a>
 
+    <a class="chai" href="https://buymeacoffee.com/dhruvprad" target="_blank" rel="noopener" aria-label="Buy me a chai, on Buy Me a Coffee">
+            <svg class="hand" viewBox="0 6 674 136" aria-hidden="true">
+                <path class="pen" pathLength="1" transform="translate(4,0)" d="M6,14 C4,52 7,82 5,100"/>
+                <path class="pen" pathLength="1" transform="translate(4,0)" d="M5,72 C15,52 41,53 42,76 C43,99 19,108 5,96"/>
+                <path class="pen" pathLength="1" transform="translate(57,0)" d="M5,58 C2,80 7,100 21,99 C33,98 38,82 40,57 C39,76 40,91 44,100"/>
+                <path class="pen" pathLength="1" transform="translate(110,0)" d="M4,57 C9,74 15,86 23,97"/>
+                <path class="pen" pathLength="1" transform="translate(110,0)" d="M42,56 C34,86 24,112 11,136"/>
+                <path class="pen" pathLength="1" transform="translate(193,0)" d="M5,58 C6,75 4,88 6,100"/>
+                <path class="pen" pathLength="1" transform="translate(193,0)" d="M6,73 C13,56 30,55 31,73 C32,85 30,92 32,100"/>
+                <path class="pen" pathLength="1" transform="translate(193,0)" d="M31,73 C38,56 55,55 56,73 C57,85 55,92 57,100"/>
+                <path class="pen" pathLength="1" transform="translate(260,0)" d="M4,80 C22,78 38,68 30,58 C21,47 0,60 2,82 C4,104 28,108 43,96"/>
+                <path class="pen" pathLength="1" transform="translate(343,0)" d="M38,63 C25,51 4,60 4,80 C4,99 27,104 37,85"/>
+                <path class="pen" pathLength="1" transform="translate(343,0)" d="M40,58 C39,74 40,90 43,100"/>
+                <path class="pen" pathLength="1" transform="translate(428,0)" d="M38,64 C27,51 4,58 4,80 C4,102 29,106 40,94"/>
+                <path class="pen" pathLength="1" transform="translate(475,0)" d="M6,12 C4,50 7,80 5,100"/>
+                <path class="pen" pathLength="1" transform="translate(475,0)" d="M5,73 C15,53 37,53 39,71 C41,85 38,92 41,100"/>
+                <path class="pen" pathLength="1" transform="translate(528,0)" d="M38,63 C25,51 4,60 4,80 C4,99 27,104 37,85"/>
+                <path class="pen" pathLength="1" transform="translate(528,0)" d="M40,58 C39,74 40,90 43,100"/>
+                <path class="pen" pathLength="1" transform="translate(581,0)" d="M7,58 C6,74 8,88 7,100"/>
+                <path class="pen" pathLength="1" transform="translate(581,0)" d="M7,38 C9.5,38 9.5,42 7,42 C4.5,42 4.5,38 7,38"/>
+                <path class="pen thin" pathLength="1" transform="translate(628,0)" d="M4,52 C15,50 28,50 37,52 L33,99 C26,101 16,101 9,99 Z"/>
+                <path class="pen thin" pathLength="1" transform="translate(628,0)" d="M6,65 C16,67 26,67 36,65"/>
+                <path class="pen thin" pathLength="1" transform="translate(628,0)" d="M14,42 C10,36 18,32 14,24"/>
+                <path class="pen thin" pathLength="1" transform="translate(628,0)" d="M26,42 C22,36 30,32 26,24"/>
+                <path class="pen thin under" d="M2,122 C181,116 421,128 602,120"/>
+            </svg>
+        </a>
+
     <nav class="links" aria-label="Socials">
         <a href="https://x.com/dhruvprad" target="_blank" rel="noopener me" aria-label="X">
             <svg class="hand" viewBox="0 0 60 72" aria-hidden="true">
@@ -113,15 +147,6 @@
                 <path class="pen" pathLength="1" d="M49,28 C48,36 49,42 49,49"/>
                 <path class="pen" pathLength="1" d="M49,14 C51.5,14 51.5,18 49,18 C46.5,18 46.5,14 49,14"/>
                 <path class="pen thin under" d="M8,62 C22,59 38,64 54,60"/>
-            </svg>
-        </a>
-        <a href="/cafes" aria-label="Chaya: the cafes and chaya spots I'd send you to">
-            <svg class="hand" viewBox="0 0 60 72" aria-hidden="true">
-                <path class="pen thin" pathLength="1" d="M17,26 C26,24 36,24 44,26 L40,58 C34,60 27,60 21,58 Z"/>
-                <path class="pen thin" pathLength="1" d="M19,35 C27,37 35,37 43,35"/>
-                <path class="pen thin" pathLength="1" d="M25,18 C21,13 29,9 25,3"/>
-                <path class="pen thin" pathLength="1" d="M35,18 C31,13 39,9 35,3"/>
-                <path class="pen thin under" d="M10,68 C22,65 38,70 52,66"/>
             </svg>
         </a>
     </nav>
