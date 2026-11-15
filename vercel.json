@@ -22,6 +22,16 @@
       ],
       "destination": "https://dhruvpradeep.in/blog",
       "permanent": true
+    },
+    {
+      "source": "/manifesto",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/manifesto.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
