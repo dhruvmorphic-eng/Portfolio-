@@ -59,7 +59,11 @@
         .me img{width:100%;display:block;border-radius:16px;border:1px solid rgba(25,25,23,.15);transform:rotate(2deg);filter:saturate(1.15) brightness(1.08) contrast(1.03);transition:transform .4s;box-shadow:0 10px 40px rgba(25,25,23,0.09)}
         .me:hover img{transform:rotate(0) scale(1.02)}
         .me figcaption{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(25,25,23,0.69);text-align:center;margin-top:.7rem}
-        @media(max-width:600px){.me{float:none;width:200px;margin:0 auto 2rem;display:block}}
+        /* the paper me, stuck on the corner of the real photo */
+        .me .fold{position:absolute;left:-26px;bottom:1.9rem;width:88px;height:88px;border-radius:14px;border:3px solid #fdfdfb;transform:rotate(-7deg);filter:none;box-shadow:0 8px 22px rgba(25,25,23,.22);transition:transform .45s cubic-bezier(.2,1.3,.4,1)}
+        .me:hover .fold{transform:rotate(-12deg) translate(-4px,-6px) scale(1.06)}
+        @media(max-width:600px){.me{float:none;width:200px;margin:0 auto 2rem;display:block}.me .fold{width:76px;height:76px;left:-30px}}
+        @media(prefers-reduced-motion:reduce){.me .fold{transition:none}}
 
         @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
         .r{opacity:0;animation:fadeUp .9s ease forwards}
@@ -266,6 +270,7 @@
 
         <figure class="me r r2">
             <img src="/assets/portrait.jpg" alt="Dhruv Pradeep in the studio" width="333" height="400" style="height:auto" decoding="async">
+            <img class="fold" src="/assets/avatar-paper.webp" alt="Dhruv as a folded paper figure, round glasses and a black hoodie" width="560" height="560" decoding="async">
             <figcaption>On record · Bangalore</figcaption>
         </figure>
 
