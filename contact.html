@@ -126,6 +126,63 @@
         article .lede{font-family:'Inter Tight',sans-serif;font-weight:500;font-style:italic;letter-spacing:-.005em}
     </style>
     <link rel="stylesheet" href="/assets/paper.css?v=1">
+    <style>
+        /* ---- Contact: the two hands, after Michelangelo, as the whole page ---- */
+        html,body{background:#050505!important;color:#ece9e1}
+        ::selection{background:#ece9e1;color:#050505}
+        .bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+        .bg img{position:absolute;left:50%;top:50%;width:max(110vw,150vh);max-width:none;height:auto;transform:translate(-50%,-50%) translate3d(var(--px,0px),var(--py,0px),0);opacity:0;animation:bgIn 2.4s .1s ease forwards;transition:transform 1.2s cubic-bezier(.2,.8,.2,1);-webkit-mask-image:radial-gradient(ellipse 58% 62% at 50% 46%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 58% 62% at 50% 46%,#000 55%,transparent 100%)}
+        @keyframes bgIn{to{opacity:1}}
+        .bg .light{position:absolute;inset:0;background:radial-gradient(circle at var(--lx,50%) var(--ly,50%),rgba(5,5,5,0) 0,rgba(5,5,5,.25) 20vw,rgba(5,5,5,.72) 55vw,#050505 85vw)}
+        .bg .grain{position:absolute;inset:-50%;opacity:.14;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .9s steps(4) infinite}
+        @keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-4%)}75%{transform:translate(-1%,3%)}}
+        .bg .cred{position:absolute;right:var(--pad);bottom:1.1rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,233,225,.3)}
+        .ptop{background:linear-gradient(rgba(5,5,5,.85),rgba(5,5,5,0))!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+        .ptop a,.ptop span{color:rgba(236,233,225,.6)}
+        .ptop .logo{color:#ece9e1}.ptop .logo span{color:rgba(236,233,225,.45)}
+        .ptop .mid{color:#ece9e1}
+        .ptop .right:hover,.ptop .logo:hover span{color:#fff}
+        .wrap{position:relative;z-index:2;min-height:calc(100vh - 3.2rem);min-height:calc(100svh - 3.2rem);max-width:1240px!important;padding:clamp(2rem,6vh,4rem) var(--pad) clamp(2rem,5vh,3.5rem)!important;justify-content:space-between;gap:2rem}
+        .head{display:flex;flex-direction:column;align-items:center;gap:1rem}
+        h1{font-size:clamp(2.8rem,7vw,5.6rem)!important;margin:0;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+        .sub{color:rgba(236,233,225,.6)}
+        .deck{width:100%;display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:clamp(1rem,3vw,2.4rem);align-items:end;text-align:left}
+        .deck > div{display:flex;flex-direction:column}
+        .label{color:rgba(236,233,225,.5);margin-bottom:.8rem}
+        .emails{max-width:none!important;gap:.6rem}
+        .email{border-color:rgba(236,233,225,.16);background:rgba(5,5,5,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+        .email:hover{border-color:rgba(236,233,225,.5);background:rgba(236,233,225,.06)}
+        .email .addr{color:#ece9e1}
+        .email .tag{color:rgba(236,233,225,.55)}
+        .email.locked:hover{border-color:rgba(236,233,225,.16);background:rgba(5,5,5,.45)}
+        .email.locked .lk-mask{color:rgba(236,233,225,.6)}
+        .unlock-btn{color:#ece9e1;background:rgba(5,5,5,.6);border-color:rgba(236,233,225,.25)}
+        .unlock-btn:hover{color:#fff;border-color:rgba(236,233,225,.6);background:rgba(236,233,225,.08)}
+        .socials{gap:.7rem}
+        .socials a,.s-li,.s-x,.s-ig{background:rgba(5,5,5,.45)!important;border:1px solid rgba(236,233,225,.22)!important;width:46px;height:46px}
+        .socials a svg{fill:#ece9e1!important}
+        .socials a:hover{border-color:#fff!important;box-shadow:0 0 24px rgba(255,255,255,.12)}
+        .book{align-items:flex-end;text-align:right}
+        .cal-btn{background:#ece9e1;color:#050505}
+        .cal-btn svg{stroke:#050505}
+        .cal-btn:hover{background:#fff;box-shadow:0 0 40px rgba(255,255,255,.18)}
+        .cal-link{margin-top:.9rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:rgba(236,233,225,.75);text-decoration:none;border-bottom:1px solid rgba(236,233,225,.3);padding-bottom:2px}
+        .cal-link:hover{color:#fff;border-color:#fff}
+        .cal-note{color:rgba(236,233,225,.45)}
+        .pfoot{border-top-color:rgba(236,233,225,.15);background:#050505;margin-top:0}
+        .pfoot dt,.pfoot .copy{color:#ece9e1}
+        .pfoot dd a{color:#9aa3ff}
+        .pfoot .up{color:rgba(236,233,225,.6)}
+        .decrypt-overlay{background:rgba(5,5,5,.7)}
+        @media(max-width:860px){
+            .deck{grid-template-columns:1fr;text-align:center}
+            .deck > div,.book{align-items:center;text-align:center}
+            .bg img{width:190vw;top:40%}
+            .wrap{justify-content:flex-start}
+            .deck{margin-top:62vw}
+        }
+        @media(prefers-reduced-motion:reduce){.bg img{animation:none;opacity:1;transition:none}.bg .grain{animation:none}}
+    </style>
 </head>
 <body>
     <header class="ptop">
@@ -134,12 +191,21 @@
         <a class="right" href="/">&larr; home</a>
     </header>
 
-    <div class="wrap">
-        <h1 class="r r1">Reach out.</h1>
-        <div class="sub r r1">Feel free — always down to talk 💬</div>
+    <div class="bg" aria-hidden="true">
+        <img src="/assets/hands-bg.webp" alt="" width="1260" height="400" decoding="async" fetchpriority="high">
+        <div class="light"></div><div class="grain"></div>
+        <span class="cred">After Michelangelo &middot; c.&nbsp;1512</span>
+    </div>
 
-        <div class="r r2" style="width:100%;display:flex;flex-direction:column;align-items:center">
-            <div class="label">Mail</div>
+    <div class="wrap">
+        <div class="head">
+            <h1 class="r r1">Reach out.</h1>
+            <div class="sub r r1">Always down to talk</div>
+        </div>
+
+        <div class="deck">
+            <div class="r r2">
+                <div class="label">Mail</div>
             <div class="emails">
                 <div class="email locked" id="personalRow">
                     <span class="tag lk-tag">Personal</span>
@@ -154,24 +220,24 @@
                     <span class="tag">Cnvrted</span>
                 </a>
             </div>
-        </div>
-
-        <div class="r r3" style="display:flex;flex-direction:column;align-items:center">
-            <div class="label">Socials</div>
+            </div>
+            <div class="r r3">
+                <div class="label">Socials</div>
             <div class="socials">
                 <a href="https://www.linkedin.com/in/dhruvpradeep/" target="_blank" rel="noopener" aria-label="LinkedIn" class="s-li"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                 <a href="https://x.com/dhruvprad" target="_blank" rel="noopener" aria-label="X" class="s-x"><svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82L5 21.75H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
                 <a href="https://www.instagram.com/dhruvprad/" target="_blank" rel="noopener" aria-label="Instagram" class="s-ig"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
             </div>
-        </div>
-
-        <div class="r r4" style="display:flex;flex-direction:column;align-items:center">
-            <button type="button" class="cal-btn" data-cal-link="cnvrted" data-cal-config='{"layout":"month_view","theme":"dark"}'>
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                Book a call
-            </button>
-            <noscript><a class="cal-btn" href="https://cal.com/cnvrted" target="_blank" rel="noopener" style="margin-top:.8rem">Book a call on cal.com</a></noscript>
-            <div class="cal-note">No agenda needed — let's just talk</div>
+            </div>
+            <div class="book r r4">
+                <div class="label">Book a call</div>
+                <button type="button" class="cal-btn" data-cal-link="cnvrted/30min" data-cal-config='{"layout":"month_view","theme":"dark"}'>
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    30 min with me
+                </button>
+                <a class="cal-link" href="https://cal.com/cnvrted/30min" target="_blank" rel="noopener">cal.com/cnvrted/30min &#8599;&#xFE0E;</a>
+                <div class="cal-note">No agenda needed</div>
+            </div>
         </div>
     </div>
     <footer class="pfoot"><div class="pfoot-in">
@@ -288,6 +354,19 @@
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
         Cal("init", {origin:"https://cal.com"});
         Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    <script>
+        (function(){
+            var bg=document.querySelector('.bg'); if(!bg||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var root=document.documentElement, lx=.5, ly=.5, tx=.5, ty=.5, raf=0;
+            function step(){
+                lx+=(tx-lx)*.08; ly+=(ty-ly)*.08;
+                bg.style.setProperty('--lx',(lx*100).toFixed(2)+'%'); bg.style.setProperty('--ly',(ly*100).toFixed(2)+'%');
+                bg.style.setProperty('--px',((lx-.5)*-24).toFixed(1)+'px'); bg.style.setProperty('--py',((ly-.5)*-16).toFixed(1)+'px');
+                raf=(Math.abs(tx-lx)+Math.abs(ty-ly)>.001)?requestAnimationFrame(step):0;
+            }
+            addEventListener('pointermove',function(e){ if(e.pointerType==='touch') return; tx=e.clientX/innerWidth; ty=e.clientY/innerHeight; if(!raf) raf=requestAnimationFrame(step); },{passive:true});
+        })();
     </script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
