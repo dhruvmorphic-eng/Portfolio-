@@ -131,9 +131,9 @@
         html,body{background:#050505!important;color:#ece9e1}
         ::selection{background:#ece9e1;color:#050505}
         .bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-        .bg img{position:absolute;left:50%;top:50%;width:max(110vw,150vh);max-width:none;height:auto;transform:translate(-50%,-50%) translate3d(var(--px,0px),var(--py,0px),0);opacity:0;animation:bgIn 2.4s .1s ease forwards;transition:transform 1.2s cubic-bezier(.2,.8,.2,1);-webkit-mask-image:radial-gradient(ellipse 58% 62% at 50% 46%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 58% 62% at 50% 46%,#000 55%,transparent 100%)}
+        .bg img{position:absolute;left:50%;top:50%;width:max(110vw,150vh);max-width:none;height:auto;transform:translate(-50%,-50%);opacity:0;animation:bgIn 2.4s .1s ease forwards;-webkit-mask-image:radial-gradient(ellipse 58% 62% at 50% 46%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 58% 62% at 50% 46%,#000 55%,transparent 100%)}
         @keyframes bgIn{to{opacity:1}}
-        .bg .light{position:absolute;inset:0;background:radial-gradient(circle at var(--lx,50%) var(--ly,50%),rgba(5,5,5,0) 0,rgba(5,5,5,.25) 20vw,rgba(5,5,5,.72) 55vw,#050505 85vw)}
+        .bg .light{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(5,5,5,0) 0,rgba(5,5,5,.25) 20vw,rgba(5,5,5,.72) 55vw,#050505 85vw)}
         .bg .grain{position:absolute;inset:-50%;opacity:.14;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .9s steps(4) infinite}
         @keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-4%)}75%{transform:translate(-1%,3%)}}
         .bg .cred{position:absolute;right:var(--pad);bottom:1.1rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,233,225,.3)}
@@ -263,19 +263,6 @@
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
         Cal("init", {origin:"https://cal.com"});
         Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
-    </script>
-    <script>
-        (function(){
-            var bg=document.querySelector('.bg'); if(!bg||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            var root=document.documentElement, lx=.5, ly=.5, tx=.5, ty=.5, raf=0;
-            function step(){
-                lx+=(tx-lx)*.08; ly+=(ty-ly)*.08;
-                bg.style.setProperty('--lx',(lx*100).toFixed(2)+'%'); bg.style.setProperty('--ly',(ly*100).toFixed(2)+'%');
-                bg.style.setProperty('--px',((lx-.5)*-24).toFixed(1)+'px'); bg.style.setProperty('--py',((ly-.5)*-16).toFixed(1)+'px');
-                raf=(Math.abs(tx-lx)+Math.abs(ty-ly)>.001)?requestAnimationFrame(step):0;
-            }
-            addEventListener('pointermove',function(e){ if(e.pointerType==='touch') return; tx=e.clientX/innerWidth; ty=e.clientY/innerHeight; if(!raf) raf=requestAnimationFrame(step); },{passive:true});
-        })();
     </script>
     <script src="/assets/cmdk.js" defer></script>
 </body>
