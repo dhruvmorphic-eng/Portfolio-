@@ -202,32 +202,131 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&text=helowrd&display=block" rel="stylesheet">
     <style>
-        /* entry loader: "hello world" types in on a Figma-dark frame, then the site */
-        #hw{position:fixed;inset:0;z-index:9999;background:#1e1e1e;display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
+        /* entry loader: a Figma editor, "hello world" types onto the canvas, the editor falls away, then the site */
+        #hw{position:fixed;inset:0;z-index:9999;background:#1e1e1e;color:#fff;font:400 12px/1.2 'Inter Tight',Inter,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden;transition:opacity .6s ease,visibility .6s;-webkit-font-smoothing:antialiased}
         #hw.done{opacity:0;visibility:hidden}
-        #hw p{font:500 clamp(2.2rem,5.4vw,4.4rem)/1 Outfit,'Inter Tight',sans-serif;letter-spacing:.13em;color:#fff;white-space:pre}
-        #hw i{display:inline-block;width:.06em;height:.9em;margin-left:.06em;vertical-align:-.08em;background:#fff;animation:hwBlink 1s steps(1) infinite}
+        #hw .ui{transition:opacity .45s ease}
+        #hw.bare .ui{opacity:0}
+        #hw svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+        .fg-tabs{height:40px;flex:none;display:flex;align-items:stretch;background:#2c2c2c;border-bottom:1px solid #1e1e1e;overflow:hidden}
+        .fg-tabs span{display:flex;align-items:center;gap:7px;padding:0 15px;color:#b3b3b3;border-right:1px solid #1e1e1e;white-space:nowrap;font-size:11.5px}
+        .fg-tabs .home{padding:0 14px}
+        .fg-tabs .on{background:#1e1e1e;color:#fff}
+        .fg-tabs .x{margin-left:6px;opacity:.7}
+        .fg-body{flex:1;display:flex;min-height:0}
+        .fg-rail{width:52px;flex:none;background:#2c2c2c;border-right:1px solid #1e1e1e;display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:58px;color:#b3b3b3;font-size:9.5px}
+        .fg-rail div{display:flex;flex-direction:column;align-items:center;gap:5px}
+        .fg-rail .on svg{background:#3a3a3a;color:#fff;border-radius:7px;padding:8px;width:34px;height:34px;box-sizing:border-box}
+        .fg-left,.fg-right{width:236px;flex:none;background:#2c2c2c;display:flex;flex-direction:column;overflow:hidden}
+        .fg-left{border-right:1px solid #1e1e1e}
+        .fg-right{width:288px;border-left:1px solid #1e1e1e}
+        .fg-h{padding:16px 16px 14px;border-bottom:1px solid #3a3a3a}
+        .fg-h b{display:block;font-weight:600;font-size:13px}
+        .fg-h small{display:block;color:#9a9a9a;margin-top:5px;font-size:11px}
+        .fg-sec{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px;font-weight:600;font-size:11.5px}
+        .fg-list{padding:0 8px}
+        .fg-list span{display:block;padding:7px 8px;border-radius:5px;color:#e6e6e6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px}
+        .fg-list .on{background:#3a3a3a;font-weight:600}
+        .fg-lay{margin-top:auto;border-top:1px solid #3a3a3a;padding-bottom:10px}
+        .fg-lay span{display:flex;align-items:center;gap:8px;padding:6px 16px;color:#e6e6e6;font-size:11.5px}
+        .fg-lay .t{transition:background .2s}
+        #hw.typed .fg-lay .t{background:#0c3b5e}
+        .fg-top{display:flex;align-items:center;gap:10px;padding:10px 12px}
+        .fg-av{width:26px;height:26px;border-radius:50%;background:#e8e8e8;flex:none}
+        .fg-share{margin-left:auto;background:#0d99ff;color:#fff;border-radius:6px;padding:7px 12px;font-weight:500}
+        .fg-tabs2{display:flex;gap:4px;align-items:center;padding:0 12px 10px;border-bottom:1px solid #3a3a3a;color:#9a9a9a}
+        .fg-tabs2 .on{background:#3a3a3a;color:#fff;border-radius:5px;padding:5px 9px;font-weight:600}
+        .fg-tabs2 .z{margin-left:auto;color:#e6e6e6}
+        .fg-pg{padding:6px 12px 14px;border-bottom:1px solid #3a3a3a}
+        .fg-fill{display:flex;align-items:center;gap:8px;background:#383838;border-radius:5px;padding:7px 9px;color:#e6e6e6}
+        .fg-fill i{width:12px;height:12px;border-radius:2px;background:#1e1e1e;border:1px solid #555}
+        .fg-fill em{margin-left:auto;font-style:normal}
+        .fg-st span{display:flex;align-items:baseline;gap:8px;padding:6px 16px;color:#e6e6e6;white-space:nowrap;font-size:11.5px}
+        .fg-st span:before{content:"Ag";font-size:14px;color:#fff}
+        .fg-st small{color:#9a9a9a}
+        .fg-st .h{padding-top:2px;color:#9a9a9a}.fg-st .h:before{content:none}
+        .fg-canvas{flex:1;position:relative;display:grid;place-items:center;min-width:0}
+        .fg-word{position:relative;padding:.06em .12em}
+        .fg-word p{font:500 clamp(2.2rem,4.4vw,4.4rem)/1 Outfit,'Inter Tight',sans-serif;letter-spacing:.13em;color:#fff;white-space:pre;margin:0}
+        .fg-word i{display:inline-block;width:.06em;height:.9em;margin-left:.06em;vertical-align:-.08em;background:#fff;animation:hwBlink 1s steps(1) infinite}
+        .fg-sel{position:absolute;inset:0;border:1px solid #0d99ff;opacity:0;transition:opacity .2s}
+        .fg-sel b{position:absolute;width:7px;height:7px;background:#fff;border:1px solid #0d99ff}
+        .fg-sel b:nth-child(1){left:-4px;top:-4px}.fg-sel b:nth-child(2){right:-4px;top:-4px}.fg-sel b:nth-child(3){left:-4px;bottom:-4px}.fg-sel b:nth-child(4){right:-4px;bottom:-4px}
+        #hw.typing .fg-sel{opacity:1}
+        #hw.bare .fg-sel{opacity:0}
+        .fg-tool{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:2px;background:#2c2c2c;border:1px solid #3a3a3a;border-radius:12px;padding:6px;box-shadow:0 6px 24px rgba(0,0,0,.35);color:#e6e6e6}
+        .fg-tool span{display:grid;place-items:center;width:34px;height:34px;border-radius:8px}
+        .fg-tool .on{background:#0d99ff;color:#fff}
+        .fg-tool .sep{width:1px;height:22px;background:#444;margin:0 6px}
         @keyframes hwBlink{50%{opacity:0}}
         html.hw-on,html.hw-on body{overflow:hidden}
+        @media(max-width:1100px){.fg-right{display:none}}
+        @media(max-width:760px){.fg-left,.fg-rail{display:none}.fg-tabs span:nth-child(n+4){display:none}.fg-tool span:nth-child(n+6){display:none}}
     </style>
 </head>
 <body>
-    <div id="hw" aria-hidden="true"><p><span id="hwT"></span><i></i></p></div>
+    <div id="hw" aria-hidden="true">
+        <div class="fg-tabs ui">
+            <span class="home"><svg viewBox="0 0 16 16"><path d="M2.5 7.5 8 3l5.5 4.5V13h-3.5V9.5h-4V13H2.5z"/></svg></span>
+            <span>Cnvrted.ai</span><span>Cnvrted_Dev</span><span>Cnvrted_Social Content</span>
+            <span class="on">Cnvrted_Design<svg class="x" viewBox="0 0 16 16"><path d="m4.5 4.5 7 7m0-7-7 7"/></svg></span>
+            <span>Cnvrted_Design - web exploration</span><span>Pitch Deck</span><span>+</span>
+        </div>
+        <div class="fg-body">
+            <aside class="fg-rail ui">
+                <div class="on"><svg viewBox="0 0 16 16"><path d="M4 2h5l3 3v9H4z M9 2v3h3"/></svg>File</div>
+                <div><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12M4 4l8 8M12 4l-8 8"/></svg>Agents</div>
+                <div><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5.5v5M5.5 8h5"/></svg>Assets</div>
+                <div><svg viewBox="0 0 16 16"><rect x="2.5" y="5" width="11" height="8" rx="1.5"/><path d="M6 5V3.5h4V5M2.5 9h11"/></svg>Tools</div>
+                <div><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><circle cx="8" cy="8" r="2"/></svg>Variables</div>
+            </aside>
+            <aside class="fg-left ui">
+                <div class="fg-h"><b>Cnvrted_Design &#8964;</b><small>Team folder</small></div>
+                <div class="fg-sec">Pages<span>+</span></div>
+                <div class="fg-list"><span>webpage</span><span class="on">web exploration</span><span>banner</span><span>Page 7</span><span>nada</span><span>business card</span><span>product</span><span>Pitch Deck</span><span>-------- new phase --------</span><span>Sticker</span><span>web &amp; Product Exploration 0.2</span><span>Product Exploration</span><span>event</span><span>motion skeleton</span></div>
+                <div class="fg-lay"><div class="fg-sec">Layers</div><span class="t"><b>T</b>hello world</span><span>&#8964; White</span><span>&nbsp;&nbsp;&#8964; Frame 1686562083</span></div>
+            </aside>
+            <div class="fg-canvas">
+                <div class="fg-word"><p><span id="hwT"></span><i></i></p><div class="fg-sel ui"><b></b><b></b><b></b><b></b></div></div>
+                <div class="fg-tool ui">
+                    <span class="on"><svg viewBox="0 0 16 16"><path d="M3 2.5 12.5 7 8 8.5 6.5 13z"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M5 2v12M11 2v12M2 5h12M2 11h12"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M3 13 13 3"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M8 2.5 12.5 9 8 13.5 3.5 9zM8 2.5V8"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M3.5 3.5h9M8 3.5v9"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M6 2.5C4 2.5 4 5 4 6.5S2.5 8 2.5 8 4 8 4 9.5 4 13.5 6 13.5M10 2.5c2 0 2 2.5 2 4S13.5 8 13.5 8 12 8 12 9.5s0 4-2 4"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M8 2.5a5.5 5 0 1 1-3 9.2L2.5 13l.8-2.8A5 5 0 0 1 8 2.5z"/></svg></span>
+                    <span class="sep"></span>
+                    <span><svg viewBox="0 0 16 16"><path d="M5 11h6M5 8h6M5 5h3"/><rect x="2.5" y="2.5" width="11" height="11" rx="2"/></svg></span>
+                    <span><svg viewBox="0 0 16 16"><path d="m6 4-3.5 4L6 12M10 4l3.5 4L10 12"/></svg></span>
+                </div>
+            </div>
+            <aside class="fg-right ui">
+                <div class="fg-top"><span class="fg-av"></span><svg viewBox="0 0 16 16" style="margin-left:auto"><path d="M5 3.5 12 8l-7 4.5z"/></svg><span class="fg-share" style="margin-left:6px">Share</span></div>
+                <div class="fg-tabs2"><span class="on">Design</span><span>Prototype</span><span class="z">36% &#8964;</span></div>
+                <div class="fg-sec">Page</div>
+                <div class="fg-pg"><div class="fg-fill"><i></i>1E1E1E<em>100 %</em></div></div>
+                <div class="fg-sec">Styles<span>+</span></div>
+                <div class="fg-st"><span class="h">Text styles</span><span>cnvrted_regular_text 32 <small>&middot; 32/150</small></span><span>cnvrted_regular_text 30 <small>&middot; 30/150</small></span><span>cnvrted_regular_text 28 <small>&middot; 28/150</small></span><span>cnvrted_regular_text 26 <small>&middot; 26/150</small></span><span>cnvrted_regular_text 24 <small>&middot; 24/150</small></span><span>cnvrted_regular_text 22 <small>&middot; 22/150</small></span><span>cnvrted_regular_text 20 <small>&middot; 20/150</small></span><span>cnvrted_regular_text 18 <small>&middot; 18/150</small></span><span>cnvrted_regular_text 16 <small>&middot; 16/150</small></span><span>cnvrted_medium_text 32 <small>&middot; 32/150</small></span><span>cnvrted_medium_text 30 <small>&middot; 30/150</small></span><span>cnvrted_medium_text 28 <small>&middot; 28/150</small></span></div>
+            </aside>
+        </div>
+    </div>
     <script>
         (function(){
             var el=document.getElementById('hw'), t=document.getElementById('hwT'), root=document.documentElement;
             var seen=false; try{seen=sessionStorage.getItem('hw')==='1';sessionStorage.setItem('hw','1')}catch(e){}
             if(seen){el.remove();return}
             root.classList.add('hw-on');
-            var word='hello world', i=0, fast=matchMedia('(prefers-reduced-motion: reduce)').matches;
-            function end(){el.classList.add('done');root.classList.remove('hw-on');setTimeout(function(){el.remove()},700)}
-            if(fast){t.textContent=word;setTimeout(end,700);return}
-            setTimeout(function type(){
+            var word='hello world', i=0, fast=matchMedia('(prefers-reduced-motion: reduce)').matches, over=false;
+            function end(){if(over)return;over=true;el.classList.add('done');root.classList.remove('hw-on');setTimeout(function(){el.remove()},700)}
+            function bare(){el.classList.add('bare');setTimeout(end,550)}
+            if(fast){t.textContent=word;setTimeout(end,900);return}
+            setTimeout(function(){el.classList.add('typing');(function type(){
                 t.textContent=word.slice(0,++i);
                 if(i<word.length) setTimeout(type, word[i]===' '?160:75+Math.random()*60);
-                else setTimeout(end,650);
-            },300);
-            setTimeout(end,4000); // never trap anyone
+                else{el.classList.add('typed');setTimeout(bare,750)}
+            })()},500);
+            setTimeout(end,5000); // never trap anyone
         })();
     </script>
     <header class="top">
