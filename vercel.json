@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/:path((?!favicon).+)",
+      "source": "/:path((?!favicon|assets/).+)",
       "has": [
         {
           "type": "host",
