@@ -10,58 +10,90 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#1e1e1e;--fg:#ececea;--fg2:rgba(236,236,234,.55);--fg3:rgba(236,236,234,.32);--line:rgba(236,236,234,.14)}
+        :root{--paper:#efeee9;--ink:#191917;--ink-2:rgba(25,25,23,.62);--ink-3:rgba(25,25,23,.42);--rule:rgba(25,25,23,.16);--blue:#2b3bd1;
+              --sans:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--pad:clamp(1.1rem,3.2vw,2.6rem)}
         *{margin:0;padding:0;box-sizing:border-box}
-        html,body{min-height:100%}
-        body{background:var(--bg);color:var(--fg);font:400 15px/1.5 'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;padding:clamp(3.5rem,12vh,8rem) 1.25rem 4rem}
+        body{background:var(--paper);color:var(--ink);font:400 15px/1.5 var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh}
+        ::selection{background:var(--ink);color:var(--paper)}
         a{color:inherit;text-decoration:none}
-        .wrap{width:100%;max-width:540px}
-        .top{display:flex;justify-content:space-between;align-items:baseline;font:400 .68rem 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:3rem}
-        .top b{font-weight:400;color:var(--fg);text-transform:none;letter-spacing:0;font-size:.8rem}
-        .top a:hover{color:var(--fg)}
-        ol{list-style:none;position:relative}
-        ol:before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:1px;background:var(--line)}
-        li{position:relative;display:grid;grid-template-columns:32px 1fr auto;gap:0 1rem;align-items:start;padding-bottom:2.6rem}
-        li:last-child{padding-bottom:0}
-        .logo{width:32px;height:32px;border-radius:8px;overflow:hidden;background:#111;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line);display:grid;place-items:center;position:relative;z-index:1}
-        .logo img{width:100%;height:100%;object-fit:cover;display:block}
-        .logo.mem img{width:72%;height:auto;object-fit:contain}
-        .logo.mono{font:500 .95rem 'Inter Tight';color:var(--fg)}
-        .name{font-weight:500;font-size:1rem;letter-spacing:-.01em;line-height:32px}
-        .name a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
-        .role{color:var(--fg2);font-size:.9rem;margin-top:-.15rem}
-        .note{color:var(--fg3);font-size:.85rem;margin-top:.3rem}
-        .when{font:400 .66rem/32px 'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3);white-space:nowrap}
-        .now{color:var(--fg)}
-        .now:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#1db954;margin-right:.45rem;vertical-align:1px}
-        @media(max-width:480px){li{grid-template-columns:32px 1fr}.when{grid-column:2;line-height:1.4;margin-top:.35rem}}
+        .top{display:grid;grid-template-columns:1fr auto;align-items:center;padding:1.1rem var(--pad);font:400 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+        .top .logo{text-transform:none;letter-spacing:0;font-size:.78rem;font-weight:500;color:var(--ink)}
+        .top .logo span{color:var(--ink-3)}
+        .top a:hover{color:var(--ink)}
+        main{max-width:720px;margin:0 auto;padding:clamp(3rem,11vh,7rem) var(--pad) 5rem}
+        h1{font-weight:400;font-size:clamp(3rem,8vw,5.2rem);letter-spacing:-.06em;line-height:.9;margin-left:-.03em}
+        .sub{margin-top:1rem;font:400 .66rem/1.7 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+
+        /* timeline: when | node | what. newest at the top, 2026 at the bottom */
+        ol{list-style:none;margin-top:clamp(2.8rem,8vh,4.5rem);position:relative}
+        ol:before{content:"";position:absolute;left:calc(6.5rem + 1.4rem + 24px);top:24px;bottom:9px;border-left:1px dashed var(--rule)}
+        li{display:grid;grid-template-columns:6.5rem 48px 1fr;column-gap:1.4rem;align-items:start;padding-bottom:2.4rem;position:relative}
+        .when{font:400 .64rem/48px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:right;white-space:nowrap}
+        .when.now{color:var(--ink)}
+        .when.now:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#1f9d55;margin-right:.5rem;vertical-align:1px;animation:pulse 2s infinite}
+        @keyframes pulse{50%{opacity:.35}}
+        .node{width:48px;height:48px;border-radius:12px;overflow:hidden;background:#111;display:grid;place-items:center;position:relative;z-index:1;box-shadow:0 0 0 5px var(--paper),0 0 0 6px var(--rule)}
+        .node img{width:100%;height:100%;object-fit:cover;display:block}
+        .node.mem img{width:70%;height:auto;object-fit:contain}
+        .what{padding-top:.2rem}
+        .name{display:inline-flex;align-items:baseline;gap:.4rem;font-size:1.25rem;font-weight:500;letter-spacing:-.025em;line-height:1.3;transition:color .2s}
+        .name i{font-style:normal;font-size:.8em;color:var(--ink-3);transform:translate(-3px,3px);opacity:0;transition:opacity .2s,transform .2s,color .2s}
+        a.name:hover{color:var(--blue)}
+        a.name:hover i{opacity:1;transform:none;color:var(--blue)}
+        .role{color:var(--ink-2);font-size:.95rem;letter-spacing:-.01em}
+        .note{display:inline-block;margin-top:.55rem;font:400 .64rem/1.6 var(--mono);letter-spacing:.04em;color:var(--ink-2);border:1px solid var(--rule);border-radius:4px;padding:.15rem .5rem}
+
+        /* where it started */
+        li.start{padding-bottom:0;align-items:center}
+        li.start .when{line-height:18px;color:var(--ink)}
+        li.start .node{width:18px;height:18px;border-radius:50%;background:var(--ink);margin-left:15px;box-shadow:0 0 0 5px var(--paper)}
+        li.start .what{padding-top:0;font-size:.95rem;color:var(--ink-2)}
+
+        @media(max-width:560px){
+            ol:before{left:23px}
+            li{grid-template-columns:48px 1fr;column-gap:1.1rem}
+            .when{grid-column:2;grid-row:1;text-align:left;line-height:1.4;margin-bottom:.2rem}
+            .node{grid-column:1;grid-row:1/span 3}
+            .what{grid-column:2;padding-top:0}
+            li.start .node{grid-row:1;margin-left:15px}
+            li.start .when{grid-row:1}
+            li.start .what{grid-row:2}
+        }
+        @media(prefers-reduced-motion:reduce){.when.now:before{animation:none}}
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <div class="top"><b>dhruv/work</b><a href="https://dhruvpradeep.in">&larr; dhruvpradeep.in</a></div>
+    <header class="top"><span class="logo">dhruv/<span>work</span></span><a href="https://dhruvpradeep.in">&larr; dhruvpradeep.in</a></header>
+    <main>
+        <h1>Work</h1>
+        <p class="sub">Everything I&rsquo;ve built and run, since 2026.</p>
         <ol>
             <li>
-                <span class="logo mono">B</span>
-                <div><div class="name"><a href="https://banaostudios.in" target="_blank" rel="noopener">Banao Studios</a></div><div class="role">Head of Strategy</div><div class="note">Scaled to 40M views a month in 3 months.</div></div>
-                <span class="when">3 months</span>
+                <span class="when now">Now</span>
+                <span class="node mem"><img src="/assets/logo-memularity.svg" alt="Memularity" width="59" height="22"></span>
+                <div class="what"><a class="name" href="https://memularity.com" target="_blank" rel="noopener">Memularity<i>&#8599;&#xFE0E;</i></a><div class="role">Still figuring it out</div></div>
             </li>
             <li>
-                <span class="logo"><img src="/assets/logo-morphic.png" alt="Morphic" width="64" height="64"></span>
-                <div><div class="name"><a href="https://morphic.com" target="_blank" rel="noopener">Morphic</a></div><div class="role">Marketing Ops</div><div class="note">Ran marketing operations.</div></div>
+                <span class="when now">Now</span>
+                <span class="node"><img src="/assets/logo-cnvrted.png" alt="Cnvrted" width="64" height="64"></span>
+                <div class="what"><a class="name" href="https://www.cnvrted.com" target="_blank" rel="noopener">Cnvrted<i>&#8599;&#xFE0E;</i></a><div class="role">Co-founder, CEO &amp; Director</div></div>
+            </li>
+            <li>
                 <span class="when">8 months</span>
+                <span class="node"><img src="/assets/logo-morphic.png" alt="Morphic" width="64" height="64"></span>
+                <div class="what"><a class="name" href="https://morphic.com" target="_blank" rel="noopener">Morphic<i>&#8599;&#xFE0E;</i></a><div class="role">Marketing Ops</div></div>
             </li>
             <li>
-                <span class="logo"><img src="/assets/logo-cnvrted.png" alt="Cnvrted" width="64" height="64"></span>
-                <div><div class="name"><a href="https://www.cnvrted.com" target="_blank" rel="noopener">Cnvrted</a></div><div class="role">Co-founder, CEO &amp; Director</div></div>
-                <span class="when now">Now</span>
+                <span class="when">3 months</span>
+                <span class="node"><img src="/assets/logo-banao.webp" alt="Banao Studios" width="128" height="128"></span>
+                <div class="what"><a class="name" href="https://banaostudios.in" target="_blank" rel="noopener">Banao Studios<i>&#8599;&#xFE0E;</i></a><div class="role">Head of Strategy</div><span class="note">Scaled to 40M views / month in 3 months</span></div>
             </li>
-            <li>
-                <span class="logo mem"><img src="/assets/logo-memularity.svg" alt="Memularity" width="59" height="22"></span>
-                <div><div class="name"><a href="https://memularity.com" target="_blank" rel="noopener">Memularity</a></div><div class="role">Still figuring it out</div></div>
-                <span class="when now">Now</span>
+            <li class="start">
+                <span class="when">2026</span>
+                <span class="node"></span>
+                <div class="what">Where it started.</div>
             </li>
         </ol>
-    </div>
+    </main>
 </body>
 </html>
