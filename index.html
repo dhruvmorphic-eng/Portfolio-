@@ -56,11 +56,12 @@
         .hero{padding:clamp(4.5rem,13vh,8.5rem) 0 0;max-width:1000px}
         /* banner: D H R U V spelled in Landsat letters (NASA); one letter at a time swaps to another version of itself */
         .banner{display:flex;gap:clamp(5px,.7vw,10px);height:clamp(150px,24vw,320px);margin-top:clamp(1.2rem,4vh,2.4rem)}
-        .banner .l{flex:1 1 0;min-width:0;position:relative;overflow:hidden;border-radius:3px;background:#d9d7cf;transition:flex-grow .6s cubic-bezier(.2,.8,.2,1)}
-        .banner .l img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s ease}
-        @media(hover:hover){.banner .l:hover{flex-grow:2.2}}
-        .banner + .hero{padding-top:clamp(2.5rem,7vh,4.5rem)}
-        @media(prefers-reduced-motion:reduce){.banner .l,.banner .l img{transition:none}}
+        .banner .l{flex:1 1 0;min-width:0;position:relative;overflow:hidden;border-radius:3px;background:#d9d7cf}
+        .banner .l img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s ease}
+        .banner ~ .hero{padding-top:clamp(2.2rem,6vh,4rem)}
+        .banner-cred{margin-top:.45rem;text-align:right;font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+        .banner-cred a:hover{color:var(--ink)}
+        @media(prefers-reduced-motion:reduce){.banner .l img{transition:none}}
         .word{font-weight:400;font-size:clamp(3.4rem,12.5vw,10.5rem);letter-spacing:-.065em;line-height:.88;margin-left:-.04em}
         .hero-rule{border:0;border-top:1px solid var(--rule);margin:.9rem 0 .6rem}
         @keyframes blink{50%{opacity:0}}
@@ -223,6 +224,7 @@
             <span class="l" data-n="4" data-k="4"><img src="/assets/landsat/4-1.webp" alt="" width="344" height="830" decoding="async"></span>
             <span class="l" data-n="2" data-k="5"><img src="/assets/landsat/5-1.webp" alt="" width="344" height="830" decoding="async"></span>
         </div>
+        <p class="banner-cred">Images: <a href="https://science.nasa.gov/specials/your-name-in-landsat/" target="_blank" rel="noopener">NASA</a></p>
         <script>
             (function(){
                 var slots=[].slice.call(document.querySelectorAll('.banner .l'));
@@ -238,8 +240,8 @@
                         var img=new Image(); img.alt=''; img.style.opacity=0;
                         img.src='/assets/landsat/'+s.dataset.k+'-'+cur[i]+'.webp';
                         img.onload=function(){s.appendChild(img);requestAnimationFrame(function(){requestAnimationFrame(function(){img.style.opacity=1})});
-                            setTimeout(function(){while(s.children.length>1)s.removeChild(s.firstChild)},800)};
-                    },1100);
+                            setTimeout(function(){while(s.children.length>1)s.removeChild(s.firstChild)},600)};
+                    },650);
                 });
             })();
         </script>
