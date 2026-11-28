@@ -54,6 +54,12 @@
 
         .page{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
         .hero{padding:clamp(4.5rem,13vh,8.5rem) 0 0;max-width:1000px}
+        /* banner: five satellite strips, the hovered one widens */
+        .banner{display:flex;gap:clamp(5px,.7vw,10px);height:clamp(150px,24vw,320px);margin-top:clamp(1.2rem,4vh,2.4rem)}
+        .banner img{flex:1 1 0;min-width:0;height:100%;object-fit:cover;border-radius:3px;transition:flex-grow .6s cubic-bezier(.2,.8,.2,1)}
+        @media(hover:hover){.banner img:hover{flex-grow:2.2}}
+        .banner + .hero{padding-top:clamp(2.5rem,7vh,4.5rem)}
+        @media(prefers-reduced-motion:reduce){.banner img{transition:none}}
         .word{font-weight:400;font-size:clamp(3.4rem,12.5vw,10.5rem);letter-spacing:-.065em;line-height:.88;margin-left:-.04em}
         .hero-rule{border:0;border-top:1px solid var(--rule);margin:.9rem 0 .6rem}
         @keyframes blink{50%{opacity:0}}
@@ -252,6 +258,13 @@
     </header>
 
     <main class="page">
+        <div class="banner" aria-hidden="true">
+            <img src="/assets/banner-1.webp" alt="" width="344" height="831" decoding="async">
+            <img src="/assets/banner-2.webp" alt="" width="344" height="831" decoding="async">
+            <img src="/assets/banner-3.webp" alt="" width="344" height="831" decoding="async">
+            <img src="/assets/banner-4.webp" alt="" width="344" height="831" decoding="async">
+            <img src="/assets/banner-5.webp" alt="" width="344" height="831" decoding="async">
+        </div>
         <section class="hero">
             <h1 class="word">dhruv pradeep</h1>
             <div class="hero-line">
