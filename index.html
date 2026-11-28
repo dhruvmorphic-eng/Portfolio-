@@ -206,51 +206,8 @@
       "author": {"@type": "Person", "name": "Dhruv Pradeep"}
     }
     </script>
-    <link rel="preload" as="image" href="/assets/intro-figma.webp">
-    <style>
-        /* entry loader: Dhruv's own Figma screen; "hello world" is revealed letter by letter with a caret, then the site */
-        #hw{position:fixed;inset:0;z-index:9999;background:#1e1e1e;overflow:hidden;transition:opacity .6s ease,visibility .6s}
-        #hw.done{opacity:0;visibility:hidden}
-        #hw .st{position:absolute;left:50%;top:50%;width:max(100vw,159.24vh);aspect-ratio:2000/1256;transform:translate(-50%,-50%);transition:transform .9s cubic-bezier(.6,0,.2,1)}
-        #hw.out .st{transform:translate(-50%,-50%) scale(1.06)}
-        #hw .st img{display:block;width:100%;height:100%}
-        #hw .cov{position:absolute;top:51.35%;height:4.4%;right:40.9%;left:41.4%;background:#1e1e1e}
-        #hw .car{position:absolute;top:52.1%;height:3.1%;width:.11%;min-width:1.5px;background:#fff;margin-left:.25%;animation:hwBlink 1s steps(1) infinite}
-        #hw.typing .car{animation:none}
-        @keyframes hwBlink{50%{opacity:0}}
-        html.hw-on,html.hw-on body{overflow:hidden}
-    </style>
 </head>
 <body>
-    <div id="hw" aria-hidden="true"><div class="st"><img src="/assets/intro-figma.webp" alt="" width="2000" height="1256" decoding="sync" fetchpriority="high"><i class="cov"></i><i class="car"></i></div></div>
-    <script>
-        (function(){
-            var el=document.getElementById('hw'), root=document.documentElement;
-            var seen=false; try{seen=sessionStorage.getItem('hw')==='1';sessionStorage.setItem('hw','1')}catch(e){}
-            if(seen){el.remove();return}
-            root.classList.add('hw-on');
-            var cov=el.querySelector('.cov'), car=el.querySelector('.car'), over=false;
-            // right edge of each typed character in the 2000px screenshot: h e l l o _ w o r l d
-            var stops=[826,861,903,922,940,987,996,1047,1087,1118,1135,1176];
-            function at(i){var x=stops[i]/20; cov.style.left=x+'%'; car.style.left=x+'%'}
-            function end(){if(over)return;over=true;el.classList.add('out','done');root.classList.remove('hw-on');setTimeout(function(){el.remove()},800)}
-            at(0);
-            if(matchMedia('(prefers-reduced-motion: reduce)').matches){at(stops.length-1);setTimeout(end,1000);return}
-            var i=0;
-            function go(){
-                el.classList.add('typing');
-                (function type(){
-                    at(++i);
-                    if(i<stops.length-1) setTimeout(type, i===5?170:80+Math.random()*60);
-                    else{el.classList.remove('typing');setTimeout(end,900)}
-                })();
-            }
-            var img=el.querySelector('img');
-            function start(){setTimeout(go,550)}
-            if(img.complete) start(); else {img.onload=start; img.onerror=end}
-            setTimeout(end,5000); // never trap anyone
-        })();
-    </script>
     <header class="top">
         <a class="logo" href="/">dhruv/</a>
         <a class="mid" href="/contact">Contact</a>
